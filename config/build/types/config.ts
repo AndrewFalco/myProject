@@ -2,10 +2,9 @@ export type BuildMode = 'development' | 'production';
 
 export interface BuildPaths {
     entry: string;
-    // readonly: boolean;
-    // output: string
     build: string;
     html: string;
+    src: string;
 };
 
 export interface BuildEnv {
