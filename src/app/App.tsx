@@ -1,21 +1,24 @@
-import { Link } from 'react-router-dom';
+import { Suspense } from 'react';
+import { classNames } from 'shared/lib/classNames';
+import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
+import { AppRoute } from './providers/route';
+import { useTheme } from './providers/ThemeProvider';
 
 import './styles/index.scss';
-import { useTheme } from './providers/ThemeProvider';
-import { classNames } from 'shared/lib/classNames';
-import { AppRoute } from './providers/route';
 
 export const App = () => {
-    const {theme, toggleTheme} = useTheme();
+    const { theme, toggleTheme } = useTheme();
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <button onClick={toggleTheme}>Change theme</button>
-            <div style={ { display: 'flex', margin: 10 } }>
-                <Link to='/'>Main page</Link>
-                <Link to='/about'>About page</Link>
-            </div>
-            <AppRoute />
+            <Suspense fallback="">
+                <Navbar />
+                <div className="content-page">
+                    <Sidebar />
+                    <AppRoute />
+                </div>
+            </Suspense>
         </div>
     );
 };

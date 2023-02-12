@@ -1,5 +1,5 @@
-import AppRoute from "./AppRoute";
+import AppRoute from './AppRoute';
 
 export {
     AppRoute,
-}
+};
