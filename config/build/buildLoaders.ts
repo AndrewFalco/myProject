@@ -11,6 +11,26 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/,
     };
 
+    const babelLoader = {
+        test: /\.(js|jsx|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env'],
+                plugins: [
+                    [
+                        'i18next-extract',
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: true,
+                        },
+                    ],
+                ],
+            },
+        },
+    };
+
     const cssLoader: webpack.RuleSetRule = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -20,7 +40,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
                 options: {
                     modules: {
                         auto: (resPath: string) => !!resPath.includes('.module'),
-                        localIdentName: isDev ? '[name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
+                        localIdentName: isDev
+                            ? '[name]__[local]--[hash:base64:5]'
+                            : '[hash:base64:8]',
                     },
                 },
             },
@@ -45,6 +67,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     return [
         typescriptLoader,
         cssLoader,
+        babelLoader,
         svgLoader,
         fileLoader,
     ];
