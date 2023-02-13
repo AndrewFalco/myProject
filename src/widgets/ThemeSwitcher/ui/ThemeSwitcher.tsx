@@ -1,5 +1,5 @@
-import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { FC } from 'react';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames';
 
 import DarkIco from 'shared/assets/icons/theme-dark.svg';
