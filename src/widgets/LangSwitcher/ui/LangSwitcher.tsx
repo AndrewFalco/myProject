@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui';
 import { ThemeButton } from 'shared/ui/Button/ui/Button';
 
@@ -20,9 +20,9 @@ export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
 
     return (
         <Button
-            className={classNames(cls.LangSwitcher, {}, [className])}
-            theme={ThemeButton.CLEAR}
-            onClick={toggleLang}
+            className={ classNames(cls.LangSwitcher, {}, [className]) }
+            theme={ ThemeButton.CLEAR }
+            onClick={ toggleLang }
         >
             { t('Language') }
         </Button>

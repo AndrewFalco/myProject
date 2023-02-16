@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 import './Loader.scss';
 
@@ -11,7 +11,7 @@ export const Loader: FC<LoaderProps> = (props) => {
     const { className } = props;
 
     return (
-        <div className={classNames('lds-spinner', {}, [className])}>
+        <div className={ classNames('lds-spinner', {}, [className]) }>
             <div />
             <div />
             <div />

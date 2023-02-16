@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { Loader } from 'shared/ui';
 
 import cls from './PageLoader.module.scss';
@@ -12,7 +12,7 @@ export const PageLoader: FC<PageLoaderProps> = (props) => {
     const { className } = props;
 
     return (
-        <div className={classNames(cls.PageLoader, {}, [className])}>
+        <div className={ classNames(cls.PageLoader, {}, [className]) }>
             <Loader />
         </div>
     );
