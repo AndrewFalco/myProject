@@ -1,6 +1,7 @@
 {
   "About page": "About page",
   "Error message": "Error message",
+  "Hi": "Hi",
   "Language": "Language",
   "Loading": {
     "": {
@@ -11,6 +12,8 @@
   },
   "Main page": "Main page",
   "Page is not found": "Page is not found",
+  "Short language": "Short language",
+  "ShortLanguage": "ShortLanguage",
   "Something went wrong": "Something went wrong",
   "Toggle": "Toggle",
   "Try again": "Try again"
