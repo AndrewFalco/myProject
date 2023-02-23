@@ -1,5 +1,6 @@
-import { Suspense } from 'react';
+import { Suspense, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, Modal } from 'shared/ui';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { AppRoute } from './providers/route';
