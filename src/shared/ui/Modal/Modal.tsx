@@ -1,4 +1,3 @@
-import { useTheme } from 'app/providers/ThemeProvider';
 import {
     FC, MouseEvent, useState, useRef, useEffect, useCallback,
 } from 'react';
@@ -10,7 +9,8 @@ import cls from './Modal.module.scss';
 interface ModalProps {
     className?: string,
     isOpen?: boolean,
-    onClose?: () => void
+    onClose?: () => void,
+    lazy?: boolean,
 }
 
 const ANIMATION_DELAY = 300;
@@ -21,16 +21,22 @@ export const Modal: FC<ModalProps> = (props) => {
         children,
         isOpen,
         onClose,
+        lazy,
     } = props;
 
-    const { theme } = useTheme();
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
-        [cls[theme]]: true,
     };
 
     const closeHandler = useCallback(() => {
@@ -65,20 +71,24 @@ export const Modal: FC<ModalProps> = (props) => {
     }, []);
 
     return (
-        <Portal>
-            <div className={ classNames(cls.Modal, mods, [className]) }>
-                <div
-                    className={ classNames(cls.overlay) }
-                    onClick={ closeHandler }
-                >
-                    <div
-                        className={ classNames(cls.content) }
-                        onClick={ onContentClick }
-                    >
-                        { children }
+        lazy && !isMounted
+            ? null
+            : (
+                <Portal>
+                    <div className={ classNames(cls.Modal, mods, [className]) }>
+                        <div
+                            className={ classNames(cls.overlay) }
+                            onClick={ closeHandler }
+                        >
+                            <div
+                                className={ classNames(cls.content) }
+                                onClick={ onContentClick }
+                            >
+                                { children }
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </Portal>
+                </Portal>
+            )
     );
 };

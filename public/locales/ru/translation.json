@@ -8,5 +8,7 @@
   "Try again": "Попробуйте еще раз",
   "Error message": "Сообщение об ошибке",
   "Short language": "Ру",
-  "Login": "Войти"
+  "Login": "Войти",
+  "User name": "Имя пользователя",
+  "Password": "Пароль"
 }

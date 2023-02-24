@@ -1,0 +1,22 @@
+{
+	"Custom slice redux snippet": {
+		"scope": "typescript",
+		"prefix": "slice",
+		"body": [
+			"import { createSlice } from '@reduxjs/toolkit';",
+			"",
+			"const initialState = {};",
+			"",
+			"export const ${0}Slice = createSlice({",
+			"\tname: '${0}',",
+			"\tinitialState,",
+			"\treducers: {},",
+			"});",
+			"",
+			"export const { actions: ${0}Actions } = ${0}Slice;",
+			"export const { reducer: ${0}Reducer } = ${0}Slice;",
+			"",
+		],
+		"description": "create custom redux slice"
+	}
+}
