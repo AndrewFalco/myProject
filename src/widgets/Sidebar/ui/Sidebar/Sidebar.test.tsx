@@ -8,6 +8,11 @@ describe('sidebar tests', () => {
         expect(screen.getByTestId('sb')).toBeInTheDocument();
     });
 
+    test('to be in document toggle', () => {
+        componentRender(<Sidebar />);
+        expect(screen.queryByTestId('sb-toggle')).not.toBeInTheDocument();
+    });
+
     test('test collapse class', () => {
         componentRender(<Sidebar />);
         const toggle = screen.getByTestId('sb-toggle');

@@ -6,6 +6,10 @@
 import path from 'path';
 
 export default {
+
+    globals: {
+        __IS_DEV__: true,
+    },
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
@@ -59,7 +63,14 @@ export default {
     moduleNameMapper: {
         '\\.(s?css)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        // 'axios': 'axios/dist/node/axios.cjs'
     },
+
+    // transform: {
+    //     '^.+\\.ts?$': 'ts-jest',
+    // },
+
+    transformIgnorePatterns: ['<rootDir>node_modules/'],
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,

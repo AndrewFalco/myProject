@@ -12,7 +12,7 @@ export default {
     },
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm { ...args } />;
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -22,7 +22,7 @@ Primary.decorators = [StoreDecorator({
     loginForm: {
         username: 'username',
         password: 'password',
-    }
+    },
 })];
 
 export const PrimaryDark = Template.bind({});
@@ -33,7 +33,7 @@ PrimaryDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
     loginForm: {
         username: 'username',
         password: 'password',
-    }
+    },
 })];
 
 export const Error = Template.bind({});
@@ -45,5 +45,5 @@ Error.decorators = [StoreDecorator({
         username: 'username',
         password: 'password',
         error: 'Invalid username or password',
-    }
+    },
 })];

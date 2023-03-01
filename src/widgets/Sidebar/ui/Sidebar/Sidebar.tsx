@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -19,9 +19,9 @@ export const Sidebar: FC<SidebarProps> = (props) => {
     const [collapsed, setCollapsed] = useState(false);
     const { t } = useTranslation();
 
-    const onToggle = (): void => {
+    const onToggle = useCallback((): void => {
         setCollapsed((prev) => !prev);
-    };
+    }, []);
 
     return (
         <div

@@ -1,5 +1,5 @@
 import { userActions } from 'entities/User';
-import { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
@@ -18,14 +18,16 @@ export const App = () => {
     }, [dispatch]);
 
     return (
-        <div className={ classNames('app', {}, []) }>
-            <Suspense fallback="">
-                <Navbar />
-                <div className="content-page">
-                    <Sidebar />
-                    <AppRoute />
-                </div>
-            </Suspense>
-        </div>
+        <React.StrictMode>
+            <div className={ classNames('app', {}, [theme]) }>
+                <Suspense fallback="">
+                    <Navbar />
+                    <div className="content-page">
+                        <Sidebar />
+                        <AppRoute />
+                    </div>
+                </Suspense>
+            </div>
+        </React.StrictMode>
     );
 };

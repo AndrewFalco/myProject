@@ -37,30 +37,30 @@ export const LoginForm = memo((props: LoginFormProps): ReactElement => {
     }, [dispatch, password, username]);
 
     return (
-        <div className={classNames(cls.LoginForm, {}, [className])}>
-            <Text title={t('Autorized form')} />
-            {error && <Text theme="error" text={t(error)} />}
+        <div className={ classNames(cls.LoginForm, {}, [className]) }>
+            <Text title={ t('Autorized form') } />
+            { error && <Text theme="error" text={ t(error) } /> }
             <Input
                 id="auth_username"
-                name={t('User name')}
-                onChange={onChangeUsername}
-                value={username}
+                name={ t('User name') }
+                onChange={ onChangeUsername }
+                value={ username }
                 required
             />
             <Input
                 id="auth_password"
-                name={t('Password')}
-                onChange={onChangePassword}
-                value={password}
+                name={ t('Password') }
+                onChange={ onChangePassword }
+                value={ password }
                 type="password"
                 required
             />
             <Button
                 theme="outline"
-                onClick={onLoginClick}
-                disabled={isLoading}
+                onClick={ onLoginClick }
+                disabled={ isLoading }
             >
-                {t('Login')}
+                { t('Login') }
             </Button>
         </div>
     );

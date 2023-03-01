@@ -18,7 +18,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
                 throw new Error('Response is empty');
             }
 
-            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response));
+            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
             loginAPI.dispatch(userActions.setAuthData(response.data));
 
             return response.data;
