@@ -10,5 +10,9 @@
   "Short language": "Ру",
   "Login": "Войти",
   "User name": "Имя пользователя",
-  "Password": "Пароль"
+  "Password": "Пароль",
+  "Autorized form": "Форма авторизации",
+  "Logout": "Выйти",
+  "Invalid username or password": "Неправильное имя пользователя или пароль",
+  "Response is empty": "Нет данных"
 }

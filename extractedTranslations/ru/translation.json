@@ -1,5 +1,6 @@
 {
   "About page": "About page",
+  "Autorized form": "Autorized form",
   "Error message": "Error message",
   "Hi": "Hi",
   "Language": "Language",
@@ -11,6 +12,7 @@
     }
   },
   "Login": "Login",
+  "Logout": "Logout",
   "Main page": "Main page",
   "Page is not found": "Page is not found",
   "Password": "Password",

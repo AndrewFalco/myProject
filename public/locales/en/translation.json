@@ -11,5 +11,9 @@
   "Short language": "En",
   "Login": "Login",
   "User name": "User name",
-  "Password": "Password"
+  "Password": "Password",
+  "Autorized form": "Autorized form",
+  "Logout": "Logout",
+  "Invalid username or password": "Invalid username or password",
+  "Response is empty": "Response is empty"
 }
