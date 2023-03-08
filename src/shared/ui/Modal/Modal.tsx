@@ -1,7 +1,7 @@
 import {
     FC, MouseEvent, useState, useRef, useEffect, useCallback,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 
 import cls from './Modal.module.scss';
@@ -34,7 +34,7 @@ export const Modal: FC<ModalProps> = (props) => {
         }
     }, [isOpen]);
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };

@@ -1,5 +1,5 @@
 import {
-    ChangeEvent, FC, InputHTMLAttributes, useCallback,
+    ChangeEvent, FC, InputHTMLAttributes, memo, useCallback,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -13,7 +13,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
 }
 
-export const Input: FC<InputProps> = (props) => {
+export const InputComponent: FC<InputProps> = (props) => {
     const {
         className,
         value,
@@ -50,3 +50,5 @@ export const Input: FC<InputProps> = (props) => {
         </div>
     );
 };
+
+export const Input = memo(InputComponent);

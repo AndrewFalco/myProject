@@ -1,5 +1,5 @@
-import { ButtonHTMLAttributes, FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { ButtonHTMLAttributes, FC, memo } from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export type ThemeButton = 'clear' | 'outline' | 'background' | 'backgroundInverted';
@@ -14,18 +14,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     disabled?: boolean,
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+export const ButtonComponent: FC<ButtonProps> = (props) => {
     const {
         children,
         className,
-        theme,
+        theme = 'outline',
         square,
         size = 'sizeM',
         disabled,
         ...other
     } = props;
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.square]: square,
         [cls.disabled]: disabled,
     };
@@ -41,3 +41,5 @@ export const Button: FC<ButtonProps> = (props) => {
         </button>
     );
 };
+
+export const Button = memo(ButtonComponent);

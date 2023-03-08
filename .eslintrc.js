@@ -9,6 +9,8 @@ module.exports = {
         'airbnb',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -32,13 +34,21 @@ module.exports = {
             custom: 'ignore',
             explicitSpread: 'ignore',
         }],
-        indent: [2, 4],
+        // indent: [2, 4],
         'react/jsx-filename-extension': [2, {
             extensions: ['.js', '.jsx', '.tsx'],
         }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
-        'no-unused-vars': 'warn',
+        '@typescript-eslint/no-unused-vars': [
+            'warn',
+            {
+                vars: 'all',
+                varsIgnorePattern: '^_$',
+                args: 'none',
+            },
+        ],
+        '@typescript-eslint/ban-ts-comment': 'off',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/function-component-definition': 'off',
@@ -61,9 +71,13 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
         'no-param-reassign': 'off',
+        'consistent-return': 'off',
+        indent: 'off',
+        '@typescript-eslint/indent': ['warn', 4],
     },
     globals: {
         __IS_DEV__: true,
+        __API__: true,
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts, tsx}'],

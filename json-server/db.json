@@ -26,6 +26,15 @@
         }
     ],
     "profile": {
-        "name": "typicode"
+        "firstName": "Jaba",
+        "lastName": "Runkels",
+        "email": "jabaTop@toptop.com",
+        "phone": "+7777777777",
+        "country": "Russian Federation",
+        "city": "Kostenevo",
+        "age": 29,
+        "username": "JabaTop",
+        "avatar": "https://99px.ru/sstorage/1/2012/01/image_12701122306282834245.png",
+        "currency": "RUB"
     }
 }

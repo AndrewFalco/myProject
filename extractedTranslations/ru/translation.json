@@ -1,9 +1,12 @@
 {
   "About page": "About page",
   "Autorized form": "Autorized form",
+  "Edit": "Edit",
   "Error message": "Error message",
+  "First name": "First name",
   "Hi": "Hi",
   "Language": "Language",
+  "Last name": "Last name",
   "Loading": {
     "": {
       "": {
@@ -16,6 +19,8 @@
   "Main page": "Main page",
   "Page is not found": "Page is not found",
   "Password": "Password",
+  "Profile card": "Profile card",
+  "Profile page": "Profile page",
   "Short language": "Short language",
   "ShortLanguage": "ShortLanguage",
   "Something went wrong": "Something went wrong",

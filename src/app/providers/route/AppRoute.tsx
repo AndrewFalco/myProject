@@ -4,7 +4,6 @@ import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 
 const AppRoute = () => (
-
     <Routes>
         { Object.values(routeConfig).map(({ path, element }) => (
             <Route
@@ -20,7 +19,6 @@ const AppRoute = () => (
             />
         )) }
     </Routes>
-
 );
 
 export default AppRoute;
