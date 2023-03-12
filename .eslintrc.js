@@ -22,8 +22,9 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
+        '@typescript-eslint/indent': 0,
+        'react/jsx-indent': ['warn', 4],
+        'react/jsx-indent-props': ['warn', 2],
         'react/jsx-curly-spacing': [2, {
             when: 'always',
             allowMultiline: true,
@@ -34,7 +35,6 @@ module.exports = {
             custom: 'ignore',
             explicitSpread: 'ignore',
         }],
-        // indent: [2, 4],
         'react/jsx-filename-extension': [2, {
             extensions: ['.js', '.jsx', '.tsx'],
         }],
@@ -63,7 +63,7 @@ module.exports = {
             ignoreAttribute: ['data-testid', 'to'],
         }],
         'max-len': ['error', {
-            code: 120,
+            code: 125,
             ignoreComments: true,
         }],
         'jsx-a11y/no-static-element-interactions': 'off',
@@ -73,7 +73,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'consistent-return': 'off',
         indent: 'off',
-        '@typescript-eslint/indent': ['warn', 4],
+        'no-nested-ternary': 'off',
     },
     globals: {
         __IS_DEV__: true,

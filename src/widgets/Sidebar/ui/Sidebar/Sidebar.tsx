@@ -1,5 +1,5 @@
 import {
-    FC, memo, useCallback, useState,
+    memo, useCallback, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui';
@@ -14,7 +14,7 @@ interface SidebarProps {
     className?: string,
 }
 
-const SidebarComponent: FC<SidebarProps> = (props) => {
+export const Sidebar = memo((props: SidebarProps) => {
     const { className } = props;
     const [collapsed, setCollapsed] = useState(false);
 
@@ -24,16 +24,16 @@ const SidebarComponent: FC<SidebarProps> = (props) => {
 
     return (
         <div
-            data-testid="sb"
-            className={ classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className]) }
+          data-testid="sb"
+          className={ classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className]) }
         >
             <Button
-                data-testid="sb-toggle"
-                onClick={ onToggle }
-                className={ classNames(cls.collapsedBtn) }
-                theme="backgroundInverted"
-                square
-                size="sizeL"
+              data-testid="sb-toggle"
+              onClick={ onToggle }
+              className={ classNames(cls.collapsedBtn) }
+              theme="backgroundInverted"
+              square
+              size="sizeL"
             >
                 { collapsed ? '>' : '<' }
             </Button>
@@ -41,9 +41,9 @@ const SidebarComponent: FC<SidebarProps> = (props) => {
                 {
                     SidebarItems.map((sbItem) => (
                         <SidebarItem
-                            key={ sbItem.route }
-                            item={ sbItem }
-                            collapsed={ collapsed }
+                          key={ sbItem.route }
+                          item={ sbItem }
+                          collapsed={ collapsed }
                         />
                     ))
                 }
@@ -54,6 +54,4 @@ const SidebarComponent: FC<SidebarProps> = (props) => {
             </div>
         </div>
     );
-};
-
-export const Sidebar = memo(SidebarComponent);
+});

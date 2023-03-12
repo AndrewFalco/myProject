@@ -1,19 +1,20 @@
 import {
-    ChangeEvent, FC, InputHTMLAttributes, memo, useCallback,
+    ChangeEvent, InputHTMLAttributes, memo, useCallback,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
+    readOnly?: boolean;
 }
 
-export const InputComponent: FC<InputProps> = (props) => {
+export const Input = memo((props: InputProps) => {
     const {
         className,
         value,
@@ -22,6 +23,7 @@ export const InputComponent: FC<InputProps> = (props) => {
         type = 'text',
         name,
         id,
+        readOnly,
         ...otherProps
     } = props;
 
@@ -29,26 +31,29 @@ export const InputComponent: FC<InputProps> = (props) => {
         onChange?.(e.target.value);
     }, [onChange]);
 
+    const mods: Mods = {
+        [cls.readonly]: readOnly,
+    };
+
     return (
         <div className={ classNames(cls.InputWrapper, {}, [className]) }>
             <input
-                id={ id }
-                name={ name }
-                type={ type }
-                className={ classNames(cls.Input, {}, [className]) }
-                placeholder={ placeholder || name }
-                value={ value }
-                onChange={ onChangeHandler }
-                { ...otherProps }
+              id={ id }
+              name={ name }
+              type={ type }
+              className={ classNames(cls.Input, mods, [className]) }
+              placeholder={ placeholder || name }
+              value={ value }
+              onChange={ onChangeHandler }
+              readOnly={ readOnly }
+              { ...otherProps }
             />
             <label
-                htmlFor={ id }
-                className={ classNames(cls.Label, {}, [className]) }
+              htmlFor={ id }
+              className={ classNames(cls.Label, {}, [className]) }
             >
                 { placeholder || name }
             </label>
         </div>
     );
-};
-
-export const Input = memo(InputComponent);
+});

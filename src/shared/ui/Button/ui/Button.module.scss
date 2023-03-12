@@ -7,19 +7,6 @@
     justify-content: center;
 }
 
-.clear {
-    padding: 0;
-    border: none;
-    background: none;
-    outline: none;
-}
-
-.outline {
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    background: none;
-}
-
 .background {
     background: var(--bg-color);
     color: var(--primary-color);
@@ -30,6 +17,62 @@
     background: var(--inverted-bg-color);
     color: var(--inverted-primary-color);
     border: none;
+}
+
+.clear {
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.outline {
+    background: none;
+
+    &:hover,
+    ::after {
+        transition: 0.2s;
+    }
+}
+
+.outline.primary {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+
+    &:hover,
+    ::after {
+        background: var(--primary-bg-color);
+    }
+}
+
+.outline.success {
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+
+    &:hover,
+    ::after {
+        background: var(--success-bg-color);
+    }
+}
+
+.outline.error {
+    border: 1px solid var(--error-light);
+    color: var(--error-light);
+
+    &:hover,
+    ::after {
+        background: var(--error-bg-dark);
+    }
+}
+
+.outline.neutral {
+    border: 1px solid var(--neutral-color);
+    color: var(--neutral-color);
+
+    &:hover,
+    ::after {
+        background: var(--neutral-bg-color);
+    }
 }
 
 .square {

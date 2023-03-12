@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Button } from './Button';
 
@@ -22,7 +21,7 @@ export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
     children: 'text',
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];
 
 export const Clear = Template.bind({});
 Clear.args = {
@@ -35,7 +34,7 @@ ClearDark.args = {
     children: 'text',
     theme: 'clear',
 };
-ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
+ClearDark.decorators = [ThemeDecorator('app_dark_theme')];
 
 export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
@@ -48,7 +47,7 @@ BackgroundThemeDark.args = {
     children: 'text',
     theme: 'background',
 };
-BackgroundThemeDark.decorators = [ThemeDecorator(Theme.DARK)];
+BackgroundThemeDark.decorators = [ThemeDecorator('app_dark_theme')];
 
 export const BackgroundInvertedTheme = Template.bind({});
 BackgroundInvertedTheme.args = {
@@ -61,7 +60,7 @@ BackgroundInvertedThemeDark.args = {
     children: 'text',
     theme: 'backgroundInverted',
 };
-BackgroundInvertedThemeDark.decorators = [ThemeDecorator(Theme.DARK)];
+BackgroundInvertedThemeDark.decorators = [ThemeDecorator('app_dark_theme')];
 
 export const Square = Template.bind({});
 Square.args = {
@@ -90,13 +89,13 @@ export const Disabled = Template.bind({});
 Disabled.args = {
     children: 'text',
     theme: 'outline',
-    Disabled: true,
+    disabled: true,
 };
 
 export const DisabledDark = Template.bind({});
 DisabledDark.args = {
     children: 'text',
     theme: 'outline',
-    Disabled: true,
+    disabled: true,
 };
-DisabledDark.decorators = [ThemeDecorator(Theme.DARK)];
+DisabledDark.decorators = [ThemeDecorator('app_dark_theme')];

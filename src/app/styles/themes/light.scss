@@ -1,10 +1,13 @@
 :root {
-    --bg-color: #e3e3e3;
-    --inverted-bg-color: #212121;
-    --primary-color: #59971c;
-    --secondary-color: #411f0c;
-    --inverted-primary-color: #e8a236;
-    --inverted-secondary-color: #998e91;
-    --modal-bg-color: #dee4e7;
-    --modal-bg-color-inverted: #382f42;
+    --bg-color: rgb(227 227 227);
+    --bg-opacity-color: rgb(227 227 227 / 10%);
+    --inverted-bg-color: rgb(33 33 33);
+    --primary-color: rgb(89 151 28);
+    --primary-bg-color: rgb(89 151 28 / 20%);
+    --secondary-color: rgb(65 31 12);
+    --inverted-primary-color: rgb(232 162 54);
+    --inverted-primary-bg-color: rgb(232 162 54 / 20%);
+    --inverted-secondary-color: rgb(153 142 145);
+    --modal-bg-color: rgb(222 228 231);
+    --modal-bg-color-inverted: rgb(56 47 66);
 }

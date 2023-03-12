@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { PageError } from './PageError';
 
@@ -22,4 +21,4 @@ export const Dark = Template.bind({});
 Dark.args = {
     error: new Error('new error message'),
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator('app_dark_theme')];

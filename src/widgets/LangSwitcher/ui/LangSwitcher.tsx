@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui';
@@ -8,7 +8,7 @@ interface LangSwitcherProps {
     collapsed?: boolean
 }
 
-const LangSwitcherComponent: FC<LangSwitcherProps> = (props) => {
+export const LangSwitcher = memo((props: LangSwitcherProps) => {
     const { className = '', collapsed } = props;
     const { t, i18n } = useTranslation();
 
@@ -25,6 +25,4 @@ const LangSwitcherComponent: FC<LangSwitcherProps> = (props) => {
             { collapsed ? t('Short language') : t('Language') }
         </Button>
     );
-};
-
-export const LangSwitcher = memo(LangSwitcherComponent);
+});

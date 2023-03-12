@@ -1,7 +1,7 @@
 import { Reducer } from '@reduxjs/toolkit';
 import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
 import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
-import { FC, useEffect } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
 export type ReducersList = {
@@ -13,7 +13,7 @@ interface DynamicModuleLoaderProps {
     removeAfterUnmount?: boolean;
 }
 
-export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
+export const DynamicModuleLoader = (props: PropsWithChildren<DynamicModuleLoaderProps>) => {
     const {
         children, reducers, removeAfterUnmount = true,
     } = props;
@@ -34,7 +34,6 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
                 });
             }
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

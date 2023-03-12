@@ -10,7 +10,7 @@ describe('sidebar tests', () => {
 
     test('to be in document toggle', () => {
         componentRender(<Sidebar />);
-        expect(screen.queryByTestId('sb-toggle')).not.toBeInTheDocument();
+        expect(screen.getByTestId('sb-toggle')).toBeInTheDocument();
     });
 
     test('test collapse class', () => {

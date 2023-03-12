@@ -16,7 +16,7 @@ export const PageError: FC<PageErrorProps> = (props) => {
 
     const tryAgain = useCallback(() => {
         resetErrorBoundary();
-    }, []);
+    }, [resetErrorBoundary]);
 
     return (
         <div className={ classNames(cls.PageError, {}, [className]) }>

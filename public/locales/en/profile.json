@@ -1,5 +1,18 @@
 {
   "Profile card": "Profile card",
   "First name": "First name",
-  "Last name": "Last name"
+  "Last name": "Last name",
+  "Edit": "Edit",
+  "Save": "Save",
+  "Cancel": "Cancel",
+  "Error with loading": "Error with loading",
+  "Please try to reload page or call to admin": "Please try to reload page or call to admin",
+  "Age": "Age",
+  "Country": "Country",
+  "City": "City",
+  "Phone": "Phone",
+  "Email": "Email",
+  "User name": "User name",
+  "Select currency": "Select currency",
+  "Select country": "Select country"
 }

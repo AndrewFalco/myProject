@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Text } from './Text';
 
@@ -24,7 +23,7 @@ PrimaryDark.args = {
     title: 'Title',
     text: 'lorem ipsum dolor sit amet',
 };
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];
 
 export const Error = Template.bind({});
 Error.args = {
@@ -39,4 +38,4 @@ ErrorDark.args = {
     text: 'lorem ipsum dolor sit amet',
     theme: 'error',
 };
-ErrorDark.decorators = [ThemeDecorator(Theme.DARK)];
+ErrorDark.decorators = [ThemeDecorator('app_dark_theme')];

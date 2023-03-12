@@ -7,6 +7,7 @@ export interface SidebarListProps {
     route: AppRoutes,
     name: string
     Icon: React.VFC<React.SVGProps<SVGSVGElement>>,
+    authOnly?: boolean,
 }
 
 export const SidebarItems: SidebarListProps[] = [
@@ -24,5 +25,6 @@ export const SidebarItems: SidebarListProps[] = [
         Icon: ProfileIcon,
         name: 'Profile page',
         route: 'profile',
+        authOnly: true,
     },
 ];

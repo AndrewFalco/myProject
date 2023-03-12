@@ -58,24 +58,24 @@ const LoginForm = memo((props: LoginFormProps): ReactElement => {
                 <Text title={ t('Autorized form') } />
                 { error && <Text theme="error" text={ t(error) } /> }
                 <Input
-                    id="auth_username"
-                    name={ t('User name') }
-                    onChange={ onChangeUsername }
-                    value={ username }
-                    required
+                  id="auth_username"
+                  name={ t('User name') }
+                  onChange={ onChangeUsername }
+                  value={ username }
+                  required
                 />
                 <Input
-                    id="auth_password"
-                    name={ t('Password') }
-                    onChange={ onChangePassword }
-                    value={ password }
-                    type="password"
-                    required
+                  id="auth_password"
+                  name={ t('Password') }
+                  onChange={ onChangePassword }
+                  value={ password }
+                  type="password"
+                  required
                 />
                 <Button
-                    theme="outline"
-                    onClick={ onLoginClick }
-                    disabled={ isLoading }
+                  theme="outline"
+                  onClick={ onLoginClick }
+                  disabled={ isLoading }
                 >
                     { t('Login') }
                 </Button>

@@ -1,4 +1,5 @@
 import { AppLink } from './AppLink';
+import { Avatar } from './Avatar/Avatar';
 import { Button } from './Button';
 import { Loader } from './Loader';
 import { Modal } from './Modal/Modal';
@@ -7,6 +8,7 @@ import { Text } from './Text/Text';
 
 export {
     AppLink,
+    Avatar,
     Button,
     Loader,
     Modal,

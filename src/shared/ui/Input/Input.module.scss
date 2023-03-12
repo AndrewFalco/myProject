@@ -65,3 +65,7 @@ $gray: #9b9b9b;
     border-image: linear-gradient(to right, $primary, $secondary);
     border-image-slice: 1;
 }
+
+.readonly {
+    opacity: 0.7;
+}
