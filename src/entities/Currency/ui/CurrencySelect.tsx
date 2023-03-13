@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Currency } from 'shared/consts/common';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Select } from 'shared/ui/Select/Select';
+import { Currency } from '../Model/types/Currency';
 
 type CurrencySelectProps = {
     className?: string;

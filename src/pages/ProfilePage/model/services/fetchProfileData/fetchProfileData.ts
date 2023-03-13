@@ -12,7 +12,7 @@ export const fetchProfileData = createAsyncThunk<ProfileType, void, ThunkConfig<
 
             return response.data;
         } catch (error) {
-            return rejectWithValue('Invalid username or password');
+            return rejectWithValue('Error with data loading');
         }
     },
 );

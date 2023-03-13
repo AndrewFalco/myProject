@@ -2,6 +2,8 @@ $primary: #11998e;
 $secondary: #38ef7d;
 $white: #fff;
 $gray: #9b9b9b;
+$error: #af0000;
+$dark-red: #3d0000;
 
 .InputWrapper {
     position: relative;
@@ -68,4 +70,33 @@ $gray: #9b9b9b;
 
 .readonly {
     opacity: 0.7;
+}
+
+.error {
+    /* stylelint-disable-next-line no-descending-specificity */
+    ~ .Label {
+        color: $error;
+    }
+
+    border-width: 3px;
+    border-image: linear-gradient(to right, $error, $dark-red);
+    border-image-slice: 1;
+    opacity: 0.65;
+}
+
+.error:focus {
+    ~ .Label {
+        color: $error;
+    }
+
+    border-width: 3px;
+    border-image: linear-gradient(to right, $error, $dark-red);
+    border-image-slice: 1;
+    opacity: 1;
+}
+
+.errorText {
+    color: var(--error-light);
+    font-weight: 700;
+    font-size: 10px;
 }

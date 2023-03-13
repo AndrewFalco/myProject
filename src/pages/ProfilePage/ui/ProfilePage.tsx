@@ -1,5 +1,5 @@
 import { ProfileCard } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
@@ -32,14 +32,31 @@ const ProfilePage = (props: ProfilePageProps) => {
 
     useEffect(() => {
         dispatch(fetchProfileData());
-    }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-    const onChangeFirstName = useCallback((value?: string) => {
+    const hasError = useMemo(() => !!error?.length, [error]);
+
+    const onChangeFirstName = useCallback((value?: string, required?: boolean) => {
         dispatch(profileActions.updateProfile({ firstName: value || '' }));
+        if (required) {
+            if (!value) {
+                dispatch(profileActions.setError({ key: 'firstName', text: 'Can not be empty' }));
+            } else {
+                dispatch(profileActions.removeError({ key: 'firstName' }));
+            }
+        }
     }, [dispatch]);
 
-    const onChangeLastName = useCallback((value?: string) => {
+    const onChangeLastName = useCallback((value?: string, required?: boolean) => {
         dispatch(profileActions.updateProfile({ lastName: value || '' }));
+        if (required) {
+            if (!value) {
+                dispatch(profileActions.setError({ key: 'lastName', text: 'Can not be empty' }));
+            } else {
+                dispatch(profileActions.removeError({ key: 'lastName' }));
+            }
+        }
     }, [dispatch]);
 
     const onChangeAge = useCallback((value?: string) => {
@@ -81,7 +98,7 @@ const ProfilePage = (props: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <div className={ classNames(cls.ProfilePage, {}, [className]) }>
-                <ProfilePageHeader />
+                <ProfilePageHeader hasFormError={ hasError } />
                 <ProfileCard
                   data={ formData }
                   isLoading={ isLoading }

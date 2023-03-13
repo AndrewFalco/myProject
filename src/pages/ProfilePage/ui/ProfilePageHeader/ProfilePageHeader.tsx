@@ -12,10 +12,11 @@ import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
     className?: string,
+    hasFormError?: boolean
 }
 
 export const ProfilePageHeader = memo((props: ProfilePageHeaderProps) => {
-    const { className } = props;
+    const { className, hasFormError } = props;
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const readonly = useSelector(getReadonly);
@@ -45,7 +46,13 @@ export const ProfilePageHeader = memo((props: ProfilePageHeaderProps) => {
                     )
                     : (
                         <>
-                            <Button theme="outline" colorType="success" className={ cls.editBtn } onClick={ onSave }>
+                            <Button
+                              theme="outline"
+                              colorType="success"
+                              className={ cls.editBtn }
+                              onClick={ onSave }
+                              disabled={ hasFormError }
+                            >
                                 { t('Save') }
                             </Button>
                             <Button theme="outline" colorType="error" className={ cls.editBtn } onClick={ onCancel }>

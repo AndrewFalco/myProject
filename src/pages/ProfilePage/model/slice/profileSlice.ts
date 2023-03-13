@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { ProfileSchema } from '../../../../entities/Profile/model/types/profile';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
@@ -17,9 +17,27 @@ export const profileSlice = createSlice({
         cancelEdit: (state) => {
             state.readonly = true;
             state.form = state.data;
+            state.error = undefined;
         },
         setReadonly: (state, action) => {
             state.readonly = action.payload;
+        },
+        setError: (state, action: PayloadAction<{ key: string, text?: string }>) => {
+            if (state.error) {
+                state.error.push(
+                    {
+                        key: action.payload.key,
+                        text: action.payload.text || 'Error with fetching profile data',
+                    },
+                );
+            } else {
+                state.error = [{ key: action.payload.key, text: action.payload.text || 'Error with fetching profile data' }];
+            }
+        },
+        removeError: (state, action: PayloadAction<{ key: string}>) => {
+            if (state.error?.length) {
+                state.error = state.error.filter((err) => err.key !== action.payload.key);
+            }
         },
         updateProfile: (state, action) => {
             state.form = { ...state.form, ...action.payload };
@@ -37,7 +55,11 @@ export const profileSlice = createSlice({
                 state.form = action.payload;
             })
             .addCase(fetchProfileData.rejected, (state, action) => {
-                state.error = action.payload;
+                if (state.error) {
+                    state.error.push({ key: 'loading', text: action.payload || 'Error with fetching profile data' });
+                } else {
+                    state.error = [{ key: 'loading', text: action.payload || 'Error with fetching profile data' }];
+                }
                 state.isLoading = false;
             })
 
@@ -52,7 +74,11 @@ export const profileSlice = createSlice({
                 state.readonly = true;
             })
             .addCase(updateProfileData.rejected, (state, action) => {
-                state.error = action.payload;
+                if (state.error) {
+                    state.error.push({ key: 'loading', text: action.payload || 'Error with fetching profile data' });
+                } else {
+                    state.error = [{ key: 'loading', text: action.payload || 'Error with fetching profile data' }];
+                }
                 state.isLoading = false;
             });
     },

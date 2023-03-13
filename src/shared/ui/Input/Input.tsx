@@ -1,5 +1,5 @@
 import {
-    ChangeEvent, InputHTMLAttributes, memo, useCallback,
+    ChangeEvent, InputHTMLAttributes, memo, useCallback, useMemo,
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
@@ -10,8 +10,9 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
-    onChange?: (value: string) => void;
+    onChange?: (value: string, required?: boolean) => void;
     readOnly?: boolean;
+    errorText?: string;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -24,15 +25,20 @@ export const Input = memo((props: InputProps) => {
         name,
         id,
         readOnly,
+        required,
+        errorText,
         ...otherProps
     } = props;
 
     const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e.target.value);
-    }, [onChange]);
+        onChange?.(e.target.value, required);
+    }, [onChange, required]);
+
+    const hasError = useMemo(() => required && !value, [required, value]);
 
     const mods: Mods = {
         [cls.readonly]: readOnly,
+        [cls.error]: hasError,
     };
 
     return (
@@ -54,6 +60,16 @@ export const Input = memo((props: InputProps) => {
             >
                 { placeholder || name }
             </label>
+            {
+                !!errorText && (
+                    <label
+                      htmlFor={ id }
+                      className={ classNames(cls.errorText, {}, [className]) }
+                    >
+                        { errorText }
+                    </label>
+                )
+            }
         </div>
     );
 });
