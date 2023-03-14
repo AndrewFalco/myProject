@@ -23,6 +23,7 @@ export const Select = memo((props: SelectProps) => {
     const {
         className, label, options, value, onChange, readOnly,
     } = props;
+
     const mods: Mods = {
         [cls.readonly]: readOnly,
     };

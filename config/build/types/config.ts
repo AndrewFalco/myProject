@@ -19,4 +19,5 @@ export type BuildOptions = {
     isDev: boolean,
     port: number,
     api: string,
+    project: 'storybook' | 'jest' | 'frontend',
 };

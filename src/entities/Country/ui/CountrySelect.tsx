@@ -7,7 +7,7 @@ import { Country } from '../Model/types/Country';
 type CountrySelectProps = {
     className?: string;
     value?: string;
-    onChange?: (value: string) => void;
+    onChange?: (value: Country) => void;
     readonly?: boolean;
 }
 
@@ -31,7 +31,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     const { t } = useTranslation();
 
     const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value);
+        onChange?.(value as Country);
     }, [onChange]);
 
     return (

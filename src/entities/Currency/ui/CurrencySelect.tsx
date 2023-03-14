@@ -7,7 +7,7 @@ import { Currency } from '../Model/types/Currency';
 type CurrencySelectProps = {
     className?: string;
     value?: string;
-    onChange?: (value: string) => void;
+    onChange?: (value: Currency) => void;
     readonly?: boolean;
 }
 
@@ -31,7 +31,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     const { t } = useTranslation();
 
     const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value);
+        onChange?.(value as Currency);
     }, [onChange]);
 
     return (

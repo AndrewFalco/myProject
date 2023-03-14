@@ -1,3 +1,5 @@
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
 import { useCallback, useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
@@ -31,9 +33,10 @@ const ProfilePage = (props: ProfilePageProps) => {
     const readOnly = useSelector(getReadonly);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
+    }, [dispatch]);
 
     const hasError = useMemo(() => !!error?.length, [error]);
 
@@ -63,7 +66,7 @@ const ProfilePage = (props: ProfilePageProps) => {
         dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
     }, [dispatch]);
 
-    const onChangeCountry = useCallback((value?: string) => {
+    const onChangeCountry = useCallback((value?: Country) => {
         dispatch(profileActions.updateProfile({ country: value || '' }));
     }, [dispatch]);
 
@@ -87,7 +90,7 @@ const ProfilePage = (props: ProfilePageProps) => {
         dispatch(profileActions.updateProfile({ avatar: value || '' }));
     }, [dispatch]);
 
-    const onChangeCurrency = useCallback((value?: string) => {
+    const onChangeCurrency = useCallback((value?: Currency) => {
         dispatch(profileActions.updateProfile({ currency: value || '' }));
     }, [dispatch]);
 

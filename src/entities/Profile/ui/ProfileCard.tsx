@@ -1,5 +1,5 @@
-import { CountrySelect } from 'entities/Country';
-import { CurrencySelect } from 'entities/Currency';
+import { Country, CountrySelect } from 'entities/Country';
+import { Currency, CurrencySelect } from 'entities/Currency';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
@@ -18,13 +18,13 @@ interface ProfileCardProps {
     onChangeFirstName?: (value?: string) => void,
     onChangeLastName?: (value?: string) => void,
     onChangeAge?: (value?: string) => void,
-    onChangeCountry?: (value?: string) => void,
+    onChangeCountry?: (value?: Country) => void,
     onChangeCity?: (value?: string) => void,
     onChangeEmail?: (value?: string) => void,
     onChangePhone?: (value?: string) => void,
     onChangeUsername?: (value?: string) => void,
     onChangeAvatar?: (value?: string) => void,
-    onChangeCurrency?: (value?: string) => void,
+    onChangeCurrency?: (value?: Currency) => void,
     onChangeSex?: (value?: string) => void,
 }
 

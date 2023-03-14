@@ -10,6 +10,7 @@ export default {
     globals: {
         __IS_DEV__: true,
         __API__: '',
+        __PROJECT__: 'jest',
     },
     // All imported modules in your tests should be mocked automatically
     // automock: false,
@@ -63,7 +64,8 @@ export default {
 
     moduleNameMapper: {
         '\\.(s?css)$': 'identity-obj-proxy',
-        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+            path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         // 'axios': 'axios/dist/node/axios.cjs'
     },
 
