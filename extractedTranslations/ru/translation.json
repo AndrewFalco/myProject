@@ -1,14 +1,19 @@
 {
   "About page": "About page",
   "Age": "Age",
+  "Article details page": "Article details page",
+  "Article is not found": "Article is not found",
+  "Articles page": "Articles page",
   "Autorized form": "Autorized form",
   "Avatar": "Avatar",
   "Cancel": "Cancel",
   "City": "City",
+  "Comments": "Comments",
   "Country": "Country",
   "Edit": "Edit",
   "Email": "Email",
   "Error message": "Error message",
+  "Error with comments loading": "Error with comments loading",
   "Error with loading": "Error with loading",
   "First name": "First name",
   "Hi": "Hi",
@@ -24,6 +29,7 @@
   "Login": "Login",
   "Logout": "Logout",
   "Main page": "Main page",
+  "No comments at the moment": "No comments at the moment",
   "Page is not found": "Page is not found",
   "Password": "Password",
   "Phone": "Phone",
@@ -40,5 +46,6 @@
   "Something went wrong": "Something went wrong",
   "Toggle": "Toggle",
   "Try again": "Try again",
-  "User name": "User name"
+  "User name": "User name",
+  "new text": "new text"
 }

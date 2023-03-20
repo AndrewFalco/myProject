@@ -1,0 +1,34 @@
+{
+	"Custom stories snippet": {
+		"scope": "typescriptreact",
+		"prefix": "storyTest",
+		"body": [
+			"import { ComponentStory, ComponentMeta } from '@storybook/react';",
+			"import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';",
+			"import { ${TM_FILENAME_BASE}${0} } from './${TM_FILENAME_BASE}${0}';",
+			"",
+			"export default {",
+			"\ttitle: 'shared/${TM_FILENAME_BASE}${0}',",
+			"\tcomponent: ${TM_FILENAME_BASE}${0},",
+			"\targTypes: {",
+			"\t\tbackgroundColor: { control: 'color' },",
+			"\t},",
+			"\targs: {},",
+			"} as ComponentMeta<typeof ${TM_FILENAME_BASE}${0}>;",
+			"",
+			"const Template: ComponentStory<typeof ${TM_FILENAME_BASE}${0}> = (args) => <${TM_FILENAME_BASE}${0} { ...args } />;",
+			"",
+			"export const Primary = Template.bind({});",
+			"Primary.args = {",
+			"};",
+			"",
+			"export const PrimaryDark = Template.bind({});",
+			"PrimaryDark.args = {",
+			"};",
+			"PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];",
+			"",
+			"};",
+		],
+		"description": "create stories template"
+	}
+}

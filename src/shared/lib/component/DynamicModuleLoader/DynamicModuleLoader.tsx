@@ -37,7 +37,7 @@ export const DynamicModuleLoader = (props: PropsWithChildren<DynamicModuleLoader
     }, []);
 
     return (
-        <div>
+        <div style={ { width: '100%' } }>
             { children }
         </div>
     );

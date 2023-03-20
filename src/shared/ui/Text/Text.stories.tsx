@@ -39,3 +39,17 @@ ErrorDark.args = {
     theme: 'error',
 };
 ErrorDark.decorators = [ThemeDecorator('app_dark_theme')];
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'Title',
+    text: 'lorem ipsum dolor sit amet',
+    size: 'size_l',
+};
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+    title: 'Title',
+    text: 'lorem ipsum dolor sit amet',
+    size: 'size_m',
+};

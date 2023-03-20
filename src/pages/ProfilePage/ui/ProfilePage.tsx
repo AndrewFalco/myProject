@@ -1,20 +1,21 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getReadonly } from '../model/selectors/getReadonly/getReadonly';
 import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
 
 import cls from './ProfilePage.module.scss';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -32,11 +33,7 @@ const ProfilePage = (props: ProfilePageProps) => {
     const isLoading = useSelector(getProfileIsLoading);
     const readOnly = useSelector(getReadonly);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => dispatch(fetchProfileData()));
 
     const hasError = useMemo(() => !!error?.length, [error]);
 
