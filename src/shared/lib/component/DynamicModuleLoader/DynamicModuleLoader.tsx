@@ -34,7 +34,7 @@ export const DynamicModuleLoader = (props: PropsWithChildren<DynamicModuleLoader
                 });
             }
         };
-    }, []);
+    }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
 
     return (
         <div style={ { width: '100%' } }>

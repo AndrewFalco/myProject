@@ -22,5 +22,9 @@
   "Cancel": "Cancel",
   "Select currency": "Select currency",
   "Select country": "Select country",
-  "Articles page": "Articles page"
+  "Articles page": "Articles page",
+  "No comments at the moment": "No comments at the moment",
+  "Error with data loading": "Error with data loading",
+  "Send comment": "Send comment",
+  "Comment": "Comment"
 }

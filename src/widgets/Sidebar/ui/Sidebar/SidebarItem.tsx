@@ -2,10 +2,9 @@ import { getUserAuthData } from 'entities/User';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui';
-import { SidebarListProps } from 'widgets/Sidebar/model/items';
+import { SidebarListProps } from 'widgets/Sidebar/model/types/sidebar';
 
 import cls from './Sidebar.module.scss';
 
@@ -25,7 +24,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
         ? null
         : (
             <AppLink
-              to={ RoutePath[item.route] }
+              to={ item.route }
               theme="secondary"
               className={ classNames(cls.item, { [cls.collapsed]: collapsed }) }
             >

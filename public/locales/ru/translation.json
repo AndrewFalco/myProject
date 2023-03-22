@@ -22,5 +22,9 @@
   "Select country": "Выберите страну",
   "Select currency": "Выберите валюту",
   "Try Again": "Попробуйте еще раз",
-  "Articles page": "Страница статей"
+  "Articles page": "Страница статей",
+  "No comments at the moment": "На данный момент комментариев нет",
+  "Error with data loading": "Ошибка при загрузке данных",
+  "Send comment": "Отправить",
+  "Comment": "Комментарий"
 }

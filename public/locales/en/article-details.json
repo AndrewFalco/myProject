@@ -1,5 +1,6 @@
 {
   "Comments": "Comments",
   "Article is not found": "Article is not found",
-  "Error with comments loading": "Error with comments loading"
+  "Error with comments loading": "Error with comments loading",
+  "Error with fetching article details": "Error with fetching article details"
 }

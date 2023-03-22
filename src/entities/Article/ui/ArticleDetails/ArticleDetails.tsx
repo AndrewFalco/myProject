@@ -25,7 +25,7 @@ const reducers: ReducersList = {
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const { className, articleId } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article-details');
     const dispatch = useAppDispatch();
     const data = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);

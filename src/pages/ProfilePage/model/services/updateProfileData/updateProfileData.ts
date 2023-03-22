@@ -11,11 +11,11 @@ export const updateProfileData = createAsyncThunk<ProfileType, void, ThunkConfig
         const formData = getProfileForm(getState());
 
         try {
-            const response = await extra.api.put<ProfileType>('/profile', formData);
+            const response = await extra.api.put<ProfileType>(`/profile/${formData?.id}`, formData);
 
             return response.data;
         } catch (error) {
-            return rejectWithValue('Invalid username or password');
+            return rejectWithValue('Error with update profile data');
         }
     },
 );

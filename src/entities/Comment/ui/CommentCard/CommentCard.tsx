@@ -1,5 +1,8 @@
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar, Skeleton, Text } from 'shared/ui';
+import {
+ AppLink, Avatar, Skeleton, Text,
+} from 'shared/ui';
 import { CommentType } from '../../model/types/comment';
 
 import cls from './CommentCard.module.scss';
@@ -21,21 +24,21 @@ export const CommentCard = (props: CommentCardProps) => {
                         <>
                             <div className={ cls.header }>
                                 <div className={ cls.ownerInfo }>
-                                    <Skeleton width={ 30 } height={ 30 } borderRadius="50%" />
+                                    <Skeleton className={ cls.avatar } width={ 30 } height={ 30 } borderRadius="50%" />
                                     <Skeleton height={ 16 } width={ 100 } />
                                 </div>
                                 <Skeleton height={ 16 } width={ 50 } />
                             </div>
-                            <Skeleton height={ 50 } width={ 100 } className={ cls.text } />
+                            <Skeleton height={ 24 } width="100%" className={ cls.text } />
                         </>
                     )
                     : (
                         <>
                             <div className={ cls.header }>
-                                <div className={ cls.ownerInfo }>
+                                <AppLink to={ `${RoutePath.profile}${comment.user.id}` } className={ cls.ownerInfo }>
                                     <Avatar className={ cls.avatar } src={ comment?.user.avatar } size={ 30 } />
                                     <Text title={ comment.user.username } />
-                                </div>
+                                </AppLink>
                                 <Text text={ new Date(comment?.date).toLocaleDateString() } />
                             </div>
                             <Text text={ comment.text } className={ cls.text } />

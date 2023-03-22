@@ -15,7 +15,7 @@ export type AppRoutes = 'main' | 'notFoundPage' | 'about' | 'profile' | 'article
 export const RoutePath: Record<AppRoutes, string> = {
     main: '/',
     about: '/about',
-    profile: '/profile',
+    profile: '/profile/',
     articles: '/articles',
     articleDetails: '/articles/',
     notFoundPage: '*',
@@ -31,7 +31,7 @@ export const routeConfig: Record<AppRoutes, AppRouterProps> = {
         element: <AboutPage />,
     },
     profile: {
-        path: RoutePath.profile,
+        path: `${RoutePath.profile}:id`,
         element: <ProfilePage />,
         authOnly: true,
     },

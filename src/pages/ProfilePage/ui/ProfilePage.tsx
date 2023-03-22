@@ -1,8 +1,9 @@
+import { useCallback, useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
-import { useCallback, useMemo } from 'react';
-import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -32,8 +33,9 @@ const ProfilePage = (props: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readOnly = useSelector(getReadonly);
+    const { id } = useParams<{ id: string}>();
 
-    useInitialEffect(() => dispatch(fetchProfileData()));
+    useInitialEffect(() => (id ? dispatch(fetchProfileData(id)) : undefined));
 
     const hasError = useMemo(() => !!error?.length, [error]);
 
@@ -98,7 +100,7 @@ const ProfilePage = (props: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <div className={ classNames(cls.ProfilePage, {}, [className]) }>
-                <ProfilePageHeader hasFormError={ hasError } />
+                <ProfilePageHeader hasFormError={ hasError } isLoading={ isLoading } />
                 <ProfileCard
                   data={ formData }
                   isLoading={ isLoading }

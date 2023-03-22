@@ -8,6 +8,7 @@ export type ProfileError = {
 }
 
 export interface ProfileType {
+    id?: string;
     firstName?: string;
     lastName?: string;
     email?: string;
