@@ -1,6 +1,7 @@
 import { AppLink } from './AppLink';
 import { Avatar } from './Avatar/Avatar';
 import { Button } from './Button';
+import { Card } from './Card/Card';
 import { Code } from './Code/Code';
 import { Icon } from './Icon/Icon';
 import { Input } from './Input/Input';
@@ -22,4 +23,5 @@ export {
     Icon,
     Code,
     Input,
+    Card,
 };

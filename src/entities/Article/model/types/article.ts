@@ -1,6 +1,10 @@
+import { User } from 'entities/User';
+
 export type ArticleType = 'IT' | 'NATURAL' | 'SCIENCE' | 'GAMES' | 'PHILOSOPHY';
 
 export type ArticleBlockType = 'TEXT' | 'CODE' | 'IMAGE';
+
+export type ArticleView = 'LIST' | 'GRID';
 
 export type ArticleBlockBase = {
     id: string,
@@ -8,25 +12,26 @@ export type ArticleBlockBase = {
     title: string,
 };
 
-export type ArticleCodeBlock = ArticleBlockBase & {
+export type ArticleCodeBlockType = ArticleBlockBase & {
     type: 'CODE',
     code: string,
 };
 
-export type ArticleImageBlock = ArticleBlockBase & {
+export type ArticleImageBlockType = ArticleBlockBase & {
     type: 'IMAGE',
     img: string,
 };
 
-export type ArticleTextBlock = ArticleBlockBase & {
+export type ArticleTextBlockType = ArticleBlockBase & {
     type: 'TEXT',
     paragraphs: string[],
 };
 
-export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
+export type ArticleBlock = ArticleCodeBlockType | ArticleImageBlockType | ArticleTextBlockType;
 
 export interface Article {
     id: string,
+    user: User,
     title: string,
     subtitle: string,
     img: string,

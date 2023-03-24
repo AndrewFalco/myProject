@@ -6,6 +6,7 @@
   "Articles page": "Articles page",
   "Autorized form": "Autorized form",
   "Avatar": "Avatar",
+  "Back to articles list": "Back to articles list",
   "Cancel": "Cancel",
   "City": "City",
   "Comment": "Comment",
@@ -37,6 +38,13 @@
   "Please try to reload page or call to admin": "Please try to reload page or call to admin",
   "Profile card": "Profile card",
   "Profile page": "Profile page",
+  "Read more": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Save": "Save",
   "Select country": "Select country",
   "Select currency": "Select currency",

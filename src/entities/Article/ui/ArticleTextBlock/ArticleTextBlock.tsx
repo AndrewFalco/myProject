@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui';
-import { ArticleTextBlock as ArticleTextBlockType } from '../../model/types/article';
+import { ArticleTextBlockType } from '../../model/types/article';
 import cls from './ArticleTextBlock.module.scss';
 
 interface ArticleTextBlockProps {
@@ -13,7 +13,7 @@ export const ArticleTextBlock = memo((props: ArticleTextBlockProps) => {
     const { className, block } = props;
 
     return (
-        <div className={ classNames(cls.ArticleTextBlock, {}, [className]) }>
+        <div className={ classNames('', {}, [className]) }>
             {
                 block.title && (
                     <Text

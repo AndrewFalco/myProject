@@ -27,7 +27,6 @@
 			"};",
 			"PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];",
 			"",
-			"};",
 		],
 		"description": "create stories template"
 	}

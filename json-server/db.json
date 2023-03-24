@@ -91,6 +91,7 @@
   "articles": [
     {
       "id": "1",
+      "userId": "2",
       "title": "JS news",
       "subtitle": "some subtitle text for JS news",
       "img": "https://cache.kwork.ru/pics/t0/09/24593006-63c14251aff38.jpg",

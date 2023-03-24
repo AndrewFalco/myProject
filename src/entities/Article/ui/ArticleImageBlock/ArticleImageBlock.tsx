@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui';
-import { ArticleImageBlock as ArticleImageBlockType } from '../../model/types/article';
+import { ArticleImageBlockType } from '../../model/types/article';
 import cls from './ArticleImageBlock.module.scss';
 
 interface ArticleImageBlockProps {
