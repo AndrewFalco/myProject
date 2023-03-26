@@ -36,14 +36,14 @@ const NavbarComponent: FC<NavbarProps> = (props) => {
     }, []);
 
     return (
-        <div className={ classNames(cls.Navbar, {}, [className]) }>
+        <header className={ classNames(cls.Navbar, {}, [className]) }>
             <div className={ classNames(cls.links, {}, []) }>
                 <Button theme="clear" onClick={ authData ? onLogout : openModal }>
                     { authData ? t('Logout') : t('Login') }
                 </Button>
             </div>
             { !authData && <LoginModal isOpen={ isAuthModal } onClose={ closeModal } /> }
-        </div>
+        </header>
     );
 };
 

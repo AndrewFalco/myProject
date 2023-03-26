@@ -6,7 +6,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicM
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Button, Text } from 'shared/ui';
+import { Button, Page, Text } from 'shared/ui';
 import { AddCommentForm } from 'features/addCommentForm';
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
@@ -48,7 +48,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <div className={ classNames(cls.ArticleDetailsPage, {}, [className]) }>
+            <Page className={ classNames(cls.ArticleDetailsPage, {}, [className]) }>
                 {
                   id
                     ? (
@@ -85,7 +85,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                         />
                     )
                 }
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

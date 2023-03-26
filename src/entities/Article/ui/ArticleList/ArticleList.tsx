@@ -24,14 +24,15 @@ export const ArticleList = (props: ArticleListProps) => {
     return (
         <div className={ classNames(cls.ArticleList, {}, [className]) }>
             {
-              isLoading
-                ? new Array(view === 'LIST' ? 3 : 9)
-                        .fill(0)
-                        // eslint-disable-next-line react/no-array-index-key
-                        .map((elem, index) => <ArticleListItemSkeleton view={ view } key={ index } />)
-                : articles.length
-                    ? articles.map(renderArticles)
-                    : null
+              articles.length
+                ? articles.map(renderArticles)
+                : null
+            }
+            {
+              isLoading && new Array(view === 'LIST' ? 3 : 9)
+                .fill(0)
+              // eslint-disable-next-line react/no-array-index-key
+                .map((elem, index) => <ArticleListItemSkeleton view={ view } key={ index } />)
             }
         </div>
     );

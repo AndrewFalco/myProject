@@ -20,11 +20,21 @@ const articlesPageSlice = createSlice({
         error: undefined,
         ids: [],
         entities: {},
-        view: (localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) || 'GRID') as ArticleView,
+        view: 'GRID',
+        page: 1,
+        limit: 5,
+        hasMore: true,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
+        },
+        setPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload;
+        },
+        initState: (state) => {
+            state.view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+            state.limit = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) === 'LIST' ? 5 : 9;
         },
     },
     extraReducers: (builder) => {
@@ -35,7 +45,8 @@ const articlesPageSlice = createSlice({
         })
         .addCase(fetchArticlesList.fulfilled, (state, action: PayloadAction<Article[]>) => {
             state.isLoading = false;
-            articlesPageAdapter.setAll(state, action.payload);
+            articlesPageAdapter.addMany(state, action.payload);
+            state.hasMore = action.payload.length > 0;
         })
         .addCase(fetchArticlesList.rejected, (state, action) => {
             state.error = action.payload || 'Error with fetching articles details data';

@@ -1,12 +1,15 @@
 import { useTranslation } from 'react-i18next';
+import { Page } from 'shared/ui';
 
 const AboutPage = () => {
     const { t } = useTranslation('about');
 
     return (
-        <h1>
-            { t('About page') }
-        </h1>
+        <Page>
+            <h1>
+                { t('About page') }
+            </h1>
+        </Page>
     );
 };
 

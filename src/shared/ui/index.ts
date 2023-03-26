@@ -7,6 +7,7 @@ import { Icon } from './Icon/Icon';
 import { Input } from './Input/Input';
 import { Loader } from './Loader';
 import { Modal } from './Modal/Modal';
+import { Page } from './Page/Page';
 import { Portal } from './Portal/Portal';
 import { Skeleton } from './Skeleton/Skeleton';
 import { Text } from './Text/Text';
@@ -24,4 +25,5 @@ export {
     Code,
     Input,
     Card,
+    Page,
 };

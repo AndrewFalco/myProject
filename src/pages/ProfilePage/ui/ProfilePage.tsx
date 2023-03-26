@@ -8,6 +8,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { Page } from 'shared/ui';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -99,7 +100,7 @@ const ProfilePage = (props: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <div className={ classNames(cls.ProfilePage, {}, [className]) }>
+            <Page className={ classNames(cls.ProfilePage, {}, [className]) }>
                 <ProfilePageHeader hasFormError={ hasError } isLoading={ isLoading } />
                 <ProfileCard
                   data={ formData }
@@ -118,7 +119,7 @@ const ProfilePage = (props: ProfilePageProps) => {
                   onChangeCurrency={ onChangeCurrency }
                   onChangeSex={ onChangeSex }
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

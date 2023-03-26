@@ -1,4 +1,4 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import ListViewIcon from 'shared/assets/icons/list.svg';
 import GridViewIcon from 'shared/assets/icons/tiled.svg';
 import { ArticleView } from 'entities/Article/model/types/article';
