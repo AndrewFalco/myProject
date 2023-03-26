@@ -14,7 +14,7 @@ interface ArticleListProps {
 
 export const ArticleList = (props: ArticleListProps) => {
     const {
-        className, articles, view = 'LIST', isLoading,
+        className, articles, view = 'GRID', isLoading,
     } = props;
 
     const renderArticles = useCallback((article: Article) => (
