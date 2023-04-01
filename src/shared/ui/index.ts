@@ -7,9 +7,10 @@ import { Icon } from './Icon/Icon';
 import { Input } from './Input/Input';
 import { Loader } from './Loader';
 import { Modal } from './Modal/Modal';
-import { Page } from './Page/Page';
 import { Portal } from './Portal/Portal';
+import { Select } from './Select/Select';
 import { Skeleton } from './Skeleton/Skeleton';
+import { Tabs } from './Tabs/Tabs';
 import { Text } from './Text/Text';
 
 export {
@@ -25,5 +26,6 @@ export {
     Code,
     Input,
     Card,
-    Page,
+    Select,
+    Tabs,
 };

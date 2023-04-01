@@ -26,5 +26,7 @@
   "No comments at the moment": "На данный момент комментариев нет",
   "Error with data loading": "Ошибка при загрузке данных",
   "Send comment": "Отправить",
-  "Comment": "Комментарий"
+  "Comment": "Комментарий",
+  "asc": "по возрастанию",
+  "desc": "по убыванию"
 }

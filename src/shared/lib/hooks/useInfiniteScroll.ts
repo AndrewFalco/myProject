@@ -7,26 +7,25 @@ export interface UseInfiniteScrollOptions {
 }
 
 export function useInfiniteScroll({ callback, triggerRef, wrapperRef }: UseInfiniteScrollOptions) {
-    const wrapperElement = wrapperRef.current;
-    const triggerElement = triggerRef.current;
-
     useEffect(() => {
         let observer: IntersectionObserver | null = null;
+        const wrapperElement = wrapperRef.current;
+        const triggerElement = triggerRef.current;
 
         if (callback) {
             const options = {
-            root: wrapperElement,
-            rootMargin: '0px',
-            threshold: 1.0,
-        };
+                root: wrapperElement,
+                rootMargin: '0px',
+                threshold: 1.0,
+            };
 
-        observer = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                callback();
-            }
-        }, options);
+            observer = new IntersectionObserver(([entry]) => {
+                if (entry.isIntersecting) {
+                    callback();
+                }
+            }, options);
 
-        observer.observe(triggerElement);
+            observer.observe(triggerElement);
         }
 
         return () => {
@@ -35,5 +34,5 @@ export function useInfiniteScroll({ callback, triggerRef, wrapperRef }: UseInfin
                 observer.unobserve(triggerElement);
             }
         };
-    }, [callback, triggerElement, wrapperElement]);
+    }, [callback, triggerRef, wrapperRef]);
 }

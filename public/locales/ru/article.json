@@ -1,4 +1,6 @@
 {
   "Read more...": "Читать далее...",
-  "Error with articles loading": "Ошибка загрузки статей"
+  "Error with articles loading": "Ошибка загрузки статей",
+  "asc": "по возрастанию",
+  "desc": "по убыванию"
 }

@@ -26,5 +26,7 @@
   "No comments at the moment": "No comments at the moment",
   "Error with data loading": "Error with data loading",
   "Send comment": "Send comment",
-  "Comment": "Comment"
+  "Comment": "Comment",
+  "asc": "asc",
+  "desc": "desc"
 }

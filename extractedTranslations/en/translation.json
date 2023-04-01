@@ -1,4 +1,5 @@
 {
+  "ALL": "ALL",
   "About page": "About page",
   "Age": "Age",
   "Article details page": "Article details page",
@@ -19,6 +20,7 @@
   "Error with loading": "Error with loading",
   "First name": "First name",
   "Hi": "",
+  "IT": "IT",
   "Language": "Language",
   "Last name": "Last name",
   "Loading": {
@@ -31,7 +33,9 @@
   "Login": "Login",
   "Logout": "",
   "Main page": "Main page",
+  "No articles at the moment": "No articles at the moment",
   "No comments at the moment": "No comments at the moment",
+  "Order by": "Order by",
   "Page is not found": "Page is not found",
   "Password": "Password",
   "Phone": "Phone",
@@ -45,7 +49,9 @@
       }
     }
   },
+  "SCIENCE": "SCIENCE",
   "Save": "Save",
+  "Search": "Search",
   "Select country": "Select country",
   "Select currency": "Select currency",
   "Select value": "Select value",
@@ -54,8 +60,14 @@
   "Short language": "",
   "ShortLanguage": "",
   "Something went wrong": "Something went wrong",
+  "Sort by": "Sort by",
   "Toggle": "Toggle",
   "Try again": "Try again",
   "User name": "User name",
-  "new text": "new text"
+  "asc": "asc",
+  "createAt": "createAt",
+  "desc": "desc",
+  "new text": "new text",
+  "title": "title",
+  "views": "views"
 }
