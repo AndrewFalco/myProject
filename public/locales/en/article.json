@@ -3,5 +3,10 @@
   "Error with loading articles": "Error with articles loading",
   "Error with articles loading": "Error with articles loading",
   "asc": "asc",
-  "desc": "desc"
+  "desc": "desc",
+  "createAt": "creation date",
+  "title": "title",
+  "views": "views",
+  "Order by": "Order by",
+  "Sort by": "Sort by"
 }

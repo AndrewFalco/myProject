@@ -46,6 +46,18 @@ export const ArticleSort = (props: ArticleSortProps) => {
             value: 'SCIENCE',
             content: t('SCIENCE'),
         },
+        {
+            value: 'ECONOMICS',
+            content: t('ECONOMICS'),
+        },
+        {
+            value: 'GAMES',
+            content: t('GAMES'),
+        },
+        {
+            value: 'PHILOSOPHY',
+            content: t('PHILOSOPHY'),
+        },
     ], [t]);
 
     return (

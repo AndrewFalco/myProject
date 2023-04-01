@@ -60,10 +60,10 @@ module.exports = {
         'object-curly-spacing': ['error', 'always'],
         'i18next/no-literal-string': [1, {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to'],
+            ignoreAttribute: ['data-testid', 'to', 'target'],
         }],
         'max-len': ['error', {
-            code: 125,
+            code: 130,
             ignoreComments: true,
         }],
         'jsx-a11y/no-static-element-interactions': 'off',

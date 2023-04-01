@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -10,16 +10,22 @@ interface ArticleListProps {
     articles: Article[],
     isLoading?: boolean,
     view?: ArticleView,
+    target?: HTMLAttributeAnchorTarget,
 }
 
 export const ArticleList = (props: ArticleListProps) => {
     const {
-        className, articles, view = 'GRID', isLoading,
+        className, articles, view = 'GRID', isLoading, target,
     } = props;
 
     const renderArticles = useCallback((article: Article) => (
-        <ArticleListItem article={ article } view={ view } key={ article.id } />
-    ), [view]);
+        <ArticleListItem
+          article={ article }
+          view={ view }
+          key={ article.id }
+          target={ target }
+        />
+    ), [target, view]);
 
     return (
         <div className={ classNames(cls.ArticleList, {}, [className]) }>

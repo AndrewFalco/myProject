@@ -28,5 +28,14 @@
   "Send comment": "Send comment",
   "Comment": "Comment",
   "asc": "asc",
-  "desc": "desc"
+  "desc": "desc",
+  "Search": "Search",
+  "ALL": "ALL",
+  "IT": "IT",
+  "SCIENCE": "SCIENCE",
+  "ECONOMICS": "ECONOMICS",
+  "GAMES": "GAMES",
+  "PHILOSOPHY": "PHILOSOPHY",
+  "Order by": "Order by",
+  "Sort by": "Sort by"
 }

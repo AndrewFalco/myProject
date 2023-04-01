@@ -1,11 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
+    AppLink,
  Avatar, Button, Card, Icon, Text,
 } from 'shared/ui';
 import EyeIcon from 'shared/assets/icons/eye.svg';
-import { useCallback, useMemo } from 'react';
+import { HTMLAttributeAnchorTarget, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Article, ArticleTextBlockType, ArticleView } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
@@ -15,16 +15,14 @@ interface ArticleListProps {
     className?: string,
     article: Article,
     view: ArticleView,
+    target?: HTMLAttributeAnchorTarget,
 }
 
 export const ArticleListItem = (props: ArticleListProps) => {
-    const { className, article, view } = props;
+    const {
+        className, article, view, target,
+    } = props;
     const { t } = useTranslation('article');
-    const navigate = useNavigate();
-
-    const onOpenArticle = useCallback(() => {
-        navigate(RoutePath.articleDetails + article.id);
-    }, [article.id, navigate]);
 
     const types = useMemo(() => <Text text={ article.type.join(', ') } className={ cls.types } />, [article.type]);
     const views = useMemo(() => (
@@ -58,25 +56,35 @@ export const ArticleListItem = (props: ArticleListProps) => {
                           )
                         }
                         <div className={ cls.footer }>
-                            <Button onClick={ onOpenArticle }>
-                                { t('Read more...') }
-                            </Button>
+                            <AppLink
+                              target={ target }
+                              to={ RoutePath.articleDetails + article.id }
+                            >
+                                <Button>
+                                    { t('Read more...') }
+                                </Button>
+                            </AppLink>
                             { views }
                         </div>
                     </Card>
                 )
                 : (
-                    <Card onClick={ onOpenArticle }>
-                        <div className={ cls.imageWrapper }>
-                            <img src={ article.img } className={ cls.img } alt={ article.title } />
-                            <Text text={ new Date(article.createdAt).toLocaleDateString() } className={ cls.date } />
-                        </div>
-                        <div className={ cls.infoWrapper }>
-                            { types }
-                            { views }
-                        </div>
-                        <Text text={ article.title } className={ cls.title } />
-                    </Card>
+                    <AppLink
+                      target={ target }
+                      to={ RoutePath.articleDetails + article.id }
+                    >
+                        <Card>
+                            <div className={ cls.imageWrapper }>
+                                <img src={ article.img } className={ cls.img } alt={ article.title } />
+                                <Text text={ new Date(article.createdAt).toLocaleDateString() } className={ cls.date } />
+                            </div>
+                            <div className={ cls.infoWrapper }>
+                                { types }
+                                { views }
+                            </div>
+                            <Text text={ article.title } className={ cls.title } />
+                        </Card>
+                    </AppLink>
                 )
             }
         </div>

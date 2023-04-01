@@ -6,7 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui';
 import { Textarea } from 'shared/ui/Input/Textarea';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { getAddCommentFormError, getAddCommentFormText } from '../model/selectors/addCommentFormSelector';
+import { getAddCommentFormText } from '../model/selectors/addCommentFormSelector';
 import { addCommentFormActions, addCommentFormReducer } from '../model/slices/addCommentFormSlice';
 
 import cls from './AddCommentForm.module.scss';
@@ -25,7 +25,6 @@ const AddCommentForm = (props: AddCommentFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const text = useSelector(getAddCommentFormText);
-    const error = useSelector(getAddCommentFormError);
 
     const onChangeText = useCallback((value: string) => {
         dispatch(addCommentFormActions.setText(value));

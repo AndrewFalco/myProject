@@ -8,23 +8,26 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Button, Text } from 'shared/ui';
 import { AddCommentForm } from 'features/addCommentForm';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleDetailsCommentsReducer, getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
+import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
 import { getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading } from '../model/selectors/comments';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
-
+import { getArticleRecommendation } from '../model/slices/articleDetailsPageRecommendations';
+import { getArticlesRecommendationsIsLoading } from '../model/selectors/recommendations';
+import { fetchArticlesRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import cls from './ArticleDetailsPage.module.scss';
+import { articleDetailsPageReducer } from '../model/slices';
 
 interface ArticleDetailsPageProps {
     className?: string,
 }
 
 const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
@@ -33,6 +36,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const dispatch = useAppDispatch();
     const { id } = useParams<{ id: string }>();
     const comments = useSelector(getArticleComments.selectAll);
+    const recommendations = useSelector(getArticleRecommendation.selectAll);
+    const recIsLoading = useSelector(getArticlesRecommendationsIsLoading);
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
     const commentsError = useSelector(getArticleDetailsCommentsError);
     const navigate = useNavigate();
@@ -45,7 +50,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
 
-    useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)));
+    useInitialEffect(() => {
+        dispatch(fetchArticlesRecommendations());
+        dispatch(fetchCommentsByArticleId(id));
+    });
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
@@ -58,24 +66,31 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                                 { t('Back to articles list') }
                             </Button>
                             <ArticleDetails articleId={ id } />
+                            <Text title={ t('Recommendations') } />
+                            <ArticleList
+                              articles={ recommendations }
+                              isLoading={ recIsLoading }
+                              className={ cls.recommendations }
+                              target="_blank"
+                            />
                             {
-                              commentsError
-                                ? (
-                                    <Text
-                                      className={ cls.commentsTitle }
-                                      title={ t('Error with comments loading') }
-                                      text={ t(commentsError) }
-                                      theme="error"
-                                    />
-                                )
-                                : (
-                                    <>
-                                        <Text className={ cls.commentsTitle } title={ t('Comments') } />
-                                        <AddCommentForm onSendComment={ onSendComment } />
-                                        <CommentList comments={ comments } isLoading={ isLoading } />
-                                    </>
-                                )
-                            }
+                          commentsError
+                            ? (
+                                <Text
+                                  className={ cls.commentsTitle }
+                                  title={ t('Error with comments loading') }
+                                  text={ t(commentsError) }
+                                  theme="error"
+                                />
+                            )
+                            : (
+                                <div className={ cls.commentBlockWrapper }>
+                                    <Text className={ cls.commentsTitle } title={ t('Comments') } />
+                                    <AddCommentForm onSendComment={ onSendComment } />
+                                    <CommentList comments={ comments } isLoading={ isLoading } />
+                                </div>
+                            )
+                        }
                         </div>
                     )
                     : (

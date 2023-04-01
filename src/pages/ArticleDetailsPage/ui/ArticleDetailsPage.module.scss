@@ -1,9 +1,22 @@
 .ArticleDetailsPage {
-    display: flex;
-    flex-grow: 1;
+    min-height: 100%;
 }
 
 .commentsTitle {
     margin-top: 16px;
     margin-bottom: 16px;
+}
+
+.recommendations {
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding: 16px;
+}
+
+.commentBlockWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
