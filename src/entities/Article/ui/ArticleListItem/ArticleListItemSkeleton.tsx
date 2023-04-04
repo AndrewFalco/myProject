@@ -17,7 +17,7 @@ export const ArticleListItemSkeleton = (props: ArticleSkeletonListProps) => {
             {
               view === 'LIST'
                 ? (
-                    <Card>
+                    <Card className={ cls.cardListWrapper }>
                         <div className={ cls.header }>
                             <div className={ cls.userInfo }>
                                 <Skeleton width={ 30 } height={ 30 } borderRadius="50%" />

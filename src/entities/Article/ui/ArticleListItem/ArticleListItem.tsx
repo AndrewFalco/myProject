@@ -39,7 +39,7 @@ export const ArticleListItem = (props: ArticleListProps) => {
             {
               view === 'LIST'
                 ? (
-                    <Card>
+                    <Card className={ cls.cardListWrapper }>
                         <div className={ cls.header }>
                             <div className={ cls.userInfo }>
                                 <Avatar src={ article.user.avatar } size={ 30 } />

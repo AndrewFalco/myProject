@@ -1,5 +1,6 @@
 import { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Virtualize } from 'shared/ui/Virtualize/Virtualize';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -11,14 +12,15 @@ interface ArticleListProps {
     isLoading?: boolean,
     view?: ArticleView,
     target?: HTMLAttributeAnchorTarget,
+    onScrollEnd?: () => void,
 }
 
 export const ArticleList = (props: ArticleListProps) => {
     const {
-        className, articles, view = 'GRID', isLoading, target,
+        className, articles, view = 'GRID', isLoading, target, onScrollEnd,
     } = props;
 
-    const renderArticles = useCallback((article: Article) => (
+    const renderArticles = useCallback((index: number, article: Article) => (
         <ArticleListItem
           article={ article }
           view={ view }
@@ -27,19 +29,18 @@ export const ArticleList = (props: ArticleListProps) => {
         />
     ), [target, view]);
 
+    const renderSkeleton = useCallback((index: number) => (<ArticleListItemSkeleton view={ view } key={ index } />), [view]);
+
     return (
         <div className={ classNames(cls.ArticleList, {}, [className]) }>
-            {
-              articles.length
-                ? articles.map(renderArticles)
-                : null
-            }
-            {
-              isLoading && new Array(view === 'LIST' ? 3 : 9)
-                .fill(0)
-              // eslint-disable-next-line react/no-array-index-key
-                .map((elem, index) => <ArticleListItemSkeleton view={ view } key={ index } />)
-            }
+            <Virtualize
+              data={ articles.length ? articles : Array(3).fill(0) }
+              renderNode={ renderArticles }
+              view={ view }
+              isLoading={ isLoading }
+              renderSkeleton={ renderSkeleton }
+              onScrollEnd={ onScrollEnd }
+            />
         </div>
     );
 };

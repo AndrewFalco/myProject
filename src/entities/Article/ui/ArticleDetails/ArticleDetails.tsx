@@ -11,8 +11,8 @@ import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
-import cls from './ArticleDetails.module.scss';
 import { ArticleDetailsContent } from './ArticleDetailsContent';
+import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
     className?: string,

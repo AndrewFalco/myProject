@@ -5,8 +5,9 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui';
+import { AppLink, Button, Text } from 'shared/ui';
 
 import cls from './Navbar.module.scss';
 
@@ -37,7 +38,16 @@ const NavbarComponent: FC<NavbarProps> = (props) => {
 
     return (
         <header className={ classNames(cls.Navbar, {}, [className]) }>
-            <div className={ classNames(cls.links, {}, []) }>
+            <div className={ cls.links }>
+                <div className={ cls.controls }>
+                    <Text title="FF" className={ cls.appName } />
+                    <AppLink
+                      className={ cls.appLink }
+                      to={ RoutePath.articleCreate }
+                    >
+                        { t('Create new article') }
+                    </AppLink>
+                </div>
                 <Button theme="clear" onClick={ authData ? onLogout : openModal }>
                     { authData ? t('Logout') : t('Login') }
                 </Button>

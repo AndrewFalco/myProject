@@ -1,6 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { scrollSaveActions } from 'features/ScrollSave';
-import { getScrollSavePositionByPath } from 'features/ScrollSave/model/selectors/scrollSaveSelector';
+import { scrollSaveActions, getScrollSavePositionByPath } from 'features/ScrollSave';
 import {
  MutableRefObject, PropsWithChildren, useRef, UIEvent,
 } from 'react';

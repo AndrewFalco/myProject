@@ -1,0 +1,10 @@
+.Virtualize {
+    display: flex;
+    flex-grow: 1;
+}
+
+.gridView {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}

@@ -1,26 +1,26 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Button, Text } from 'shared/ui';
+import { Text } from 'shared/ui';
 import { AddCommentForm } from 'features/addCommentForm';
 import { ArticleDetails, ArticleList } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
-import { getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading } from '../model/selectors/comments';
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
-import { getArticleRecommendation } from '../model/slices/articleDetailsPageRecommendations';
-import { getArticlesRecommendationsIsLoading } from '../model/selectors/recommendations';
-import { fetchArticlesRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import { getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { getArticleRecommendation } from '../../model/slices/articleDetailsPageRecommendations';
+import { getArticlesRecommendationsIsLoading } from '../../model/selectors/recommendations';
+import { fetchArticlesRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import cls from './ArticleDetailsPage.module.scss';
-import { articleDetailsPageReducer } from '../model/slices';
+import { articleDetailsPageReducer } from '../../model/slices';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
     className?: string,
@@ -40,11 +40,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const recIsLoading = useSelector(getArticlesRecommendationsIsLoading);
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
     const commentsError = useSelector(getArticleDetailsCommentsError);
-    const navigate = useNavigate();
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
@@ -58,13 +53,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <Page className={ classNames(cls.ArticleDetailsPage, {}, [className]) }>
+                <ArticleDetailsPageHeader />
                 {
                   id
                     ? (
                         <div>
-                            <Button onClick={ onBackToList }>
-                                { t('Back to articles list') }
-                            </Button>
                             <ArticleDetails articleId={ id } />
                             <Text title={ t('Recommendations') } />
                             <ArticleList
@@ -74,23 +67,23 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                               target="_blank"
                             />
                             {
-                          commentsError
-                            ? (
-                                <Text
-                                  className={ cls.commentsTitle }
-                                  title={ t('Error with comments loading') }
-                                  text={ t(commentsError) }
-                                  theme="error"
-                                />
-                            )
-                            : (
-                                <div className={ cls.commentBlockWrapper }>
-                                    <Text className={ cls.commentsTitle } title={ t('Comments') } />
-                                    <AddCommentForm onSendComment={ onSendComment } />
-                                    <CommentList comments={ comments } isLoading={ isLoading } />
-                                </div>
-                            )
-                        }
+                                commentsError
+                                ? (
+                                    <Text
+                                      className={ cls.commentsTitle }
+                                      title={ t('Error with comments loading') }
+                                      text={ t(commentsError) }
+                                      theme="error"
+                                    />
+                                )
+                                : (
+                                    <div className={ cls.commentBlockWrapper }>
+                                        <Text className={ cls.commentsTitle } title={ t('Comments') } />
+                                        <AddCommentForm onSendComment={ onSendComment } />
+                                        <CommentList comments={ comments } isLoading={ isLoading } />
+                                    </div>
+                                )
+                            }
                         </div>
                     )
                     : (

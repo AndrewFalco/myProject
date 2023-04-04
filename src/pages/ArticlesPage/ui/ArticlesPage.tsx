@@ -88,10 +88,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount={ false }>
-            <Page
-              onScrollEnd={ onLoadNextPart }
-              className={ classNames(cls.ArticlesPage, {}, [className]) }
-            >
+            <Page className={ classNames(cls.ArticlesPage, {}, [className]) }>
                 {
                   !error
                     ? (
@@ -107,7 +104,14 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                             />
                             {
                                 articles.length || isLoading
-                                    ? <ArticleList articles={ articles } isLoading={ isLoading } view={ view } />
+                                    ? (
+                                        <ArticleList
+                                          articles={ articles }
+                                          isLoading={ isLoading }
+                                          view={ view }
+                                          onScrollEnd={ onLoadNextPart }
+                                        />
+                                    )
                                     : <Text title={ t('No articles at the moment') } />
                             }
                         </>

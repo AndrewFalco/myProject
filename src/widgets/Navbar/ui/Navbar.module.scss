@@ -8,7 +8,20 @@
 }
 
 .links {
-    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.controls {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.appLink {
+    margin-left: var(--sidebar-width);
 }
 
 .mainLink {
