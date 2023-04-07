@@ -1,26 +1,27 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    AppLink,
- Avatar, Button, Card, Icon, Text,
+    AppLink, Avatar, Button, Card, Icon, Text,
 } from 'shared/ui';
 import EyeIcon from 'shared/assets/icons/eye.svg';
-import { HTMLAttributeAnchorTarget, useMemo } from 'react';
+import { HTMLAttributeAnchorTarget, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Article, ArticleTextBlockType, ArticleView } from '../../model/types/article';
-import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import cls from './ArticleListItem.module.scss';
 
 interface ArticleListProps {
     className?: string,
     article: Article,
     view: ArticleView,
     target?: HTMLAttributeAnchorTarget,
+    index?: number,
+    setLastIndex?: (index: number) => void,
 }
 
 export const ArticleListItem = (props: ArticleListProps) => {
     const {
-        className, article, view, target,
+        className, article, view, target, index = 0, setLastIndex,
     } = props;
     const { t } = useTranslation('article');
 
@@ -33,6 +34,10 @@ export const ArticleListItem = (props: ArticleListProps) => {
     ), [article.views]);
 
     const textBlock = article.blocks.find((block) => block.type === 'TEXT') as ArticleTextBlockType;
+
+    const onSetLastIndex = useCallback(() => {
+        setLastIndex?.(index);
+    }, [index, setLastIndex]);
 
     return (
         <div className={ classNames(cls.ArticleListItem, {}, [className, cls[view]]) }>
@@ -60,7 +65,7 @@ export const ArticleListItem = (props: ArticleListProps) => {
                               target={ target }
                               to={ RoutePath.articleDetails + article.id }
                             >
-                                <Button>
+                                <Button onClick={ onSetLastIndex }>
                                     { t('Read more...') }
                                 </Button>
                             </AppLink>

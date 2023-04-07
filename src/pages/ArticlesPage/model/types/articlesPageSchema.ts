@@ -16,4 +16,5 @@ export interface ArticlesPageSchema extends EntityState<Article> {
     sort: ArticleSortField,
     order: SortOrder,
     type: ArticleType,
+    lastOpenedArticleIndex?: number;
 }

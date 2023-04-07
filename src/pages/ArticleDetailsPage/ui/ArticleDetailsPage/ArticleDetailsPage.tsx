@@ -65,6 +65,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                               isLoading={ recIsLoading }
                               className={ cls.recommendations }
                               target="_blank"
+                              withVirtualized={ false }
                             />
                             {
                                 commentsError

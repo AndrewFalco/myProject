@@ -8,3 +8,4 @@ export const getArticlesPageLimit = (state: StateSchema) => state.articlesPage?.
 export const getArticlesPageHasMore = (state: StateSchema) => state.articlesPage?.hasMore;
 export const getArticlesPageInited = (state: StateSchema) => state.articlesPage?._inited;
 export const getArticlesPageType = (state: StateSchema) => state.articlesPage?.type || 'ALL';
+export const getArticlesPageLastIndex = (state: StateSchema) => state.articlesPage?.lastOpenedArticleIndex || 0;

@@ -32,6 +32,7 @@ const articlesPageSlice = createSlice({
         sort: 'createAt',
         order: 'asc',
         type: 'ALL',
+        lastOpenedArticleIndex: 0,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -51,6 +52,9 @@ const articlesPageSlice = createSlice({
         },
         setType: (state, action: PayloadAction<ArticleType>) => {
             state.type = action.payload;
+        },
+        setLastIndex: (state, action: PayloadAction<number>) => {
+            state.lastOpenedArticleIndex = action.payload;
         },
         initState: (state) => {
             state.view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;

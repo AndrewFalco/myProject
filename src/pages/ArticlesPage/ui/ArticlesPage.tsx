@@ -1,4 +1,6 @@
-import { memo, useCallback } from 'react';
+import {
+ MutableRefObject, memo, useCallback, useRef,
+} from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -17,7 +19,7 @@ import { SortOrder } from 'shared/types';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import {
-    getArticlesPageError, getArticlesPageIsLoading, getArticlesPageType, getArticlesPageView,
+    getArticlesPageError, getArticlesPageIsLoading, getArticlesPageLastIndex, getArticlesPageType, getArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { initArticlesPage } from '../model/services/initArticlesPage';
@@ -41,7 +43,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
     const type = useSelector(getArticlesPageType);
+    const lastIndex = useSelector(getArticlesPageLastIndex);
     const [searchParams] = useSearchParams();
+    const parentRef = useRef() as MutableRefObject<HTMLDivElement>;
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
@@ -86,9 +90,14 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         dispatch(fetchData);
     }, [dispatch, fetchData]);
 
+    // TODO: deal remember scroll position
+    const onSetLastIndex = useCallback((index: number) => {
+        dispatch(articlesPageActions.setLastIndex(index));
+    }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount={ false }>
-            <Page className={ classNames(cls.ArticlesPage, {}, [className]) }>
+            <Page className={ classNames(cls.ArticlesPage, {}, [className]) } parentRef={ parentRef }>
                 {
                   !error
                     ? (
@@ -110,6 +119,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                                           isLoading={ isLoading }
                                           view={ view }
                                           onScrollEnd={ onLoadNextPart }
+                                          parentRef={ parentRef }
+                                          lastIndex={ lastIndex }
+                                          setLastIndex={ onSetLastIndex }
                                         />
                                     )
                                     : <Text title={ t('No articles at the moment') } />

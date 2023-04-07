@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui';
+import { AppLink, Button } from 'shared/ui';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { getArticleDetailsData } from 'entities/Article';
 import { getCanEditArticle } from '../../model/selectors/article';
@@ -17,32 +17,29 @@ interface ArticleDetailsPageHeaderProps {
 export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
     const { className } = props;
     const { t } = useTranslation('article-details');
-    const navigate = useNavigate();
     const article = useSelector(getArticleDetailsData);
     const canEdit = useSelector(getCanEditArticle);
+    const navigate = useNavigate();
 
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+    const onClickBack = useCallback(() => {
+        navigate(-2);
     }, [navigate]);
-
-    const onEdit = useCallback(() => {
-        navigate(`${RoutePath.articleDetails}${article?.id}/edit`);
-    }, [article?.id, navigate]);
 
     return (
         <div className={ classNames(cls.ArticleDetailsPageHeader, {}, [className]) }>
-            <Button onClick={ onBackToList }>
-                { t('Back to articles list') }
-            </Button>
+            <AppLink to={ RoutePath.articles }>
+                <Button onClick={ onClickBack }>
+                    { t('Back to articles list') }
+                </Button>
+            </AppLink>
             {
                 canEdit
                     && (
-                        <Button
-                          onClick={ onEdit }
-                          colorType="success"
-                        >
-                            { t('Edit') }
-                        </Button>
+                        <AppLink to={ `${RoutePath.articleDetails}${article?.id}/edit` }>
+                            <Button colorType="success">
+                                { t('Edit') }
+                            </Button>
+                        </AppLink>
                     )
             }
         </div>

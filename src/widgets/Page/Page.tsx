@@ -16,24 +16,28 @@ import cls from './Page.module.scss';
 interface PageProps {
     className?: string,
     onScrollEnd?: () => void,
+    parentRef?: MutableRefObject<HTMLDivElement>,
 }
 
 export const Page = (props: PropsWithChildren<PageProps>) => {
-    const { className, children, onScrollEnd } = props;
-    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const {
+        className, children, onScrollEnd, parentRef,
+    } = props;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
     const scrollPosition = useSelector((state: StateSchema) => getScrollSavePositionByPath(state, pathname));
 
-    useInfiniteScroll({
-        callback: onScrollEnd,
-        triggerRef,
-        wrapperRef,
-    });
+    // useInfiniteScroll({
+    //     callback: onScrollEnd,
+    //     triggerRef,
+    //     wrapperRef: parentRef,
+    // });
 
     useInitialEffect(() => {
-        wrapperRef.current.scrollTop = scrollPosition;
+        if (parentRef) {
+            parentRef.current.scrollTo({ top: scrollPosition });
+        }
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
@@ -42,12 +46,12 @@ export const Page = (props: PropsWithChildren<PageProps>) => {
 
     return (
         <section
-          ref={ wrapperRef }
+          ref={ parentRef }
           className={ classNames(cls.Page, {}, [className]) }
           onScroll={ onScroll }
         >
             { children }
-            { onScrollEnd ? <div className={ cls.trigger } ref={ triggerRef } /> : null }
+            { /* { onScrollEnd ? <div className={ cls.trigger } ref={ triggerRef } /> : null } */ }
         </section>
     );
 };
