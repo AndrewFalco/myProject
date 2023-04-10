@@ -51,13 +51,13 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
-    useInitialEffect(() => {
-        dispatch(initArticlesPage(searchParams));
-    });
-
     const fetchData = useCallback(() => {
         dispatch(fetchArticlesList({ replace: true }));
     }, [dispatch]);
+
+    useInitialEffect(() => {
+        dispatch(initArticlesPage(searchParams));
+    });
 
     const debouncedFetchData = useDebounce(fetchData, 500);
 
@@ -90,7 +90,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         dispatch(fetchData);
     }, [dispatch, fetchData]);
 
-    // TODO: deal remember scroll position
     const onSetLastIndex = useCallback((index: number) => {
         dispatch(articlesPageActions.setLastIndex(index));
     }, [dispatch]);

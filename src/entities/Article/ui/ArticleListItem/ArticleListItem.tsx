@@ -78,7 +78,7 @@ export const ArticleListItem = (props: ArticleListProps) => {
                       target={ target }
                       to={ RoutePath.articleDetails + article.id }
                     >
-                        <Card>
+                        <Card onClick={ onSetLastIndex }>
                             <div className={ cls.imageWrapper }>
                                 <img src={ article.img } className={ cls.img } alt={ article.title } />
                                 <Text text={ new Date(article.createdAt).toLocaleDateString() } className={ cls.date } />

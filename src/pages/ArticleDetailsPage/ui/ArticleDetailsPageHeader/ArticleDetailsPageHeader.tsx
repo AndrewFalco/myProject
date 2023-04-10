@@ -1,5 +1,3 @@
-import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -19,16 +17,11 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
     const { t } = useTranslation('article-details');
     const article = useSelector(getArticleDetailsData);
     const canEdit = useSelector(getCanEditArticle);
-    const navigate = useNavigate();
-
-    const onClickBack = useCallback(() => {
-        navigate(-2);
-    }, [navigate]);
 
     return (
         <div className={ classNames(cls.ArticleDetailsPageHeader, {}, [className]) }>
             <AppLink to={ RoutePath.articles }>
-                <Button onClick={ onClickBack }>
+                <Button>
                     { t('Back to articles list') }
                 </Button>
             </AppLink>

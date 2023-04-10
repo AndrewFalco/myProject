@@ -1,5 +1,5 @@
 import {
-    MutableRefObject, ReactNode, useEffect, useRef,
+    MutableRefObject, ReactNode, useCallback, useEffect, useRef,
 } from 'react';
 import {
  Virtuoso, VirtuosoGrid, VirtuosoHandle,
@@ -28,19 +28,27 @@ export const Virtualize = <T, >(props: VirtualizeProps<T>) => {
 
     const ref = useRef<VirtuosoHandle>(null);
 
+    const timeoutScroll = useCallback(() => setTimeout(() => {
+            ref.current?.scrollToIndex({ index: lastIndex, align: 'center', behavior: 'auto' });
+        }, 100), [lastIndex]);
+
     useEffect(() => {
-        ref.current?.scrollToIndex({ index: lastIndex, align: 'center', behavior: 'auto' });
-    }, [lastIndex]);
+        timeoutScroll();
+
+        return () => {
+            clearTimeout(timeoutScroll());
+        };
+    }, [timeoutScroll]);
 
     return (
         view === 'LIST'
             ? (
                 <Virtuoso
                   className={ cls.Virtualize }
-                  ref={ ref }
                   data={ data }
                   itemContent={ (index, item) => (isLoading ? renderSkeleton?.(index) : renderNode(index, item)) }
                   endReached={ onScrollEnd }
+                  initialTopMostItemIndex={ lastIndex }
                   customScrollParent={ parentRef?.current }
                   useWindowScroll
                 />

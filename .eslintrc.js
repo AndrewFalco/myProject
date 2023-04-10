@@ -20,7 +20,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'falco-custom-fsd-plugin'],
     rules: {
         '@typescript-eslint/indent': 0,
         'react/jsx-indent': ['warn', 4],
@@ -71,6 +71,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
         'no-param-reassign': 'off',
+        'falco-custom-fsd-plugin/path-checker': 'error',
         'consistent-return': 'off',
         indent: 'off',
         'no-nested-ternary': 'off',
