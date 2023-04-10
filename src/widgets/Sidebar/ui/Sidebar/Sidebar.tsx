@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from './SidebarItem';

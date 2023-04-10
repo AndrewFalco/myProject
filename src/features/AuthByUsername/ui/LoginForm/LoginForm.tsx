@@ -1,9 +1,3 @@
-import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError';
-import { getLoginLoading } from 'features/AuthByUsername/model/selectors/getLoginLoading';
-import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLoginPassword';
-import { getLoginUsername } from 'features/AuthByUsername/model/selectors/getLoginUsername';
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
-import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import {
     memo, ReactElement, useCallback,
 } from 'react';
@@ -15,6 +9,12 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button } from 'shared/ui';
 import { Input } from 'shared/ui/Input/Input';
 import { Text } from 'shared/ui/Text/Text';
+import { getLoginError } from '../../model/selectors/getLoginError';
+import { getLoginLoading } from '../../model/selectors/getLoginLoading';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 
 import cls from './LoginForm.module.scss';
 

@@ -71,7 +71,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
         'no-param-reassign': 'off',
-        'falco-custom-fsd-plugin/path-checker': 'error',
+        'falco-custom-fsd-plugin/path-checker': 2,
         'consistent-return': 'off',
         indent: 'off',
         'no-nested-ternary': 'off',
