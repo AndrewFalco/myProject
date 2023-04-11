@@ -3,15 +3,12 @@
     height: calc(100vh - var(--navbar-height));
     background: var(--inverted-bg-color);
     position: relative;
-    transition: width 0.25s;
+    transition: width 0.3s;
     flex-shrink: 0;
 }
 
 .switchers {
-    display: flex;
     position: absolute;
-    align-items: center;
-    justify-content: center;
     bottom: 20px;
     width: 100%;
 }
@@ -23,21 +20,18 @@
 }
 
 .items {
-    display: flex;
-    flex-direction: column;
     margin-top: 50px;
     margin-left: 30px;
 }
 
 .item {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
+    width: calc(var(--sidebar-width) - 30px);
+    transition: 0.25s display;
 }
 
 .link {
     margin-left: 10px;
-    opacity: 1;
+    animation: 0.5s show;
 }
 
 .lang {
@@ -46,6 +40,7 @@
 
 .icon {
     fill: var(--inverted-primary-color);
+    height: var(--font-size-l);
 }
 
 .collapsed {
@@ -56,6 +51,7 @@
     }
 
     .link {
+        display: none;
         opacity: 0;
         transition: 0.25s opacity;
         width: 0;
@@ -65,4 +61,14 @@
     .lang {
         margin-left: 0;
     }
+
+    .item {
+        width: calc(var(--sidebar-width-collapsed) - 30px);
+        transition: 0.2s width;
+    }
+}
+
+@keyframes show {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

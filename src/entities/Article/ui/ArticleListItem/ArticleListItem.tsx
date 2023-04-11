@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    AppLink, Avatar, Button, Card, Icon, Text,
+    AppLink, Avatar, Button, Card, HStack, Icon, Text,
 } from 'shared/ui';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { HTMLAttributeAnchorTarget, useCallback, useMemo } from 'react';
@@ -27,10 +27,10 @@ export const ArticleListItem = (props: ArticleListProps) => {
 
     const types = useMemo(() => <Text text={ article.type.join(', ') } className={ cls.types } />, [article.type]);
     const views = useMemo(() => (
-        <div className={ cls.viewsBlock }>
+        <HStack justify="between" gap="8">
             <Text text={ String(article.views) } className={ cls.views } />
             <Icon Svg={ EyeIcon } />
-        </div>
+        </HStack>
     ), [article.views]);
 
     const textBlock = article.blocks.find((block) => block.type === 'TEXT') as ArticleTextBlockType;
@@ -45,22 +45,22 @@ export const ArticleListItem = (props: ArticleListProps) => {
               view === 'LIST'
                 ? (
                     <Card className={ cls.cardListWrapper }>
-                        <div className={ cls.header }>
-                            <div className={ cls.userInfo }>
+                        <HStack justify="between">
+                            <HStack gap="8" className={ cls.userInfo }>
                                 <Avatar src={ article.user.avatar } size={ 30 } />
-                                <Text text={ article.user.username } className={ cls.username } />
-                            </div>
+                                <Text text={ article.user.username } />
+                            </HStack>
                             <Text text={ new Date(article.createdAt).toLocaleDateString() } className={ cls.date } />
-                        </div>
+                        </HStack>
                         <Text title={ article.title } className={ cls.title } />
                         { types }
                         <img src={ article.img } className={ cls.img } alt={ article.title } />
                         {
                           textBlock && (
-                              <ArticleTextBlock block={ textBlock } className={ cls.paragraph } />
+                              <ArticleTextBlock block={ textBlock } />
                           )
                         }
-                        <div className={ cls.footer }>
+                        <HStack justify="between">
                             <AppLink
                               target={ target }
                               to={ RoutePath.articleDetails + article.id }
@@ -70,7 +70,7 @@ export const ArticleListItem = (props: ArticleListProps) => {
                                 </Button>
                             </AppLink>
                             { views }
-                        </div>
+                        </HStack>
                     </Card>
                 )
                 : (
@@ -83,10 +83,10 @@ export const ArticleListItem = (props: ArticleListProps) => {
                                 <img src={ article.img } className={ cls.img } alt={ article.title } />
                                 <Text text={ new Date(article.createdAt).toLocaleDateString() } className={ cls.date } />
                             </div>
-                            <div className={ cls.infoWrapper }>
+                            <HStack justify="between">
                                 { types }
                                 { views }
-                            </div>
+                            </HStack>
                             <Text text={ article.title } className={ cls.title } />
                         </Card>
                     </AppLink>

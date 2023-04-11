@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 import { SidebarListProps } from '../../model/types/sidebar';
 
 import cls from './Sidebar.module.scss';
@@ -28,8 +29,10 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
               theme="secondary"
               className={ classNames(cls.item, { [cls.collapsed]: collapsed }) }
             >
-                <item.Icon className={ cls.icon } />
-                <span className={ cls.link }>{ t(item.name) }</span>
+                <HStack>
+                    <item.Icon className={ cls.icon } />
+                    <span className={ cls.link }>{ t(item.name) }</span>
+                </HStack>
             </AppLink>
         )
     );

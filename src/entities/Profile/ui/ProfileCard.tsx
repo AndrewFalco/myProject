@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Loader, Text, Avatar } from 'shared/ui';
 import { Input } from 'shared/ui/Input/Input';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { ProfileError, ProfileType } from '../model/types/profile';
 
 import cls from './ProfileCard.module.scss';
@@ -72,21 +73,19 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         />
                       )
                     : (
-                        <div>
+                        <VStack gap="4">
                             <div className={ classNames(cls.avatarWrapper) }>
                                 <Avatar src={ data?.avatar } sex={ data?.sex } />
                             </div>
                             <Input
                               name={ t('Avatar') }
                               value={ data?.avatar || '' }
-                              className={ cls.input }
                               readOnly={ readOnly }
                               onChange={ onChangeAvatar }
                             />
                             <Input
                               name={ t('First name') }
                               value={ data?.firstName || '' }
-                              className={ cls.input }
                               readOnly={ readOnly }
                               onChange={ onChangeFirstName }
                               required
@@ -95,7 +94,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
                             <Input
                               name={ t('Last name') }
                               value={ data?.lastName || '' }
-                              className={ cls.input }
                               readOnly={ readOnly }
                               onChange={ onChangeLastName }
                               required
@@ -104,49 +102,42 @@ export const ProfileCard = (props: ProfileCardProps) => {
                             <Input
                               name={ t('User name') }
                               value={ data?.username }
-                              className={ cls.input }
                               readOnly={ readOnly }
                               onChange={ onChangeUsername }
                             />
                             <Input
                               name={ t('Sex') }
                               value={ data?.sex }
-                              className={ cls.input }
                               readOnly={ readOnly }
                               onChange={ onChangeSex }
                             />
                             <Input
                               name={ t('Age') }
                               value={ data?.age }
-                              className={ cls.input }
                               readOnly={ readOnly }
                               onChange={ onChangeAge }
                               type="number"
                             />
                             <CountrySelect
                               value={ data?.country }
-                              className={ cls.input }
                               readonly={ readOnly }
                               onChange={ onChangeCountry }
                             />
                             <Input
                               name={ t('City') }
                               value={ data?.city }
-                              className={ cls.input }
                               readOnly={ readOnly }
                               onChange={ onChangeCity }
                             />
                             <Input
                               name={ t('Phone') }
                               value={ data?.phone }
-                              className={ cls.input }
                               readOnly={ readOnly }
                               onChange={ onChangePhone }
                             />
                             <Input
                               name={ t('Email') }
                               value={ data?.email }
-                              className={ cls.input }
                               readOnly={ readOnly }
                               onChange={ onChangeEmail }
                             />
@@ -154,9 +145,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                               value={ data?.currency }
                               onChange={ onChangeCurrency }
                               readonly={ readOnly }
-                              className={ cls.input }
                             />
-                        </div>
+                        </VStack>
                       )
                 )
             }

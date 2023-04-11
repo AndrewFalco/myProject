@@ -4,7 +4,6 @@ import {
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleList, ArticleView } from 'entities/Article';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -26,16 +25,11 @@ import { initArticlesPage } from '../model/services/initArticlesPage';
 import { fetchArticlesList } from '../model/services/fetchArticlesList';
 import cls from './ArticlesPage.module.scss';
 
-interface ArticlesPageProps {
-    className?: string,
-}
-
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
 };
 
-const ArticlesPage = (props: ArticlesPageProps) => {
-    const { className } = props;
+const ArticlesPage = () => {
     const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
@@ -96,7 +90,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount={ false }>
-            <Page className={ classNames(cls.ArticlesPage, {}, [className]) } parentRef={ parentRef }>
+            <Page parentRef={ parentRef }>
                 {
                   !error
                     ? (

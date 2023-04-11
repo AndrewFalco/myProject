@@ -1,12 +1,11 @@
 import {
  HTMLAttributeAnchorTarget, MutableRefObject, useCallback,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Virtualize } from 'shared/ui/Virtualize/Virtualize';
+import { HStack } from 'shared/ui';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
     className?: string,
@@ -41,7 +40,7 @@ export const ArticleList = (props: ArticleListProps) => {
     const renderSkeleton = useCallback((index: number) => (<ArticleListItemSkeleton view={ view } key={ index } />), [view]);
 
     return (
-        <div className={ classNames(cls.ArticleList, {}, [className]) }>
+        <HStack wrap="wrap" gap="16" className={ className }>
             {
                 withVirtualized
                     ? (
@@ -71,6 +70,6 @@ export const ArticleList = (props: ArticleListProps) => {
                         </>
                 )
             }
-        </div>
+        </HStack>
     );
 };

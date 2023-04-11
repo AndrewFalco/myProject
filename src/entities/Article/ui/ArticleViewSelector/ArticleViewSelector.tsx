@@ -2,13 +2,12 @@ import { ReactElement, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import ListViewIcon from 'shared/assets/icons/list.svg';
 import GridViewIcon from 'shared/assets/icons/tiled.svg';
-import { Button, Icon } from 'shared/ui';
+import { Button, HStack, Icon } from 'shared/ui';
 import { ArticleView } from '../../model/types/article';
 
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
-    className?: string,
     view: ArticleView,
     onViewClick?: (newView: ArticleView) => void,
 }
@@ -30,14 +29,14 @@ const viewSelectors: viewSelectorsType[] = [
 ];
 
 export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
-    const { className, view, onViewClick } = props;
+    const { view, onViewClick } = props;
 
     const onCLickBtn = useCallback((newView: ArticleView) => () => {
             onViewClick?.(newView);
         }, [onViewClick]);
 
     return (
-        <div className={ classNames(cls.ArticleViewSelector, {}, [className]) }>
+        <HStack gap="8" justify="end">
             { viewSelectors.map((viewType) => (
                 <Button
                   key={ viewType.view }
@@ -48,6 +47,6 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                     { viewType.icon }
                 </Button>
             )) }
-        </div>
+        </HStack>
     );
 };

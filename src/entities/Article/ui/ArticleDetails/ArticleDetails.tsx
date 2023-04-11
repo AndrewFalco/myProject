@@ -2,9 +2,8 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
-import { Text, Skeleton } from 'shared/ui';
+import { Text, Skeleton, VStack } from 'shared/ui';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
@@ -15,7 +14,6 @@ import { ArticleDetailsContent } from './ArticleDetailsContent';
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
-    className?: string,
     articleId: string;
 }
 
@@ -24,7 +22,7 @@ const reducers: ReducersList = {
 };
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
-    const { className, articleId } = props;
+    const { articleId } = props;
     const { t } = useTranslation('article-details');
     const dispatch = useAppDispatch();
     const data = useSelector(getArticleDetailsData);
@@ -35,17 +33,17 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <div className={ classNames(cls.ArticleDetails, {}, [className]) }>
+            <VStack max grow gap="8">
                 {
                     isLoading
                     ? (
-                        <div className={ cls.skeletonsWrapper }>
-                            <Skeleton className={ cls.avatar } width={ 200 } height={ 200 } borderRadius="50%" />
+                        <VStack gap="16" max grow>
+                            <Skeleton width="100%" height={ 200 } />
                             <Skeleton className={ cls.title } width={ 300 } height={ 24 } />
-                            <Skeleton className={ cls.skeleton } width={ 600 } height={ 24 } />
-                            <Skeleton className={ cls.skeleton } width="100%" height={ 200 } />
-                            <Skeleton className={ cls.skeleton } width="100%" height={ 200 } />
-                        </div>
+                            <Skeleton width="100%" height={ 24 } />
+                            <Skeleton width="100%" height={ 200 } />
+                            <Skeleton width="100%" height={ 200 } />
+                        </VStack>
                     )
                     : (
                         error || !data
@@ -59,7 +57,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                             : <ArticleDetailsContent data={ data } />
                     )
                 }
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });

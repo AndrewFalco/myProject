@@ -1,9 +1,10 @@
 .LoginForm {
-    display: flex;
-    flex-direction: column;
     width: 400px;
-    gap: 8px;
-    flex-grow: 1;
-    align-items: center;
+}
+
+.commonWrapper {
+    display: flex;
+    width: 100%;
     justify-content: center;
+    align-items: center;
 }

@@ -37,11 +37,6 @@
         object-fit: contain;
     }
 
-    .infoWrapper {
-        display: flex;
-        align-items: center;
-    }
-
     .types p {
         width: 115px;
         white-space: nowrap;
@@ -76,44 +71,12 @@
 .LIST {
     width: 100%;
 
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 8px;
-    }
-
     .userInfo {
-        display: flex;
-        gap: 8px;
-        align-items: center;
         cursor: pointer;
 
         &:hover {
             opacity: 0.8;
         }
-    }
-
-    .footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 16px;
-    }
-
-    .viewsBlock {
-        display: flex;
-        margin-left: auto;
-        gap: 8px;
-        align-items: center;
-    }
-
-    .username {
-        margin-left: 8px;
-    }
-
-    .title {
-        margin-top: 8px;
     }
 
     .img {
@@ -129,6 +92,9 @@
     }
 
     .cardListWrapper {
+        display: flex;
+        flex-direction: column;
         margin: 16px 0;
+        gap: 8px;
     }
 }

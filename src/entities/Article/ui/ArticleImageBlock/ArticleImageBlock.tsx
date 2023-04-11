@@ -1,21 +1,19 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui';
+import { HStack, Text } from 'shared/ui';
 import { ArticleImageBlockType } from '../../model/types/article';
 import cls from './ArticleImageBlock.module.scss';
 
 interface ArticleImageBlockProps {
-    className?: string,
     block: ArticleImageBlockType,
 }
 
 export const ArticleImageBlock = memo((props: ArticleImageBlockProps) => {
-    const { className, block } = props;
+    const { block } = props;
 
     return (
-        <div className={ classNames(cls.ArticleImageBlock, {}, [className]) }>
+        <HStack max justify="center">
             <img src={ block.img } alt={ block.title } className={ cls.img } />
             { block.title && <Text text={ block.title } align="center" /> }
-        </div>
+        </HStack>
     );
 });

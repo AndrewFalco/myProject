@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button } from 'shared/ui';
+import { Button, VStack } from 'shared/ui';
 import { Input } from 'shared/ui/Input/Input';
 import { Text } from 'shared/ui/Text/Text';
 import { getLoginError } from '../../model/selectors/getLoginError';
@@ -54,8 +54,8 @@ const LoginForm = memo((props: LoginFormProps): ReactElement => {
 
     return (
         <DynamicModuleLoader reducers={ initialReducers }>
-            <div className={ classNames(cls.LoginForm, {}, [className]) }>
-                <Text title={ t('Autorized form') } />
+            <VStack gap="8" justify="center" grow className={ classNames(cls.LoginForm, {}, [className]) } max>
+                <Text title={ t('Autorized form') } className={ cls.commonWrapper } />
                 { error && <Text theme="error" text={ t(error) } /> }
                 <Input
                   id="auth_username"
@@ -76,10 +76,11 @@ const LoginForm = memo((props: LoginFormProps): ReactElement => {
                   theme="outline"
                   onClick={ onLoginClick }
                   disabled={ isLoading }
+                  className={ cls.commonWrapper }
                 >
                     { t('Login') }
                 </Button>
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });

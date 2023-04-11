@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Card, Input, Tabs } from 'shared/ui';
-import { classNames } from 'shared/lib/classNames/classNames';
+import {
+ Card, HStack, Input, Tabs, VStack,
+} from 'shared/ui';
 import { SortOrder } from 'shared/types';
 import { ArticleSortSelector, ArticleView, ArticleViewSelector } from 'entities/Article';
 import { TabItem } from 'shared/ui/Tabs/Tabs';
@@ -13,7 +14,6 @@ import { ArticleSortField } from '../model/types/articleSort';
 import cls from './ArticleSort.module.scss';
 
 interface ArticleSortProps {
-    className?: string,
     view: ArticleView,
     typeValue: ArticleType,
     onChangeView: (view: ArticleView) => void,
@@ -25,7 +25,7 @@ interface ArticleSortProps {
 
 export const ArticleSort = (props: ArticleSortProps) => {
     const {
-        className, onChangeOrder, onChangeSearch, onChangeSort,
+        onChangeOrder, onChangeSearch, onChangeSort,
         onChangeView, view, typeValue, onChangeType,
     } = props;
     const { t } = useTranslation();
@@ -61,9 +61,9 @@ export const ArticleSort = (props: ArticleSortProps) => {
     ], [t]);
 
     return (
-        <div className={ classNames(cls.ArticleSort, {}, [className]) }>
-            <div className={ cls.sortWrapper }>
-                <div className={ cls.searchWrapper }>
+        <VStack className={ cls.sortWrapper }>
+            <HStack justify="between" gap="8" max>
+                <HStack justify="between" grow>
                     <ArticleSortSelector
                       orderValue={ order }
                       sortValue={ sort }
@@ -78,19 +78,18 @@ export const ArticleSort = (props: ArticleSortProps) => {
                           value={ search }
                         />
                     </Card>
-                </div>
+                </HStack>
                 <ArticleViewSelector
                   view={ view }
                   onViewClick={ onChangeView }
-                  className={ cls.viewSelectors }
                 />
-            </div>
+            </HStack>
             <Tabs
               tabs={ typeTabs }
               value={ typeValue }
               onTabClick={ onChangeType }
               className={ cls.tabs }
             />
-        </div>
+        </VStack>
     );
 };

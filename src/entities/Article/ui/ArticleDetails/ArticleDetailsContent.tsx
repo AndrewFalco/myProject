@@ -1,5 +1,7 @@
 import { memo, useCallback } from 'react';
-import { Avatar, Icon, Text } from 'shared/ui';
+import {
+ Avatar, HStack, Icon, Text,
+} from 'shared/ui';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { Article, ArticleBlock } from '../../model/types/article';
@@ -18,38 +20,38 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
             case 'CODE':
-                return <ArticleCodeBlock key={ block.id } className={ cls.block } block={ block } />;
+                return <ArticleCodeBlock key={ block.id } block={ block } />;
             case 'IMAGE':
-                return <ArticleImageBlock key={ block.id } className={ cls.block } block={ block } />;
+                return <ArticleImageBlock key={ block.id } block={ block } />;
             case 'TEXT':
-                return <ArticleTextBlock key={ block.id } className={ cls.block } block={ block } />;
+                return <ArticleTextBlock key={ block.id } block={ block } />;
             default: return null;
         }
     }, []);
 
     return (
         <>
-            <div className={ cls.avatarWrapper }>
+            <HStack max grow justify="center">
                 <Avatar
                   size={ 200 }
                   src={ data.img }
                   className={ cls.avatar }
                 />
-            </div>
+            </HStack>
             <Text
               className={ cls.title }
               title={ data.title }
               text={ data.subtitle }
               size="size_l"
             />
-            <div className={ cls.articleInfo }>
+            <HStack gap="8">
                 <Icon Svg={ EyeIcon } className={ cls.icon } />
                 <Text text={ String(data.views) } />
-            </div>
-            <div className={ cls.articleInfo }>
+            </HStack>
+            <HStack gap="8">
                 <Icon Svg={ CalendarIcon } className={ cls.icon } />
                 <Text text={ new Date(data.createdAt).toLocaleDateString() } />
-            </div>
+            </HStack>
             {
                 data.blocks.map(renderBlock)
             }
