@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import {
     FlexJustify, FlexAlign, FlexPosition, FlexDirection, FlexGap, FlexWrap,
@@ -6,7 +6,9 @@ import {
 import { classes } from './styles/Flex.classes';
 import cls from './styles/Flex.module.scss';
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+export interface FlexProps extends DivProps{
     className?: string,
     justify?: FlexJustify,
     align?: FlexAlign,
