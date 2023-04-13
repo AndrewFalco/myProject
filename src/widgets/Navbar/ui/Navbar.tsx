@@ -7,8 +7,11 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, Button, Text } from 'shared/ui';
+import {
+ AppLink, Avatar, Button, HStack, Text,
+} from 'shared/ui';
 
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -38,7 +41,7 @@ const NavbarComponent: FC<NavbarProps> = (props) => {
 
     return (
         <header className={ classNames(cls.Navbar, {}, [className]) }>
-            <div className={ cls.links }>
+            <HStack justify="between" grow>
                 <div className={ cls.controls }>
                     <Text title="FF" className={ cls.appName } />
                     <AppLink
@@ -48,10 +51,32 @@ const NavbarComponent: FC<NavbarProps> = (props) => {
                         { t('Create new article') }
                     </AppLink>
                 </div>
-                <Button theme="clear" onClick={ authData ? onLogout : openModal }>
-                    { authData ? t('Logout') : t('Login') }
-                </Button>
-            </div>
+                {
+                    authData
+                        ? (
+                            <Dropdown
+                              items={ [
+                                    {
+                                        content: t('Profile'),
+                                        href: RoutePath.profile + authData.id,
+                                    },
+                                    {
+                                        content: t('Logout'),
+                                        onClick: onLogout,
+                                    },
+                                ] }
+                              trigger={ <Avatar src={ authData.avatar } size={ 30 } /> }
+                              className={ cls.dropdown }
+                              direction="bottom left"
+                            />
+                        )
+                        : (
+                            <Button theme="clear" onClick={ openModal }>
+                                { t('Login') }
+                            </Button>
+                        )
+                }
+            </HStack>
             { !authData && <LoginModal isOpen={ isAuthModal } onClose={ closeModal } /> }
         </header>
     );

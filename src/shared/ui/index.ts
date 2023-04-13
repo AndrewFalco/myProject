@@ -5,6 +5,7 @@ import { Card } from './Card/Card';
 import { Code } from './Code/Code';
 import { Icon } from './Icon/Icon';
 import { Input } from './Input/Input';
+import { ListBox } from './ListBox/ListBox';
 import { Loader } from './Loader';
 import { Modal } from './Modal/Modal';
 import { Portal } from './Portal/Portal';
@@ -32,4 +33,5 @@ export {
     Tabs,
     HStack,
     VStack,
+    ListBox,
 };
