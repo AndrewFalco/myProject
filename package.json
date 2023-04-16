@@ -22,7 +22,8 @@
     "visual:report:json": "node scripts/generate-visual-json-report.js",
     "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "visual:report": "npm-run-all visual:report:*",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "keywords": [],
   "author": "",

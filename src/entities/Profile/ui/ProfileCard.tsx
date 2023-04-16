@@ -120,8 +120,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                             />
                             <CountrySelect
                               value={ data?.country }
-                              readonly={ readOnly }
                               onChange={ onChangeCountry }
+                              readonly={ readOnly }
                             />
                             <Input
                               name={ t('City') }

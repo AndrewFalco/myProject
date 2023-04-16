@@ -1,11 +1,6 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
 import { Sex } from 'shared/consts/common';
-
-export type ProfileError = {
-    key: string,
-    text: string,
-}
+import { Country } from '../../../Country';
+import { Currency } from '../../../Currency';
 
 export interface ProfileType {
     id?: string;
@@ -22,10 +17,7 @@ export interface ProfileType {
     sex?: Sex;
 }
 
-export interface ProfileSchema {
-    data?: ProfileType;
-    form?: ProfileType;
-    isLoading?: boolean;
-    error?: ProfileError[];
-    readonly: boolean;
+export type ProfileError = {
+    key: string,
+    text: string,
 }

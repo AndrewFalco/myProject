@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ProfileType } from '../../../../../entities/Profile/model/types/profile';
+import { ProfileType } from 'entities/Profile';
 
 export const fetchProfileData = createAsyncThunk<ProfileType, string, ThunkConfig<string>>(
-    'profile/fetchProfileData',
+    'feature/fetchProfileData',
     async (profileId, restAPI) => {
         const { extra, rejectWithValue } = restAPI;
 

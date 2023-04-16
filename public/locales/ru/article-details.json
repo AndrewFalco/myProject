@@ -4,5 +4,8 @@
   "Error with comments loading": "Ошибка загрузки комментариев",
   "Error with fetching article details": "Ошибка при загрузке данных статьи",
   "Back to articles list": "Вернуться к списку статей",
-  "Recommendations": "Рекомендации"
+  "Recommendations": "Рекомендации",
+  "Edit": "Редактировать",
+  "Save": "Сохранить",
+  "Cancel": "Отмена"
 }

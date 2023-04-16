@@ -14,7 +14,7 @@ import { ArticleDetailsContent } from './ArticleDetailsContent';
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
-    articleId: string;
+    articleId?: string;
 }
 
 const reducers: ReducersList = {
@@ -29,11 +29,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const error = useSelector(getArticleDetailsError);
     const isLoading = useSelector(getArticleDetailsIsLoading);
 
-    useInitialEffect(() => dispatch(fetchArticleById(articleId)));
+    useInitialEffect(() => articleId && dispatch(fetchArticleById(articleId)));
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <VStack max grow gap="8">
+            <VStack max grow gap="8" className={ cls.wrapper }>
                 {
                     isLoading
                     ? (

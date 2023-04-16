@@ -1,4 +1,4 @@
-import { ProfileSchema } from 'entities/Profile';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
 import { profileActions, profileReducer } from './profileSlice';
 
 describe('profileSlice.test', () => {

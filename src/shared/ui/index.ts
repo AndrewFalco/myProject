@@ -3,6 +3,7 @@ import { Avatar } from './Avatar/Avatar';
 import { Button } from './Button';
 import { Card } from './Card/Card';
 import { Code } from './Code/Code';
+import { Dropdown } from './Dropdown/Dropdown';
 import { Icon } from './Icon/Icon';
 import { Input } from './Input/Input';
 import { ListBox } from './ListBox/ListBox';
@@ -34,4 +35,5 @@ export {
     HStack,
     VStack,
     ListBox,
+    Dropdown,
 };

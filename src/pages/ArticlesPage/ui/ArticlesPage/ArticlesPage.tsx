@@ -16,14 +16,13 @@ import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/consts';
 import { TabItem } from 'shared/ui/Tabs/Tabs';
 import { SortOrder } from 'shared/types';
 import { ArticleType } from 'entities/Article/model/types/article';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
+import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import {
     getArticlesPageError, getArticlesPageIsLoading, getArticlesPageLastIndex, getArticlesPageType, getArticlesPageView,
-} from '../model/selectors/articlesPageSelectors';
-import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
-import { initArticlesPage } from '../model/services/initArticlesPage';
-import { fetchArticlesList } from '../model/services/fetchArticlesList';
-import cls from './ArticlesPage.module.scss';
+} from '../../model/selectors/articlesPageSelectors';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList';
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
@@ -90,42 +89,33 @@ const ArticlesPage = () => {
 
     return (
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount={ false }>
-            <Page parentRef={ parentRef }>
+            <Page
+              parentRef={ parentRef }
+              error={ error ? t(error || 'Error with articles loading') : undefined }
+            >
+                <ArticleSort
+                  onChangeView={ onChangeView }
+                  onChangeSort={ onChangeSort }
+                  onChangeOrder={ onChangeOrder }
+                  onChangeSearch={ onChangeSearch }
+                  onChangeType={ onChangeType }
+                  view={ view }
+                  typeValue={ type }
+                />
                 {
-                  !error
-                    ? (
-                        <>
-                            <ArticleSort
-                              onChangeView={ onChangeView }
-                              onChangeSort={ onChangeSort }
-                              onChangeOrder={ onChangeOrder }
-                              onChangeSearch={ onChangeSearch }
-                              onChangeType={ onChangeType }
+                    articles.length || isLoading
+                        ? (
+                            <ArticleList
+                              articles={ articles }
+                              isLoading={ isLoading }
                               view={ view }
-                              typeValue={ type }
+                              onScrollEnd={ onLoadNextPart }
+                              parentRef={ parentRef }
+                              lastIndex={ lastIndex }
+                              setLastIndex={ onSetLastIndex }
                             />
-                            {
-                                articles.length || isLoading
-                                    ? (
-                                        <ArticleList
-                                          articles={ articles }
-                                          isLoading={ isLoading }
-                                          view={ view }
-                                          onScrollEnd={ onLoadNextPart }
-                                          parentRef={ parentRef }
-                                          lastIndex={ lastIndex }
-                                          setLastIndex={ onSetLastIndex }
-                                        />
-                                    )
-                                    : <Text title={ t('No articles at the moment') } />
-                            }
-                        </>
-                    )
-                    : (
-                        <div className={ cls.error }>
-                            <Text title={ t(error || 'Error with articles loading') } theme="error" />
-                        </div>
-                    )
+                        )
+                        : <Text title={ t('No articles at the moment') } />
                 }
             </Page>
         </DynamicModuleLoader>

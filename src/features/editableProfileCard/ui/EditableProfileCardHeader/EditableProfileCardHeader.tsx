@@ -7,20 +7,20 @@ import { Button, Text, HStack } from 'shared/ui';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getReadonly } from '../../model/selectors/getReadonly/getReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import { profileActions } from '../../model/slice/profileSlice';
+import { profileActions } from '../../model/slices/profileSlice';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 
-interface ProfilePageHeaderProps {
-    hasFormError?: boolean,
-    isLoading?: boolean,
-}
-
-export const ProfilePageHeader = memo((props: ProfilePageHeaderProps) => {
-    const { hasFormError, isLoading } = props;
+export const EditableProfileCardHeader = memo(() => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const readonly = useSelector(getReadonly);
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
+    const error = useSelector(getProfileError);
+    const isLoading = useSelector(getProfileIsLoading);
+
+    const hasError = useMemo(() => !!error?.length, [error]);
 
     const onEditMode = useCallback(() => {
         dispatch(profileActions.setReadonly(!readonly));
@@ -37,14 +37,14 @@ export const ProfilePageHeader = memo((props: ProfilePageHeaderProps) => {
     const isEqualUserProfile = useMemo(() => profileData?.id === authData?.id, [authData?.id, profileData?.id]);
 
     return (
-        <HStack justify="between">
+        <HStack justify="between" max>
             <Text title={ t('Profile card') } />
             { isEqualUserProfile && (
             <HStack>
                 {
                   readonly
                     ? (
-                        !(hasFormError || isLoading) && (
+                        !(hasError || isLoading) && (
                             <Button
                               theme="outline"
                               onClick={ onEditMode }
@@ -59,7 +59,7 @@ export const ProfilePageHeader = memo((props: ProfilePageHeaderProps) => {
                               theme="outline"
                               colorType="success"
                               onClick={ onSave }
-                              disabled={ hasFormError }
+                              disabled={ hasError }
                             >
                                 { t('Save') }
                             </Button>

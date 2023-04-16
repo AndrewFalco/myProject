@@ -8,10 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
- AppLink, Avatar, Button, HStack, Text,
+    AppLink, Avatar, Button, HStack, Text, Dropdown,
 } from 'shared/ui';
 
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

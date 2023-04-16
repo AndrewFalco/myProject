@@ -4,8 +4,8 @@ import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
+import { profileReducer } from 'features/editableProfileCard';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
-import { profileReducer } from 'pages/ProfilePage';
 import { ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducer: ReducersList = {

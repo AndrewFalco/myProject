@@ -4,6 +4,7 @@ import {
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text } from 'shared/ui';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useThrottle } from 'shared/lib/hooks/useThrottle';
 
@@ -12,11 +13,13 @@ import cls from './Page.module.scss';
 interface PageProps {
     className?: string,
     parentRef?: MutableRefObject<HTMLDivElement>,
+    error?: string,
 }
 
+// TODO: add error props.
 export const Page = (props: PropsWithChildren<PageProps>) => {
     const {
-        className, children, parentRef,
+        className, children, parentRef, error,
     } = props;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
@@ -31,7 +34,11 @@ export const Page = (props: PropsWithChildren<PageProps>) => {
           className={ classNames(cls.Page, {}, [className]) }
           onScroll={ onScroll }
         >
-            { children }
+            {
+                !error
+                    ? children
+                    : <Text title={ error } theme="error" />
+            }
         </section>
     );
 };

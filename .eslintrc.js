@@ -49,6 +49,7 @@ module.exports = {
             },
         ],
         '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/function-component-definition': 'off',
