@@ -76,6 +76,7 @@ module.exports = {
         'consistent-return': 'off',
         indent: 'off',
         'no-nested-ternary': 'off',
+        'arrow-parens': 'off',
     },
     globals: {
         __IS_DEV__: true,

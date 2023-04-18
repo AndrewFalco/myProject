@@ -1,7 +1,10 @@
+export type UserRole = 'ADMIN' | 'USER' | 'MANAGER' | 'GUEST';
+
 export interface User {
     id: string;
     username: string;
     avatar?: string;
+    roles?: UserRole[];
 }
 
 export interface UserSchema {

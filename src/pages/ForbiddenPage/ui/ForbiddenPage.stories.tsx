@@ -1,0 +1,20 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import AdminPanelPage from './ForbiddenPage';
+
+export default {
+    title: 'pages/MainPage',
+    component: AdminPanelPage,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof AdminPanelPage>;
+
+const Template: ComponentStory<typeof AdminPanelPage> = () => <AdminPanelPage />;
+
+export const Light = Template.bind({});
+Light.args = {};
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator('app_dark_theme')];

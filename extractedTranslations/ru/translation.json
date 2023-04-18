@@ -1,6 +1,8 @@
 {
   "ALL": "ALL",
   "About page": "About page",
+  "Admin Panel Page": "Admin Panel Page",
+  "Admin profile": "Admin profile",
   "Age": "Age",
   "Article create page content": "Article create page content",
   "Article details page": "Article details page",
@@ -23,6 +25,7 @@
   "Error with comments loading": "Error with comments loading",
   "Error with loading": "Error with loading",
   "First name": "First name",
+  "Forbidden Page": "Forbidden Page",
   "GAMES": "GAMES",
   "Hi": "Hi",
   "IT": "IT",

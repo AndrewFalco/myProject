@@ -1,10 +1,10 @@
-import { getUserAuthData, userActions } from 'entities/User';
-import { LoginModal } from 'features/AuthByUsername';
 import {
     FC, memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, isResolvedRole, userActions } from 'entities/User';
+import { LoginModal } from 'features/AuthByUsername';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -22,6 +22,7 @@ const NavbarComponent: FC<NavbarProps> = (props) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const authData = useSelector(getUserAuthData);
+    const isAdminPanelAvailable = useSelector((state) => isResolvedRole(state, ['ADMIN', 'MANAGER']));
 
     const [isAuthModal, setIsAuthModal] = useState(false);
 
@@ -55,6 +56,10 @@ const NavbarComponent: FC<NavbarProps> = (props) => {
                         ? (
                             <Dropdown
                               items={ [
+                                    ...(isAdminPanelAvailable ? [{
+                                        content: t('Admin profile'),
+                                        href: RoutePath.adminPanel,
+                                    }] : []),
                                     {
                                         content: t('Profile'),
                                         href: RoutePath.profile + authData.id,

@@ -615,15 +615,28 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=826&t=st=1679243431~exp=1679244031~hmac=c7167f08130e6388351eac017a7d463aefcc6682ffde4f055d763c3a8a75e601"
     },
     {
       "id": "2",
       "username": "user",
       "password": "456",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://phonoteka.org/uploads/posts/2022-09/1663298531_14-phonoteka-org-p-mikasa-akkerman-art-pinterest-17.jpg"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "456",
+      "roles": [
+        "MANAGER"
+      ],
+      "avatar": "https://avatars.akamai.steamstatic.com/0b7721b547d14d88096c672da722b4767122a6b9_full.jpg"
     }
   ],
   "profile": [

@@ -19,8 +19,8 @@ const AppRoute = () => {
               key={ route.path }
               path={ route.path }
               element={ route.authOnly
-                        ? <RequireAuth>{ element }</RequireAuth>
-                        : element }
+                ? <RequireAuth>{ element }</RequireAuth>
+                : element }
             />
         );
     }, []);
