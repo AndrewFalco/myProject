@@ -90,6 +90,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                               onChange={ onChangeFirstName }
                               required
                               errorText={ error?.find((err) => err.key === 'firstName')?.text || undefined }
+                              data-testid="ProfileCard.firstName"
                             />
                             <Input
                               name={ t('Last name') }
@@ -98,6 +99,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                               onChange={ onChangeLastName }
                               required
                               errorText={ error?.find((err) => err.key === 'lastName')?.text || undefined }
+                              data-testid="ProfileCard.lastName"
                             />
                             <Input
                               name={ t('User name') }
