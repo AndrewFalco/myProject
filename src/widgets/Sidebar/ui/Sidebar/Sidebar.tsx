@@ -18,11 +18,16 @@ interface SidebarProps {
 
 export const Sidebar = memo((props: SidebarProps) => {
     const { className } = props;
-    const [collapsed, setCollapsed] = useState(false);
+    const defaultCollapsed: boolean = JSON.parse(localStorage.getItem('defaultCollapsed') || 'false');
+    const [collapsed, setCollapsed] = useState(defaultCollapsed);
     const sidebarItems = useSelector(getSidebarItems);
 
     const onToggle = useCallback((): void => {
-        setCollapsed((prev) => !prev);
+        setCollapsed((prev) => {
+            localStorage.setItem('defaultCollapsed', JSON.stringify(!prev));
+
+            return !prev;
+        });
     }, []);
 
     const itemsList = useMemo(() => sidebarItems.map((sbItem) => (

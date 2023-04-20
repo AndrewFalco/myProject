@@ -4,6 +4,7 @@ import {
 import {
  Virtuoso, VirtuosoGrid, VirtuosoHandle,
 } from 'react-virtuoso';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { ViewType } from '../../types';
 
 import cls from './Virtualize.module.scss';
@@ -44,7 +45,7 @@ export const Virtualize = <T, >(props: VirtualizeProps<T>) => {
         view === 'LIST'
             ? (
                 <Virtuoso
-                  className={ cls.Virtualize }
+                  className={ classNames(cls.Virtualize, {}, [className]) }
                   data={ data }
                   itemContent={ (index, item) => (isLoading ? renderSkeleton?.(index) : renderNode(index, item)) }
                   endReached={ onScrollEnd }
@@ -55,7 +56,7 @@ export const Virtualize = <T, >(props: VirtualizeProps<T>) => {
             )
             : (
                 <VirtuosoGrid
-                  className={ cls.Virtualize }
+                  className={ classNames(cls.Virtualize, {}, [className]) }
                   ref={ ref }
                   data={ data }
                   itemContent={ (index, item) => (isLoading ? renderSkeleton?.(index) : renderNode(index, item)) }

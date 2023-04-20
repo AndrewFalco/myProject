@@ -1,2 +1,2 @@
-export { ProfileType, ProfileError } from './model/types/profile';
+export type { ProfileType, ProfileError } from './model/types/profile';
 export { ProfileCard } from './ui/ProfileCard';
