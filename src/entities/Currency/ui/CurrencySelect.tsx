@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListBox } from 'shared/ui';
+import { DropdownDirection } from 'shared/types/ui';
 import { Currency } from '../Model/types/Currency';
 
 type CurrencySelectProps = {
@@ -8,6 +9,7 @@ type CurrencySelectProps = {
     value?: string;
     onChange?: (value: Currency) => void;
     readonly?: boolean;
+    direction?: DropdownDirection;
 }
 
 type CurrencyOptionType = {
@@ -25,7 +27,7 @@ const currencyOptions: CurrencyOptionType[] = [
 
 export const CurrencySelect = memo((props: CurrencySelectProps) => {
     const {
-        className, onChange, readonly, value,
+        className, onChange, readonly, value, direction = 'top right',
     } = props;
     const { t } = useTranslation();
 
@@ -38,11 +40,11 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
           items={ currencyOptions }
           value={ value }
           onChange={ onChangeHandler }
-          defaultValue={ t('Select currency') }
+          defaultValue={ t('Select currency') || undefined }
           readonly={ readonly }
           className={ className }
-          direction="top right"
-          label={ t('Select currency') }
+          direction={ direction }
+          label={ t('Select currency') || undefined }
         />
     );
 });

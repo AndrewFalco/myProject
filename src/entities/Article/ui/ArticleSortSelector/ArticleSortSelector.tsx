@@ -51,13 +51,13 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
     return (
         <div className={ classNames(cls.ArticleSortSelector, {}, [className]) }>
             <Select
-              label={ t('Order by') }
+              label={ t('Order by') || undefined }
               options={ orderOptions }
               value={ orderValue }
               onChange={ onChangeOrder }
             />
             <Select
-              label={ t('Sort by') }
+              label={ t('Sort by') || undefined }
               options={ sortFieldOptions }
               value={ sortValue }
               onChange={ onChangeSort }

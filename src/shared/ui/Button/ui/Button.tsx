@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, memo } from 'react';
+import { ButtonHTMLAttributes, memo } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -17,10 +17,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     size?: ButtonSize,
     disabled?: boolean,
     colorType?: ButtonType,
-    // 'data-testid'?: string,
 }
 
-export const ButtonComponent: FC<ButtonProps> = (props) => {
+export const ButtonComponent = (props: ButtonProps) => {
     const {
         children,
         className,
@@ -29,7 +28,6 @@ export const ButtonComponent: FC<ButtonProps> = (props) => {
         size = 'sizeM',
         disabled,
         colorType = 'primary',
-        // 'data-testid': dataTestId = 'Button',
         ...other
     } = props;
 
@@ -43,7 +41,6 @@ export const ButtonComponent: FC<ButtonProps> = (props) => {
           type="button"
           disabled={ disabled }
           className={ classNames(cls.Button, mods, [className, cls[theme], cls[size], cls[colorType]]) }
-        //   data-testid={ `${dataTestId}.Button` }
           { ...other }
         >
             { children }

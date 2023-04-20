@@ -1,23 +1,18 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import AddCommentForm from './AddCommentForm';
 
-export default {
+const meta = {
     title: 'features/AddCommentForm',
     component: AddCommentForm,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-    args: {},
-} as ComponentMeta<typeof AddCommentForm>;
+    argTypes: {},
+} satisfies Meta<typeof AddCommentForm>;
 
-const Template: ComponentStory<typeof AddCommentForm> = (args) => <AddCommentForm { ...args } />;
+export default meta;
+type Story = StoryObj<typeof AddCommentForm>;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Primary: Story = {};
+
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

@@ -1,23 +1,34 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { CommentCard } from './CommentCard';
 
-export default {
+const meta = {
     title: 'entities/CommentCard',
     component: CommentCard,
-    argTypes: {
-        backgroundColor: { control: 'color' },
+    argTypes: {},
+    args: {
+        comment: {
+            id: '1',
+            text: 'some comment',
+            articleId: '1',
+            user: {
+                id: '1',
+                username: 'admin',
+                roles: [
+                    'ADMIN',
+                ],
+                avatar: 'https://picsum.photos/200/300',
+                },
+            date: 'data text test example 123',
+        },
     },
-    args: {},
-} as ComponentMeta<typeof CommentCard>;
+} satisfies Meta<typeof CommentCard>;
 
-const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard { ...args } />;
+export default meta;
+type Story = StoryObj<typeof CommentCard>;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Primary: Story = {};
+
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

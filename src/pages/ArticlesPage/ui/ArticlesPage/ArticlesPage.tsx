@@ -91,7 +91,7 @@ const ArticlesPage = () => {
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount={ false }>
             <Page
               parentRef={ parentRef }
-              error={ error ? t(error || 'Error with articles loading') : undefined }
+              error={ (error && t(error || 'Error with articles loading')) || undefined }
             >
                 <ArticleSort
                   onChangeView={ onChangeView }

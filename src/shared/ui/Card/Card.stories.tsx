@@ -1,26 +1,26 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Card } from './Card';
 import { Text } from '../Text/Text';
 
-export default {
+const meta = {
     title: 'shared/Card',
     component: Card,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
     args: {},
-} as ComponentMeta<typeof Card>;
+} satisfies Meta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card { ...args } />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    children: <Text text="Some text" />,
+export const Primary: Story = {
+    args: {
+        children: <Text text="Some text" />,
+    },
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    children: <Text text="Some text" />,
+export const PrimaryDark: Story = {
+    args: {
+        children: <Text text="Some text" />,
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

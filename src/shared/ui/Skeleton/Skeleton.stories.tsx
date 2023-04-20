@@ -1,41 +1,43 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Skeleton } from './Skeleton';
 
-export default {
+const meta = {
     title: 'shared/Skeleton',
     component: Skeleton,
-    argTypes: {
-        backgroundColor: { control: 'color' },
+} satisfies Meta<typeof Skeleton>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {
+    args: {
+        width: 100,
+        height: 100,
     },
-} as ComponentMeta<typeof Skeleton>;
-
-const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton { ...args } />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-    width: 100,
-    height: 100,
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    width: 100,
-    height: 100,
-};
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];
-
-export const Round = Template.bind({});
-Round.args = {
-    borderRadius: '50%',
-    width: 100,
-    height: 100,
+export const PrimaryDark = {
+    args: {
+        width: 100,
+        height: 100,
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
 
-export const RoundDark = Template.bind({});
-RoundDark.args = {
-    borderRadius: '50%',
-    width: 100,
-    height: 100,
+export const Round = {
+    args: {
+        borderRadius: '50%',
+        width: 100,
+        height: 100,
+    },
 };
-RoundDark.decorators = [ThemeDecorator('app_dark_theme')];
+
+export const RoundDark = {
+    args: {
+        borderRadius: '50%',
+        width: 100,
+        height: 100,
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
+};

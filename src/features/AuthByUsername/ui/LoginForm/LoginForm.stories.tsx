@@ -1,48 +1,41 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import LoginForm from './LoginForm';
 
-export default {
-    title: 'feature/LoginForm',
+const meta = {
+    title: 'features/LoginForm',
     component: LoginForm,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof LoginForm>;
+    argTypes: {},
+} satisfies Meta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm { ...args } />;
+export default meta;
+type Story = StoryObj<typeof LoginForm>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-
+export const Primary: Story = {
+    decorators: [StoreDecorator({
+        loginForm: {
+            username: 'username',
+            password: 'password',
+        },
+    })],
 };
-Primary.decorators = [StoreDecorator({
-    loginForm: {
-        username: 'username',
-        password: 'password',
-    },
-})];
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme'), StoreDecorator({
+        loginForm: {
+            username: 'username',
+            password: 'password',
+        },
+    })],
 };
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme'), StoreDecorator({
-    loginForm: {
-        username: 'username',
-        password: 'password',
-    },
-})];
 
-export const Error = Template.bind({});
-Error.args = {
-
+export const Error: Story = {
+    decorators: [StoreDecorator({
+        loginForm: {
+            username: 'username',
+            password: 'password',
+            error: 'Invalid username or password',
+        },
+    })],
 };
-Error.decorators = [StoreDecorator({
-    loginForm: {
-        username: 'username',
-        password: 'password',
-        error: 'Invalid username or password',
-    },
-})];

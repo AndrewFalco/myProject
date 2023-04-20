@@ -1,21 +1,22 @@
 import {
-    FC, MouseEvent, useState, useRef, useEffect, useCallback,
+    MouseEvent, useState, useRef, useEffect, useCallback, ReactNode,
 } from 'react';
 import { classNames, Mods } from '../../lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 
 import cls from './Modal.module.scss';
 
-interface ModalProps {
+export interface ModalProps {
     className?: string,
     isOpen?: boolean,
     onClose?: () => void,
     lazy?: boolean,
+    children?: ReactNode,
 }
 
 const ANIMATION_DELAY = 300;
 
-export const Modal: FC<ModalProps> = (props) => {
+export const Modal = (props: ModalProps) => {
     const {
         className,
         children,

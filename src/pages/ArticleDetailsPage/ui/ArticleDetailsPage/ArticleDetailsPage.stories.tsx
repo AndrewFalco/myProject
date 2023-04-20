@@ -1,23 +1,20 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
-export default {
+// TODO: add mocks to rtk query for data
+
+const meta = {
     title: 'pages/ArticleDetailsPage',
     component: ArticleDetailsPage,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-    args: {},
-} as ComponentMeta<typeof ArticleDetailsPage>;
+    argTypes: {},
+} satisfies Meta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage { ...args } />;
+export default meta;
+type Story = StoryObj<typeof ArticleDetailsPage>;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Light: Story = {};
+
+export const Dark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

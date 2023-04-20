@@ -1,17 +1,15 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Select } from './Select';
 
-export default {
+const meta = {
     title: 'shared/Select',
     component: Select,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
     args: {},
-} as ComponentMeta<typeof Select>;
+} satisfies Meta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select { ...args } />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const options = [
     { value: 'value 1', content: 'content 1' },
@@ -21,17 +19,19 @@ const options = [
     { value: 'value 5', content: 'content 5' },
 ];
 
-export const Primary = Template.bind({});
-Primary.args = {
-    options,
-    value: options[0].value,
-    label: 'Select value',
+export const Primary: Story = {
+    args: {
+        options,
+        value: options[0].value,
+        label: 'Select value',
+    },
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    options,
-    value: options[0].value,
-    label: 'Select value',
+export const PrimaryDark: Story = {
+    args: {
+        options,
+        value: options[0].value,
+        label: 'Select value',
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

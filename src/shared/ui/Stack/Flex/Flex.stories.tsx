@@ -1,16 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Flex } from './Flex';
-
-export default {
-    title: 'shared/Flex',
-    component: Flex,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-    args: {},
-} as ComponentMeta<typeof Flex>;
 
 const mockChildren = (
     <>
@@ -22,15 +13,24 @@ const mockChildren = (
     </>
 );
 
-const Template: ComponentStory<typeof Flex> = (args) => <Flex { ...args } />;
+const meta = {
+    title: 'shared/Flex',
+    component: Flex,
+    args: {},
+} satisfies Meta<typeof Flex>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    children: mockChildren,
+export default meta;
+type Story = StoryObj<typeof Flex>;
+
+export const Primary: Story = {
+    args: {
+        children: mockChildren,
+    },
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    children: mockChildren,
+export const PrimaryDark: Story = {
+    args: {
+        children: mockChildren,
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

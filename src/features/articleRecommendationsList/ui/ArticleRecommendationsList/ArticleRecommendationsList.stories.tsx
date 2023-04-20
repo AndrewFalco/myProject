@@ -1,19 +1,18 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import { Meta, StoryObj } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
-export default {
+const meta = {
     title: 'features/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof ArticleRecommendationsList>;
+    argTypes: {},
+} satisfies Meta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList { ...args } />;
+export default meta;
+type Story = StoryObj<typeof ArticleRecommendationsList>;
 
-export const Normal = Template.bind({});
-Normal.args = {
+export const Primary: Story = {};
 
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme')],
 };

@@ -1,21 +1,19 @@
 /* eslint-disable i18next/no-literal-string */
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ListBox } from './ListBox';
 
-export default {
+const meta = {
     title: 'shared/ListBox',
     component: ListBox,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
     decorators: [
         (Story) => <div style={ { padding: 100 } }><Story /></div>,
     ],
     args: {},
-} as ComponentMeta<typeof ListBox>;
+} satisfies Meta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox { ...args } />;
+export default meta;
+type Story = StoryObj<typeof ListBox>;
 
 const mockData = [
     {
@@ -43,13 +41,15 @@ const mockData = [
     },
 ];
 
-export const Primary = Template.bind({});
-Primary.args = {
-    items: mockData,
+export const Primary: Story = {
+    args: {
+        items: mockData,
+    },
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    items: mockData,
+export const PrimaryDark: Story = {
+    args: {
+        items: mockData,
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

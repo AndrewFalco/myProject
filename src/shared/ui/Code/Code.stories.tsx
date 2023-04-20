@@ -1,20 +1,18 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Code } from './Code';
 
-export default {
-    title: 'shared/Code',
-    component: Code,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-    args: {},
-} as ComponentMeta<typeof Code>;
+const meta = {
+  title: 'shared/Card',
+  component: Code,
+  args: {},
+} satisfies Meta<typeof Code>;
 
-const Template: ComponentStory<typeof Code> = (args) => <Code { ...args } />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Primary: Story = {
+  args: {
     text: `// .storybook/main.js
 
     module.exports = {
@@ -31,10 +29,11 @@ Primary.args = {
         return config;
       },
     };`,
+  },
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
+export const PrimaryDark = {
+  args: {
     text: `// .storybook/main.js
 
     module.exports = {
@@ -51,5 +50,6 @@ PrimaryDark.args = {
         return config;
       },
     };`,
+  },
+  decorators: [ThemeDecorator('app_dark_theme')],
 };
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

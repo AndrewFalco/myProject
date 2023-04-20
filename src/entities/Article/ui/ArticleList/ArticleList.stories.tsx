@@ -1,26 +1,25 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryObj, Meta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ArticleList } from './ArticleList';
 
-export default {
+const meta = {
     title: 'entities/ArticleList',
     component: ArticleList,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+    argTypes: {},
     args: {},
-} as ComponentMeta<typeof ArticleList>;
+} satisfies Meta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList { ...args } />;
+export default meta;
+type Story = StoryObj<typeof ArticleList>;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Primary: Story = {
+  args: {
     articles: [
         {
             id: '1',
             user: {
-              id: '1',
-              username: 'Levi',
+                id: '1',
+                username: 'Levi',
             },
             title: 'JS news',
             subtitle: 'some subtitle text for JS news',
@@ -28,50 +27,52 @@ Primary.args = {
             views: 32,
             createdAt: '2023-03-16T07:16:01.362Z',
             type: [
-              'IT',
+                'IT',
             ],
             blocks: [
-              {
-                id: '1',
-                type: 'TEXT',
-                title: 'Заголовок этого блока',
-                paragraphs: [
-                  'Программа, которую по традиции называют «Hello, world!», очень проста. ',
-              ],
-              },
+                {
+                    id: '1',
+                    type: 'TEXT',
+                    title: 'Заголовок этого блока',
+                    paragraphs: [
+                        'Программа, которую по традиции называют «Hello, world!», очень проста. ',
+                    ],
+                },
             ],
-          },
+        },
     ],
+    },
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-  articles: [
-    {
-        id: '1',
-        user: {
-          id: '1',
-          username: 'Levi',
-        },
-        title: 'JS news',
-        subtitle: 'some subtitle text for JS news',
-        img: 'https://cache.kwork.ru/pics/t0/09/24593006-63c14251aff38.jpg',
-        views: 32,
-        createdAt: '2023-03-16T07:16:01.362Z',
-        type: [
-          'IT',
+export const PrimaryDark: Story = {
+    args: {
+        articles: [
+            {
+                id: '1',
+                user: {
+                    id: '1',
+                    username: 'Levi',
+                },
+                title: 'JS news',
+                subtitle: 'some subtitle text for JS news',
+                img: 'https://cache.kwork.ru/pics/t0/09/24593006-63c14251aff38.jpg',
+                views: 32,
+                createdAt: '2023-03-16T07:16:01.362Z',
+                type: [
+                    'IT',
+                ],
+                blocks: [
+                    {
+                        id: '1',
+                        type: 'TEXT',
+                        title: 'Заголовок этого блока',
+                        paragraphs: [
+                            'Программа, которую по традиции называют «Hello, world!», очень проста. ',
+                        ],
+                    },
+                ],
+            },
         ],
-        blocks: [
-          {
-            id: '1',
-            type: 'TEXT',
-            title: 'Заголовок этого блока',
-            paragraphs: [
-              'Программа, которую по традиции называют «Hello, world!», очень проста. ',
-          ],
-          },
-        ],
-      },
-],
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

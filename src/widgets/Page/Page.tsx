@@ -13,10 +13,9 @@ import cls from './Page.module.scss';
 interface PageProps {
     className?: string,
     parentRef?: MutableRefObject<HTMLDivElement>,
-    error?: string,
+    error?: string | null,
 }
 
-// TODO: add error props.
 export const Page = (props: PropsWithChildren<PageProps>) => {
     const {
         className, children, parentRef, error,

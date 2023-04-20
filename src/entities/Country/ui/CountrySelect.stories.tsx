@@ -1,18 +1,29 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { CountrySelect } from '../../Country';
+import { CountrySelect } from './CountrySelect';
 
-export default {
+const meta = {
     title: 'entities/CountrySelect',
     component: CountrySelect,
-    argTypes: {
-        backgroundColor: { control: 'color' },
+    argTypes: {},
+    decorators: [
+        (Story) => (
+            <div style={ { padding: 150 } }>
+                <Story />
+            </div>
+        ),
+    ],
+} satisfies Meta<typeof CountrySelect>;
+
+export default meta;
+type Story = StoryObj<typeof CountrySelect>;
+
+export const Primary: Story = {
+    args: {
+
     },
-} as ComponentMeta<typeof CountrySelect>;
+};
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect { ...args } />;
-
-export const Primary = Template.bind({});
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme')],
+};

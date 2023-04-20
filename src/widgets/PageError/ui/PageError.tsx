@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { useCallback } from 'react';
 import { FallbackProps } from 'react-error-boundary';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -10,7 +10,7 @@ interface PageErrorProps extends FallbackProps {
     className?: string,
 }
 
-export const PageError: FC<PageErrorProps> = (props) => {
+export const PageError = (props: PageErrorProps) => {
     const { className, resetErrorBoundary, error } = props;
     const { t } = useTranslation();
 

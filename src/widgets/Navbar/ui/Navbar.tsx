@@ -1,5 +1,5 @@
 import {
-    FC, memo, useCallback, useState,
+    memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,7 +17,7 @@ interface NavbarProps {
     className?: string,
 }
 
-const NavbarComponent: FC<NavbarProps> = (props) => {
+const NavbarComponent = (props: NavbarProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const dispatch = useDispatch();

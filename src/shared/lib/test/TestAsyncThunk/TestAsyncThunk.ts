@@ -8,7 +8,7 @@ type ActionCreatorType<Return, Arg, RejectedValue>
 
 jest.mock('axios');
 
-const mockedAxios = jest.mocked(axios, true);
+const mockedAxios = jest.mocked(axios); // TODO: check this props. mb trouble
 
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
     dispatch: jest.MockedFn<any>;

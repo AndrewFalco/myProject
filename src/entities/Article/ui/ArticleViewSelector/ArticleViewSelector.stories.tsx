@@ -1,23 +1,18 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ArticleViewSelector } from './ArticleViewSelector';
 
-export default {
-    title: 'shared/ArticleViewSelector',
+const meta = {
+    title: 'entities/Article/ArticleViewSelector',
     component: ArticleViewSelector,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-    args: {},
-} as ComponentMeta<typeof ArticleViewSelector>;
+    argTypes: {},
+} satisfies Meta<typeof ArticleViewSelector>;
 
-const Template: ComponentStory<typeof ArticleViewSelector> = (args) => <ArticleViewSelector { ...args } />;
+export default meta;
+type Story = StoryObj<typeof ArticleViewSelector>;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Primary: Story = {};
+
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

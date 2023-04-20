@@ -1,44 +1,41 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+/* eslint-disable max-len */
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Avatar } from './Avatar';
 
-export default {
+const meta = {
     title: 'shared/Avatar',
     component: Avatar,
-    argTypes: {
-        backgroundColor: { control: 'color' },
+    args: {
+        src: 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/25/252371277b26a6a1d202497f72acc070e7dc6ba1_full.jpg',
     },
-    args: {},
-} as ComponentMeta<typeof Avatar>;
+} satisfies Meta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar { ...args } />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    // eslint-disable-next-line max-len
-    src: 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/25/252371277b26a6a1d202497f72acc070e7dc6ba1_full.jpg',
+export const Primary: Story = {};
+
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    // eslint-disable-next-line max-len
-    src: 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/25/252371277b26a6a1d202497f72acc070e7dc6ba1_full.jpg',
-};
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];
-
-export const PrimaryMale = Template.bind({});
-PrimaryMale.args = {
-    sex: 'male',
+export const PrimaryMale: Story = {
+    args: {
+        sex: 'male',
+        src: '',
+    },
 };
 
-export const PrimaryFemale = Template.bind({});
-PrimaryFemale.args = {
-    sex: 'female',
+export const PrimaryFemale: Story = {
+    args: {
+        sex: 'female',
+        src: '',
+    },
 };
 
-export const PrimarySmall = Template.bind({});
-PrimarySmall.args = {
-    // eslint-disable-next-line max-len
-    src: 'https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/25/252371277b26a6a1d202497f72acc070e7dc6ba1_full.jpg',
-    size: 50,
+export const PrimarySmall: Story = {
+    args: {
+        size: 50,
+    },
 };

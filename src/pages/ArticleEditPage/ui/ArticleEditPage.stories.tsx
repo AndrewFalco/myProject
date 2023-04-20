@@ -1,23 +1,18 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { ArticleEditPage } from './ArticleEditPage';
+import ArticleEditPage from './ArticleEditPage';
 
-export default {
-    title: 'shared/ArticleEditPage',
+const meta = {
+    title: 'pages/ArticleEditPage',
     component: ArticleEditPage,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-    args: {},
-} as ComponentMeta<typeof ArticleEditPage>;
+    argTypes: {},
+} satisfies Meta<typeof ArticleEditPage>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage { ...args } />;
+export default meta;
+type Story = StoryObj<typeof ArticleEditPage>;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Light: Story = {};
+
+export const Dark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

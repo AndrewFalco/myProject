@@ -1,18 +1,25 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { CurrencySelect } from '../../Currency';
 
-export default {
+const meta = {
     title: 'entities/CurrencySelect',
     component: CurrencySelect,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof CurrencySelect>;
+    argTypes: {},
+    decorators: [
+        (Story) => (
+            <div style={ { padding: 150 } }>
+                <Story />
+            </div>
+        ),
+    ],
+} satisfies Meta<typeof CurrencySelect>;
 
-const Template: ComponentStory<typeof CurrencySelect> = (args) => <CurrencySelect { ...args } />;
+export default meta;
+type Story = StoryObj<typeof CurrencySelect>;
 
-export const Primary = Template.bind({});
+export const Primary: Story = {};
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme')],
+};

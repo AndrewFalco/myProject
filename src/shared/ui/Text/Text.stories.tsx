@@ -1,55 +1,62 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Text } from './Text';
 
-export default {
+type Story = StoryObj<typeof Text>;
+
+const meta = {
     title: 'shared/Text',
     component: Text,
-    argTypes: {
-        backgroundColor: { control: 'color' },
+    decorators: [
+        (Story) => (<Story />),
+    ],
+} satisfies Meta<typeof Text>;
+
+export default meta;
+
+export const Primary: Story = {
+    args: {
+        title: 'Title',
+        text: 'lorem ipsum dolor sit amet',
     },
-} as ComponentMeta<typeof Text>;
-
-const Template: ComponentStory<typeof Text> = (args) => <Text { ...args } />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-    title: 'Title',
-    text: 'lorem ipsum dolor sit amet',
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    title: 'Title',
-    text: 'lorem ipsum dolor sit amet',
-};
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];
-
-export const Error = Template.bind({});
-Error.args = {
-    title: 'Title',
-    text: 'lorem ipsum dolor sit amet',
-    theme: 'error',
+export const PrimaryDark = {
+    args: {
+        ...Primary.args,
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
 
-export const ErrorDark = Template.bind({});
-ErrorDark.args = {
-    title: 'Title',
-    text: 'lorem ipsum dolor sit amet',
-    theme: 'error',
-};
-ErrorDark.decorators = [ThemeDecorator('app_dark_theme')];
+export const Error = {
+    args: {
+        title: 'Title',
+        text: 'lorem ipsum dolor sit amet',
+        theme: 'error',
+    },
 
-export const SizeL = Template.bind({});
-SizeL.args = {
-    title: 'Title',
-    text: 'lorem ipsum dolor sit amet',
-    size: 'size_l',
 };
 
-export const SizeM = Template.bind({});
-SizeM.args = {
-    title: 'Title',
-    text: 'lorem ipsum dolor sit amet',
-    size: 'size_m',
+export const ErrorDark = {
+    args: {
+        ...Primary.args,
+        theme: 'error',
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
+};
+
+export const SizeL = {
+    args: {
+        ...Primary.args,
+        size: 'size_l',
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
+};
+
+export const SizeM = {
+    args: {
+        ...Primary.args,
+        size: 'size_m',
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
 };

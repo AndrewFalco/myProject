@@ -40,7 +40,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
             <div className={ classNames(cls.AddCommentForm, {}, [className]) }>
                 <Textarea
                   className={ cls.input }
-                  name={ t('Comment') }
+                  name={ t('Comment') || undefined }
                   value={ text }
                   onChange={ onChangeText }
                   cols={ 100 }

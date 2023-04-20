@@ -1,18 +1,16 @@
 /* eslint-disable i18next/no-literal-string */
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Dropdown } from './Dropdown';
 
-export default {
-    title: 'shared/Dropdown',
+const meta = {
+    title: 'shared/Card',
     component: Dropdown,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
     args: {},
-} as ComponentMeta<typeof Dropdown>;
+} satisfies Meta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown { ...args } />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const items = [
     {
@@ -37,15 +35,17 @@ const items = [
     },
 ];
 
-export const Primary = Template.bind({});
-Primary.args = {
-    items,
-    trigger: <div>Click me</div>,
+export const Primary: Story = {
+    args: {
+        items,
+        trigger: <div>Click me</div>,
+    },
 };
 
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    items,
-    trigger: <div>Click me</div>,
+export const PrimaryDark: Story = {
+    args: {
+        items,
+        trigger: <div>Click me</div>,
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

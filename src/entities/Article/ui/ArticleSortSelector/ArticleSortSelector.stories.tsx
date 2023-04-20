@@ -1,23 +1,18 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ArticleSortSelector } from './ArticleSortSelector';
 
-export default {
-    title: 'shared/ArticleSortSelector',
+const meta = {
+    title: 'entities/Article/ArticleSortSelector',
     component: ArticleSortSelector,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-    args: {},
-} as ComponentMeta<typeof ArticleSortSelector>;
+    argTypes: {},
+} satisfies Meta<typeof ArticleSortSelector>;
 
-const Template: ComponentStory<typeof ArticleSortSelector> = (args) => <ArticleSortSelector { ...args } />;
+export default meta;
+type Story = StoryObj<typeof ArticleSortSelector>;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Primary: Story = {};
+
+export const PrimaryDark: Story = {
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-};
-PrimaryDark.decorators = [ThemeDecorator('app_dark_theme')];

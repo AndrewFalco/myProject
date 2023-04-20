@@ -10,8 +10,8 @@ export type HeaderTagType = 'h1' | 'h2' | 'h3';
 
 interface TextProps {
     className?: string;
-    title?: string,
-    text?: string,
+    title?: string | null,
+    text?: string | null,
     theme?: TextTheme,
     align?: TextAlign,
     size?: TextSize,
