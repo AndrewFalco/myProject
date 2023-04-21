@@ -5,7 +5,6 @@ import {
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { HTMLAttributeAnchorTarget, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Article, ArticleTextBlockType, ArticleView } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import cls from './ArticleListItem.module.scss';
@@ -63,7 +62,7 @@ export const ArticleListItem = (props: ArticleListProps) => {
                         <HStack justify="between">
                             <AppLink
                               target={ target }
-                              to={ RoutePath.articleDetails + article.id }
+                              to={ `/articles/${article.id}` }
                             >
                                 <Button onClick={ onSetLastIndex }>
                                     { t('Read more...') }
@@ -76,7 +75,7 @@ export const ArticleListItem = (props: ArticleListProps) => {
                 : (
                     <AppLink
                       target={ target }
-                      to={ RoutePath.articleDetails + article.id }
+                      to={ `/articles/${article.id}` }
                     >
                         <Card onClick={ onSetLastIndex }>
                             <div className={ cls.imageWrapper }>
