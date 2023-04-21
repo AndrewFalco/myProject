@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, VStack } from 'shared/ui';
-import { Input } from 'shared/ui/Input/Input';
-import { Text } from 'shared/ui/Text/Text';
+import {
+    Button, VStack, Input, Text,
+} from 'shared/ui';
 import { getLoginError } from '../../model/selectors/getLoginError';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword';

@@ -1,8 +1,7 @@
 import {
  HTMLAttributeAnchorTarget, MutableRefObject, useCallback,
 } from 'react';
-import { Virtualize } from 'shared/ui/Virtualize/Virtualize';
-import { HStack } from 'shared/ui';
+import { HStack, Virtualize } from 'shared/ui';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';

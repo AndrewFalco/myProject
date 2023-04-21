@@ -3,9 +3,9 @@ import { Currency, CurrencySelect } from 'entities/Currency';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Loader, Text, Avatar } from 'shared/ui';
-import { Input } from 'shared/ui/Input/Input';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import {
+    Loader, Text, Avatar, Input, VStack,
+} from 'shared/ui';
 import { ProfileError, ProfileType } from '../model/types/profile';
 
 import cls from './ProfileCard.module.scss';

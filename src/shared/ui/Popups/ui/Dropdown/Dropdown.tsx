@@ -1,12 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import { Fragment, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
-import { classNames } from '../../lib/classNames/classNames';
-import { Button } from '../Button';
-import { DropdownDirection } from '../../types/ui';
-
+import { classNames } from '../../../../lib/classNames/classNames';
+import { Button } from '../../../Button';
+import { DropdownDirection } from '../../../../types/ui';
+import { AppLink } from '../../../AppLink';
+import { mapDirectionClass } from '../../styles/consts';
 import cls from './Dropdown.module.scss';
-import { AppLink } from '../AppLink';
+import popupCls from '../../styles/popup.module.scss';
 
 interface DropdownItem {
     disabled?: boolean;
@@ -22,13 +23,6 @@ interface DropdownProps {
     direction?: DropdownDirection;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom left': cls.optionsBottomLeft,
-  'bottom right': cls.optionsBottomRight,
-  'top left': cls.optionsTopLeft,
-  'top right': cls.optionsTopRight,
-};
-
 export const Dropdown = (props: DropdownProps) => {
     const {
         className, items, trigger, direction = 'bottom right',
@@ -36,8 +30,8 @@ export const Dropdown = (props: DropdownProps) => {
     const menuClasses = [mapDirectionClass[direction]];
 
     return (
-        <Menu as="div" className={ classNames(cls.Dropdown, {}, [className]) }>
-            <Menu.Button className={ cls.btn }>
+        <Menu as="div" className={ classNames(cls.Dropdown, {}, [className, popupCls.popup]) }>
+            <Menu.Button className={ classNames(popupCls.trigger, {}, [className]) }>
                 <Button theme="clear">
                     { trigger }
                 </Button>
@@ -52,8 +46,8 @@ export const Dropdown = (props: DropdownProps) => {
                           className={ classNames(
                             cls.item,
                             {
-                              [cls.active]: active,
-                              [cls.disabled]: item.disabled,
+                              [popupCls.active]: active,
+                              [popupCls.disabled]: item.disabled,
                             },
                             [className],
                           ) }

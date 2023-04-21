@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Dropdown } from './Dropdown';
 
 const meta = {
-    title: 'shared/Card',
+    title: 'shared/Dropdown',
     component: Dropdown,
     args: {},
 } satisfies Meta<typeof Dropdown>;

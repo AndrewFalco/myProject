@@ -9,11 +9,10 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicM
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Text } from 'shared/ui';
+import { Text, TabItem } from 'shared/ui';
 import { Page } from 'widgets/Page/Page';
 import { ArticleSort, ArticleSortField } from 'features/ArticleSort';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/consts';
-import { TabItem } from 'shared/ui/Tabs/Tabs';
 import { SortOrder } from 'shared/types';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';

@@ -1,0 +1,8 @@
+.panel {
+    position: absolute;
+    background: var(--card-bg-color);
+    z-index: 999;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    padding: 16px;
+}

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Card } from './Card';
-import { Text } from '../Text/Text';
+import { Text } from '../../Text';
 
 const meta = {
     title: 'shared/Card',

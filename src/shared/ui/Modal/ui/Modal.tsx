@@ -1,8 +1,8 @@
 import {
     MouseEvent, useState, useRef, useEffect, useCallback, ReactNode,
 } from 'react';
-import { classNames, Mods } from '../../lib/classNames/classNames';
-import { Portal } from '../Portal/Portal';
+import { classNames, Mods } from '../../../lib/classNames/classNames';
+import { Portal } from '../../Portal/Portal';
 
 import cls from './Modal.module.scss';
 
