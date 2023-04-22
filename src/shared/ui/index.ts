@@ -15,6 +15,8 @@ import { HStack, VStack } from './Stack';
 import { TabItem, Tabs } from './Tabs';
 import { Text } from './Text';
 import { Virtualize } from './Virtualize/ui/Virtualize';
+import { Drawer } from './Drawer';
+import { Overlay } from './Overlay';
 
 export {
     AppLink,
@@ -38,6 +40,8 @@ export {
     Dropdown,
     Textarea,
     Popover,
+    Drawer,
+    Overlay,
 };
 
 export type {
