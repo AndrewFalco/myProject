@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { HStack, Text } from 'shared/ui';
+import { HStack, Text } from '@/shared/ui';
 import { ArticleImageBlockType } from '../../model/types/article';
 import cls from './ArticleImageBlock.module.scss';
 

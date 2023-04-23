@@ -3,12 +3,12 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
     Button, VStack, Input, Text,
-} from 'shared/ui';
+} from '@/shared/ui';
 import { getLoginError } from '../../model/selectors/getLoginError';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword';

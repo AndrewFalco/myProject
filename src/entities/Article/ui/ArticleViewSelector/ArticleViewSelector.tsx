@@ -1,8 +1,8 @@
 import { ReactElement, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import ListViewIcon from 'shared/assets/icons/list.svg';
-import GridViewIcon from 'shared/assets/icons/tiled.svg';
-import { Button, HStack, Icon } from 'shared/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import ListViewIcon from '@/shared/assets/icons/list.svg';
+import GridViewIcon from '@/shared/assets/icons/tiled.svg';
+import { Button, HStack, Icon } from '@/shared/ui';
 import { ArticleView } from '../../model/types/article';
 
 import cls from './ArticleViewSelector.module.scss';

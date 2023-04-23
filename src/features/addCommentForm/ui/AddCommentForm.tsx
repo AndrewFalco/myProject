@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, Textarea } from 'shared/ui';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, Textarea } from '@/shared/ui';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getAddCommentFormText } from '../model/selectors/addCommentFormSelector';
 import { addCommentFormActions, addCommentFormReducer } from '../model/slices/addCommentFormSlice';
 

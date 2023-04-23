@@ -1,4 +1,4 @@
-import { Sex } from 'shared/consts/common';
+import { Sex } from '@/shared/consts/common';
 import { Country } from '../../../Country';
 import { Currency } from '../../../Currency';
 

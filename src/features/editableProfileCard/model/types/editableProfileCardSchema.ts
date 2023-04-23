@@ -1,4 +1,4 @@
-import { ProfileError, ProfileType } from 'entities/Profile';
+import { ProfileError, ProfileType } from '@/entities/Profile';
 
 export interface ProfileSchema {
     data?: ProfileType;

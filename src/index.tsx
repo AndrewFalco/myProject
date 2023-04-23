@@ -1,12 +1,12 @@
-import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { createRoot } from 'react-dom/client';
-import { StoreProvider } from 'app/providers/StoreProvider';
 import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
-import { PageError } from 'widgets/PageError/ui/PageError';
+import { StoreProvider } from '@/app/providers/StoreProvider';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { PageError } from '@/widgets/PageError/ui/PageError';
 import { App } from './app/App';
-import 'app/styles/index.scss';
-import 'shared/config/i18n/i18n';
+import '@/app/styles/index.scss';
+import '@/shared/config/i18n/i18n';
 
 const container = document.getElementById('root');
 

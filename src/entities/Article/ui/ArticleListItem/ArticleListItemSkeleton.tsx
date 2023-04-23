@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
  Card, HStack, Icon, Skeleton,
-} from 'shared/ui';
-import EyeIcon from 'shared/assets/icons/eye.svg';
+} from '@/shared/ui';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { ArticleView } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 

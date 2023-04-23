@@ -1,5 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ArticleList } from './ArticleList';
 
 const meta = {

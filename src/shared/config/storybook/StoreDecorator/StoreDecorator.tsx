@@ -1,12 +1,12 @@
 import { StoryFn } from '@storybook/react';
-import { StoreProvider } from 'app/providers/StoreProvider';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { addCommentFormReducer } from 'features/addCommentForm/model/slices/addCommentFormSlice';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { profileReducer } from 'features/editableProfileCard';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
-import { ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
+import { StoreProvider } from '@/app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
+import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
+import { addCommentFormReducer } from '@/features/addCommentForm/model/slices/addCommentFormSlice';
+import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
+import { profileReducer } from '@/features/editableProfileCard';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
+import { ReducersList } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducer: ReducersList = {
     loginForm: loginReducer,

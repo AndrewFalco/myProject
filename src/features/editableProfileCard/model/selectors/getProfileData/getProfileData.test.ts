@@ -1,7 +1,7 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { Sex } from 'shared/consts/common';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { Sex } from '@/shared/consts/common';
 import { getProfileData } from './getProfileData';
 
 const data = {

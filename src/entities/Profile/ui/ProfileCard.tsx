@@ -1,11 +1,11 @@
-import { Country, CountrySelect } from 'entities/Country';
-import { Currency, CurrencySelect } from 'entities/Currency';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { Country, CountrySelect } from '@/entities/Country';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import {
     Loader, Text, Avatar, Input, VStack,
-} from 'shared/ui';
+} from '@/shared/ui';
 import { ProfileError, ProfileType } from '../model/types/profile';
 
 import cls from './ProfileCard.module.scss';

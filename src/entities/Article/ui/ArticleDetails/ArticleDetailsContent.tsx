@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
 import {
  Avatar, HStack, Icon, Text,
-} from 'shared/ui';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
+} from '@/shared/ui';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import { Article, ArticleBlock } from '../../model/types/article';
 import cls from './ArticleDetails.module.scss';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';

@@ -1,9 +1,9 @@
-import { getUserAuthData } from 'entities/User';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, Text, HStack } from 'shared/ui';
+import { getUserAuthData } from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button, Text, HStack } from '@/shared/ui';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getReadonly } from '../../model/selectors/getReadonly/getReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';

@@ -1,10 +1,10 @@
-import { getUserAuthData } from 'entities/User';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink } from 'shared/ui';
-import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { getUserAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui';
+import { HStack } from '@/shared/ui/Stack/HStack/HStack';
 import { SidebarListProps } from '../../model/types/sidebar';
 
 import cls from './Sidebar.module.scss';

@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import {
-    AppLink, Avatar, Button, Card, HStack, Icon, Text,
-} from 'shared/ui';
-import EyeIcon from 'shared/assets/icons/eye.svg';
 import { HTMLAttributeAnchorTarget, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import {
+    AppLink, Avatar, Button, Card, HStack, Icon, Text,
+} from '@/shared/ui';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Article, ArticleTextBlockType, ArticleView } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import cls from './ArticleListItem.module.scss';

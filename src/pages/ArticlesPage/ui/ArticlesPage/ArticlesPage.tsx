@@ -4,17 +4,17 @@ import {
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ArticleList, ArticleView } from 'entities/Article';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Text, TabItem } from 'shared/ui';
-import { Page } from 'widgets/Page/Page';
-import { ArticleSort, ArticleSortField } from 'features/ArticleSort';
-import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/consts';
-import { SortOrder } from 'shared/types';
-import { ArticleType } from 'entities/Article/model/types/article';
+import { ArticleList, ArticleView } from '@/entities/Article';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Text, TabItem } from '@/shared/ui';
+import { Page } from '@/widgets/Page/Page';
+import { ArticleSort, ArticleSortField } from '@/features/ArticleSort';
+import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/consts';
+import { SortOrder } from '@/shared/types';
+import { ArticleType } from '@/entities/Article/model/types/article';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import {
     getArticlesPageError, getArticlesPageIsLoading, getArticlesPageLastIndex, getArticlesPageType, getArticlesPageView,

@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import MaleAvt from 'shared/assets/img/avatar_m.jpg';
-import FemaleAvt from 'shared/assets/img/avatar_fm.jpg';
-import NoSexAvt from 'shared/assets/img/noSexAvatar.jpg';
-import { Sex } from 'shared/consts/common';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import MaleAvt from '@/shared/assets/img/avatar_m.jpg';
+import FemaleAvt from '@/shared/assets/img/avatar_fm.jpg';
+import NoSexAvt from '@/shared/assets/img/noSexAvatar.jpg';
+import { Sex } from '@/shared/consts/common';
 
 import cls from './Avatar.module.scss';
 

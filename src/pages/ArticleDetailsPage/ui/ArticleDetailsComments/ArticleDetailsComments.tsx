@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { CommentList } from 'entities/Comment';
-import { AddCommentForm } from 'features/addCommentForm';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Text } from 'shared/ui';
-import { getArticleDetailsError } from 'entities/Article/model/selectors/getArticleDetailsError/getArticleDetailsError';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { CommentList } from '@/entities/Comment';
+import { AddCommentForm } from '@/features/addCommentForm';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Text } from '@/shared/ui';
+import { getArticleDetailsError } from '@/entities/Article/model/selectors/getArticleDetailsError/getArticleDetailsError';
 import { getArticleDetailsCommentsIsLoading, getArticleDetailsCommentsError } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';

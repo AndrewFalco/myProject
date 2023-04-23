@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
-import { Text, Skeleton, VStack } from 'shared/ui';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
+import { Text, Skeleton, VStack } from '@/shared/ui';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';

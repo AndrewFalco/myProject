@@ -1,7 +1,7 @@
 import { Fragment, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Listbox as HListBox } from '@headlessui/react';
-import { DropdownDirection } from 'shared/types/ui';
+import { DropdownDirection } from '@/shared/types/ui';
 import { HStack } from '../../../Stack';
 import { classNames } from '../../../../lib/classNames/classNames';
 import { Button } from '../../../Button';

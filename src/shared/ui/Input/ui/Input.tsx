@@ -1,7 +1,7 @@
 import {
     ChangeEvent, InputHTMLAttributes, memo, useCallback, useMemo,
 } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 import cls from './Input.module.scss';
 

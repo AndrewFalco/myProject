@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 export const getArticleSortValue = (state: StateSchema) => state.articlesPage?.sort || 'createAt';
 export const getArticleOrderValue = (state: StateSchema) => state.articlesPage?.order || 'asc';

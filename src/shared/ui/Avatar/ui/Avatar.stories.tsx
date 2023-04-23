@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Avatar } from './Avatar';
 
 const meta = {

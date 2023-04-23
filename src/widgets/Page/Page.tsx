@@ -1,12 +1,12 @@
-import { scrollSaveActions } from 'features/ScrollSave';
 import {
  MutableRefObject, PropsWithChildren, UIEvent,
 } from 'react';
 import { useLocation } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useThrottle } from 'shared/lib/hooks/useThrottle';
+import { scrollSaveActions } from '@/features/ScrollSave';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 
 import cls from './Page.module.scss';
 

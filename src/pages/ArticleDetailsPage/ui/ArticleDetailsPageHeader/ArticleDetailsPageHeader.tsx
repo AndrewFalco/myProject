@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { AppLink, Button, HStack } from 'shared/ui';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { getArticleDetailsData } from 'entities/Article';
+import { AppLink, Button, HStack } from '@/shared/ui';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { getArticleDetailsData } from '@/entities/Article';
 import { getCanEditArticle } from '../../model/selectors/article';
 
 export const ArticleDetailsPageHeader = memo(() => {

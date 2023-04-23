@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
  Card, HStack, Input, Tabs, VStack, TabItem,
-} from 'shared/ui';
-import { SortOrder } from 'shared/types';
-import { ArticleSortSelector, ArticleView, ArticleViewSelector } from 'entities/Article';
-import { ArticleType } from 'entities/Article/model/types/article';
+} from '@/shared/ui';
+import { SortOrder } from '@/shared/types';
+import { ArticleSortSelector, ArticleView, ArticleViewSelector } from '@/entities/Article';
+import { ArticleType } from '@/entities/Article/model/types/article';
 import { getArticleOrderValue, getArticleSearchValue, getArticleSortValue } from '../model/selectors/articleSortSelectors';
 import { ArticleSortField } from '../model/types/articleSort';
 

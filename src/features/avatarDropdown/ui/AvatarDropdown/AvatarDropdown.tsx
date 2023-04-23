@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Dropdown, Avatar } from 'shared/ui';
-import { getUserAuthData, isResolvedRole, userActions } from 'entities/User';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Dropdown, Avatar } from '@/shared/ui';
+import { getUserAuthData, isResolvedRole, userActions } from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 
 import cls from './AvatarDropdown.module.scss';
 

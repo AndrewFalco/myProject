@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import {
     FlexJustify, FlexAlign, FlexPosition, FlexDirection, FlexGap, FlexWrap,
 } from './Flex.types';

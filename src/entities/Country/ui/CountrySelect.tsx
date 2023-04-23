@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ListBox } from 'shared/ui';
-import { DropdownDirection } from 'shared/types/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ListBox } from '@/shared/ui';
+import { DropdownDirection } from '@/shared/types/ui';
 import { Country } from '../Model/types/Country';
 
 type CountrySelectProps = {

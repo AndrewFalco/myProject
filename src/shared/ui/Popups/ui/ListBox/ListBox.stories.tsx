@@ -1,6 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ListBox } from './ListBox';
 
 const meta = {
