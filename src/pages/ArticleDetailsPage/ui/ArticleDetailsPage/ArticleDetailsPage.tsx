@@ -6,6 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetails } from '@/entities/Article';
 import { Page } from '@/widgets/Page/Page';
+import { ArticleRating } from '@/features/articleRating';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
@@ -24,6 +25,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article-details');
     const { id } = useParams<{ id: string }>();
 
+    if (!id) {
+        return null;
+    }
+
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <Page
@@ -32,6 +37,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             >
                 <ArticleDetailsPageHeader />
                 <ArticleDetails articleId={ id } />
+                <ArticleRating articleId={ id } />
                 <ArticleRecommendationsList />
                 <ArticleDetailsComments id={ id } />
             </Page>
