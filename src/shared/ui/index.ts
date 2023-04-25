@@ -17,6 +17,7 @@ import { Text } from './Text';
 import { Virtualize } from './Virtualize/ui/Virtualize';
 import { Drawer } from './Drawer';
 import { Overlay } from './Overlay';
+import { StarRating } from './StarRating';
 
 export {
     AppLink,
@@ -42,6 +43,7 @@ export {
     Popover,
     Drawer,
     Overlay,
+    StarRating,
 };
 
 export type {

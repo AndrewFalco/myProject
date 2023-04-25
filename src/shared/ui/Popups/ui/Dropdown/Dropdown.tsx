@@ -31,7 +31,7 @@ export const Dropdown = (props: DropdownProps) => {
 
     return (
         <Menu as="div" className={ classNames(cls.Dropdown, {}, [className, popupCls.popup]) }>
-            <Menu.Button className={ classNames(popupCls.trigger, {}, [className]) }>
+            <Menu.Button as="div" className={ classNames(popupCls.trigger, {}, [className]) }>
                 <Button theme="clear">
                     { trigger }
                 </Button>

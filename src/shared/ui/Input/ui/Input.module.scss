@@ -12,6 +12,15 @@ $dark-red: #3d0000;
     width: 75%;
 }
 
+.InputAreaWrapper {
+    position: relative;
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: .5px solid var(--primary-color);
+    border-radius: 16px;
+}
+
 .Label {
     position: absolute;
     top: 0;
@@ -30,7 +39,7 @@ $dark-red: #3d0000;
     outline: 0;
     font-size: 1.3rem;
     color: var(--primary-color);
-    padding: 7px 0;
+    padding: 7px 5px;
     background: transparent;
     transition: border-color 0.2s;
 
@@ -62,6 +71,7 @@ $dark-red: #3d0000;
     }
 
     padding-bottom: 6px;
+    padding-top: 16px;
     font-weight: 700;
     border-width: 3px;
     border-image: linear-gradient(to right, $primary, $secondary);

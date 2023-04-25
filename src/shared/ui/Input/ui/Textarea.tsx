@@ -45,7 +45,7 @@ export const Textarea = memo((props: TextareaProps) => {
     };
 
     return (
-        <div className={ classNames(cls.InputWrapper, {}, [className]) }>
+        <div className={ classNames(cls.InputAreaWrapper, {}, [className]) }>
             <textarea
               id={ id }
               name={ name }
