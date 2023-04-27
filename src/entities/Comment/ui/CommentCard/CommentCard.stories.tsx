@@ -3,7 +3,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { CommentCard } from './CommentCard';
 
 const meta = {
-    title: 'entities/CommentCard',
+    title: 'entities/comment/CommentCard',
     component: CommentCard,
     argTypes: {},
     args: {

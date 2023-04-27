@@ -5,7 +5,7 @@ import { ThemeDecorator } from '../../../../config/storybook/ThemeDecorator/Them
 import { Popover } from './Popover';
 
 const meta = {
-    title: 'shared/Popover',
+    title: 'shared/Popups/Popover',
     component: Popover,
     argTypes: {},
     decorators: [

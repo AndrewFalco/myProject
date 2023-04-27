@@ -4,7 +4,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { ListBox } from './ListBox';
 
 const meta = {
-    title: 'shared/ListBox',
+    title: 'shared/Popups/ListBox',
     component: ListBox,
     decorators: [
         (Story) => <div style={ { padding: 100 } }><Story /></div>,

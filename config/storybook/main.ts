@@ -22,8 +22,12 @@ const config: StorybookConfig = {
             src: path.resolve(__dirname, '..', '..', 'src'),
         };
 
-        config.resolve?.modules?.unshift(paths.src);
-        config.resolve?.extensions?.push('.ts', '.tsx');
+        config.resolve!.modules!.unshift(paths.src);
+        config.resolve!.extensions!.push('.ts', '.tsx');
+        config.resolve!.alias = {
+            ...config.resolve?.alias,
+            '@': paths.src,
+        };
 
         if (config.module?.rules) {
             config.module.rules = config.module?.rules?.map((rule: RuleSetRule | '...') => {

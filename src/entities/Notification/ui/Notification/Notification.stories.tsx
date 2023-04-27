@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { NotificationItem } from './NotificationItem';
 
 const meta = {
-  title: 'entities/NotificationItem',
+  title: 'entities/notification/NotificationItem',
   component: NotificationItem,
   argTypes: {},
   args: {
