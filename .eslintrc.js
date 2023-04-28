@@ -73,7 +73,19 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
         'no-param-reassign': 'off',
-        'falco-custom-fsd-plugin/path-checker': [2, { alias: '@' }],
+        'falco-custom-fsd-plugin/path-checker': [
+            2,
+            {
+                alias: '@',
+            },
+        ],
+        'falco-custom-fsd-plugin/public-api-imports': [
+            2,
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+            },
+        ],
         'consistent-return': 'off',
         indent: 'off',
         'no-nested-ternary': 'off',
