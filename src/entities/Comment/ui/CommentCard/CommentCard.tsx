@@ -1,9 +1,9 @@
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
  AppLink, Avatar, Skeleton, Text,
 } from '@/shared/ui';
 import { CommentType } from '../../model/types/comment';
+import { RoutePath } from '@/shared/consts/routes';
 
 import cls from './CommentCard.module.scss';
 

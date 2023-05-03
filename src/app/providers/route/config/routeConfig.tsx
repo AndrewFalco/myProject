@@ -1,5 +1,3 @@
-import { RouteProps } from 'react-router-dom';
-import { UserRole } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
@@ -9,35 +7,8 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
-
-export type AppRouterProps = RouteProps & {
-    authOnly?: boolean,
-    roles?: UserRole[],
-}
-
-export type AppRoutes = 'main'
-    | 'notFoundPage'
-    | 'about'
-    | 'profile'
-    | 'forbidden'
-    | 'articles'
-    | 'articleDetails'
-    | 'articleCreate'
-    | 'articleEdit'
-    | 'adminPanel';
-
-export const RoutePath: Record<AppRoutes, string> = {
-    main: '/',
-    about: '/about',
-    adminPanel: '/admin',
-    forbidden: '/forbidden',
-    profile: '/profile/',
-    articles: '/articles',
-    articleCreate: '/articles/new',
-    articleEdit: '/articles/:id/edit',
-    articleDetails: '/articles/',
-    notFoundPage: '*',
-};
+import { RoutePath } from '@/shared/consts/routes';
+import { AppRoutes, AppRouterProps } from '@/shared/types/routes';
 
 export const routeConfig: Record<AppRoutes, AppRouterProps> = {
     main: {

@@ -86,6 +86,13 @@ module.exports = {
                 testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
             },
         ],
+        'falco-custom-fsd-plugin/layer-imports': [
+            2,
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'consistent-return': 'off',
         indent: 'off',
         'no-nested-ternary': 'off',

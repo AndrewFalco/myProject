@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRoute } from './providers/route';
-import { useTheme } from './providers/ThemeProvider';
+import { useTheme } from '../shared/lib/providers/ThemeProvider';
 
 import './styles/index.scss';
 

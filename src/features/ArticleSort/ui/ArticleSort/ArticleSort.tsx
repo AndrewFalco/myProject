@@ -8,8 +8,8 @@ import { SortOrder } from '@/shared/types';
 import {
     ArticleType, ArticleSortSelector, ArticleView, ArticleViewSelector,
 } from '@/entities/Article';
-import { getArticleOrderValue, getArticleSearchValue, getArticleSortValue } from '../model/selectors/articleSortSelectors';
-import { ArticleSortField } from '../model/types/articleSort';
+import { getArticleOrderValue, getArticleSearchValue, getArticleSortValue } from '../../model/selectors/articleSortSelectors';
+import { ArticleSortField } from '../../model/types/articleSort';
 
 import cls from './ArticleSort.module.scss';
 
