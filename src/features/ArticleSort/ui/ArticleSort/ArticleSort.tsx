@@ -1,17 +1,17 @@
-import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
- Card, HStack, Input, Tabs, VStack, TabItem,
+    Card, HStack, Input, VStack, TabItem,
 } from '@/shared/ui';
 import { SortOrder } from '@/shared/types';
-import {
-    ArticleType, ArticleSortSelector, ArticleView, ArticleViewSelector,
-} from '@/entities/Article';
+import { ArticleType, ArticleView } from '@/entities/Article';
 import { getArticleOrderValue, getArticleSearchValue, getArticleSortValue } from '../../model/selectors/articleSortSelectors';
 import { ArticleSortField } from '../../model/types/articleSort';
+import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
+import { ArticleViewSelector } from '../ArticleViewSelector/ArticleViewSelector';
 
 import cls from './ArticleSort.module.scss';
+import { ArticleTypeTabs } from '../ArticleTypeTabs/ArticleTypeTabs';
 
 interface ArticleSortProps {
     view: ArticleView,
@@ -32,33 +32,6 @@ export const ArticleSort = (props: ArticleSortProps) => {
     const sort = useSelector(getArticleSortValue);
     const order = useSelector(getArticleOrderValue);
     const search = useSelector(getArticleSearchValue);
-
-    const typeTabs = useMemo<TabItem[]>(() => [
-        {
-            value: 'ALL',
-            content: t('ALL'),
-        },
-        {
-            value: 'IT',
-            content: t('IT'),
-        },
-        {
-            value: 'SCIENCE',
-            content: t('SCIENCE'),
-        },
-        {
-            value: 'ECONOMICS',
-            content: t('ECONOMICS'),
-        },
-        {
-            value: 'GAMES',
-            content: t('GAMES'),
-        },
-        {
-            value: 'PHILOSOPHY',
-            content: t('PHILOSOPHY'),
-        },
-    ], [t]);
 
     return (
         <VStack className={ cls.sortWrapper }>
@@ -84,12 +57,7 @@ export const ArticleSort = (props: ArticleSortProps) => {
                   onViewClick={ onChangeView }
                 />
             </HStack>
-            <Tabs
-              tabs={ typeTabs }
-              value={ typeValue }
-              onTabClick={ onChangeType }
-              className={ cls.tabs }
-            />
+            <ArticleTypeTabs onChangeType={ onChangeType } typeValue={ typeValue } />
         </VStack>
     );
 };

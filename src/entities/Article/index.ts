@@ -5,7 +5,5 @@ export type {
 
 } from './model/types/article';
 export { ArticleList } from './ui/ArticleList/ArticleList';
-export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
-export { ArticleSortSelector } from '../../features/ArticleSort/ui/ArticleSortSelector/ArticleSortSelector';
 export { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData';
 export { getArticleDetailsError } from './model/selectors/getArticleDetailsError/getArticleDetailsError';
