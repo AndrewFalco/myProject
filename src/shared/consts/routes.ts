@@ -1,14 +1,10 @@
-import { AppRoutes } from '../types/routes';
-
-export const RoutePath: Record<AppRoutes, string> = {
-    main: '/',
-    about: '/about',
-    adminPanel: '/admin',
-    forbidden: '/forbidden',
-    profile: '/profile/',
-    articles: '/articles',
-    articleCreate: '/articles/new',
-    articleEdit: '/articles/:id/edit',
-    articleDetails: '/articles/',
-    notFoundPage: '*',
-};
+export const getRoutMain = () => '/';
+export const getRoutAbout = () => '/about';
+export const getRoutAdminPanel = () => '/admin';
+export const getRoutForbidden = () => '/forbidden';
+export const getRoutProfile = (id: string) => `/profile/${id}`;
+export const getRoutArticles = () => '/articles';
+export const getRoutArticleCreate = () => '/article/new';
+export const getRoutArticleEdit = (id: string) => `/article/${id}/edit`;
+export const getRoutArticleDetails = (id: string) => `/articles/${id}`;
+export const getRoutNotFoundPage = () => '*';

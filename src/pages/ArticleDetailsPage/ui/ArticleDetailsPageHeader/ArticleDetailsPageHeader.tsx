@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { AppLink, Button, HStack } from '@/shared/ui';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getCanEditArticle } from '../../model/selectors/article';
-import { RoutePath } from '@/shared/consts/routes';
+import { getRoutArticleEdit, getRoutArticles } from '@/shared/consts/routes';
 
 export const ArticleDetailsPageHeader = memo(() => {
     const { t } = useTranslation('article-details');
@@ -13,15 +13,15 @@ export const ArticleDetailsPageHeader = memo(() => {
 
     return (
         <HStack justify="between">
-            <AppLink to={ RoutePath.articles }>
+            <AppLink to={ getRoutArticles() }>
                 <Button>
                     { t('Back to articles list') }
                 </Button>
             </AppLink>
             {
-                canEdit
+                canEdit && article
                     && (
-                        <AppLink to={ `${RoutePath.articleDetails}${article?.id}/edit` }>
+                        <AppLink to={ getRoutArticleEdit(article.id) }>
                             <Button colorType="success">
                                 { t('Edit') }
                             </Button>

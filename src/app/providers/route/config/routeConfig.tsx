@@ -7,55 +7,59 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
-import { RoutePath } from '@/shared/consts/routes';
+import {
+    getRoutAbout, getRoutAdminPanel, getRoutArticleCreate,
+    getRoutArticleDetails, getRoutArticleEdit, getRoutArticles,
+    getRoutForbidden, getRoutMain, getRoutProfile,
+} from '@/shared/consts/routes';
 import { AppRoutes, AppRouterProps } from '@/shared/types/routes';
 
 export const routeConfig: Record<AppRoutes, AppRouterProps> = {
     main: {
-        path: RoutePath.main,
+        path: getRoutMain(),
         element: <MainPage />,
     },
     about: {
-        path: RoutePath.about,
+        path: getRoutAbout(),
         element: <AboutPage />,
     },
     adminPanel: {
-        path: RoutePath.adminPanel,
+        path: getRoutAdminPanel(),
         element: <AdminPanelPage />,
         authOnly: true,
         roles: ['ADMIN', 'MANAGER'],
     },
     forbidden: {
-        path: RoutePath.forbidden,
+        path: getRoutForbidden(),
         element: <ForbiddenPage />,
     },
     profile: {
-        path: `${RoutePath.profile}:id`,
+        path: getRoutProfile(':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
     articles: {
-        path: RoutePath.articles,
+        path: getRoutArticles(),
         element: <ArticlesPage />,
         authOnly: true,
     },
     articleDetails: {
-        path: `${RoutePath.articleDetails}:id`,
+        path: getRoutArticleDetails(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     articleCreate: {
-        path: `${RoutePath.articleCreate}`,
+        path: getRoutArticleCreate(),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     articleEdit: {
-        path: `${RoutePath.articleEdit}`,
+        path: getRoutArticleEdit(':id'),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     notFoundPage: {
-        path: RoutePath.notFoundPage,
+        path: '*',
         element: <NotFoundPage />,
     },
 };

@@ -1,9 +1,9 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
- AppLink, Avatar, Skeleton, Text,
+    AppLink, Avatar, Skeleton, Text,
 } from '@/shared/ui';
 import { CommentType } from '../../model/types/comment';
-import { RoutePath } from '@/shared/consts/routes';
+import { getRoutProfile } from '@/shared/consts/routes';
 
 import cls from './CommentCard.module.scss';
 
@@ -35,7 +35,7 @@ export const CommentCard = (props: CommentCardProps) => {
                     : (
                         <>
                             <div className={ cls.header }>
-                                <AppLink to={ `${RoutePath.profile}${comment.user.id}` } className={ cls.ownerInfo }>
+                                <AppLink to={ getRoutProfile(comment.user.id) } className={ cls.ownerInfo }>
                                     <Avatar className={ cls.avatar } src={ comment?.user.avatar } size={ 30 } />
                                     <Text title={ comment.user.username } />
                                 </AppLink>

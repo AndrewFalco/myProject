@@ -9,7 +9,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     AppLink, Button, HStack, Text,
 } from '@/shared/ui';
-import { RoutePath } from '@/shared/consts/routes';
+import { getRoutArticleCreate } from '@/shared/consts/routes';
 
 import cls from './Navbar.module.scss';
 
@@ -40,7 +40,7 @@ const NavbarComponent = (props: NavbarProps) => {
                     { authData && (
                         <AppLink
                           className={ cls.appLink }
-                          to={ RoutePath.articleCreate }
+                          to={ getRoutArticleCreate() }
                         >
                             { t('Create new article') }
                         </AppLink>

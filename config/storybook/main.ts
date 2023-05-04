@@ -10,9 +10,15 @@ const config: StorybookConfig = {
     ],
     addons: [
         '@storybook/addon-links',
-        '@storybook/addon-essentials',
+        {
+            name: '@storybook/addon-essentials',
+            options: {
+              background: false,
+            },
+        },
         '@storybook/addon-interactions',
         'storybook-addon-mock',
+        'storybook-addon-themes',
     ],
     webpackFinal: async (config, { configType }) => {
         const paths: BuildPaths = {
