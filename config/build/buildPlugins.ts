@@ -15,10 +15,6 @@ export function buildPlugins({
             template: paths.html,
         }),
         new webpack.ProgressPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:7].css',
-            chunkFilename: 'css/[name].[contenthash:7].css',
-        }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(api),
@@ -43,6 +39,13 @@ export function buildPlugins({
         plugins.push(new webpack.HotModuleReplacementPlugin());
         plugins.push(new ReactRefreshWebpackPlugin());
         plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+    }
+
+    if (!isDev) {
+        plugins.push(new MiniCssExtractPlugin({
+            filename: 'css/[name].[contenthash:7].css',
+            chunkFilename: 'css/[name].[contenthash:7].css',
+        }));
     }
 
     return plugins;
