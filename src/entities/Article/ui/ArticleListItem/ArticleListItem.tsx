@@ -2,12 +2,13 @@ import { HTMLAttributeAnchorTarget, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-    AppLink, Avatar, Button, Card, HStack, Icon, Text,
+    AppLink, Avatar, Button, Card, HStack, Icon, Skeleton, Text,
 } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Article, ArticleTextBlockType, ArticleView } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import cls from './ArticleListItem.module.scss';
+import { AppImage } from '@/shared/ui/AppImage/ui/AppImage';
 
 interface ArticleListProps {
     className?: string,
@@ -53,7 +54,12 @@ export const ArticleListItem = (props: ArticleListProps) => {
                         </HStack>
                         <Text title={ article.title } className={ cls.title } />
                         { types }
-                        <img src={ article.img } className={ cls.img } alt={ article.title } />
+                        <AppImage
+                          fallback={ <Skeleton width="100%" height={ 250 } /> }
+                          src={ article.img }
+                          className={ cls.img }
+                          alt={ article.title }
+                        />
                         {
                           textBlock && (
                               <ArticleTextBlock block={ textBlock } />
@@ -79,7 +85,12 @@ export const ArticleListItem = (props: ArticleListProps) => {
                     >
                         <Card onClick={ onSetLastIndex }>
                             <div className={ cls.imageWrapper }>
-                                <img src={ article.img } className={ cls.img } alt={ article.title } />
+                                <AppImage
+                                  fallback={ <Skeleton width={ 200 } height={ 200 } /> }
+                                  src={ article.img }
+                                  className={ cls.img }
+                                  alt={ article.title }
+                                />
                                 <Text text={ new Date(article.createdAt).toLocaleDateString() } className={ cls.date } />
                             </div>
                             <HStack justify="between">

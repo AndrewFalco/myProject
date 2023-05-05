@@ -4,6 +4,8 @@ import MaleAvt from '@/shared/assets/img/avatar_m.jpg';
 import FemaleAvt from '@/shared/assets/img/avatar_fm.jpg';
 import NoSexAvt from '@/shared/assets/img/noSexAvatar.jpg';
 import { Sex } from '@/shared/consts/common';
+import { AppImage } from '../../AppImage/ui/AppImage';
+import { Skeleton } from '../../Skeleton';
 
 import cls from './Avatar.module.scss';
 
@@ -17,7 +19,7 @@ interface AvatarProps {
 
 export const Avatar = (props: AvatarProps) => {
     const {
-        className, src, sex, size, alt,
+        className, src, sex, size = 100, alt,
     } = props;
     const defaultAvatar = useMemo(() => {
         switch (true) {
@@ -28,14 +30,16 @@ export const Avatar = (props: AvatarProps) => {
     }, [sex]);
 
     const styles = useMemo(() => ({
-            width: size || 100,
-            height: size || 100,
+            width: size,
+            height: size,
         }), [size]);
 
     return (
-        <img
+        <AppImage
           className={ classNames(cls.Avatar, {}, [className]) }
           src={ src || defaultAvatar }
+          fallback={ <Skeleton width={ size } height={ size } borderRadius="50%" /> }
+          errorFallback={ defaultAvatar }
           style={ styles }
           alt={ alt }
         />
