@@ -1,4 +1,4 @@
-import AppRoute from './AppRoute';
+import AppRoute from './ui/AppRoute';
 
 export {
     AppRoute,

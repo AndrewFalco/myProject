@@ -5,7 +5,7 @@ import {
  Virtuoso, VirtuosoGrid, VirtuosoHandle,
 } from 'react-virtuoso';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ViewType } from '../../../types';
+import { ViewType } from '../../../types/sort';
 
 import cls from './Virtualize.module.scss';
 

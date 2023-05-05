@@ -5,7 +5,7 @@ const ForbiddenPage = () => {
     const { t } = useTranslation();
 
     return (
-        <Page>
+        <Page data-testid="ForbiddenPage">
             <h1>
                 { t('Forbidden Page') }
             </h1>
