@@ -28,6 +28,9 @@
     "build-storybook": "storybook build -c ./config/storybook",
     "postinstall": "node ./scripts/postinstall.js"
   },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -145,8 +148,5 @@
         "preset": "iPhone 7"
       }
     }
-  },
-  "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
   }
 }
