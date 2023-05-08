@@ -32,6 +32,7 @@ export const Flex = (props: PropsWithChildren<FlexProps>) => {
         max,
         grow,
         wrap,
+        ...other
     } = props;
 
     const mods: Mods = {
@@ -44,7 +45,10 @@ export const Flex = (props: PropsWithChildren<FlexProps>) => {
     });
 
     return (
-        <div className={ classNames(cls.Flex, mods, [className, ...currentClasses]) }>
+        <div
+          className={ classNames(cls.Flex, mods, [className, ...currentClasses]) }
+          { ...other }
+        >
             { children }
         </div>
     );

@@ -34,6 +34,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <Page
               className={ classNames(cls.ArticleDetailsPage, {}, [className]) }
               error={ !id ? t('Article is not found') : undefined }
+              data-testid="ArticleDetailsPage"
             >
                 <ArticleDetailsPageHeader />
                 <ArticleDetails articleId={ id } />

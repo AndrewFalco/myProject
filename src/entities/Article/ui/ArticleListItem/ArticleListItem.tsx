@@ -40,7 +40,10 @@ export const ArticleListItem = (props: ArticleListProps) => {
     }, [index, setLastIndex]);
 
     return (
-        <div className={ classNames(cls.ArticleListItem, {}, [className, cls[view]]) }>
+        <div
+          data-testid="ArticleListItem"
+          className={ classNames(cls.ArticleListItem, {}, [className, cls[view]]) }
+        >
             {
               view === 'LIST'
                 ? (

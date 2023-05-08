@@ -14,7 +14,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     const { data: articles, isLoading, error } = useArticleRecommendationsList(6);
 
     return (
-        <VStack gap="8" className={ className }>
+        <VStack gap="8" className={ className } data-testid="ArticleDetails.Recommendation">
             <Text title={ t('Recommendations') } />
             {
                 !error

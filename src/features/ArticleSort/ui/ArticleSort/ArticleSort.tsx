@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import {
     Card, HStack, Input, VStack, TabItem,
 } from '@/shared/ui';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { ArticleType, ArticleView } from '@/entities/Article';
 import { getArticleOrderValue, getArticleSearchValue, getArticleSortValue } from '../../model/selectors/articleSortSelectors';
 import { ArticleSortField } from '../../model/types/articleSort';

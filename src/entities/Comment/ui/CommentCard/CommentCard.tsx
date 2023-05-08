@@ -17,12 +17,15 @@ export const CommentCard = (props: CommentCardProps) => {
     const { className, comment, isLoading } = props;
 
     return (
-        <div className={ classNames(cls.CommentCard, {}, [className]) }>
+        <div
+          data-testid="CommentCard"
+          className={ classNames(cls.CommentCard, {}, [className]) }
+        >
             {
                 isLoading
                     ? (
                         <>
-                            <div className={ cls.header }>
+                            <div data-testid="CommentCard.Loading" className={ cls.header }>
                                 <div className={ cls.ownerInfo }>
                                     <Skeleton className={ cls.avatar } width={ 30 } height={ 30 } borderRadius="50%" />
                                     <Skeleton height={ 16 } width={ 100 } />
@@ -34,7 +37,7 @@ export const CommentCard = (props: CommentCardProps) => {
                     )
                     : (
                         <>
-                            <div className={ cls.header }>
+                            <div data-testid="CommentCard.Content" className={ cls.header }>
                                 <AppLink to={ getRoutProfile(comment.user.id) } className={ cls.ownerInfo }>
                                     <Avatar className={ cls.avatar } src={ comment?.user.avatar } size={ 30 } />
                                     <Text title={ comment.user.username } />

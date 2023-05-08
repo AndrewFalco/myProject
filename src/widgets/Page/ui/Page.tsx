@@ -7,7 +7,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
-import { TestProps } from '@/shared/types/test';
+import { TestProps } from '@/shared/types/testTypes';
 
 import cls from './Page.module.scss';
 

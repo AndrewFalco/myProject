@@ -13,7 +13,6 @@ import { Text, TabItem } from '@/shared/ui';
 import { Page } from '@/widgets/Page';
 import { ArticleSort, ArticleSortField } from '@/features/ArticleSort';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/consts';
-import { SortOrder } from '@/shared/types';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import {
     getArticlesPageError, getArticlesPageIsLoading, getArticlesPageLastIndex, getArticlesPageType, getArticlesPageView,
@@ -21,6 +20,7 @@ import {
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList';
+import { SortOrder } from '@/shared/types/sort';
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,

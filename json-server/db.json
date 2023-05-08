@@ -671,6 +671,15 @@
         "MANAGER"
       ],
       "avatar": "https://avatars.akamai.steamstatic.com/0b7721b547d14d88096c672da722b4767122a6b9_full.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
+      "avatar": "https://avatars.akamai.steamstatic.com/0b7721b547d14d88096c672da722b4767122a6b9_full.jpg"
     }
   ],
   "profile": [
@@ -698,6 +707,20 @@
       "city": "A",
       "age": 27,
       "username": "Mikasa",
+      "avatar": "",
+      "currency": "RUB",
+      "sex": "female"
+    },
+    {
+      "id": "4",
+      "firstName": "test",
+      "lastName": "user",
+      "email": "ggTop@toptop.com",
+      "phone": "+7777777777",
+      "country": "Russian Federation",
+      "city": "A",
+      "age": 27,
+      "username": "testuser",
       "avatar": "",
       "currency": "RUB",
       "sex": "female"

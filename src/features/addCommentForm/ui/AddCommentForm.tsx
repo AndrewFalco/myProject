@@ -36,8 +36,12 @@ const AddCommentForm = (props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <div className={ classNames(cls.AddCommentForm, {}, [className]) }>
+            <div
+              data-testid="AddCommentForm"
+              className={ classNames(cls.AddCommentForm, {}, [className]) }
+            >
                 <Textarea
+                  data-testid="AddCommentForm.Input"
                   className={ cls.input }
                   name={ t('Comment') || undefined }
                   value={ text }
@@ -46,6 +50,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
                   rows={ 2 }
                 />
                 <Button
+                  data-testid="AddCommentForm.Button"
                   onClick={ onSendHandler }
                   colorType="success"
                 >

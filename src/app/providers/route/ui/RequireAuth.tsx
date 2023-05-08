@@ -16,7 +16,7 @@ export const RequireAuth = (props: RequireAuthProps) => {
     const location = useLocation();
 
     const hasRequiredRoles = useMemo(
-        () => (roles ? roles.some((role) => userRoles?.includes(role)) : false),
+        () => (roles?.length ? roles.some((role) => userRoles?.includes(role)) : true),
         [roles, userRoles],
     );
 

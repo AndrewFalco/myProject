@@ -39,7 +39,13 @@ export const ArticleList = (props: ArticleListProps) => {
     const renderSkeleton = useCallback((index: number) => (<ArticleListItemSkeleton view={ view } key={ index } />), [view]);
 
     return (
-        <HStack wrap="nowrap" gap="16" className={ className } max>
+        <HStack
+          data-testid="ArticleList"
+          wrap="nowrap"
+          gap="16"
+          className={ className }
+          max
+        >
             {
                 withVirtualized
                     ? (

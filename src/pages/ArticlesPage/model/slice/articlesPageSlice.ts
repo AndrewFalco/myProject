@@ -3,7 +3,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { Article, ArticleView, ArticleType } from '@/entities/Article';
 import { ArticleSortField } from '@/features/ArticleSort';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/consts';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { fetchArticlesList } from '../services/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 

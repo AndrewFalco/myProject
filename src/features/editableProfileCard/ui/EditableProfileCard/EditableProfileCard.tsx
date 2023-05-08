@@ -100,6 +100,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardType) => {
             <VStack gap="8" max>
                 <EditableProfileCardHeader />
                 <ProfileCard
+                  data-testid="ProfileCard"
                   data={ formData }
                   isLoading={ isLoading }
                   error={ error }

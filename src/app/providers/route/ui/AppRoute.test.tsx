@@ -30,18 +30,19 @@ describe('app/providers/routes', () => {
     });
     test('access to private page for authorized user', async () => {
         componentRender(<AppRoute />, {
-            route: getRoutProfile('1'),
+            route: getRoutAdminPanel(),
             initialState: {
                 user: {
                     _inited: true,
                     authData: {
                         id: '1',
+                        roles: ['ADMIN'],
                     },
                 },
             },
         });
 
-        const page = await screen.findByTestId('ProfilePage');
+        const page = await screen.findByTestId('AdminPanelPage');
         expect(page).toBeInTheDocument();
     });
     test('access denied (low permissions)', async () => {
