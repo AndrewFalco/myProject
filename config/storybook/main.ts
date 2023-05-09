@@ -5,15 +5,13 @@ import { BuildPaths } from '../build/types/config';
 import { buildCSSLoaders } from '../build/loaders/buildCSSLoaders';
 
 const config: StorybookConfig = {
-    stories: [
-        '../../src/**/*.stories.@(js|jsx|ts|tsx)',
-    ],
+    stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
     addons: [
         '@storybook/addon-links',
         {
             name: '@storybook/addon-essentials',
             options: {
-              background: false,
+                background: false,
             },
         },
         '@storybook/addon-interactions',
@@ -36,13 +34,15 @@ const config: StorybookConfig = {
         };
 
         if (config.module?.rules) {
-            config.module.rules = config.module?.rules?.map((rule: RuleSetRule | '...') => {
-                if (rule !== '...' && /svg/.test(rule.test as string)) {
-                    return { ...rule, exclude: /\.svg$/i };
-                }
+            config.module.rules = config.module?.rules?.map(
+                (rule: RuleSetRule | '...') => {
+                    if (rule !== '...' && /svg/.test(rule.test as string)) {
+                        return { ...rule, exclude: /\.svg$/i };
+                    }
 
-                return rule;
-            });
+                    return rule;
+                },
+            );
         }
 
         config.module?.rules?.push({
@@ -51,11 +51,13 @@ const config: StorybookConfig = {
         });
         config.module?.rules?.push(buildCSSLoaders(true));
 
-        config.plugins?.push(new DefinePlugin({
-            __IS_DEV__: JSON.stringify(true),
-            __API__: JSON.stringify(''),
-            __PROJECT__: JSON.stringify('storybook'),
-        }));
+        config.plugins?.push(
+            new DefinePlugin({
+                __IS_DEV__: JSON.stringify(true),
+                __API__: JSON.stringify(''),
+                __PROJECT__: JSON.stringify('storybook'),
+            }),
+        );
 
         return config;
     },

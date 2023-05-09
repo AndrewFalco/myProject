@@ -3,7 +3,7 @@ import { Code, HStack } from '@/shared/ui';
 import { ArticleCodeBlockType } from '../../model/types/article';
 
 interface ArticleCodeBlockProps {
-    block: ArticleCodeBlockType,
+    block: ArticleCodeBlockType;
 }
 
 export const ArticleCodeBlock = memo((props: ArticleCodeBlockProps) => {

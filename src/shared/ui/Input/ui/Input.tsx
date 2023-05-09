@@ -1,11 +1,18 @@
 import {
-    ChangeEvent, InputHTMLAttributes, memo, useCallback, useMemo,
+    ChangeEvent,
+    InputHTMLAttributes,
+    memo,
+    useCallback,
+    useMemo,
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' | 'name'>;
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly' | 'name'
+>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
@@ -31,9 +38,12 @@ export const Input = memo((props: InputProps) => {
         ...otherProps
     } = props;
 
-    const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e.target.value, required);
-    }, [onChange, required]);
+    const onChangeHandler = useCallback(
+        (e: ChangeEvent<HTMLInputElement>) => {
+            onChange?.(e.target.value, required);
+        },
+        [onChange, required],
+    );
 
     const hasError = useMemo(() => required && !value, [required, value]);
 
@@ -45,32 +55,30 @@ export const Input = memo((props: InputProps) => {
     return (
         <div className={ classNames(cls.InputWrapper, {}, [className]) }>
             <input
-              id={ id }
-              name={ name || undefined }
-              type={ type }
-              className={ classNames(cls.Input, mods, [className]) }
-              placeholder={ placeholder || name || undefined }
-              value={ value }
-              onChange={ onChangeHandler }
-              readOnly={ readOnly }
-              { ...otherProps }
+                id={ id }
+                name={ name || undefined }
+                type={ type }
+                className={ classNames(cls.Input, mods, [className]) }
+                placeholder={ placeholder || name || undefined }
+                value={ value }
+                onChange={ onChangeHandler }
+                readOnly={ readOnly }
+                { ...otherProps }
             />
             <label
-              htmlFor={ id }
-              className={ classNames(cls.Label, {}, [className]) }
+                htmlFor={ id }
+                className={ classNames(cls.Label, {}, [className]) }
             >
                 { placeholder || name }
             </label>
-            {
-                !!errorText && (
-                    <label
-                      htmlFor={ id }
-                      className={ classNames(cls.errorText, {}, [className]) }
-                    >
-                        { errorText }
-                    </label>
-                )
-            }
+            { !!errorText && (
+                <label
+                    htmlFor={ id }
+                    className={ classNames(cls.errorText, {}, [className]) }
+                >
+                    { errorText }
+                </label>
+            ) }
         </div>
     );
 });

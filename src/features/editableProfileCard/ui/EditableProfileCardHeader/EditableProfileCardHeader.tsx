@@ -34,49 +34,48 @@ export const EditableProfileCardHeader = memo(() => {
         dispatch(updateProfileData());
     }, [dispatch]);
 
-    const isEqualUserProfile = useMemo(() => profileData?.id === authData?.id, [authData?.id, profileData?.id]);
+    const isEqualUserProfile = useMemo(
+        () => profileData?.id === authData?.id,
+        [authData?.id, profileData?.id],
+    );
 
     return (
         <HStack justify="between" max>
             <Text title={ t('Profile card') } />
             { isEqualUserProfile && (
-            <HStack>
-                {
-                  readonly
-                    ? (
+                <HStack>
+                    { readonly ? (
                         !(hasError || isLoading) && (
                             <Button
-                              theme="outline"
-                              onClick={ onEditMode }
-                              data-testid="EditableProfileCardHeader.EditButton"
+                                theme="outline"
+                                onClick={ onEditMode }
+                                data-testid="EditableProfileCardHeader.EditButton"
                             >
                                 { t('Edit') }
                             </Button>
                         )
-                    )
-                    : (
+                    ) : (
                         <HStack gap="16">
                             <Button
-                              theme="outline"
-                              colorType="success"
-                              onClick={ onSave }
-                              disabled={ hasError }
-                              data-testid="EditableProfileCardHeader.SaveButton"
+                                theme="outline"
+                                colorType="success"
+                                onClick={ onSave }
+                                disabled={ hasError }
+                                data-testid="EditableProfileCardHeader.SaveButton"
                             >
                                 { t('Save') }
                             </Button>
                             <Button
-                              theme="outline"
-                              colorType="error"
-                              onClick={ onCancel }
-                              data-testid="EditableProfileCardHeader.CancelButton"
+                                theme="outline"
+                                colorType="error"
+                                onClick={ onCancel }
+                                data-testid="EditableProfileCardHeader.CancelButton"
                             >
                                 { t('Cancel') }
                             </Button>
                         </HStack>
-                    )
-                }
-            </HStack>
+                    ) }
+                </HStack>
             ) }
         </HStack>
     );

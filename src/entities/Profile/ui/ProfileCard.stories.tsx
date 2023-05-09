@@ -40,9 +40,7 @@ export const WithError: Story = {
 
 export const LoadingError: Story = {
     args: {
-        error: [
-            { key: 'loading', text: 'Error with loading' },
-        ],
+        error: [{ key: 'loading', text: 'Error with loading' }],
     },
 };
 

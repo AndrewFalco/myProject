@@ -28,7 +28,14 @@ interface ListBoxProps {
 
 export const ListBox = (props: ListBoxProps) => {
     const {
-        value, items, className, defaultValue, onChange, readonly, direction = 'bottom right', label,
+        value,
+        items,
+        className,
+        defaultValue,
+        onChange,
+        readonly,
+        direction = 'bottom right',
+        label,
     } = props;
 
     const { t } = useTranslation();
@@ -39,42 +46,46 @@ export const ListBox = (props: ListBoxProps) => {
         <HStack gap="8">
             { label && <span>{ label }</span> }
             <HListBox
-              as="div"
-              className={ classNames(cls.ListBox, {}, [className, popupCls.popup]) }
-              value={ value }
-              onChange={ onChange }
-              disabled={ readonly }
+                as="div"
+                className={ classNames(cls.ListBox, {}, [
+                    className,
+                    popupCls.popup,
+                ]) }
+                value={ value }
+                onChange={ onChange }
+                disabled={ readonly }
             >
                 <HListBox.Button className={ popupCls.trigger }>
                     <Button disabled={ readonly }>
                         { value ?? defaultValue ?? t('Select value') }
                     </Button>
                 </HListBox.Button>
-                <HListBox.Options className={ classNames(cls.options, {}, optionClasses) }>
+                <HListBox.Options
+                    className={ classNames(cls.options, {}, optionClasses) }
+                >
                     { items?.map((item) => (
                         <HListBox.Option
-                          key={ item.value }
-                          value={ item.value }
-                          disabled={ item.disabled }
-                          as={ Fragment }
+                            key={ item.value }
+                            value={ item.value }
+                            disabled={ item.disabled }
+                            as={ Fragment }
                         >
-                            {
-                        ({ active, selected }) => (
-                            <li className={ classNames(cls.item, {
-                                [popupCls.active]: active,
-                                [popupCls.disabled]: item.disabled,
-                                [cls.selected]: selected,
-                              }) }
-                            >
-                                { selected && '\u2713' }
-                                { item.content }
-                            </li>
-                        )
-                      }
+                            { ({ active, selected }) => (
+                                <li
+                                    className={ classNames(cls.item, {
+                                        [popupCls.active]: active,
+                                        [popupCls.disabled]: item.disabled,
+                                        [cls.selected]: selected,
+                                    }) }
+                                >
+                                    { selected && '\u2713' }
+                                    { item.content }
+                                </li>
+                            ) }
                         </HListBox.Option>
-                )) }
+                    )) }
                 </HListBox.Options>
             </HListBox>
         </HStack>
-  );
+    );
 };

@@ -10,8 +10,8 @@ import { SidebarListProps } from '../../model/types/sidebar';
 import cls from './Sidebar.module.scss';
 
 interface SidebarItemProps {
-    item: SidebarListProps,
-    collapsed?: boolean,
+    item: SidebarListProps;
+    collapsed?: boolean;
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
@@ -20,20 +20,16 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 
     const isAuth = useSelector(getUserAuthData);
 
-    return (
-        (item.authOnly && !isAuth)
-        ? null
-        : (
-            <AppLink
-              to={ item.route }
-              theme="secondary"
-              className={ classNames(cls.item, { [cls.collapsed]: collapsed }) }
-            >
-                <HStack>
-                    <item.Icon className={ cls.icon } />
-                    <span className={ cls.link }>{ t(item.name) }</span>
-                </HStack>
-            </AppLink>
-        )
+    return item.authOnly && !isAuth ? null : (
+        <AppLink
+            to={ item.route }
+            theme="secondary"
+            className={ classNames(cls.item, { [cls.collapsed]: collapsed }) }
+        >
+            <HStack>
+                <item.Icon className={ cls.icon } />
+                <span className={ cls.link }>{ t(item.name) }</span>
+            </HStack>
+        </AppLink>
     );
 });

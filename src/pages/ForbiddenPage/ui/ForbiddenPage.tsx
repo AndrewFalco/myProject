@@ -6,9 +6,7 @@ const ForbiddenPage = () => {
 
     return (
         <Page data-testid="ForbiddenPage">
-            <h1>
-                { t('Forbidden Page') }
-            </h1>
+            <h1>{ t('Forbidden Page') }</h1>
         </Page>
     );
 };

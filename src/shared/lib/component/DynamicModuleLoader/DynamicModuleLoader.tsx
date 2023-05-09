@@ -1,23 +1,27 @@
 import { Reducer } from '@reduxjs/toolkit';
 import { PropsWithChildren, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
-import { StateSchema, StateSchemaKey, ReduxStoreWithManager } from '@/app/providers/StoreProvider';
+import {
+    StateSchema,
+    StateSchemaKey,
+    ReduxStoreWithManager,
+} from '@/app/providers/StoreProvider';
 
 import cls from './DynamicModuleLoader.module.scss';
 
 export type ReducersList = {
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
-}
+};
 
 interface DynamicModuleLoaderProps {
     reducers: ReducersList;
     removeAfterUnmount?: boolean;
 }
 
-export const DynamicModuleLoader = (props: PropsWithChildren<DynamicModuleLoaderProps>) => {
-    const {
-        children, reducers, removeAfterUnmount = true,
-    } = props;
+export const DynamicModuleLoader = (
+    props: PropsWithChildren<DynamicModuleLoaderProps>,
+) => {
+    const { children, reducers, removeAfterUnmount = true } = props;
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useDispatch();
 
@@ -43,9 +47,5 @@ export const DynamicModuleLoader = (props: PropsWithChildren<DynamicModuleLoader
         };
     }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
 
-    return (
-        <div className={ cls.wrapperDML }>
-            { children }
-        </div>
-    );
+    return <div className={ cls.wrapperDML }>{ children }</div>;
 };

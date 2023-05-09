@@ -12,8 +12,8 @@ export interface ArticlesPageSchema extends EntityState<Article> {
     hasMore: boolean;
     _inited: boolean;
     search: string;
-    sort: ArticleSortField,
-    order: SortOrder,
-    type: ArticleType,
+    sort: ArticleSortField;
+    order: SortOrder;
+    type: ArticleType;
     lastOpenedArticleIndex?: number;
 }

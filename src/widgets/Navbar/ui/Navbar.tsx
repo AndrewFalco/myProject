@@ -6,15 +6,13 @@ import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-    AppLink, Button, HStack, Text,
-} from '@/shared/ui';
+import { AppLink, Button, HStack, Text } from '@/shared/ui';
 import { getRoutArticleCreate } from '@/shared/consts/routes';
 
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
-    className?: string,
+    className?: string;
 }
 
 const NavbarComponent = (props: NavbarProps) => {
@@ -39,29 +37,27 @@ const NavbarComponent = (props: NavbarProps) => {
                     <Text title="FF" className={ cls.appName } />
                     { authData && (
                         <AppLink
-                          className={ cls.appLink }
-                          to={ getRoutArticleCreate() }
+                            className={ cls.appLink }
+                            to={ getRoutArticleCreate() }
                         >
                             { t('Create new article') }
                         </AppLink>
                     ) }
                 </div>
-                {
-                    authData
-                        ? (
-                            <HStack gap="16" className={ cls.actions }>
-                                <NotificationButton />
-                                <AvatarDropdown onCloseModal={ closeModal } />
-                            </HStack>
-                        )
-                        : (
-                            <Button theme="clear" onClick={ openModal }>
-                                { t('Login') }
-                            </Button>
-                        )
-                }
+                { authData ? (
+                    <HStack gap="16" className={ cls.actions }>
+                        <NotificationButton />
+                        <AvatarDropdown onCloseModal={ closeModal } />
+                    </HStack>
+                ) : (
+                    <Button theme="clear" onClick={ openModal }>
+                        { t('Login') }
+                    </Button>
+                ) }
             </HStack>
-            { !authData && <LoginModal isOpen={ isAuthModal } onClose={ closeModal } /> }
+            { !authData && (
+                <LoginModal isOpen={ isAuthModal } onClose={ closeModal } />
+            ) }
         </header>
     );
 };

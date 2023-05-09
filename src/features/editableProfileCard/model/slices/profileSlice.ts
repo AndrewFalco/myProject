@@ -22,21 +22,33 @@ export const profileSlice = createSlice({
         setReadonly: (state, action) => {
             state.readonly = action.payload;
         },
-        setError: (state, action: PayloadAction<{ key: string, text?: string }>) => {
+        setError: (
+            state,
+            action: PayloadAction<{ key: string; text?: string }>,
+        ) => {
             if (state.error) {
-                state.error.push(
+                state.error.push({
+                    key: action.payload.key,
+                    text:
+                        action.payload.text ||
+                        'Error with fetching profile data',
+                });
+            } else {
+                state.error = [
                     {
                         key: action.payload.key,
-                        text: action.payload.text || 'Error with fetching profile data',
+                        text:
+                            action.payload.text ||
+                            'Error with fetching profile data',
                     },
-                );
-            } else {
-                state.error = [{ key: action.payload.key, text: action.payload.text || 'Error with fetching profile data' }];
+                ];
             }
         },
-        removeError: (state, action: PayloadAction<{ key: string}>) => {
+        removeError: (state, action: PayloadAction<{ key: string }>) => {
             if (state.error?.length) {
-                state.error = state.error.filter((err) => err.key !== action.payload.key);
+                state.error = state.error.filter(
+                    (err) => err.key !== action.payload.key,
+                );
             }
         },
         updateProfile: (state, action) => {
@@ -56,9 +68,21 @@ export const profileSlice = createSlice({
             })
             .addCase(fetchProfileData.rejected, (state, action) => {
                 if (state.error) {
-                    state.error.push({ key: 'loading', text: action.payload || 'Error with fetching profile data' });
+                    state.error.push({
+                        key: 'loading',
+                        text:
+                            action.payload ||
+                            'Error with fetching profile data',
+                    });
                 } else {
-                    state.error = [{ key: 'loading', text: action.payload || 'Error with fetching profile data' }];
+                    state.error = [
+                        {
+                            key: 'loading',
+                            text:
+                                action.payload ||
+                                'Error with fetching profile data',
+                        },
+                    ];
                 }
                 state.isLoading = false;
             })
@@ -75,9 +99,21 @@ export const profileSlice = createSlice({
             })
             .addCase(updateProfileData.rejected, (state, action) => {
                 if (state.error) {
-                    state.error.push({ key: 'loading', text: action.payload || 'Error with fetching profile data' });
+                    state.error.push({
+                        key: 'loading',
+                        text:
+                            action.payload ||
+                            'Error with fetching profile data',
+                    });
                 } else {
-                    state.error = [{ key: 'loading', text: action.payload || 'Error with fetching profile data' }];
+                    state.error = [
+                        {
+                            key: 'loading',
+                            text:
+                                action.payload ||
+                                'Error with fetching profile data',
+                        },
+                    ];
                 }
                 state.isLoading = false;
             });

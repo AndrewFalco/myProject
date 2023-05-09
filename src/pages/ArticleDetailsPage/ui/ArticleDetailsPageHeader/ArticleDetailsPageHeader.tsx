@@ -14,20 +14,13 @@ export const ArticleDetailsPageHeader = memo(() => {
     return (
         <HStack justify="between">
             <AppLink to={ getRoutArticles() }>
-                <Button>
-                    { t('Back to articles list') }
-                </Button>
+                <Button>{ t('Back to articles list') }</Button>
             </AppLink>
-            {
-                canEdit && article
-                    && (
-                        <AppLink to={ getRoutArticleEdit(article.id) }>
-                            <Button colorType="success">
-                                { t('Edit') }
-                            </Button>
-                        </AppLink>
-                    )
-            }
+            { canEdit && article && (
+                <AppLink to={ getRoutArticleEdit(article.id) }>
+                    <Button colorType="success">{ t('Edit') }</Button>
+                </AppLink>
+            ) }
         </HStack>
     );
 });

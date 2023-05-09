@@ -9,7 +9,11 @@ const meta = {
     component: Popover,
     argTypes: {},
     decorators: [
-        (Story) => <div style={ { padding: 100 } }><Story /></div>,
+        (Story) => (
+            <div style={ { padding: 100 } }>
+                <Story />
+            </div>
+        ),
     ],
 } satisfies Meta<typeof Popover>;
 
@@ -24,7 +28,7 @@ export const Primary: Story = {
             <div>child 3</div>,
             <div>child 4</div>,
         ],
-    trigger: 'popover',
+        trigger: 'popover',
     },
 };
 
@@ -36,7 +40,11 @@ export const PrimaryDark: Story = {
             <div style={ { padding: '8px' } }>child 3</div>,
             <div style={ { padding: '8px' } }>child 4</div>,
         ],
-        trigger: <button type="button" style={ { padding: '8px' } }>Push</button>,
+        trigger: (
+            <button type="button" style={ { padding: '8px' } }>
+                Push
+            </button>
+        ),
     },
     decorators: [ThemeDecorator('app_dark_theme')],
 };

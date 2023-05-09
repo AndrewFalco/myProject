@@ -6,7 +6,7 @@ import { Page } from '@/widgets';
 import cls from './ArticleEditPage.module.scss';
 
 interface ArticleEditPageProps {
-    className?: string,
+    className?: string;
 }
 
 export const ArticleEditPage = (props: ArticleEditPageProps) => {
@@ -16,7 +16,9 @@ export const ArticleEditPage = (props: ArticleEditPageProps) => {
     const isEdit = Boolean(id);
     return (
         <Page className={ classNames(cls.ArticleEditPage, {}, [className]) }>
-            { isEdit ? t('Article edit page content') : t('Article create page content') }
+            { isEdit
+                ? t('Article edit page content')
+                : t('Article create page content') }
         </Page>
     );
 };

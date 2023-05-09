@@ -1,10 +1,12 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { getProfileError } from './getProfileError';
 
-const error = [{
-    key: 'loading',
-    text: 'Error with loading',
-}];
+const error = [
+    {
+        key: 'loading',
+        text: 'Error with loading',
+    },
+];
 
 describe('getProfileError.test', () => {
     test('should return error', () => {

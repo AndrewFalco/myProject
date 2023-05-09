@@ -4,7 +4,7 @@ import { ArticleTextBlockType } from '../../model/types/article';
 import cls from './ArticleTextBlock.module.scss';
 
 interface ArticleTextBlockProps {
-    block: ArticleTextBlockType,
+    block: ArticleTextBlockType;
 }
 
 export const ArticleTextBlock = memo((props: ArticleTextBlockProps) => {
@@ -12,19 +12,14 @@ export const ArticleTextBlock = memo((props: ArticleTextBlockProps) => {
 
     return (
         <VStack max gap="8">
-            {
-                block.title && (
-                    <Text
-                      title={ block.title }
-                      className={ cls.title }
-                    />
-                )
-            }
-            {
-              block.paragraphs.map((paragraph) => (
-                  <Text key={ paragraph } text={ paragraph } className={ cls.paragraph } />
-              ))
-            }
+            { block.title && <Text title={ block.title } className={ cls.title } /> }
+            { block.paragraphs.map((paragraph) => (
+                <Text
+                    key={ paragraph }
+                    text={ paragraph }
+                    className={ cls.paragraph }
+                />
+            )) }
         </VStack>
     );
 });

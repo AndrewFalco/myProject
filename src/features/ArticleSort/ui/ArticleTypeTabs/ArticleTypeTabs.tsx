@@ -7,48 +7,51 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleTypeTabs.module.scss';
 
 interface ArticleTypeTabsProps {
-    className?: string,
-    onChangeType: (search: TabItem) => void,
-    typeValue: ArticleType,
+    className?: string;
+    onChangeType: (search: TabItem) => void;
+    typeValue: ArticleType;
 }
 
 export const ArticleTypeTabs = (props: ArticleTypeTabsProps) => {
     const { className, onChangeType, typeValue } = props;
     const { t } = useTranslation();
 
-    const typeTabs = useMemo<TabItem[]>(() => [
-        {
-            value: 'ALL',
-            content: t('ALL'),
-        },
-        {
-            value: 'IT',
-            content: t('IT'),
-        },
-        {
-            value: 'SCIENCE',
-            content: t('SCIENCE'),
-        },
-        {
-            value: 'ECONOMICS',
-            content: t('ECONOMICS'),
-        },
-        {
-            value: 'GAMES',
-            content: t('GAMES'),
-        },
-        {
-            value: 'PHILOSOPHY',
-            content: t('PHILOSOPHY'),
-        },
-    ], [t]);
+    const typeTabs = useMemo<TabItem[]>(
+        () => [
+            {
+                value: 'ALL',
+                content: t('ALL'),
+            },
+            {
+                value: 'IT',
+                content: t('IT'),
+            },
+            {
+                value: 'SCIENCE',
+                content: t('SCIENCE'),
+            },
+            {
+                value: 'ECONOMICS',
+                content: t('ECONOMICS'),
+            },
+            {
+                value: 'GAMES',
+                content: t('GAMES'),
+            },
+            {
+                value: 'PHILOSOPHY',
+                content: t('PHILOSOPHY'),
+            },
+        ],
+        [t],
+    );
 
     return (
         <Tabs
-          tabs={ typeTabs }
-          value={ typeValue }
-          onTabClick={ onChangeType }
-          className={ classNames(cls.tabs, {}, [className]) }
+            tabs={ typeTabs }
+            value={ typeValue }
+            onTabClick={ onChangeType }
+            className={ classNames(cls.tabs, {}, [className]) }
         />
     );
 };

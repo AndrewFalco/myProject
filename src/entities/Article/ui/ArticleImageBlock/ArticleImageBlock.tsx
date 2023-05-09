@@ -4,7 +4,7 @@ import { ArticleImageBlockType } from '../../model/types/article';
 import cls from './ArticleImageBlock.module.scss';
 
 interface ArticleImageBlockProps {
-    block: ArticleImageBlockType,
+    block: ArticleImageBlockType;
 }
 
 export const ArticleImageBlock = memo((props: ArticleImageBlockProps) => {

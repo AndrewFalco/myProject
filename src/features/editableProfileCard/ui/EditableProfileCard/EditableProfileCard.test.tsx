@@ -39,36 +39,59 @@ describe('feature/EditableProfileCard', () => {
     test('to be in document', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
-        expect(screen.getByTestId('EditableProfileCardHeader.SaveButton')).toBeInTheDocument();
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
+        expect(
+            screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+        ).toBeInTheDocument();
     });
 
     test('inputs will be return default state on cancel', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
-        await userEvent.type(screen.getByTestId('ProfileCard.firstName'), 'user');
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstName'),
+            'user',
+        );
         expect(screen.getByTestId('ProfileCard.firstName')).toHaveValue('user');
 
         await userEvent.clear(screen.getByTestId('ProfileCard.lastName'));
-        await userEvent.type(screen.getByTestId('ProfileCard.lastName'), 'user');
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.lastName'),
+            'user',
+        );
         expect(screen.getByTestId('ProfileCard.lastName')).toHaveValue('user');
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.CancelButton'),
+        );
 
         expect(screen.getByTestId('ProfileCard.firstName')).toHaveValue('Levi');
-        expect(screen.getByTestId('ProfileCard.lastName')).toHaveValue('Ackerman');
+        expect(screen.getByTestId('ProfileCard.lastName')).toHaveValue(
+            'Ackerman',
+        );
     });
 
     test('will be send put request, if has no error', async () => {
         const mockPutReq = jest.spyOn($api, 'put');
         componentRender(<EditableProfileCard id="1" />, options);
 
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
-        await userEvent.type(screen.getByTestId('ProfileCard.firstName'), 'user');
-        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.EditButton'),
+        );
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstName'),
+            'user',
+        );
+        await userEvent.click(
+            screen.getByTestId('EditableProfileCardHeader.SaveButton'),
+        );
 
         expect(mockPutReq).toHaveBeenCalled();
     });

@@ -1,7 +1,11 @@
 import { screen } from '@testing-library/react';
 import { componentRender } from '@/shared/lib/test/componentRender/componentRender';
 import AppRoute from './AppRoute';
-import { getRoutAbout, getRoutAdminPanel, getRoutProfile } from '@/shared/consts/routes';
+import {
+    getRoutAbout,
+    getRoutAdminPanel,
+    getRoutProfile,
+} from '@/shared/consts/routes';
 
 describe('app/providers/routes', () => {
     test('should be rendered', async () => {

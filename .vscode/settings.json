@@ -1,11 +1,6 @@
 {
-    "cSpell.words": [
-        "странице"
-    ],
-    "i18n-ally.localesPaths": [
-        "./public/locales",
-        "src/shared/config/i18n"
-    ],
+    "cSpell.words": ["странице"],
+    "i18n-ally.localesPaths": ["./public/locales", "src/shared/config/i18n"],
     "i18n-ally.keystyle": "flat",
     "jestrunner.configPath": "/config/jest/jest.config.ts",
     "editor.codeActionsOnSave": {

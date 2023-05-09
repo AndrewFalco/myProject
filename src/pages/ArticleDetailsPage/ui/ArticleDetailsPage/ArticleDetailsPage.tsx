@@ -1,7 +1,10 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetails } from '@/entities/Article';
@@ -13,7 +16,7 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
-    className?: string,
+    className?: string;
 }
 
 const reducers: ReducersList = {
@@ -32,9 +35,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <Page
-              className={ classNames(cls.ArticleDetailsPage, {}, [className]) }
-              error={ !id ? t('Article is not found') : undefined }
-              data-testid="ArticleDetailsPage"
+                className={ classNames(cls.ArticleDetailsPage, {}, [className]) }
+                error={ !id ? t('Article is not found') : undefined }
+                data-testid="ArticleDetailsPage"
             >
                 <ArticleDetailsPageHeader />
                 <ArticleDetails articleId={ id } />

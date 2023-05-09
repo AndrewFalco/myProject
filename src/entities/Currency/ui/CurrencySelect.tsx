@@ -10,12 +10,12 @@ type CurrencySelectProps = {
     onChange?: (value: Currency) => void;
     readonly?: boolean;
     direction?: DropdownDirection;
-}
+};
 
 type CurrencyOptionType = {
-    value: Currency,
-    content: Currency
-}
+    value: Currency;
+    content: Currency;
+};
 
 const currencyOptions: CurrencyOptionType[] = [
     { value: 'RUB', content: 'RUB' },
@@ -27,24 +27,31 @@ const currencyOptions: CurrencyOptionType[] = [
 
 export const CurrencySelect = memo((props: CurrencySelectProps) => {
     const {
-        className, onChange, readonly, value, direction = 'top right',
+        className,
+        onChange,
+        readonly,
+        value,
+        direction = 'top right',
     } = props;
     const { t } = useTranslation();
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Currency);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Currency);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox
-          items={ currencyOptions }
-          value={ value }
-          onChange={ onChangeHandler }
-          defaultValue={ t('Select currency') || undefined }
-          readonly={ readonly }
-          className={ className }
-          direction={ direction }
-          label={ t('Select currency') || undefined }
+            items={ currencyOptions }
+            value={ value }
+            onChange={ onChangeHandler }
+            defaultValue={ t('Select currency') || undefined }
+            readonly={ readonly }
+            className={ className }
+            direction={ direction }
+            label={ t('Select currency') || undefined }
         />
     );
 });

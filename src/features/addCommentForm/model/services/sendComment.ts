@@ -8,9 +8,7 @@ import { addCommentFormActions } from '../slices/addCommentFormSlice';
 export const sendComment = createAsyncThunk<Comment, void, ThunkConfig<string>>(
     'addCommentForm/sendComment',
     async (_, restAPI) => {
-        const {
-            extra, rejectWithValue, dispatch, getState,
-        } = restAPI;
+        const { extra, rejectWithValue, dispatch, getState } = restAPI;
 
         const userData = getUserAuthData(getState());
         const text = getAddCommentFormText(getState());

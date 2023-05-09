@@ -1,14 +1,13 @@
-import {
-    memo, ReactElement, useCallback,
-} from 'react';
+import { memo, ReactElement, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
-    Button, VStack, Input, Text,
-} from '@/shared/ui';
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button, VStack, Input, Text } from '@/shared/ui';
 import { getLoginError } from '../../model/selectors/getLoginError';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword';
@@ -19,8 +18,8 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
-    className?: string,
-    onSuccess?: () => void,
+    className?: string;
+    onSuccess?: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -37,13 +36,19 @@ const LoginForm = memo((props: LoginFormProps): ReactElement => {
 
     const dispatch = useAppDispatch();
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value));
+        },
+        [dispatch],
+    );
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+        },
+        [dispatch],
+    );
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
@@ -54,29 +59,38 @@ const LoginForm = memo((props: LoginFormProps): ReactElement => {
 
     return (
         <DynamicModuleLoader reducers={ initialReducers }>
-            <VStack gap="8" justify="center" grow className={ classNames(cls.LoginForm, {}, [className]) } max>
-                <Text title={ t('Autorized form') } className={ cls.commonWrapper } />
+            <VStack
+                gap="8"
+                justify="center"
+                grow
+                className={ classNames(cls.LoginForm, {}, [className]) }
+                max
+            >
+                <Text
+                    title={ t('Autorized form') }
+                    className={ cls.commonWrapper }
+                />
                 { error && <Text theme="error" text={ t(error) } /> }
                 <Input
-                  id="auth_username"
-                  name={ t('User name') }
-                  onChange={ onChangeUsername }
-                  value={ username }
-                  required
+                    id="auth_username"
+                    name={ t('User name') }
+                    onChange={ onChangeUsername }
+                    value={ username }
+                    required
                 />
                 <Input
-                  id="auth_password"
-                  name={ t('Password') }
-                  onChange={ onChangePassword }
-                  value={ password }
-                  type="password"
-                  required
+                    id="auth_password"
+                    name={ t('Password') }
+                    onChange={ onChangePassword }
+                    value={ password }
+                    type="password"
+                    required
                 />
                 <Button
-                  theme="outline"
-                  onClick={ onLoginClick }
-                  disabled={ isLoading }
-                  className={ cls.commonWrapper }
+                    theme="outline"
+                    onClick={ onLoginClick }
+                    disabled={ isLoading }
+                    className={ cls.commonWrapper }
                 >
                     { t('Login') }
                 </Button>

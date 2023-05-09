@@ -1,4 +1,8 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+    createEntityAdapter,
+    createSlice,
+    PayloadAction,
+} from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Article, ArticleView, ArticleType } from '@/entities/Article';
 import { ArticleSortField } from '@/features/ArticleSort';
@@ -56,39 +60,46 @@ const articlesPageSlice = createSlice({
             state.lastOpenedArticleIndex = action.payload;
         },
         initState: (state) => {
-            state.view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
-            state.limit = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) === 'LIST' ? 4 : 9;
+            state.view = localStorage.getItem(
+                ARTICLE_VIEW_LOCALSTORAGE_KEY,
+            ) as ArticleView;
+            state.limit =
+                localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) === 'LIST'
+                    ? 4
+                    : 9;
             state._inited = true;
         },
     },
     extraReducers: (builder) => {
         builder
-        .addCase(fetchArticlesList.pending, (state, action) => {
-            state.error = undefined;
-            state.isLoading = true;
+            .addCase(fetchArticlesList.pending, (state, action) => {
+                state.error = undefined;
+                state.isLoading = true;
 
-            if (action.meta.arg.replace) {
-                articlesPageAdapter.removeAll(state);
-            }
-        })
-        .addCase(fetchArticlesList.fulfilled, (state, action) => {
-            state.isLoading = false;
-            state.hasMore = action.payload.length >= state.limit;
-
-            if (action.meta.arg.replace) {
-                if (action.payload.length) {
-                    articlesPageAdapter.setAll(state, action.payload);
-                } else {
+                if (action.meta.arg.replace) {
                     articlesPageAdapter.removeAll(state);
                 }
-            } else {
-                articlesPageAdapter.addMany(state, action.payload);
-            }
-        })
-        .addCase(fetchArticlesList.rejected, (state, action) => {
-            state.error = action.payload || 'Error with fetching articles details data';
-            state.isLoading = false;
-        });
+            })
+            .addCase(fetchArticlesList.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.hasMore = action.payload.length >= state.limit;
+
+                if (action.meta.arg.replace) {
+                    if (action.payload.length) {
+                        articlesPageAdapter.setAll(state, action.payload);
+                    } else {
+                        articlesPageAdapter.removeAll(state);
+                    }
+                } else {
+                    articlesPageAdapter.addMany(state, action.payload);
+                }
+            })
+            .addCase(fetchArticlesList.rejected, (state, action) => {
+                state.error =
+                    action.payload ||
+                    'Error with fetching articles details data';
+                state.isLoading = false;
+            });
     },
 });
 

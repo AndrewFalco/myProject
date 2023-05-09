@@ -7,9 +7,7 @@ type Story = StoryObj<typeof Text>;
 const meta = {
     title: 'shared/Text',
     component: Text,
-    decorators: [
-        (Story) => (<Story />),
-    ],
+    decorators: [(Story) => <Story />],
 } satisfies Meta<typeof Text>;
 
 export default meta;
@@ -34,7 +32,6 @@ export const Error = {
         text: 'lorem ipsum dolor sit amet',
         theme: 'error',
     },
-
 };
 
 export const ErrorDark = {

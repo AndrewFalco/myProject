@@ -18,6 +18,6 @@ export interface ProfileType {
 }
 
 export type ProfileError = {
-    key: string,
-    text: string,
-}
+    key: string;
+    text: string;
+};

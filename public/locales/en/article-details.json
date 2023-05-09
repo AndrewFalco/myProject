@@ -1,11 +1,11 @@
 {
-  "Comments": "Comments",
-  "Article is not found": "Article is not found",
-  "Error with comments loading": "Error with comments loading",
-  "Error with fetching article details": "Error with fetching article details",
-  "Back to articles list": "Back to articles list",
-  "Recommendations": "Recommendations",
-  "Edit": "Edit",
-  "Save": "Save",
-  "Cancel": "Cancel"
+    "Comments": "Comments",
+    "Article is not found": "Article is not found",
+    "Error with comments loading": "Error with comments loading",
+    "Error with fetching article details": "Error with fetching article details",
+    "Back to articles list": "Back to articles list",
+    "Recommendations": "Recommendations",
+    "Edit": "Edit",
+    "Save": "Save",
+    "Cancel": "Cancel"
 }

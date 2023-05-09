@@ -11,12 +11,12 @@ type CountrySelectProps = {
     onChange?: (value: Country) => void;
     readonly?: boolean;
     direction?: DropdownDirection;
-}
+};
 
 type CountryOptionType = {
-    value: Country,
-    content: Country
-}
+    value: Country;
+    content: Country;
+};
 
 const countryOptions: CountryOptionType[] = [
     { value: 'Russian Federation', content: 'Russian Federation' },
@@ -28,24 +28,31 @@ const countryOptions: CountryOptionType[] = [
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
     const {
-        className, onChange, readonly, value, direction = 'top right',
+        className,
+        onChange,
+        readonly,
+        value,
+        direction = 'top right',
     } = props;
     const { t } = useTranslation();
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Country);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox
-          items={ countryOptions }
-          value={ value }
-          onChange={ onChangeHandler }
-          defaultValue={ t('Select country') || undefined }
-          readonly={ readonly }
-          className={ classNames('', {}, [className]) }
-          direction={ direction }
-          label={ t('Select country') || undefined }
+            items={ countryOptions }
+            value={ value }
+            onChange={ onChangeHandler }
+            defaultValue={ t('Select country') || undefined }
+            readonly={ readonly }
+            className={ classNames('', {}, [className]) }
+            direction={ direction }
+            label={ t('Select country') || undefined }
         />
     );
 });

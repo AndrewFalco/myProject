@@ -10,38 +10,44 @@ import { Skeleton } from '../../Skeleton';
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {
-    className?: string,
-    src?: string,
-    sex?: Sex,
-    size?: number,
-    alt?: string
+    className?: string;
+    src?: string;
+    sex?: Sex;
+    size?: number;
+    alt?: string;
 }
 
 export const Avatar = (props: AvatarProps) => {
-    const {
-        className, src, sex, size = 100, alt,
-    } = props;
+    const { className, src, sex, size = 100, alt } = props;
     const defaultAvatar = useMemo(() => {
         switch (true) {
-            case sex === 'male': return MaleAvt;
-            case sex === 'female': return FemaleAvt;
-            default: return NoSexAvt;
+            case sex === 'male':
+                return MaleAvt;
+            case sex === 'female':
+                return FemaleAvt;
+            default:
+                return NoSexAvt;
         }
     }, [sex]);
 
-    const styles = useMemo(() => ({
+    const styles = useMemo(
+        () => ({
             width: size,
             height: size,
-        }), [size]);
+        }),
+        [size],
+    );
 
     return (
         <AppImage
-          className={ classNames(cls.Avatar, {}, [className]) }
-          src={ src || defaultAvatar }
-          fallback={ <Skeleton width={ size } height={ size } borderRadius="50%" /> }
-          errorFallback={ defaultAvatar }
-          style={ styles }
-          alt={ alt }
+            className={ classNames(cls.Avatar, {}, [className]) }
+            src={ src || defaultAvatar }
+            fallback={
+                <Skeleton width={ size } height={ size } borderRadius="50%" />
+            }
+            errorFallback={ defaultAvatar }
+            style={ styles }
+            alt={ alt }
         />
     );
 };

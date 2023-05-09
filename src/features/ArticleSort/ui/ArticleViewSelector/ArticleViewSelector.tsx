@@ -8,14 +8,14 @@ import { ArticleView } from '../../../../entities/Article/model/types/article';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
-    view: ArticleView,
-    onViewClick?: (newView: ArticleView) => void,
+    view: ArticleView;
+    onViewClick?: (newView: ArticleView) => void;
 }
 
 type viewSelectorsType = {
-    view: ArticleView,
-    icon: ReactElement
-}
+    view: ArticleView;
+    icon: ReactElement;
+};
 
 const viewSelectors: viewSelectorsType[] = [
     {
@@ -31,18 +31,23 @@ const viewSelectors: viewSelectorsType[] = [
 export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
     const { view, onViewClick } = props;
 
-    const onCLickBtn = useCallback((newView: ArticleView) => () => {
+    const onCLickBtn = useCallback(
+        (newView: ArticleView) => () => {
             onViewClick?.(newView);
-        }, [onViewClick]);
+        },
+        [onViewClick],
+    );
 
     return (
         <HStack gap="8" justify="end">
             { viewSelectors.map((viewType) => (
                 <Button
-                  key={ viewType.view }
-                  onClick={ onCLickBtn(viewType.view) }
-                  theme="clear"
-                  className={ classNames('', { [cls.notSelected]: viewType.view !== view }) }
+                    key={ viewType.view }
+                    onClick={ onCLickBtn(viewType.view) }
+                    theme="clear"
+                    className={ classNames('', {
+                        [cls.notSelected]: viewType.view !== view,
+                    }) }
                 >
                     { viewType.icon }
                 </Button>

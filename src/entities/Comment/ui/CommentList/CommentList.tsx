@@ -7,9 +7,9 @@ import cls from './CommentList.module.scss';
 import { CommentCard } from '../CommentCard/CommentCard';
 
 interface CommentListProps {
-    className?: string,
-    comments?: CommentType[],
-    isLoading?: boolean,
+    className?: string;
+    comments?: CommentType[];
+    isLoading?: boolean;
 }
 
 export const CommentList = (props: CommentListProps) => {
@@ -18,18 +18,18 @@ export const CommentList = (props: CommentListProps) => {
 
     return (
         <div className={ classNames(cls.CommentList, {}, [className]) }>
-            {
-              comments?.length
-                ? comments.map((comment) => (
+            { comments?.length ? (
+                comments.map((comment) => (
                     <CommentCard
-                      key={ `${comment.id}_${comment.articleId}_${comment.date} ` }
-                      className={ cls.comment }
-                      comment={ comment }
-                      isLoading={ isLoading }
+                        key={ `${comment.id}_${comment.articleId}_${comment.date} ` }
+                        className={ cls.comment }
+                        comment={ comment }
+                        isLoading={ isLoading }
                     />
                 ))
-                : <Text text={ t('No comments at the moment') } />
-            }
+            ) : (
+                <Text text={ t('No comments at the moment') } />
+            ) }
         </div>
     );
 };

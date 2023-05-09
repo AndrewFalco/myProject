@@ -3,7 +3,9 @@ import { ThemeContext } from '../../../context/ThemeContext';
 import { LOCAL_STORAGE_THEME_KEY } from '../../../../consts';
 import { Theme } from '../../../../types/theme';
 
-const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || 'app_light_theme';
+const defaultTheme =
+    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) ||
+    'app_light_theme';
 
 interface ThemeProviderProps {
     initialTheme?: Theme;

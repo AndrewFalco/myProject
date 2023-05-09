@@ -6,42 +6,42 @@ import ArticleIcon from '@/shared/assets/icons/article.svg';
 import ProfileIcon from '@/shared/assets/icons/profileIco.svg';
 import { SidebarListProps } from '../types/sidebar';
 import {
-    getRoutAbout, getRoutArticles, getRoutMain, getRoutProfile,
+    getRoutAbout,
+    getRoutArticles,
+    getRoutMain,
+    getRoutProfile,
 } from '@/shared/consts/routes';
 
-export const getSidebarItems = createSelector(
-    getUserAuthData,
-    (userData) => {
-        const sidebarItems: SidebarListProps[] = [
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+    const sidebarItems: SidebarListProps[] = [
+        {
+            Icon: MainIcon,
+            name: 'Main page',
+            route: getRoutMain(),
+        },
+        {
+            Icon: AboutIcon,
+            name: 'About page',
+            route: getRoutAbout(),
+        },
+    ];
+
+    if (userData?.id) {
+        sidebarItems.push(
             {
-                Icon: MainIcon,
-                name: 'Main page',
-                route: getRoutMain(),
+                Icon: ArticleIcon,
+                name: 'Articles page',
+                route: getRoutArticles(),
+                authOnly: true,
             },
             {
-                Icon: AboutIcon,
-                name: 'About page',
-                route: getRoutAbout(),
+                Icon: ProfileIcon,
+                name: 'Profile page',
+                route: getRoutProfile(userData.id),
+                authOnly: true,
             },
-        ];
+        );
+    }
 
-        if (userData?.id) {
-            sidebarItems.push(
-                {
-                    Icon: ArticleIcon,
-                    name: 'Articles page',
-                    route: getRoutArticles(),
-                    authOnly: true,
-                },
-                {
-                    Icon: ProfileIcon,
-                    name: 'Profile page',
-                    route: getRoutProfile(userData.id),
-                    authOnly: true,
-                },
-            );
-        }
-
-        return sidebarItems;
-    },
-);
+    return sidebarItems;
+});

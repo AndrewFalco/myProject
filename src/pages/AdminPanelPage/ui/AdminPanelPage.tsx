@@ -6,9 +6,7 @@ const AdminPanelPage = () => {
 
     return (
         <Page data-testid="AdminPanelPage">
-            <h1>
-                { t('Admin Panel Page') }
-            </h1>
+            <h1>{ t('Admin Panel Page') }</h1>
         </Page>
     );
 };

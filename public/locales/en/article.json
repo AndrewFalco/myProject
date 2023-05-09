@@ -1,12 +1,12 @@
 {
-  "Read more...": "Read more...",
-  "Error with loading articles": "Error with articles loading",
-  "Error with articles loading": "Error with articles loading",
-  "asc": "asc",
-  "desc": "desc",
-  "createAt": "creation date",
-  "title": "title",
-  "views": "views",
-  "Order by": "Order by",
-  "Sort by": "Sort by"
+    "Read more...": "Read more...",
+    "Error with loading articles": "Error with articles loading",
+    "Error with articles loading": "Error with articles loading",
+    "asc": "asc",
+    "desc": "desc",
+    "createAt": "creation date",
+    "title": "title",
+    "views": "views",
+    "Order by": "Order by",
+    "Sort by": "Sort by"
 }

@@ -6,22 +6,20 @@ import cls from './AppLink.module.scss';
 
 export type AppLinkTheme = 'primary' | 'secondary';
 
-interface AppLinkProps extends LinkProps{
-    className?: string,
-    theme?: AppLinkTheme,
-    children?: ReactNode,
+interface AppLinkProps extends LinkProps {
+    className?: string;
+    theme?: AppLinkTheme;
+    children?: ReactNode;
 }
 
 export const AppLink = (props: AppLinkProps) => {
-    const {
-        children, className, to, theme = 'primary', ...otherProps
-    } = props;
+    const { children, className, to, theme = 'primary', ...otherProps } = props;
 
     return (
         <Link
-          to={ to }
-          className={ classNames(cls.AppLink, {}, [className, cls[theme]]) }
-          { ...otherProps }
+            to={ to }
+            className={ classNames(cls.AppLink, {}, [className, cls[theme]]) }
+            { ...otherProps }
         >
             { children }
         </Link>

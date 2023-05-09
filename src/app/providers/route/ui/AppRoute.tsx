@@ -8,27 +8,25 @@ import { AppRouterProps } from '@/shared/types/routes';
 const AppRoute = () => {
     const renderWithWrapper = useCallback((route: AppRouterProps) => {
         const element = (
-            <Suspense fallback={ <PageLoader /> }>
-                { route.element }
-            </Suspense>
+            <Suspense fallback={ <PageLoader /> }>{ route.element }</Suspense>
         );
 
         return (
             <Route
-              key={ route.path }
-              path={ route.path }
-              element={ route.authOnly
-                ? <RequireAuth roles={ route.roles }>{ element }</RequireAuth>
-                : element }
+                key={ route.path }
+                path={ route.path }
+                element={
+                    route.authOnly ? (
+                        <RequireAuth roles={ route.roles }>{ element }</RequireAuth>
+                    ) : (
+                        element
+                    )
+                }
             />
         );
     }, []);
 
-    return (
-        <Routes>
-            { Object.values(routeConfig).map(renderWithWrapper) }
-        </Routes>
-    );
+    return <Routes>{ Object.values(routeConfig).map(renderWithWrapper) }</Routes>;
 };
 
 export default memo(AppRoute);

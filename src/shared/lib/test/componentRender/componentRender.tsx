@@ -18,7 +18,7 @@ export interface componentRenderOptions {
 type WrapperProviderProps = {
     options?: componentRenderOptions;
     children: ReactNode;
-}
+};
 
 export const WrapperProvider = (props: WrapperProviderProps) => {
     const { children, options = {} } = props;
@@ -31,12 +31,13 @@ export const WrapperProvider = (props: WrapperProviderProps) => {
 
     return (
         <MemoryRouter initialEntries={ [route] }>
-            <StoreProvider asyncReducers={ asyncReducers } initialState={ initialState }>
+            <StoreProvider
+                asyncReducers={ asyncReducers }
+                initialState={ initialState }
+            >
                 <I18nextProvider i18n={ i18nForTests }>
                     <ThemeProvider initialTheme={ theme }>
-                        <div className={ `app ${theme}` }>
-                            { children }
-                        </div>
+                        <div className={ `app ${theme}` }>{ children }</div>
                     </ThemeProvider>
                 </I18nextProvider>
             </StoreProvider>
@@ -44,10 +45,11 @@ export const WrapperProvider = (props: WrapperProviderProps) => {
     );
 };
 
-export function componentRender(component: ReactNode, options: componentRenderOptions = {}) {
+export function componentRender(
+    component: ReactNode,
+    options: componentRenderOptions = {},
+) {
     return render(
-        <WrapperProvider options={ options }>
-            { component }
-        </WrapperProvider>,
+        <WrapperProvider options={ options }>{ component }</WrapperProvider>,
     );
 }

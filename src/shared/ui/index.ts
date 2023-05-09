@@ -46,7 +46,4 @@ export {
     StarRating,
 };
 
-export type {
-    SelectOption,
-    TabItem,
-};
+export type { SelectOption, TabItem };

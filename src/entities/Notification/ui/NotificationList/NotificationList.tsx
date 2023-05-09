@@ -6,7 +6,7 @@ import { NotificationItem } from '../Notification/NotificationItem';
 import cls from './NotificationList.module.scss';
 
 interface NotificationListProps {
-    className?: string,
+    className?: string;
 }
 
 export const NotificationList = (props: NotificationListProps) => {
@@ -15,19 +15,19 @@ export const NotificationList = (props: NotificationListProps) => {
         pollingInterval: 5000,
     });
 
-    return (
-        isLoading
-            ? <VStack align="center" justify="center"><Loader /></VStack>
-            : (
-                <VStack
-                  gap="16"
-                  max
-                  className={ classNames(cls.NotificationList, {}, [className]) }
-                >
-                    {
-                data?.map(dataItem => <NotificationItem key={ dataItem.id } data={ dataItem } />)
-            }
-                </VStack>
-            )
+    return isLoading ? (
+        <VStack align="center" justify="center">
+            <Loader />
+        </VStack>
+    ) : (
+        <VStack
+            gap="16"
+            max
+            className={ classNames(cls.NotificationList, {}, [className]) }
+        >
+            { data?.map((dataItem) => (
+                <NotificationItem key={ dataItem.id } data={ dataItem } />
+            )) }
+        </VStack>
     );
 };

@@ -14,11 +14,9 @@ const meta = {
             user: {
                 id: '1',
                 username: 'admin',
-                roles: [
-                    'ADMIN',
-                ],
+                roles: ['ADMIN'],
                 avatar: 'https://picsum.photos/200/300',
-                },
+            },
             date: 'data text test example 123',
         },
     },

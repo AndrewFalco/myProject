@@ -1,6 +1,11 @@
 import { FlexProps } from '../Flex';
 import {
-    FlexAlign, FlexDirection, FlexGap, FlexJustify, FlexPosition, FlexWrap,
+    FlexAlign,
+    FlexDirection,
+    FlexGap,
+    FlexJustify,
+    FlexPosition,
+    FlexWrap,
 } from '../Flex.types';
 
 import cls from './Flex.module.scss';
@@ -45,9 +50,7 @@ export const wrapClasses: Record<FlexWrap, string> = {
 };
 
 export const classes = (props: Omit<FlexProps, 'className'>) => {
-    const {
-        align, direction, justify, position, gap, wrap,
-    } = props;
+    const { align, direction, justify, position, gap, wrap } = props;
 
     return [
         align && alignClasses[align],

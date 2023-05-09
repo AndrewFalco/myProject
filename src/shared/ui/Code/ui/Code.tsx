@@ -6,8 +6,8 @@ import { Button } from '../../Button';
 import cls from './Code.module.scss';
 
 interface CodeProps {
-    className?: string,
-    text: string,
+    className?: string;
+    text: string;
 }
 
 export const Code = (props: CodeProps) => {
@@ -22,9 +22,7 @@ export const Code = (props: CodeProps) => {
             <Button className={ cls.btn } theme="clear" onClick={ onCopy }>
                 <CopyIcon className={ cls.copyIcon } />
             </Button>
-            <code>
-                { text }
-            </code>
+            <code>{ text }</code>
         </pre>
     );
 };

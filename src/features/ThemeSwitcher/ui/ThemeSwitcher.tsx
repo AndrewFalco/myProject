@@ -8,7 +8,7 @@ import { useTheme } from '@/shared/lib/hooks/useTheme';
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
-    className?: string,
+    className?: string;
 }
 
 const ThemeSwitcherComponent = (props: ThemeSwitcherProps) => {
@@ -17,9 +17,9 @@ const ThemeSwitcherComponent = (props: ThemeSwitcherProps) => {
 
     return (
         <Button
-          theme="clear"
-          className={ classNames(cls.ThemeSwitcher, {}, [className]) }
-          onClick={ toggleTheme }
+            theme="clear"
+            className={ classNames(cls.ThemeSwitcher, {}, [className]) }
+            onClick={ toggleTheme }
         >
             { theme === 'app_dark_theme' ? <DarkIco /> : <LightIco /> }
         </Button>

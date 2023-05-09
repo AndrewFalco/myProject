@@ -7,7 +7,7 @@ import { Button } from '@/shared/ui';
 import cls from './PageError.module.scss';
 
 interface PageErrorProps extends FallbackProps {
-    className?: string,
+    className?: string;
 }
 
 export const PageError = (props: PageErrorProps) => {
@@ -22,9 +22,7 @@ export const PageError = (props: PageErrorProps) => {
         <div className={ classNames(cls.PageError, {}, [className]) }>
             <div>{ t('Something went wrong') }</div>
             <div>{ `${t('Error message')}: ${error.message}` }</div>
-            <Button onClick={ tryAgain }>
-                { t('Try again') }
-            </Button>
+            <Button onClick={ tryAgain }>{ t('Try again') }</Button>
         </div>
     );
 };

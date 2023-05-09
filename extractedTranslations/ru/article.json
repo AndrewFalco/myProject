@@ -1,16 +1,16 @@
 {
-  "Order by": "Order by",
-  "Read more": {
-    "": {
-      "": {
-        "": ""
-      }
-    }
-  },
-  "Sort by": "Sort by",
-  "asc": "asc",
-  "createAt": "createAt",
-  "desc": "desc",
-  "title": "title",
-  "views": "views"
+    "Order by": "Order by",
+    "Read more": {
+        "": {
+            "": {
+                "": ""
+            }
+        }
+    },
+    "Sort by": "Sort by",
+    "asc": "asc",
+    "createAt": "createAt",
+    "desc": "desc",
+    "title": "title",
+    "views": "views"
 }

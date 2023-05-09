@@ -24,59 +24,60 @@ interface DropdownProps {
 }
 
 export const Dropdown = (props: DropdownProps) => {
-    const {
-        className, items, trigger, direction = 'bottom right',
-    } = props;
+    const { className, items, trigger, direction = 'bottom right' } = props;
     const menuClasses = [mapDirectionClass[direction]];
 
     return (
-        <Menu as="div" className={ classNames(cls.Dropdown, {}, [className, popupCls.popup]) }>
-            <Menu.Button as="div" className={ classNames(popupCls.trigger, {}, [className]) }>
-                <Button theme="clear">
-                    { trigger }
-                </Button>
+        <Menu
+            as="div"
+            className={ classNames(cls.Dropdown, {}, [
+                className,
+                popupCls.popup,
+            ]) }
+        >
+            <Menu.Button
+                as="div"
+                className={ classNames(popupCls.trigger, {}, [className]) }
+            >
+                <Button theme="clear">{ trigger }</Button>
             </Menu.Button>
             <Menu.Items className={ classNames(cls.items, {}, menuClasses) }>
                 { items.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (
                         <Button
-                          onClick={ item.onClick }
-                          theme="clear"
-                          disabled={ item.disabled }
-                          className={ classNames(
-                            cls.item,
-                            {
-                              [popupCls.active]: active,
-                              [popupCls.disabled]: item.disabled,
-                            },
-                            [className],
-                          ) }
+                            onClick={ item.onClick }
+                            theme="clear"
+                            disabled={ item.disabled }
+                            className={ classNames(
+                                cls.item,
+                                {
+                                    [popupCls.active]: active,
+                                    [popupCls.disabled]: item.disabled,
+                                },
+                                [className],
+                            ) }
                         >
                             { item.content }
                         </Button>
                     );
 
-                    return (
-                        item.href
-                            ? (
-                                <Menu.Item
-                                  as={ AppLink }
-                                  to={ item.href }
-                                  disabled={ item.disabled }
-                                  key={ index }
-                                >
-                                    { content }
-                                </Menu.Item>
-                            )
-                            : (
-                                <Menu.Item
-                                  as={ Fragment }
-                                  disabled={ item.disabled }
-                                  key={ index }
-                                >
-                                    { content }
-                                </Menu.Item>
-                            )
+                    return item.href ? (
+                        <Menu.Item
+                            as={ AppLink }
+                            to={ item.href }
+                            disabled={ item.disabled }
+                            key={ index }
+                        >
+                            { content }
+                        </Menu.Item>
+                    ) : (
+                        <Menu.Item
+                            as={ Fragment }
+                            disabled={ item.disabled }
+                            key={ index }
+                        >
+                            { content }
+                        </Menu.Item>
                     );
                 }) }
             </Menu.Items>

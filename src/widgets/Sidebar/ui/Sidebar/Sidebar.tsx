@@ -1,6 +1,4 @@
-import {
-    memo, useCallback, useMemo, useState,
-} from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui';
@@ -13,12 +11,14 @@ import { SidebarItem } from './SidebarItem';
 import { LangSwitcher } from '@/features/LangSwitcher';
 
 interface SidebarProps {
-    className?: string,
+    className?: string;
 }
 
 export const Sidebar = memo((props: SidebarProps) => {
     const { className } = props;
-    const defaultCollapsed: boolean = JSON.parse(localStorage.getItem('defaultCollapsed') || 'false');
+    const defaultCollapsed: boolean = JSON.parse(
+        localStorage.getItem('defaultCollapsed') || 'false',
+    );
     const [collapsed, setCollapsed] = useState(defaultCollapsed);
     const sidebarItems = useSelector(getSidebarItems);
 
@@ -30,33 +30,43 @@ export const Sidebar = memo((props: SidebarProps) => {
         });
     }, []);
 
-    const itemsList = useMemo(() => sidebarItems.map((sbItem) => (
-        <SidebarItem
-          key={ sbItem.route }
-          item={ sbItem }
-          collapsed={ collapsed }
-        />
-    )), [collapsed, sidebarItems]);
+    const itemsList = useMemo(
+        () =>
+            sidebarItems.map((sbItem) => (
+                <SidebarItem
+                    key={ sbItem.route }
+                    item={ sbItem }
+                    collapsed={ collapsed }
+                />
+            )),
+        [collapsed, sidebarItems],
+    );
 
     return (
         <aside
-          data-testid="sb"
-          className={ classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className]) }
+            data-testid="sb"
+            className={ classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ]) }
         >
             <Button
-              data-testid="sb-toggle"
-              onClick={ onToggle }
-              className={ classNames(cls.collapsedBtn) }
-              theme="backgroundInverted"
-              square
-              size="sizeL"
+                data-testid="sb-toggle"
+                onClick={ onToggle }
+                className={ classNames(cls.collapsedBtn) }
+                theme="backgroundInverted"
+                square
+                size="sizeL"
             >
                 { collapsed ? '>' : '<' }
             </Button>
             <VStack role="navigation" gap="8" className={ cls.items }>
                 { itemsList }
             </VStack>
-            <VStack gap="8" align="center" className={ classNames(cls.switchers) }>
+            <VStack
+                gap="8"
+                align="center"
+                className={ classNames(cls.switchers) }
+            >
                 <ThemeSwitcher />
                 <LangSwitcher className={ cls.lang } collapsed={ collapsed } />
             </VStack>

@@ -9,6 +9,7 @@ export const getUserRoles = (state: StateSchema) => state.user.authData?.roles;
 // export const hasUserRole = createSelector(getUserRoles, (roles) => !!roles?.includes(role));
 
 export const isResolvedRole = createSelector(
-    [getUserRoles, (_, resolvedRoles : UserRole[]) => resolvedRoles],
-    (roles, resolvedRoles) => Boolean(roles?.some((role) => resolvedRoles.includes(role))),
+    [getUserRoles, (_, resolvedRoles: UserRole[]) => resolvedRoles],
+    (roles, resolvedRoles) =>
+        Boolean(roles?.some((role) => resolvedRoles.includes(role))),
 );

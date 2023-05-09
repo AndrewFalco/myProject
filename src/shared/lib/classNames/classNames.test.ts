@@ -6,12 +6,17 @@ describe('classNames', () => {
     });
 
     test('with additional class', () => {
-        expect(classNames('someClass', {}, ['cl1', 'cl2']))
-            .toBe('someClass cl1 cl2');
+        expect(classNames('someClass', {}, ['cl1', 'cl2'])).toBe(
+            'someClass cl1 cl2',
+        );
     });
 
     test('with mode', () => {
-        expect(classNames('someClass', { hovered: true, scrollable: true }, ['cl1', 'cl2']))
-            .toBe('someClass cl1 cl2 hovered scrollable');
+        expect(
+            classNames('someClass', { hovered: true, scrollable: true }, [
+                'cl1',
+                'cl2',
+            ]),
+        ).toBe('someClass cl1 cl2 hovered scrollable');
     });
 });

@@ -8,9 +8,15 @@ import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import {
-    getRoutAbout, getRoutAdminPanel, getRoutArticleCreate,
-    getRoutArticleDetails, getRoutArticleEdit, getRoutArticles,
-    getRoutForbidden, getRoutMain, getRoutProfile,
+    getRoutAbout,
+    getRoutAdminPanel,
+    getRoutArticleCreate,
+    getRoutArticleDetails,
+    getRoutArticleEdit,
+    getRoutArticles,
+    getRoutForbidden,
+    getRoutMain,
+    getRoutProfile,
 } from '@/shared/consts/routes';
 import { AppRoutes, AppRouterProps } from '@/shared/types/routes';
 

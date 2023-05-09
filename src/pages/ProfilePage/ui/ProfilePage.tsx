@@ -6,17 +6,17 @@ import { EditableProfileCard } from '@/features/editableProfileCard';
 import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
-    className?: string,
+    className?: string;
 }
 
 const ProfilePage = (props: ProfilePageProps) => {
     const { className } = props;
-    const { id } = useParams<{ id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     return (
         <Page
-          data-testid="ProfilePage"
-          className={ classNames(cls.ProfilePage, {}, [className]) }
+            data-testid="ProfilePage"
+            className={ classNames(cls.ProfilePage, {}, [className]) }
         >
             <EditableProfileCard id={ id } />
         </Page>

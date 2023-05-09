@@ -3,10 +3,10 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { EditableProfileCard } from './EditableProfileCard';
 
 const meta = {
-  title: 'features/EditableProfileCard',
-  component: EditableProfileCard,
-  tags: ['autodocs'],
-  argTypes: {},
+    title: 'features/EditableProfileCard',
+    component: EditableProfileCard,
+    tags: ['autodocs'],
+    argTypes: {},
 } satisfies Meta<typeof EditableProfileCard>;
 
 export default meta;

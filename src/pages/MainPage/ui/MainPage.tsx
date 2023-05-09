@@ -6,9 +6,7 @@ const MainPage = () => {
 
     return (
         <Page data-testid="MainPage">
-            <h1>
-                { t('Main page') }
-            </h1>
+            <h1>{ t('Main page') }</h1>
         </Page>
     );
 };

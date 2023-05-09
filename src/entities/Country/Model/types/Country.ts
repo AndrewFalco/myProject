@@ -1,5 +1,5 @@
 export type Country =
-    'Russian Federation'
+    | 'Russian Federation'
     | 'Belarus'
     | 'Belize'
     | 'Germany'

@@ -3,17 +3,17 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Code } from './Code';
 
 const meta = {
-  title: 'shared/Card',
-  component: Code,
-  args: {},
+    title: 'shared/Card',
+    component: Code,
+    args: {},
 } satisfies Meta<typeof Code>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {
-    text: `// .storybook/main.js
+    args: {
+        text: `// .storybook/main.js
 
     module.exports = {
       addons: ['@storybook/addon-essentials'],
@@ -29,12 +29,12 @@ export const Primary: Story = {
         return config;
       },
     };`,
-  },
+    },
 };
 
 export const PrimaryDark = {
-  args: {
-    text: `// .storybook/main.js
+    args: {
+        text: `// .storybook/main.js
 
     module.exports = {
       addons: ['@storybook/addon-essentials'],
@@ -50,6 +50,6 @@ export const PrimaryDark = {
         return config;
       },
     };`,
-  },
-  decorators: [ThemeDecorator('app_dark_theme')],
+    },
+    decorators: [ThemeDecorator('app_dark_theme')],
 };
