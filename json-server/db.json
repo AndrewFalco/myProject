@@ -54,7 +54,9 @@
             "views": 1022,
             "createdAt": "2023-02-04T13:10:47Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -124,7 +126,9 @@
             "views": 5204,
             "createdAt": "2023-03-29T06:40:32Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -146,7 +150,9 @@
             "views": 94002,
             "createdAt": "2023-03-23T10:45:57Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -168,7 +174,9 @@
             "views": 10222,
             "createdAt": "2023-02-13T12:50:32Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -190,7 +198,9 @@
             "views": 10222,
             "createdAt": "2023-02-09T20:43:04Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -212,7 +222,9 @@
             "views": 1022,
             "createdAt": "2023-02-21T05:33:50Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -234,7 +246,9 @@
             "views": 100,
             "createdAt": "2023-03-25T10:38:46Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -256,7 +270,9 @@
             "views": 102222,
             "createdAt": "2023-01-01T15:12:13Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -278,7 +294,9 @@
             "views": 1022,
             "createdAt": "2023-02-27T15:24:09Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -300,7 +318,9 @@
             "views": 1022,
             "createdAt": "2023-01-02T08:00:16Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -322,7 +342,9 @@
             "views": 1022,
             "createdAt": "2023-01-03T20:38:30Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -344,7 +366,9 @@
             "views": 1022,
             "createdAt": "2023-02-27T11:05:25Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -366,7 +390,9 @@
             "views": 1022,
             "createdAt": "2023-03-15T02:57:50Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -388,7 +414,9 @@
             "views": 1022,
             "createdAt": "2023-03-09T03:50:18Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -410,7 +438,9 @@
             "views": 1022,
             "createdAt": "2023-03-01T14:32:21Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -432,7 +462,9 @@
             "views": 1022,
             "createdAt": "2023-03-06T08:08:51Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -454,7 +486,9 @@
             "views": 1022,
             "createdAt": "2023-02-13T20:29:05Z",
             "userId": "1",
-            "type": ["IT"],
+            "type": [
+                "IT"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -476,7 +510,9 @@
             "views": 1022,
             "createdAt": "2023-01-17T21:56:54Z",
             "userId": "1",
-            "type": ["ECONOMICS"],
+            "type": [
+                "ECONOMICS"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -498,7 +534,9 @@
             "views": 1022,
             "createdAt": "2023-01-31T16:49:18Z",
             "userId": "1",
-            "type": ["SCIENCE"],
+            "type": [
+                "SCIENCE"
+            ],
             "blocks": [
                 {
                     "id": "1",
@@ -611,28 +649,52 @@
             "id": "1",
             "username": "admin",
             "password": "123",
-            "roles": ["ADMIN"],
+            "roles": [
+                "ADMIN"
+            ],
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isCounterEnabled": true
+            },
             "avatar": "https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=826&t=st=1679243431~exp=1679244031~hmac=c7167f08130e6388351eac017a7d463aefcc6682ffde4f055d763c3a8a75e601"
         },
         {
             "id": "2",
             "username": "user",
             "password": "456",
-            "roles": ["USER"],
+            "roles": [
+                "USER"
+            ],
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isCounterEnabled": false
+            },
             "avatar": "https://phonoteka.org/uploads/posts/2022-09/1663298531_14-phonoteka-org-p-mikasa-akkerman-art-pinterest-17.jpg"
         },
         {
             "id": "3",
             "username": "manager",
             "password": "456",
-            "roles": ["MANAGER"],
+            "roles": [
+                "MANAGER"
+            ],
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isCounterEnabled": true
+            },
             "avatar": "https://avatars.akamai.steamstatic.com/0b7721b547d14d88096c672da722b4767122a6b9_full.jpg"
         },
         {
             "id": "4",
             "username": "testuser",
             "password": "123",
-            "roles": ["MANAGER"],
+            "roles": [
+                "MANAGER"
+            ],
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isCounterEnabled": false
+            },
             "avatar": "https://avatars.akamai.steamstatic.com/0b7721b547d14d88096c672da722b4767122a6b9_full.jpg"
         }
     ],
