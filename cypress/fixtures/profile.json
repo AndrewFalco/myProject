@@ -1,0 +1,14 @@
+{
+    "id": "1",
+    "firstName": "test",
+    "lastName": "user",
+    "email": "ggTop@toptop.com",
+    "phone": "+7777777777",
+    "country": "Russian Federation",
+    "city": "A",
+    "age": 27,
+    "username": "testuser",
+    "avatar": "",
+    "currency": "RUB",
+    "sex": "female"
+}

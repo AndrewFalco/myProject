@@ -11,9 +11,9 @@ export default (env: BuildEnv) => {
         src: path.resolve(__dirname, 'src'),
     };
 
-    const mode: BuildMode = env.mode || 'development';
-    const PORT: number = env.port || 3000;
-    const api: string = env.api || 'http://localhost:8000';
+    const mode: BuildMode = env?.mode || 'development';
+    const PORT: number = env?.port || 3000;
+    const api: string = env?.api || 'http://localhost:8000';
 
     const isDev: boolean = mode === 'development';
 
