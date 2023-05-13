@@ -1,11 +1,8 @@
-import { ReactNode, useMemo, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
+// eslint-disable-next-line falco-custom-fsd-plugin/layer-imports
+import { useJsonSettings } from '@/entities/User';
 import { ThemeContext } from '../../../context/ThemeContext';
-import { LOCAL_STORAGE_THEME_KEY } from '../../../../consts';
 import { Theme } from '../../../../types/theme';
-
-const defaultTheme =
-    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) ||
-    'app_light_theme';
 
 interface ThemeProviderProps {
     initialTheme?: Theme;
@@ -14,7 +11,16 @@ interface ThemeProviderProps {
 
 const ThemeProvider = (props: ThemeProviderProps) => {
     const { children, initialTheme } = props;
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+    const { theme: defaultTheme } = useJsonSettings();
+    const [isThemeInited, setIsThemeInited] = useState(false);
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme || 'app_dark_theme');
+
+    useEffect(() => {
+        if (isThemeInited && defaultTheme) {
+            setTheme(defaultTheme);
+            setIsThemeInited(true);
+        }
+    }, [defaultTheme, isThemeInited]);
 
     const defaultProps = useMemo(() => ({ theme, setTheme }), [theme]);
 

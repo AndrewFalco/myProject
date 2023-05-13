@@ -1,12 +1,19 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { UserRole } from '../types/User';
+import { buildSelector } from '@/shared/lib/store';
+import { JsonSettings } from '../types/jsonSettings';
 
-export const getUserAuthData = (state: StateSchema) => state.user.authData;
-export const getUserInited = (state: StateSchema) => state.user._inited;
-export const getUserRoles = (state: StateSchema) => state.user.authData?.roles;
+const defaultJsonSettings: JsonSettings = {};
 
-// export const hasUserRole = createSelector(getUserRoles, (roles) => !!roles?.includes(role));
+export const [useUserAuthData, getUserAuthData] = buildSelector(state => state.user?.authData);
+export const [useUserInited, getUserInited] = buildSelector(state => state.user._inited);
+export const [useUserRoles, getUserRoles] = buildSelector(state => state.user.authData?.roles);
+export const [useJsonSettings, getJsonSettings] = buildSelector(state =>
+    state.user.authData?.jsonSettings ?? defaultJsonSettings);
+export const [useJsonSettingsByKey, getJsonSettingsByKey] = buildSelector((state, key: keyof JsonSettings) =>
+    state.user.authData?.jsonSettings?.[key]
+);
+
 
 export const isResolvedRole = createSelector(
     [getUserRoles, (_, resolvedRoles: UserRole[]) => resolvedRoles],

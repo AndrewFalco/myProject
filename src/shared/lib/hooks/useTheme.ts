@@ -5,7 +5,7 @@ import { Theme } from '../../types/theme';
 
 interface UseThemeResult {
     theme: Theme;
-    toggleTheme: () => void;
+    toggleTheme: (saveAction?: (theme: Theme) => void) => void;
 }
 
 export function useTheme(): UseThemeResult {
@@ -15,10 +15,11 @@ export function useTheme(): UseThemeResult {
         document.body.className = theme;
     }, [theme]);
 
-    const toggleTheme = () => {
+    const toggleTheme = (saveAction?: (theme: Theme) => void) => {
         const newTheme =
             theme === 'app_light_theme' ? 'app_dark_theme' : 'app_light_theme';
         setTheme?.(newTheme);
+        saveAction?.(newTheme);
 
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
