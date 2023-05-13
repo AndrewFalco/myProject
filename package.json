@@ -28,7 +28,8 @@
         "generate:slice": "node ./scripts/createSlice/index.js",
         "storybook": "storybook dev -p 6006 -c ./config/storybook",
         "build-storybook": "storybook build -c ./config/storybook",
-        "postinstall": "node ./scripts/postinstall.js"
+        "postinstall": "node ./scripts/postinstall.js",
+        "remove-feature": "ts-node ./scripts/removeFeature/remove-feature.ts"
     },
     "lint-staged": {
         "**/*.{ts,tsx}": [

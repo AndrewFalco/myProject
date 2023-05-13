@@ -1,43 +1,19 @@
-import { Node, Project, SyntaxKind } from 'ts-morph';
+import { Node, SyntaxKind } from 'ts-morph';
 
-const removedFeatureName = process.argv[2];
-const featureState = process.argv[3];
-
-if (!removedFeatureName) {
-    throw new Error('Select feature flag name.');
-}
-
-if (!featureState) {
-    throw new Error('Select feature state (on/off).');
-}
-
-if (featureState !== 'off' && featureState !== 'on') {
-    throw new Error('Select feature state (on/off).');
-}
-
-const project = new Project({});
-
-project.addSourceFilesAtPaths('src/**/*.ts');
-project.addSourceFilesAtPaths('src/**/*.tsx');
-
-const files = project.getSourceFiles();
-
-const isToggleFunction = (node: Node): boolean => {
+export const isToggleFunction = (node: Node, toggleFunctionName: string): boolean => {
     let isToggle = false;
 
     node.forEachChild(child => {
-        if (child.isKind(SyntaxKind.Identifier) && child.getText() === 'toggleFeatures') {
+        if (child.isKind(SyntaxKind.Identifier) && child.getText() === toggleFunctionName) {
             isToggle = true;
         }
     })
 
     return isToggle;
-}
+};
 
-files.forEach((file) => {
-    file.forEachDescendant(node => {
-        if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            const objectOptions = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
+export const replaceToggleFunction = (node: Node, featureState: string, removedFeatureName: string) => {
+    const objectOptions = node.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
 
             if (!objectOptions) return;
 
@@ -60,8 +36,4 @@ files.forEach((file) => {
             if (featureState === 'off') {
                 node.replaceWithText(offFunction?.getBody().getText() ?? '');
             }
-        }
-    })
-});
-
-project.save();
+};

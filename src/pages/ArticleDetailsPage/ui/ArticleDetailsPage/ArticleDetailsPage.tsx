@@ -14,7 +14,7 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import cls from './ArticleDetailsPage.module.scss';
-import { getFeatureFlags, toggleFeatures } from '@/shared/lib/features';
+import { getFeatureFlags } from '@/shared/lib/features';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -33,14 +33,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     if (!id) {
         return null;
     }
-
-    const rating = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        // eslint-disable-next-line react/no-unstable-nested-components
-        on: () => <ArticleRating articleId={ id } />,
-        // eslint-disable-next-line react/no-unstable-nested-components
-        off: () => <div>10100001010100101</div>,
-    });
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
