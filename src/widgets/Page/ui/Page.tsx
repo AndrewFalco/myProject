@@ -8,6 +8,7 @@ import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { TestProps } from '@/shared/types/testTypes';
 
 import cls from './Page.module.scss';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -41,7 +42,17 @@ export const Page = (props: PropsWithChildren<PageProps>) => {
         <section
             data-testid={ dataTestId || PAGE_ID }
             ref={ parentRef }
-            className={ classNames(cls.Page, {}, [className]) }
+            className={
+                classNames(
+                    toggleFeatures({
+                        name: 'isAppRedesigned',
+                        on: () => cls.PageRedesigned,
+                        off: () => cls.Page
+                    }),
+                    {},
+                    [className]
+                )
+            }
             onScroll={ onScroll }
         >
             { !error ? children : <Text title={ error } theme="error" /> }

@@ -7,9 +7,11 @@ import { Sidebar } from '@/widgets/Sidebar';
 import { AppRoute } from './providers/route';
 import { useTheme } from '../shared/lib/providers/ThemeProvider';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { PageLoader } from '@/widgets/PageLoader';
+import { ToggleFeature } from '@/shared/lib/features';
 
 import './styles/index.scss';
-import { PageLoader } from '@/widgets/PageLoader';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 
 export const App = () => {
     const { theme } = useTheme();
@@ -25,16 +27,30 @@ export const App = () => {
     }
 
     return (
-        <React.StrictMode>
-            <div className={ classNames('app', {}, [theme]) }>
-                <Suspense fallback="">
-                    <Navbar />
-                    <div className="content-page">
-                        <Sidebar />
-                        { inited && <AppRoute /> }
-                    </div>
-                </Suspense>
-            </div>
-        </React.StrictMode>
-    );
+        <ToggleFeature
+            feature='isAppRedesigned'
+            on={
+                <div className={ classNames('app_redesigned', {}, [theme]) }>
+                    <Suspense fallback="">
+                        <MainLayout
+                            content={ <AppRoute /> }
+                            header={ <Navbar /> }
+                            sidebar={ <Sidebar /> }
+                        />
+                    </Suspense>
+                </div>
+            }
+            off={
+                <div className={ classNames('app', {}, [theme]) }>
+                    <Suspense fallback="">
+                        <Navbar />
+                        <div className="content-page">
+                            <Sidebar />
+                            <AppRoute />
+                        </div>
+                    </Suspense>
+                </div>
+            }
+        />
+    )
 };

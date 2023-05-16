@@ -40,12 +40,12 @@ export const ArticleDetailsContent = memo(
                     text={ data.subtitle }
                     size="size_l"
                 />
-                <HStack gap="8" data-testid="ArticleDetails.Info">
-                    <Icon Svg={ EyeIcon } className={ cls.icon } />
+                <HStack gap="8" data-testid="ArticleDetails.Info" align='center' justify='center'>
+                    <Icon Svg={ EyeIcon } className={ cls.icon } width={ 24 } height={ 24 } />
                     <Text text={ String(data.views) } />
                 </HStack>
-                <HStack gap="8">
-                    <Icon Svg={ CalendarIcon } className={ cls.icon } />
+                <HStack gap="8" align='center' justify='center'>
+                    <Icon Svg={ CalendarIcon } className={ cls.icon } width={ 24 } height={ 24 } />
                     <Text
                         text={ new Date(data.createdAt).toLocaleDateString() }
                     />

@@ -10,6 +10,7 @@ import {
     Icon,
     Skeleton,
     Text,
+    AppImage
 } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import {
@@ -19,7 +20,6 @@ import {
 } from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import cls from './ArticleListItem.module.scss';
-import { AppImage } from '@/shared/ui/AppImage/ui/AppImage';
 
 interface ArticleListProps {
     className?: string;
@@ -42,7 +42,7 @@ export const ArticleListItem = (props: ArticleListProps) => {
         () => (
             <HStack justify="between" gap="8">
                 <Text text={ String(article.views) } className={ cls.views } />
-                <Icon Svg={ EyeIcon } />
+                <Icon Svg={ EyeIcon } width={ 24 } height={ 24 } />
             </HStack>
         ),
         [article.views],
