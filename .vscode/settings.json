@@ -4,12 +4,14 @@
     "i18n-ally.keystyle": "flat",
     "jestrunner.configPath": "/config/jest/jest.config.ts",
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
     },
+    "editor.formatOnSave": true,
     "eslint.validate": [
         "javascript",
         "typescript",
         "typescriptreact",
         "javascriptreact"
-    ]
+    ],
 }

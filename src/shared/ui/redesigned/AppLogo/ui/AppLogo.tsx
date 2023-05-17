@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack } from '../../Stack';
+import { HStack } from '../../../deprecated/Stack';
 import { Icon } from '../../Icon/Icon';
 import AppSvg from '../../../../assets/icons/falcon_1.svg';
 
@@ -8,13 +8,11 @@ import cls from './AppLogo.module.scss';
 
 interface AppLogoProps {
     className?: string,
+    size?: number;
 }
 
-/**
- * @deprecated
- */
 export const AppLogo = memo((props: AppLogoProps) => {
-    const { className } = props;
+    const { className, size = 50 } = props;
 
     return (
         <HStack
@@ -27,8 +25,8 @@ export const AppLogo = memo((props: AppLogoProps) => {
             <Icon
                 Svg={ AppSvg }
                 className={ cls.appLogo }
-                width={ 60 }
-                height={ 60 }
+                width={ size }
+                height={ size }
             />
         </HStack>
     );

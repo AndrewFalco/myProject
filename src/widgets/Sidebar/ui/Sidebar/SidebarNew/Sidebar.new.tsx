@@ -1,11 +1,13 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLogo, VStack } from '@/shared/ui';
+import { AppLogo, HStack, VStack } from '@/shared/ui';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { getSidebarItems } from '../../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem';
 import { LangSwitcher } from '@/features/LangSwitcher';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 import cls from '../Sidebar.module.scss';
 
@@ -21,6 +23,13 @@ export const SidebarNew = memo((props: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(defaultCollapsed);
     const sidebarItems = useSelector(getSidebarItems);
 
+    const onToggle = useCallback((): void => {
+        setCollapsed((prev) => {
+            localStorage.setItem('defaultCollapsed', JSON.stringify(!prev));
+
+            return !prev;
+        });
+    }, []);
 
     const itemsList = useMemo(
         () =>
@@ -37,20 +46,31 @@ export const SidebarNew = memo((props: SidebarProps) => {
     return (
         <aside
             data-testid="sb"
-            className={ classNames(cls.SidebarRedesigned, { [cls.collapsed]: collapsed }, [className]) }
+            className={ classNames(cls.SidebarRedesigned, { [cls.collapsedRedesigned]: collapsed }, [className]) }
         >
-            <AppLogo className={ cls.appLogo }/>
+            <AppLogo
+                size={ collapsed ? 30 : 50 }
+                className={ cls.appLogo }
+            />
             <VStack role="navigation" gap="8" className={ cls.items }>
                 { itemsList }
             </VStack>
-            <VStack
-                gap="8"
+            <Icon
+                data-testid="sb-toggle"
+                onClick={ onToggle }
+                Svg={ ArrowIcon }
+                className={ cls.collapsedBtn }
+                clickable
+            />
+            <HStack
+                gap="16"
                 align="center"
+                justify="center"
                 className={ classNames(cls.switchers) }
             >
                 <ThemeSwitcher />
                 <LangSwitcher className={ cls.lang } collapsed={ collapsed } />
-            </VStack>
+            </HStack>
         </aside>
     );
 });

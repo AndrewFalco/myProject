@@ -18,8 +18,8 @@ import { Virtualize } from './deprecated/Virtualize/ui/Virtualize';
 import { Drawer } from './deprecated/Drawer';
 import { Overlay } from './deprecated/Overlay';
 import { StarRating } from './deprecated/StarRating';
-import { AppLogo } from './deprecated/AppLogo';
 import { AppImage } from './deprecated/AppImage';
+import { AppLogo } from './redesigned/AppLogo';
 
 export {
     AppLink,

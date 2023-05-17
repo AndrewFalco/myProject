@@ -31,19 +31,28 @@ module.exports = {
         'prettier',
     ],
     rules: {
-        'react/jsx-curly-spacing': [2, {
-            when: 'always',
-            allowMultiline: true,
-            children: true,
-        }],
-        'react/jsx-props-no-spreading': ['off', {
-            html: 'ignore',
-            custom: 'ignore',
-            explicitSpread: 'ignore',
-        }],
-        'react/jsx-filename-extension': [2, {
-            extensions: ['.js', '.jsx', '.tsx'],
-        }],
+        'react/jsx-curly-spacing': [
+            2,
+            {
+                when: 'always',
+                allowMultiline: true,
+                children: true,
+            },
+        ],
+        'react/jsx-props-no-spreading': [
+            'off',
+            {
+                html: 'ignore',
+                custom: 'ignore',
+                explicitSpread: 'ignore',
+            },
+        ],
+        'react/jsx-filename-extension': [
+            2,
+            {
+                extensions: ['.js', '.jsx', '.tsx'],
+            },
+        ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         '@typescript-eslint/no-unused-vars': [
@@ -68,14 +77,20 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'no-console': 'error',
         'object-curly-spacing': ['error', 'always'],
-        'i18next/no-literal-string': [1, {
-            markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to', 'target'],
-        }],
-        'max-len': ['error', {
-            code: 130,
-            ignoreComments: true,
-        }],
+        'i18next/no-literal-string': [
+            1,
+            {
+                markupOnly: true,
+                ignoreAttribute: ['data-testid', 'to', 'target'],
+            },
+        ],
+        'max-len': [
+            'error',
+            {
+                code: 130,
+                ignoreComments: true,
+            },
+        ],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error',
@@ -92,7 +107,11 @@ module.exports = {
             2,
             {
                 alias: '@',
-                testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.stories.*',
+                    '**/StoreDecorator.tsx',
+                ],
             },
         ],
         'falco-custom-fsd-plugin/layer-imports': [
@@ -105,16 +124,19 @@ module.exports = {
         'consistent-return': 'off',
         'no-nested-ternary': 'off',
         'arrow-parens': 'off',
+        'jsx-quotes': ["warn", "prefer-double"],
     },
     globals: {
         __IS_DEV__: true,
         __API__: true,
         __PROJECT__: true,
     },
-    overrides: [{
-        files: ['**/src/**/*.test.{ts, tsx}'],
-        rules: {
-            'i18next/no-literal-string': 'off',
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts, tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
         },
-    }],
+    ],
 };
