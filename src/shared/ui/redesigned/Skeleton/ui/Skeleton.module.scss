@@ -1,0 +1,30 @@
+/* stylelint-disable color-function-notation */
+.Skeleton {
+    display: inline-block;
+    height: 1em;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--skeleton-bg-color);
+
+    &::after {
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(var(--skeleton-color), 0) 0,
+                rgba(var(--skeleton-color), 0.2) 20%,
+                rgba(var(--skeleton-color), 0.5) 60%,
+                rgba(var(--skeleton-color), 0)
+            );
+        animation: shimmer 2s infinite;
+        content: "";
+    }
+
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
+}

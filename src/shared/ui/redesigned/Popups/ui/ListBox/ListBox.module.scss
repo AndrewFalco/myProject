@@ -1,0 +1,12 @@
+.options {
+    background: var(--dark-bg-redesigned);
+    position: absolute;
+    z-index: 999;
+    border-radius: 8px;
+    box-shadow: 0 0 4px var(--dark-bg-redesigned);
+}
+
+.item {
+    padding: 8px 16px;
+    white-space: nowrap;
+}

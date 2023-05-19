@@ -6,9 +6,6 @@ interface PortalProps {
     children?: ReactNode;
 }
 
-/**
- * @deprecated
- */
 export const Portal = (props: PortalProps) => {
     const { children, element = document.body } = props;
 

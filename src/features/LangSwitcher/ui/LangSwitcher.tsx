@@ -22,20 +22,16 @@ export const LangSwitcher = memo((props: LangSwitcherProps) => {
         <ToggleFeature
             feature="isAppRedesigned"
             on={
-                <Button
-                    className={ classNames(className) }
-                    variant="clear"
-                    onClick={ toggleLang }
-                >
+                <Button className={ classNames(className) }
+                        variant="clear"
+                        onClick={ toggleLang }>
                     { collapsed ? t('Short language') : t('Language') }
                 </Button>
             }
             off={
-                <ButtonDeprecated
-                    className={ classNames(className) }
-                    theme="clear"
-                    onClick={ toggleLang }
-                >
+                <ButtonDeprecated className={ classNames(className) }
+                                  theme="clear"
+                                  onClick={ toggleLang }>
                     { collapsed ? t('Short language') : t('Language') }
                 </ButtonDeprecated>
             }

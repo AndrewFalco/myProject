@@ -12,7 +12,7 @@ export const Sidebar = memo((props: SidebarProps) => {
 
     return (
         <ToggleFeature
-            feature='isAppRedesigned'
+            feature="isAppRedesigned"
             on={ <SidebarNew className={ className } /> }
             off={ <SidebarOld className={ className } /> }
         />

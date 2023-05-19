@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink as AppLinkOld } from '@/shared/ui/deprecated/AppLink';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { SidebarListProps } from '../../model/types/sidebar';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { ToggleFeature } from '@/shared/lib/features';
@@ -33,17 +33,17 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
                     activeClassName={ cls.active }
                 >
                     <HStack justify="center" align="center">
-                        <Icon Svg={ item.Icon } width={ 32 } height={ 32 }/>
+                        <Icon Svg={ item.Icon }
+                              width={ 32 }
+                              height={ 32 } />
                         <span className={ cls.link }>{ t(item.name) }</span>
                     </HStack>
                 </AppLink>
             }
             off={
-                <AppLinkOld
-                    to={ item.route }
-                    theme="secondary"
-                    className={ classNames(cls.item, { [cls.collapsed]: collapsed }) }
-                >
+                <AppLinkOld to={ item.route }
+                            theme="secondary"
+                            className={ classNames(cls.item, { [cls.collapsed]: collapsed }) }>
                     <HStack>
                         <item.Icon className={ cls.icon } />
                         <span className={ cls.link }>{ t(item.name) }</span>

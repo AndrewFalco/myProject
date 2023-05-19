@@ -2,8 +2,8 @@ import { useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import StarIcon from '@/shared/assets/icons/star.svg';
 import { Icon } from '../../Icon/Icon';
-import { HStack } from '../../Stack';
-import { FlexGap } from '../../Stack/Flex/Flex.types';
+import { HStack } from '../../../redesigned/Stack';
+import { FlexGap } from '../../../redesigned/Stack/Flex/Flex.types';
 
 import cls from './StarRating.module.scss';
 
@@ -21,13 +21,7 @@ const stars = [1, 2, 3, 4, 5];
  * @deprecated
  */
 export const StarRating = (props: StarRatingProps) => {
-    const {
-        className,
-        onSelect,
-        size = 30,
-        selectedStars = 0,
-        gap = '4',
-    } = props;
+    const { className, onSelect, size = 30, selectedStars = 0, gap = '4' } = props;
 
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);

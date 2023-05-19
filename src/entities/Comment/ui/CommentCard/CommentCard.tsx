@@ -36,7 +36,9 @@ export const CommentCard = (props: CommentCardProps) => {
                         </div>
                         <Skeleton height={ 16 } width={ 50 } />
                     </div>
-                    <Skeleton height={ 24 } width="100%" className={ cls.text } />
+                    <Skeleton height={ 24 }
+                              width="100%"
+                              className={ cls.text } />
                 </>
             ) : (
                 <>

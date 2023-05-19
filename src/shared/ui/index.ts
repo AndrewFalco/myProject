@@ -11,14 +11,14 @@ import { Modal } from './deprecated/Modal';
 import { ListBox, Dropdown, Popover } from './deprecated/Popups';
 import { Select, SelectOption } from './deprecated/Select';
 import { Skeleton } from './deprecated/Skeleton';
-import { HStack, VStack } from './deprecated/Stack';
+import { HStack, VStack } from './redesigned/Stack';
 import { TabItem, Tabs } from './deprecated/Tabs';
 import { Text } from './deprecated/Text';
 import { Virtualize } from './deprecated/Virtualize/ui/Virtualize';
 import { Drawer } from './deprecated/Drawer';
-import { Overlay } from './deprecated/Overlay';
+import { Overlay } from './redesigned/Overlay';
 import { StarRating } from './deprecated/StarRating';
-import { AppImage } from './deprecated/AppImage';
+import { AppImage } from './redesigned/AppImage';
 import { AppLogo } from './redesigned/AppLogo';
 
 export {

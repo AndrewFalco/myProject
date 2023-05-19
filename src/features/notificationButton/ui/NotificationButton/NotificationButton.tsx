@@ -1,11 +1,18 @@
 import { useCallback, useMemo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, Drawer, Icon, Popover } from '@/shared/ui';
+import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon/Icon';
+import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
 import { NotificationList } from '@/entities/Notification';
+import NotificationIconDeprecated from '@/shared/assets/icons/notification-20-20.svg';
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import useDeviceDetect from '@/shared/lib/hooks/useDeviceDetected';
 
 import cls from './NotificationButton.module.scss';
+import { ToggleFeature } from '@/shared/lib/features';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Popover } from '@/shared/ui/redesigned/Popups';
 
 interface NotificationButtonProps {
     className?: string;
@@ -21,9 +28,19 @@ export const NotificationButton = (props: NotificationButtonProps) => {
 
     const trigger = useMemo(
         () => (
-            <Button onClick={ onOpenDrawer } theme="clear">
-                <Icon Svg={ NotificationIcon } width={ 32 } height={ 32 } />
-            </Button>
+            <ToggleFeature
+                feature="isAppRedesigned"
+                on={ <Icon Svg={ NotificationIcon }
+                           width={ 40 }
+                           height={ 40 }
+                           clickable
+                           onClick={ onOpenDrawer } /> }
+                off={
+                    <ButtonDeprecated onClick={ onOpenDrawer } theme="clear">
+                        <IconDeprecated Svg={ NotificationIconDeprecated } width={ 32 } height={ 32 } />
+                    </ButtonDeprecated>
+                }
+            />
         ),
         [onOpenDrawer],
     );
@@ -36,12 +53,26 @@ export const NotificationButton = (props: NotificationButtonProps) => {
             </Drawer>
         </>
     ) : (
-        <Popover
-            className={ classNames(cls.NotificationButton, {}, [className]) }
-            direction="bottom left"
-            trigger={ trigger }
-        >
-            <NotificationList className={ cls.notifications } />
-        </Popover>
+        <ToggleFeature
+            feature="isAppRedesigned"
+            on={
+                <Popover
+                    className={ classNames(cls.NotificationButton, {}, [className]) }
+                    direction="bottom left"
+                    trigger={ trigger }
+                >
+                    <NotificationList className={ cls.notifications } />
+                </Popover>
+            }
+            off={
+                <PopoverDeprecated
+                    className={ classNames(cls.NotificationButton, {}, [className]) }
+                    direction="bottom left"
+                    trigger={ trigger }
+                >
+                    <NotificationList className={ cls.notifications } />
+                </PopoverDeprecated>
+            }
+        />
     );
 };

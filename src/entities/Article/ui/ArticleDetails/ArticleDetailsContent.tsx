@@ -31,8 +31,12 @@ export const ArticleDetailsContent = memo(
 
         return (
             <>
-                <HStack max grow justify="center">
-                    <Avatar size={ 200 } src={ data.img } className={ cls.avatar } />
+                <HStack max
+                        grow
+                        justify="center">
+                    <Avatar size={ 200 }
+                            src={ data.img }
+                            className={ cls.avatar } />
                 </HStack>
                 <Text
                     className={ cls.title }
@@ -40,12 +44,23 @@ export const ArticleDetailsContent = memo(
                     text={ data.subtitle }
                     size="size_l"
                 />
-                <HStack gap="8" data-testid="ArticleDetails.Info" align='center' justify='center'>
-                    <Icon Svg={ EyeIcon } className={ cls.icon } width={ 24 } height={ 24 } />
+                <HStack gap="8"
+                        data-testid="ArticleDetails.Info"
+                        align="center"
+                        justify="center">
+                    <Icon Svg={ EyeIcon }
+                          className={ cls.icon }
+                          width={ 24 }
+                          height={ 24 } />
                     <Text text={ String(data.views) } />
                 </HStack>
-                <HStack gap="8" align='center' justify='center'>
-                    <Icon Svg={ CalendarIcon } className={ cls.icon } width={ 24 } height={ 24 } />
+                <HStack gap="8"
+                        align="center"
+                        justify="center">
+                    <Icon Svg={ CalendarIcon }
+                          className={ cls.icon }
+                          width={ 24 }
+                          height={ 24 } />
                     <Text
                         text={ new Date(data.createdAt).toLocaleDateString() }
                     />

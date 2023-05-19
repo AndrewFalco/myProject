@@ -65,7 +65,9 @@ export const Rating = (props: RatingProps) => {
 
     const modalContent = useMemo(
         () => (
-            <VStack max gap="16" align="center">
+            <VStack max
+                    gap="16"
+                    align="center">
                 <Text title={ feedbackTitle } />
                 <Textarea
                     name={ t('Your feedback') || undefined }
@@ -86,7 +88,10 @@ export const Rating = (props: RatingProps) => {
 
     return (
         <Card className={ className }>
-            <VStack align="center" justify="center" max gap="16">
+            <VStack align="center"
+                    justify="center"
+                    max
+                    gap="16">
                 <Text title={ starsCount ? t('Thanks for yor review') : title } />
                 <StarRating
                     size={ 40 }
@@ -95,11 +100,15 @@ export const Rating = (props: RatingProps) => {
                 />
             </VStack>
             { isMobile ? (
-                <Modal isOpen={ isModalOpen } onClose={ onClickCancel } lazy>
+                <Modal isOpen={ isModalOpen }
+                       onClose={ onClickCancel }
+                       lazy>
                     { modalContent }
                 </Modal>
             ) : (
-                <Drawer isOpen={ isModalOpen } onClose={ onClickCancel } lazy>
+                <Drawer isOpen={ isModalOpen }
+                        onClose={ onClickCancel }
+                        lazy>
                     { modalContent }
                 </Drawer>
             ) }

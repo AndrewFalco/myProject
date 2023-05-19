@@ -4,7 +4,7 @@ import MaleAvt from '@/shared/assets/img/avatar_m.jpg';
 import FemaleAvt from '@/shared/assets/img/avatar_fm.jpg';
 import NoSexAvt from '@/shared/assets/img/noSexAvatar.jpg';
 import { Sex } from '@/shared/consts/common';
-import { AppImage } from '../../AppImage/ui/AppImage';
+import { AppImage } from '../../../redesigned/AppImage';
 import { Skeleton } from '../../Skeleton';
 
 import cls from './Avatar.module.scss';
@@ -45,9 +45,7 @@ export const Avatar = (props: AvatarProps) => {
         <AppImage
             className={ classNames(cls.Avatar, {}, [className]) }
             src={ src || defaultAvatar }
-            fallback={
-                <Skeleton width={ size } height={ size } borderRadius="50%" />
-            }
+            fallback={ <Skeleton width={ size } height={ size } borderRadius="50%" /> }
             errorFallback={ defaultAvatar }
             style={ styles }
             alt={ alt }

@@ -21,15 +21,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: [
-        'react',
-        '@typescript-eslint',
-        'i18next',
-        'react-hooks',
-        'falco-custom-fsd-plugin',
-        'unused-imports',
-        'prettier',
-    ],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'falco-custom-fsd-plugin', 'unused-imports', 'prettier'],
     rules: {
         'react/jsx-curly-spacing': [
             2,
@@ -39,6 +31,8 @@ module.exports = {
                 children: true,
             },
         ],
+        'react/jsx-max-props-per-line': [2, { maximum: { single: 4, multi: 1 } }],
+        'react/jsx-indent-props': [1, 'first'],
         'react/jsx-props-no-spreading': [
             'off',
             {
@@ -47,6 +41,7 @@ module.exports = {
                 explicitSpread: 'ignore',
             },
         ],
+        'react/jsx-space-before-closing': [1],
         'react/jsx-filename-extension': [
             2,
             {
@@ -70,7 +65,6 @@ module.exports = {
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/function-component-definition': 'off',
-        'react/jsx-max-props-per-line': [2, { maximum: 4 }],
         'no-shadow': 'off',
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
@@ -107,11 +101,7 @@ module.exports = {
             2,
             {
                 alias: '@',
-                testFilesPatterns: [
-                    '**/*.test.*',
-                    '**/*.stories.*',
-                    '**/StoreDecorator.tsx',
-                ],
+                testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
             },
         ],
         'falco-custom-fsd-plugin/layer-imports': [
@@ -124,7 +114,7 @@ module.exports = {
         'consistent-return': 'off',
         'no-nested-ternary': 'off',
         'arrow-parens': 'off',
-        'jsx-quotes': ["warn", "prefer-double"],
+        'jsx-quotes': ['warn', 'prefer-double'],
     },
     globals: {
         __IS_DEV__: true,

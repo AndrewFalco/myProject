@@ -27,8 +27,11 @@ export const NavbarNew = memo((props: NavbarProps) => {
     }, []);
 
     return (
-        <header className={ classNames(cls.Navbar, {}, [className]) }>
-            <HStack gap="16" className={ cls.actions }>
+        <header className={ classNames(cls.NavbarRedesigned, {}, [className]) }>
+            <HStack gap="16"
+                    className={ cls.actions }
+                    align="center"
+                    justify="center">
                 <NotificationButton />
                 <AvatarDropdown onCloseModal={ closeModal } />
             </HStack>

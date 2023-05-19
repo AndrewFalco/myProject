@@ -42,7 +42,9 @@ export const ArticleListItem = (props: ArticleListProps) => {
         () => (
             <HStack justify="between" gap="8">
                 <Text text={ String(article.views) } className={ cls.views } />
-                <Icon Svg={ EyeIcon } width={ 24 } height={ 24 } />
+                <Icon Svg={ EyeIcon }
+                      width={ 24 }
+                      height={ 24 } />
             </HStack>
         ),
         [article.views],

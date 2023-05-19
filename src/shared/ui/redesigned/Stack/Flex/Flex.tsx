@@ -28,9 +28,6 @@ export interface FlexProps extends DivProps {
     grow?: boolean;
 }
 
-/**
- * @deprecated
- */
 export const Flex = (props: PropsWithChildren<FlexProps>) => {
     const {
         className,

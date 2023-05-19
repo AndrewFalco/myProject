@@ -34,11 +34,19 @@ export const ArticleListItemSkeleton = (props: ArticleSkeletonListProps) => {
                                 className={ cls.username }
                             />
                         </HStack>
-                        <Skeleton width={ 40 } height={ 16 } className={ cls.date } />
+                        <Skeleton width={ 40 }
+                                  height={ 16 }
+                                  className={ cls.date } />
                     </HStack>
-                    <Skeleton width="100%" height={ 24 } className={ cls.title } />
-                    <Skeleton width="100%" height={ 16 } className={ cls.types } />
-                    <Skeleton width="100%" height={ 480 } className={ cls.img } />
+                    <Skeleton width="100%"
+                              height={ 24 }
+                              className={ cls.title } />
+                    <Skeleton width="100%"
+                              height={ 16 }
+                              className={ cls.types } />
+                    <Skeleton width="100%"
+                              height={ 480 }
+                              className={ cls.img } />
                     <Skeleton
                         width="100%"
                         height={ 200 }
@@ -64,7 +72,9 @@ export const ArticleListItemSkeleton = (props: ArticleSkeletonListProps) => {
                             height={ 200 }
                             className={ cls.img }
                         />
-                        <Skeleton width={ 40 } height={ 16 } className={ cls.date } />
+                        <Skeleton width={ 40 }
+                                  height={ 16 }
+                                  className={ cls.date } />
                     </div>
                     <HStack justify="between">
                         <Skeleton
@@ -81,7 +91,9 @@ export const ArticleListItemSkeleton = (props: ArticleSkeletonListProps) => {
                             <Icon Svg={ EyeIcon } />
                         </HStack>
                     </HStack>
-                    <Skeleton width="100%" height={ 24 } className={ cls.title } />
+                    <Skeleton width="100%"
+                              height={ 24 }
+                              className={ cls.title } />
                 </Card>
             ) }
         </div>

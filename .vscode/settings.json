@@ -4,14 +4,19 @@
     "i18n-ally.keystyle": "flat",
     "jestrunner.configPath": "/config/jest/jest.config.ts",
     "editor.codeActionsOnSave": {
+        "source.fixAll.vs-code-prettier-eslint": true,
         "source.fixAll.eslint": true,
         "source.fixAll.stylelint": true
     },
     "editor.formatOnSave": true,
-    "eslint.validate": [
-        "javascript",
-        "typescript",
-        "typescriptreact",
-        "javascriptreact"
-    ],
+    "eslint.validate": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnPaste": false, // required
+    "editor.formatOnType": false, // required
+    "editor.formatOnSaveMode": "file", // required to format on save
+    "files.autoSave": "onFocusChange", // optional but recommended
+    "vs-code-prettier-eslint.prettierLast": false,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    } // set as "true" to run 'prettier' last not first
 }

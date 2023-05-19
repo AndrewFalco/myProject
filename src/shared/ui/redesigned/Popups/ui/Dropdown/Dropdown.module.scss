@@ -1,0 +1,20 @@
+.items {
+    position: absolute;
+    background: var(--dark-bg-redesigned);
+    z-index: 999;
+}
+
+.item {
+    padding: 8px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--text-redesigned);
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:hover {
+        background: var(--light-bg-redesigned);
+    }
+}

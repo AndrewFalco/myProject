@@ -28,7 +28,7 @@ export const App = () => {
 
     return (
         <ToggleFeature
-            feature='isAppRedesigned'
+            feature="isAppRedesigned"
             on={
                 <div className={ classNames('app_redesigned', {}, [theme]) }>
                     <Suspense fallback="">

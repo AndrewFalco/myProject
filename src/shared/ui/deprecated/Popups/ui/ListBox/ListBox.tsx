@@ -2,7 +2,7 @@ import { Fragment, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Listbox as HListBox } from '@headlessui/react';
 import { DropdownDirection } from '@/shared/types/ui';
-import { HStack } from '../../../Stack';
+import { HStack } from '../../../../redesigned/Stack';
 import { classNames } from '../../../../../lib/classNames/classNames';
 import { Button } from '../../../Button';
 import { mapDirectionClass } from '../../styles/consts';
@@ -30,16 +30,7 @@ interface ListBoxProps {
  * @deprecated
  */
 export const ListBox = (props: ListBoxProps) => {
-    const {
-        value,
-        items,
-        className,
-        defaultValue,
-        onChange,
-        readonly,
-        direction = 'bottom right',
-        label,
-    } = props;
+    const { value, items, className, defaultValue, onChange, readonly, direction = 'bottom right', label } = props;
 
     const { t } = useTranslation();
 
@@ -50,29 +41,20 @@ export const ListBox = (props: ListBoxProps) => {
             { label && <span>{ label }</span> }
             <HListBox
                 as="div"
-                className={ classNames(cls.ListBox, {}, [
-                    className,
-                    popupCls.popup,
-                ]) }
+                className={ classNames(cls.ListBox, {}, [className, popupCls.popup]) }
                 value={ value }
                 onChange={ onChange }
                 disabled={ readonly }
             >
                 <HListBox.Button className={ popupCls.trigger }>
-                    <Button disabled={ readonly }>
-                        { value ?? defaultValue ?? t('Select value') }
-                    </Button>
+                    <Button disabled={ readonly }>{ value ?? defaultValue ?? t('Select value') }</Button>
                 </HListBox.Button>
-                <HListBox.Options
-                    className={ classNames(cls.options, {}, optionClasses) }
-                >
+                <HListBox.Options className={ classNames(cls.options, {}, optionClasses) }>
                     { items?.map((item) => (
-                        <HListBox.Option
-                            key={ item.value }
-                            value={ item.value }
-                            disabled={ item.disabled }
-                            as={ Fragment }
-                        >
+                        <HListBox.Option key={ item.value }
+                                         value={ item.value }
+                                         disabled={ item.disabled }
+                                         as={ Fragment }>
                             { ({ active, selected }) => (
                                 <li
                                     className={ classNames(cls.item, {

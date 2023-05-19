@@ -20,11 +20,15 @@ type viewSelectorsType = {
 const viewSelectors: viewSelectorsType[] = [
     {
         view: 'GRID',
-        icon: <Icon Svg={ GridViewIcon } width={ 24 } height={ 24 } />,
+        icon: <Icon Svg={ GridViewIcon }
+                    width={ 24 }
+                    height={ 24 } />,
     },
     {
         view: 'LIST',
-        icon: <Icon Svg={ ListViewIcon } width={ 24 } height={ 24 } />,
+        icon: <Icon Svg={ ListViewIcon }
+                    width={ 24 }
+                    height={ 24 } />,
     },
 ];
 

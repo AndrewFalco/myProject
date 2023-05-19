@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
-import { Portal } from '../../Portal/Portal';
-import { Overlay } from '../../Overlay';
+import { Overlay } from '../../../redesigned/Overlay';
 import { Mods, classNames } from '../../../../lib/classNames/classNames';
 import { useModal } from '../../../../lib/hooks/useModal';
+import { Portal } from '../../../redesigned/Portal/Portal';
 
 import cls from './Drawer.module.scss';
 
