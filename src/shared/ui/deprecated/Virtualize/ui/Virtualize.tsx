@@ -23,9 +23,6 @@ interface VirtualizeProps<T> {
     parentRef?: MutableRefObject<HTMLDivElement>;
 }
 
-/**
- * @deprecated
- */
 export const Virtualize = <T,>(props: VirtualizeProps<T>) => {
     const {
         className,

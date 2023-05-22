@@ -21,7 +21,13 @@ const stars = [1, 2, 3, 4, 5];
  * @deprecated
  */
 export const StarRating = (props: StarRatingProps) => {
-    const { className, onSelect, size = 30, selectedStars = 0, gap = '4' } = props;
+    const {
+        className,
+        onSelect,
+        size = 30,
+        selectedStars = 0,
+        gap = '4',
+    } = props;
 
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);

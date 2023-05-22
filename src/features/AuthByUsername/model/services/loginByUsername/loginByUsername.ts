@@ -22,10 +22,7 @@ export const loginByUsername = createAsyncThunk<
             throw new Error('Response is empty');
         }
 
-        localStorage.setItem(
-            USER_LOCALSTORAGE_KEY,
-            response.data.id,
-        );
+        localStorage.setItem(USER_LOCALSTORAGE_KEY, response.data.id);
         dispatch(userActions.setAuthData(response.data));
 
         return response.data;

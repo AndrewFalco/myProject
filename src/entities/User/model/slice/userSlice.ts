@@ -24,15 +24,14 @@ export const userSlice = createSlice({
         },
     },
     extraReducers: (builder) => {
-        builder
-            .addCase(
-                saveJsonSettings.fulfilled,
-                (state, { payload }: PayloadAction<JsonSettings>) => {
-                    if (state.authData) {
-                        state.authData.jsonSettings = payload;
-                    }
-                },
-            );
+        builder.addCase(
+            saveJsonSettings.fulfilled,
+            (state, { payload }: PayloadAction<JsonSettings>) => {
+                if (state.authData) {
+                    state.authData.jsonSettings = payload;
+                }
+            },
+        );
         builder
             .addCase(
                 initAuthData.fulfilled,
@@ -40,13 +39,11 @@ export const userSlice = createSlice({
                     state.authData = payload;
                     setFeatureFlags(payload.features);
                     state._inited = true;
-                }
+                },
             )
-            .addCase(
-                initAuthData.rejected,
-                (state, _) => {
-                    state._inited = true;
-                });
+            .addCase(initAuthData.rejected, (state, _) => {
+                state._inited = true;
+            });
     },
 });
 

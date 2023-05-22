@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Icon.module.scss';
 
-type SvgProps = Omit<SVGProps<SVGSVGElement>, 'onClick'>
+type SvgProps = Omit<SVGProps<SVGSVGElement>, 'onClick'>;
 
 interface IconBaseProps extends SvgProps {
     className?: string;
@@ -24,29 +24,38 @@ type IconProps = NonClickableIconProps | ClickableIconProps;
 
 export const Icon = memo((props: IconProps) => {
     const {
-        className, Svg, onClick, clickable, width = 32, height = 32, ...other
+        className,
+        Svg,
+        onClick,
+        clickable,
+        width = 32,
+        height = 32,
+        ...other
     } = props;
 
-    const icon = useMemo(() => (
-        <Svg
-            onClick={ undefined }
-            className={ classNames(cls.Icon, {}, [className]) }
-            width={ width }
-            height={ height }
-            { ...other }
-        />
-    ), [Svg, className, height, other, width]);
+    const icon = useMemo(
+        () => (
+            <Svg
+                onClick={ undefined }
+                className={ classNames(cls.Icon, {}, [className]) }
+                width={ width }
+                height={ height }
+                { ...other }
+            />
+        ),
+        [Svg, className, height, other, width],
+    );
 
-    return (
-        clickable
-            ? <button
-                type="button"
-                onClick={ onClick }
-                className={ cls.button }
-                style={ { width, height } }
-            >
-                { icon }
-            </button>
-            : icon
+    return clickable ? (
+        <button
+            type="button"
+            onClick={ onClick }
+            className={ cls.button }
+            style={ { width, height } }
+        >
+            { icon }
+        </button>
+    ) : (
+        icon
     );
 });

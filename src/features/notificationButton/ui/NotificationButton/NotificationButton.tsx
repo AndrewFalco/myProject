@@ -30,14 +30,22 @@ export const NotificationButton = (props: NotificationButtonProps) => {
         () => (
             <ToggleFeature
                 feature="isAppRedesigned"
-                on={ <Icon Svg={ NotificationIcon }
-                           width={ 40 }
-                           height={ 40 }
-                           clickable
-                           onClick={ onOpenDrawer } /> }
+                on={
+                    <Icon
+                        Svg={ NotificationIcon }
+                        width={ 40 }
+                        height={ 40 }
+                        clickable
+                        onClick={ onOpenDrawer }
+                    />
+                }
                 off={
                     <ButtonDeprecated onClick={ onOpenDrawer } theme="clear">
-                        <IconDeprecated Svg={ NotificationIconDeprecated } width={ 32 } height={ 32 } />
+                        <IconDeprecated
+                            Svg={ NotificationIconDeprecated }
+                            width={ 32 }
+                            height={ 32 }
+                        />
                     </ButtonDeprecated>
                 }
             />
@@ -57,7 +65,9 @@ export const NotificationButton = (props: NotificationButtonProps) => {
             feature="isAppRedesigned"
             on={
                 <Popover
-                    className={ classNames(cls.NotificationButton, {}, [className]) }
+                    className={ classNames(cls.NotificationButton, {}, [
+                        className,
+                    ]) }
                     direction="bottom left"
                     trigger={ trigger }
                 >
@@ -66,7 +76,9 @@ export const NotificationButton = (props: NotificationButtonProps) => {
             }
             off={
                 <PopoverDeprecated
-                    className={ classNames(cls.NotificationButton, {}, [className]) }
+                    className={ classNames(cls.NotificationButton, {}, [
+                        className,
+                    ]) }
                     direction="bottom left"
                     trigger={ trigger }
                 >

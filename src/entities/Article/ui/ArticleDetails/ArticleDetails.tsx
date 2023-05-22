@@ -41,9 +41,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     gap="8"
                     className={ cls.wrapper }>
                 { isLoading ? (
-                    <VStack gap="16"
-                            max
-                            grow>
+                    <VStack gap="16" max grow>
                         <Skeleton width="100%" height={ 200 } />
                         <Skeleton
                             className={ cls.title }

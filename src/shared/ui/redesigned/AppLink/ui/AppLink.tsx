@@ -14,12 +14,24 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink = (props: AppLinkProps) => {
-    const { children, className, to, variant = 'primary', activeClassName = '', ...otherProps } = props;
+    const {
+        children,
+        className,
+        to,
+        variant = 'primary',
+        activeClassName = '',
+        ...otherProps
+    } = props;
 
     return (
         <NavLink
             to={ to }
-            className={ ({ isActive }) => classNames('', { [activeClassName]: isActive }, [className, cls[variant]]) }
+            className={ ({ isActive }) =>
+                classNames('', { [activeClassName]: isActive }, [
+                    className,
+                    cls[variant],
+                ])
+            }
             { ...otherProps }
         >
             { children }

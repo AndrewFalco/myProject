@@ -16,5 +16,5 @@ export const Sidebar = memo((props: SidebarProps) => {
             on={ <SidebarNew className={ className } /> }
             off={ <SidebarOld className={ className } /> }
         />
-    )
+    );
 });

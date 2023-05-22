@@ -10,7 +10,7 @@ export {
     useJsonSettingsByKey,
     useUserAuthData,
     useUserInited,
-    useUserRoles
+    useUserRoles,
 } from './model/selectors/userSelectors';
 export { userActions, userReducer } from './model/slice/userSlice';
 export { saveJsonSettings } from './model/services/saveJsonSettings';

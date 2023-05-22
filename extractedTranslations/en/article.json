@@ -1,16 +1,17 @@
 {
-  "Order by": "",
-  "Read more": {
-    "": {
-      "": {
-        "": ""
-      }
-    }
-  },
-  "Sort by": "",
-  "asc": "",
-  "createAt": "",
-  "desc": "",
-  "title": "",
-  "views": ""
+    "No articles at the moment": "",
+    "Order by": "",
+    "Read more": {
+        "": {
+            "": {
+                "": ""
+            }
+        }
+    },
+    "Sort by": "",
+    "asc": "",
+    "createAt": "",
+    "desc": "",
+    "title": "",
+    "views": ""
 }

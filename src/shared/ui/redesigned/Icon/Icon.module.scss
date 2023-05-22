@@ -1,5 +1,9 @@
 .Icon {
     fill: var(--icon-redesigned);
+
+    &:hover {
+        fill: var(--accent-redesigned);
+    }
 }
 
 .button {

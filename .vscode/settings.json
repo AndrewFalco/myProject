@@ -9,7 +9,12 @@
         "source.fixAll.stylelint": true
     },
     "editor.formatOnSave": true,
-    "eslint.validate": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+        "typescriptreact",
+        "javascriptreact"
+    ],
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
     "editor.formatOnPaste": false, // required
     "editor.formatOnType": false, // required

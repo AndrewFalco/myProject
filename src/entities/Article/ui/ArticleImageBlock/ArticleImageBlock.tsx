@@ -12,9 +12,7 @@ export const ArticleImageBlock = memo((props: ArticleImageBlockProps) => {
 
     return (
         <HStack max justify="center">
-            <img src={ block.img }
-                 alt={ block.title }
-                 className={ cls.img } />
+            <img src={ block.img } alt={ block.title } className={ cls.img } />
             { block.title && <Text text={ block.title } align="center" /> }
         </HStack>
     );

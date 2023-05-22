@@ -8,6 +8,7 @@ import {
 } from '@/app/providers/StoreProvider';
 
 import cls from './DynamicModuleLoader.module.scss';
+import { ToggleFeature } from '../../features';
 
 export type ReducersList = {
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
@@ -47,5 +48,11 @@ export const DynamicModuleLoader = (
         };
     }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
 
-    return <div className={ cls.wrapperDML }>{ children }</div>;
+    return (
+        <ToggleFeature
+            feature="isAppRedesigned"
+            on={ <div className={ cls.wrapperRedesigned }>{ children }</div> }
+            off={ <div className={ cls.wrapper }>{ children }</div> }
+        />
+    );
 };

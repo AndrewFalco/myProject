@@ -13,14 +13,14 @@ const userApi = rtkApi.injectEndpoints({
             query: ({ userId, jsonSettings }) => ({
                 url: `/users/${userId}`,
                 method: 'PATCH',
-                body: { jsonSettings, },
+                body: { jsonSettings },
             }),
         }),
         getUserDataById: build.query<User, string>({
             query: (userId) => ({
                 url: `/users/${userId}`,
                 method: 'GET',
-            })
+            }),
         }),
     }),
 });

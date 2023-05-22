@@ -1,5 +1,5 @@
-import { FeatureFlags } from "@/shared/types/featureFlags";
-import { JsonSettings } from "./jsonSettings";
+import { FeatureFlags } from '@/shared/types/featureFlags';
+import { JsonSettings } from './jsonSettings';
 
 export type UserRole = 'ADMIN' | 'USER' | 'MANAGER' | 'GUEST';
 

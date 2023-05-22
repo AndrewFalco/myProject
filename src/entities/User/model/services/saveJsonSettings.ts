@@ -18,13 +18,15 @@ export const saveJsonSettings = createAsyncThunk<
     }
 
     try {
-        const response = await dispatch(setJsonSettings({
-            userId: userData.id,
-            jsonSettings: {
-                ...currentSettings,
-                ...jsonSettings
-            }
-        })).unwrap();
+        const response = await dispatch(
+            setJsonSettings({
+                userId: userData.id,
+                jsonSettings: {
+                    ...currentSettings,
+                    ...jsonSettings,
+                },
+            }),
+        ).unwrap();
 
         if (!response.jsonSettings) {
             return rejectWithValue('JSON settings not found');

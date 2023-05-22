@@ -28,8 +28,17 @@ export const Dropdown = (props: DropdownProps) => {
     const menuClasses = [mapDirectionClass[direction], popupCls.menu];
 
     return (
-        <Menu as="div" className={ classNames(cls.Dropdown, {}, [className, popupCls.popup]) }>
-            <Menu.Button as="div" className={ classNames(popupCls.trigger, {}, [className]) }>
+        <Menu
+            as="div"
+            className={ classNames(cls.Dropdown, {}, [
+                className,
+                popupCls.popup,
+            ]) }
+        >
+            <Menu.Button
+                as="div"
+                className={ classNames(popupCls.trigger, {}, [className]) }
+            >
                 <Button variant="clear">{ trigger }</Button>
             </Menu.Button>
             <Menu.Items className={ classNames(cls.items, {}, menuClasses) }>
@@ -53,11 +62,20 @@ export const Dropdown = (props: DropdownProps) => {
                     );
 
                     return item.href ? (
-                        <Menu.Item as={ AppLink } to={ item.href } disabled={ item.disabled } key={ index }>
+                        <Menu.Item
+                            as={ AppLink }
+                            to={ item.href }
+                            disabled={ item.disabled }
+                            key={ index }
+                        >
                             { content }
                         </Menu.Item>
                     ) : (
-                        <Menu.Item as={ Fragment } disabled={ item.disabled } key={ index }>
+                        <Menu.Item
+                            as={ Fragment }
+                            disabled={ item.disabled }
+                            key={ index }
+                        >
                             { content }
                         </Menu.Item>
                     );

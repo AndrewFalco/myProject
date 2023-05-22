@@ -22,13 +22,26 @@ export const NotificationItem = (props: NotificationItemProps) => {
             <ToggleFeature
                 feature="isAppRedesigned"
                 on={
-                    <Card variant="normal" className={ classNames(cls.NotificationItem, {}, [className]) }>
+                    <Card
+                        variant="normal"
+                        className={ classNames(cls.NotificationItem, {}, [
+                            className,
+                        ]) }
+                    >
                         <Text title={ data.title } text={ data.description } />
                     </Card>
                 }
                 off={
-                    <CardDeprecated theme="normal" className={ classNames(cls.NotificationItem, {}, [className]) }>
-                        <TextDeprecated title={ data.title } text={ data.description } />
+                    <CardDeprecated
+                        theme="normal"
+                        className={ classNames(cls.NotificationItem, {}, [
+                            className,
+                        ]) }
+                    >
+                        <TextDeprecated
+                            title={ data.title }
+                            text={ data.description }
+                        />
                     </CardDeprecated>
                 }
             />
@@ -37,10 +50,12 @@ export const NotificationItem = (props: NotificationItemProps) => {
     );
 
     return data.href ? (
-        <a className={ cls.link }
-           href={ data.href }
-           target="_blank"
-           rel="noreferrer">
+        <a
+            className={ cls.link }
+            href={ data.href }
+            target="_blank"
+            rel="noreferrer"
+        >
             { content }
         </a>
     ) : (

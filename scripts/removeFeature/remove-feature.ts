@@ -27,15 +27,29 @@ project.addSourceFilesAtPaths('src/**/*.tsx');
 const files = project.getSourceFiles();
 
 files.forEach((file) => {
-    file.forEachDescendant(node => {
-        if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node, toggleFunctionName)) {
-            return replaceToggleFunction(node, featureState, removedFeatureName);
+    file.forEachDescendant((node) => {
+        if (
+            node.isKind(SyntaxKind.CallExpression) &&
+            isToggleFunction(node, toggleFunctionName)
+        ) {
+            return replaceToggleFunction(
+                node,
+                featureState,
+                removedFeatureName,
+            );
         }
 
-        if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleComponent(node, toggleComponentName)) {
-            return replaceToggleComponent(node, featureState, removedFeatureName);
+        if (
+            node.isKind(SyntaxKind.JsxSelfClosingElement) &&
+            isToggleComponent(node, toggleComponentName)
+        ) {
+            return replaceToggleComponent(
+                node,
+                featureState,
+                removedFeatureName,
+            );
         }
-    })
+    });
 });
 
 project.save();

@@ -1,5 +1,12 @@
-.wrapperDML {
+.wrapper {
     display: flex;
+    max-width: 100%;
+    overflow-x: hidden;
+    flex-grow: 1;
+}
+
+.wrapperRedesigned {
+    display: grid;
     max-width: 100%;
     overflow-x: hidden;
     flex-grow: 1;

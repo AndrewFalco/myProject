@@ -1,13 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { Card, HStack, Input, VStack, TabItem } from '@/shared/ui';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleType, ArticleView } from '@/entities/Article';
-import {
-    getArticleOrderValue,
-    getArticleSearchValue,
-    getArticleSortValue,
-} from '../../model/selectors/articleSortSelectors';
 import { ArticleSortField } from '../../model/types/articleSort';
 import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
 import { ArticleViewSelector } from '../ArticleViewSelector/ArticleViewSelector';
@@ -16,6 +10,9 @@ import cls from './ArticleSort.module.scss';
 import { ArticleTypeTabs } from '../ArticleTypeTabs/ArticleTypeTabs';
 
 interface ArticleSortProps {
+    sort: ArticleSortField;
+    order: SortOrder;
+    search: string;
     view: ArticleView;
     typeValue: ArticleType;
     onChangeView: (view: ArticleView) => void;
@@ -34,17 +31,15 @@ export const ArticleSort = (props: ArticleSortProps) => {
         view,
         typeValue,
         onChangeType,
+        order,
+        search,
+        sort,
     } = props;
     const { t } = useTranslation();
-    const sort = useSelector(getArticleSortValue);
-    const order = useSelector(getArticleOrderValue);
-    const search = useSelector(getArticleSearchValue);
 
     return (
         <VStack className={ cls.sortWrapper }>
-            <HStack justify="between"
-                    gap="8"
-                    max>
+            <HStack justify="between" gap="8" max>
                 <HStack justify="between" grow>
                     <ArticleSortSelector
                         orderValue={ order }

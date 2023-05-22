@@ -29,21 +29,25 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
             on={
                 <AppLink
                     to={ item.route }
-                    className={ classNames(cls.itemRedesigned, { [cls.collapsedRedesigned]: collapsed }) }
+                    className={ classNames(cls.itemRedesigned, {
+                        [cls.collapsedRedesigned]: collapsed,
+                    }) }
                     activeClassName={ cls.active }
                 >
                     <HStack justify="center" align="center">
-                        <Icon Svg={ item.Icon }
-                              width={ 32 }
-                              height={ 32 } />
+                        <Icon Svg={ item.Icon } width={ 32 } height={ 32 } />
                         <span className={ cls.link }>{ t(item.name) }</span>
                     </HStack>
                 </AppLink>
             }
             off={
-                <AppLinkOld to={ item.route }
-                            theme="secondary"
-                            className={ classNames(cls.item, { [cls.collapsed]: collapsed }) }>
+                <AppLinkOld
+                    to={ item.route }
+                    theme="secondary"
+                    className={ classNames(cls.item, {
+                        [cls.collapsed]: collapsed,
+                    }) }
+                >
                     <HStack>
                         <item.Icon className={ cls.icon } />
                         <span className={ cls.link }>{ t(item.name) }</span>

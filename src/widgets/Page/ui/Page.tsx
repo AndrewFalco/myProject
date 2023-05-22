@@ -2,13 +2,14 @@ import { MutableRefObject, PropsWithChildren, UIEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { scrollSaveActions } from '@/features/ScrollSave';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { TestProps } from '@/shared/types/testTypes';
+import { ToggleFeature, toggleFeatures } from '@/shared/lib/features';
 
 import cls from './Page.module.scss';
-import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -42,20 +43,26 @@ export const Page = (props: PropsWithChildren<PageProps>) => {
         <section
             data-testid={ dataTestId || PAGE_ID }
             ref={ parentRef }
-            className={
-                classNames(
-                    toggleFeatures({
-                        name: 'isAppRedesigned',
-                        on: () => cls.PageRedesigned,
-                        off: () => cls.Page
-                    }),
-                    {},
-                    [className]
-                )
-            }
+            className={ classNames(
+                toggleFeatures({
+                    name: 'isAppRedesigned',
+                    on: () => cls.PageRedesigned,
+                    off: () => cls.Page,
+                }),
+                {},
+                [className],
+            ) }
             onScroll={ onScroll }
         >
-            { !error ? children : <Text title={ error } theme="error" /> }
+            { !error ? (
+                children
+            ) : (
+                <ToggleFeature
+                    feature="isAppRedesigned"
+                    on={ <Text title={ error } variant="error" /> }
+                    off={ <TextDeprecated title={ error } theme="error" /> }
+                />
+            ) }
         </section>
     );
 };

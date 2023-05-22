@@ -23,7 +23,9 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
     const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
 
-    const isAdminPanelAvailable = useSelector((state) => isResolvedRole(state, ['ADMIN', 'MANAGER']));
+    const isAdminPanelAvailable = useSelector((state) =>
+        isResolvedRole(state, ['ADMIN', 'MANAGER']),
+    );
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
@@ -63,7 +65,9 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
             off={
                 <DropdownDeprecated
                     items={ items }
-                    trigger={ <AvatarDeprecated src={ authData.avatar } size={ 30 } /> }
+                    trigger={
+                        <AvatarDeprecated src={ authData.avatar } size={ 30 } />
+                    }
                     direction="bottom left"
                     className={ classNames(cls.AvatarDropdown, {}, [className]) }
                 />
