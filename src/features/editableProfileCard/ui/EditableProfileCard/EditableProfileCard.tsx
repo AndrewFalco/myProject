@@ -89,7 +89,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardType) => {
     );
 
     const onChangeCountry = useCallback(
-        (value?: Country) => {
+        (value: Country) => {
             dispatch(profileActions.updateProfile({ country: value || '' }));
         },
         [dispatch],

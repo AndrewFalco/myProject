@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import MaleAvt from '@/shared/assets/img/avatar_m.jpg';
 import FemaleAvt from '@/shared/assets/img/avatar_fm.jpg';
 import NoSexAvt from '@/shared/assets/img/noSexAvatar.jpg';
-import { Sex } from '@/shared/consts/common';
+import { Gender } from '@/shared/consts/common';
 import { AppImage } from '../../../redesigned/AppImage';
 import { Skeleton } from '../../Skeleton';
 
@@ -12,7 +12,7 @@ import cls from './Avatar.module.scss';
 interface AvatarProps {
     className?: string;
     src?: string;
-    sex?: Sex;
+    sex?: Gender;
     size?: number;
     alt?: string;
 }

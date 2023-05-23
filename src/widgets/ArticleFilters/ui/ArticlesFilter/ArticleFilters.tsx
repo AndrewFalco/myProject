@@ -1,6 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { Card } from '@/shared/ui/redesigned/Card';
-import { ArticleSortField, ArticleSortSelector, ArticleTypeTabs } from '@/features/ArticleSort';
+import {
+    ArticleSortField,
+    ArticleSortSelector,
+    ArticleTypeTabs,
+} from '@/features/ArticleSort';
 import { TabItem, VStack } from '@/shared/ui';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types/sort';
@@ -24,11 +28,24 @@ interface ArticleFiltersProps {
 }
 
 export const ArticleFilters = (props: ArticleFiltersProps) => {
-    const { className, sort, order, search, typeValue, onChangeOrder, onChangeSort, onChangeSearch, onChangeType } = props;
+    const {
+        className,
+        sort,
+        order,
+        search,
+        typeValue,
+        onChangeOrder,
+        onChangeSort,
+        onChangeSearch,
+        onChangeType,
+    } = props;
     const { t } = useTranslation();
 
     return (
-        <Card className={ classNames(cls.ArticlesFilter, {}, [className]) } padding="24">
+        <Card
+            className={ classNames(cls.ArticlesFilter, {}, [className]) }
+            padding="24"
+        >
             <VStack gap="32">
                 <Input
                     className={ cls.searchInput }
@@ -37,7 +54,10 @@ export const ArticleFilters = (props: ArticleFiltersProps) => {
                     addonLeft={ <Icon Svg={ Search } /> }
                     value={ search }
                 />
-                <ArticleTypeTabs onChangeType={ onChangeType } typeValue={ typeValue } />
+                <ArticleTypeTabs
+                    onChangeType={ onChangeType }
+                    typeValue={ typeValue }
+                />
                 <ArticleSortSelector
                     orderValue={ order }
                     sortValue={ sort }

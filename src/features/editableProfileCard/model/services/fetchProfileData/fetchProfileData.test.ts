@@ -1,5 +1,5 @@
 import { Country } from '@/entities/Country';
-import { Sex } from '@/shared/consts/common';
+import { Gender } from '@/shared/consts/common';
 import { Currency } from '@/entities/Currency';
 import { TestAsyncThunk } from '@/shared/lib/test/TestAsyncThunk/TestAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
@@ -16,7 +16,7 @@ const data = {
     avatar: '',
     country: 'Russian Federation' as Country,
     currency: 'RUB' as Currency,
-    sex: 'male' as Sex,
+    sex: 'male' as Gender,
 };
 
 describe('fetchProfileData.test', () => {

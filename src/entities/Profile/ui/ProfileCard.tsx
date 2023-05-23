@@ -1,14 +1,19 @@
-import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Country, CountrySelect } from '@/entities/Country';
-import { Currency, CurrencySelect } from '@/entities/Currency';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Loader, Text, Avatar, Input, VStack } from '@/shared/ui';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import { ProfileError, ProfileType } from '../model/types/profile';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { ToggleFeature } from '@/shared/lib/features';
+import {
+    ProfileCardDeprecated,
+    ProfileCardDeprecatedError,
+} from './ProfileCard.old';
+import {
+    ProfileCardRedesigned,
+    ProfileCardRedesignedError,
+    ProfileCardRedesignedSkeleton,
+} from './ProfileCard.new';
 
-import cls from './ProfileCard.module.scss';
-
-interface ProfileCardProps {
+export interface ProfileCardProps {
     className?: string;
     data?: ProfileType;
     isLoading?: boolean;
@@ -17,7 +22,7 @@ interface ProfileCardProps {
     onChangeFirstName?: (value?: string) => void;
     onChangeLastName?: (value?: string) => void;
     onChangeAge?: (value?: string) => void;
-    onChangeCountry?: (value?: Country) => void;
+    onChangeCountry?: (value: Country) => void;
     onChangeCity?: (value?: string) => void;
     onChangeEmail?: (value?: string) => void;
     onChangePhone?: (value?: string) => void;
@@ -28,135 +33,31 @@ interface ProfileCardProps {
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-    const {
-        className,
-        data,
-        isLoading,
-        error,
-        readOnly = false,
-        onChangeFirstName,
-        onChangeLastName,
-        onChangeAge,
-        onChangeCountry,
-        onChangeCity,
-        onChangeEmail,
-        onChangePhone,
-        onChangeUsername,
-        onChangeAvatar,
-        onChangeCurrency,
-        onChangeSex,
-    } = props;
-    const { t } = useTranslation('profile');
+    const { error, isLoading } = props;
 
-    const loadingError = useMemo(
-        (): ProfileError | undefined =>
-            error?.find((err) => err.key === 'loading'),
-        [error],
-    );
+    if (isLoading) {
+        return (
+            <ToggleFeature
+                feature="isAppRedesigned"
+                on={ <ProfileCardRedesignedSkeleton /> }
+                off={ <Loader /> }
+            />
+        );
+    }
 
-    const mods: Mods = {
-        [cls.loading]: isLoading,
-        [cls.error]: !!loadingError,
-    };
+    if (error) {
+        <ToggleFeature
+            feature="isAppRedesigned"
+            on={ <ProfileCardRedesignedError /> }
+            off={ <ProfileCardDeprecatedError /> }
+        />;
+    }
 
     return (
-        <div className={ classNames(cls.ProfileCard, mods, [className]) }>
-            { isLoading ? (
-                <Loader />
-            ) : loadingError ? (
-                <Text
-                    theme="error"
-                    title={ t('Error with loading') }
-                    text={ t(
-                        loadingError.text ||
-                            'Please try to reload page or call to admin',
-                    ) }
-                    align="center"
-                />
-            ) : (
-                <VStack gap="4">
-                    <div className={ classNames(cls.avatarWrapper) }>
-                        <Avatar src={ data?.avatar } sex={ data?.sex } />
-                    </div>
-                    <Input
-                        name={ t('Avatar') }
-                        value={ data?.avatar || '' }
-                        readOnly={ readOnly }
-                        onChange={ onChangeAvatar }
-                    />
-                    <Input
-                        name={ t('First name') }
-                        value={ data?.firstName || '' }
-                        readOnly={ readOnly }
-                        onChange={ onChangeFirstName }
-                        required
-                        errorText={
-                            error?.find((err) => err.key === 'firstName')
-                                ?.text || undefined
-                        }
-                        data-testid="ProfileCard.firstName"
-                    />
-                    <Input
-                        name={ t('Last name') }
-                        value={ data?.lastName || '' }
-                        readOnly={ readOnly }
-                        onChange={ onChangeLastName }
-                        required
-                        errorText={
-                            error?.find((err) => err.key === 'lastName')
-                                ?.text || undefined
-                        }
-                        data-testid="ProfileCard.lastName"
-                    />
-                    <Input
-                        name={ t('User name') }
-                        value={ data?.username }
-                        readOnly={ readOnly }
-                        onChange={ onChangeUsername }
-                    />
-                    <Input
-                        name={ t('Sex') }
-                        value={ data?.sex }
-                        readOnly={ readOnly }
-                        onChange={ onChangeSex }
-                    />
-                    <Input
-                        name={ t('Age') }
-                        value={ data?.age }
-                        readOnly={ readOnly }
-                        onChange={ onChangeAge }
-                        type="number"
-                    />
-                    <CountrySelect
-                        value={ data?.country }
-                        onChange={ onChangeCountry }
-                        readonly={ readOnly }
-                    />
-                    <Input
-                        name={ t('City') }
-                        value={ data?.city }
-                        readOnly={ readOnly }
-                        onChange={ onChangeCity }
-                    />
-                    <Input
-                        name={ t('Phone') }
-                        value={ data?.phone }
-                        readOnly={ readOnly }
-                        onChange={ onChangePhone }
-                    />
-                    <Input
-                        name={ t('Email') }
-                        value={ data?.email }
-                        readOnly={ readOnly }
-                        onChange={ onChangeEmail }
-                    />
-                    <CurrencySelect
-                        value={ data?.currency }
-                        onChange={ onChangeCurrency }
-                        readonly={ readOnly }
-                    />
-                </VStack>
-            ) }
-        </div>
+        <ToggleFeature
+            feature="isAppRedesigned"
+            on={ <ProfileCardRedesigned { ...props } /> }
+            off={ <ProfileCardDeprecated { ...props } /> }
+        />
     );
 };

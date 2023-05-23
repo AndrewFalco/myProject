@@ -1,4 +1,4 @@
-import { Sex } from '@/shared/consts/common';
+import { Gender } from '@/shared/consts/common';
 import { Country } from '../../../Country';
 import { Currency } from '../../../Currency';
 
@@ -14,7 +14,7 @@ export interface ProfileType {
     username?: string;
     avatar?: string;
     currency?: Currency;
-    sex?: Sex;
+    sex?: Gender;
 }
 
 export type ProfileError = {
