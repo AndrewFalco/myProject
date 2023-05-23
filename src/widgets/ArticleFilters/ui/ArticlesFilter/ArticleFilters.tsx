@@ -5,7 +5,7 @@ import {
     ArticleSortSelector,
     ArticleTypeTabs,
 } from '@/features/ArticleSort';
-import { TabItem, VStack } from '@/shared/ui';
+import { TabItem, VStack } from '@/shared/ui/deprecated';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleType } from '@/entities/Article';

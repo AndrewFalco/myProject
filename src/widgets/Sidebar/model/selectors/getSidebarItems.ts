@@ -11,12 +11,7 @@ import ArticleIcon from '@/shared/assets/icons/article.svg';
 import ProfileIcon from '@/shared/assets/icons/avatar.svg';
 
 import { SidebarListProps } from '../types/sidebar';
-import {
-    getRoutAbout,
-    getRoutArticles,
-    getRoutMain,
-    getRoutProfile,
-} from '@/shared/consts/routes';
+import { getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile } from '@/shared/consts/routes';
 import { toggleFeatures } from '@/shared/lib/features';
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
@@ -28,7 +23,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 on: () => MainIcon,
             }),
             name: 'Main page',
-            route: getRoutMain(),
+            route: getRouteMain(),
         },
         {
             Icon: toggleFeatures({
@@ -37,7 +32,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                 on: () => AboutIcon,
             }),
             name: 'About page',
-            route: getRoutAbout(),
+            route: getRouteAbout(),
         },
     ];
 
@@ -50,7 +45,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                     on: () => ArticleIcon,
                 }),
                 name: 'Articles page',
-                route: getRoutArticles(),
+                route: getRouteArticles(),
                 authOnly: true,
             },
             {
@@ -60,7 +55,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
                     on: () => ProfileIcon,
                 }),
                 name: 'Profile page',
-                route: getRoutProfile(userData.id),
+                route: getRouteProfile(userData.id),
                 authOnly: true,
             },
         );

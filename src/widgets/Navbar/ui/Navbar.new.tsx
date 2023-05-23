@@ -4,7 +4,7 @@ import { getUserAuthData } from '@/entities/User';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack } from '@/shared/ui';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './Navbar.module.scss';
 

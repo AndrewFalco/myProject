@@ -6,7 +6,7 @@ import ListViewIcon from '@/shared/assets/icons/burger.svg';
 import GridViewIcon from '@/shared/assets/icons/tile.svg';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon/Icon';
-import { HStack } from '@/shared/ui';
+import { HStack } from '@/shared/ui/deprecated';
 import { ArticleView } from '../../../../entities/Article/model/types/article';
 import { ToggleFeature, toggleFeatures } from '@/shared/lib/features';
 import { Icon } from '@/shared/ui/redesigned/Icon';

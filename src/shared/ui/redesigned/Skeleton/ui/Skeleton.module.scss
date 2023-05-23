@@ -4,7 +4,7 @@
     height: 1em;
     position: relative;
     overflow: hidden;
-    background-color: var(--skeleton-bg-color);
+    background-color: var(--dark-bg-redesigned-number);
 
     &::after {
         position: absolute;
@@ -13,10 +13,10 @@
         background-image:
             linear-gradient(
                 90deg,
-                rgba(var(--skeleton-color), 0) 0,
-                rgba(var(--skeleton-color), 0.2) 20%,
-                rgba(var(--skeleton-color), 0.5) 60%,
-                rgba(var(--skeleton-color), 0)
+                rgba(var(--light-bg-redesigned-number), 0) 0,
+                rgba(var(--light-bg-redesigned-number), 0.2) 20%,
+                rgba(var(--light-bg-redesigned-number), 0.5) 60%,
+                rgba(var(--light-bg-redesigned-number), 0)
             );
         animation: shimmer 2s infinite;
         content: "";

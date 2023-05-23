@@ -6,7 +6,7 @@ import {
     ReducersList,
 } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, Textarea } from '@/shared/ui';
+import { Button, Textarea } from '@/shared/ui/deprecated';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getAddCommentFormText } from '../model/selectors/addCommentFormSelector';
 import {

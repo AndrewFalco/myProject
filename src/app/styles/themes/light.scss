@@ -22,13 +22,17 @@
     --bg-num-color: 227 227 227;
 
     // redesigned
-    --dark-bg-redesigned: #FFF;
+    --dark-bg-redesigned: #fff;
     --bg-redesigned: #EFF5F6;
-    --light-bg-redesigned: #E2EEF1;
+    --light-bg-redesigned: #e2eef1;
     --text-redesigned: #141C1F;
     --hint-redesigned: #ADBCC0;
     --cancel-redesigned: #F77;
     --save-redesigned: #62DE85;
     --icon-redesigned: #5ED3F3;
     --accent-redesigned: #00C8FF;
+
+    // redesigned in number format
+    --dark-bg-redesigned-number: 255, 255, 255;
+    --light-bg-redesigned-number: 226, 238, 241;
 }

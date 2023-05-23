@@ -6,7 +6,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
-import { Text, Skeleton, VStack } from '@/shared/ui';
+import { Text, Skeleton, VStack } from '@/shared/ui/deprecated';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById';

@@ -5,12 +5,9 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { CommentList } from '@/entities/Comment';
 import { AddCommentForm } from '@/features/addCommentForm';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { Text } from '@/shared/ui';
+import { Text } from '@/shared/ui/deprecated';
 import { getArticleDetailsError } from '@/entities/Article';
-import {
-    getArticleDetailsCommentsIsLoading,
-    getArticleDetailsCommentsError,
-} from '../../model/selectors/comments';
+import { getArticleDetailsCommentsIsLoading, getArticleDetailsCommentsError } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

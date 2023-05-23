@@ -1,0 +1,62 @@
+.GRID {
+    .card {
+        width: 230px;
+        height: 350px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 4px;
+
+        &:hover {
+            box-shadow: 0 0 25px 2px var(--hint-redesigned);
+        }
+    }
+
+    .img {
+        width: 100%;
+        object-fit: cover;
+        min-height: 140px;
+        max-height: 140px;
+    }
+
+    .info {
+        padding: 8px 8px 16px;
+        height: 100%;
+    }
+
+    .footer {
+        height: 100%;
+        justify-content: flex-end;
+    }
+}
+
+.LIST {
+    width: 100%;
+    margin-bottom: 8px;
+
+    .userInfo {
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+    }
+
+    .textBlock {
+        max-height: 72px;
+        overflow: hidden;
+    }
+}
+
+.ArticleListItemRedesigned {
+    &.BIG {
+        width: 100%;
+    }
+}

@@ -6,8 +6,8 @@ import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, Button, HStack, Text } from '@/shared/ui';
-import { getRoutArticleCreate } from '@/shared/consts/routes';
+import { AppLink, Button, HStack, Text } from '@/shared/ui/deprecated';
+import { getRouteArticleCreate } from '@/shared/consts/routes';
 
 import cls from './Navbar.module.scss';
 
@@ -36,10 +36,7 @@ export const NavbarOld = memo((props: NavbarProps) => {
                 <div className={ cls.controls }>
                     <Text title="FF" className={ cls.appName } />
                     { authData && (
-                        <AppLink
-                            className={ cls.appLink }
-                            to={ getRoutArticleCreate() }
-                        >
+                        <AppLink className={ cls.appLink } to={ getRouteArticleCreate() }>
                             { t('Create new article') }
                         </AppLink>
                     ) }
@@ -55,9 +52,7 @@ export const NavbarOld = memo((props: NavbarProps) => {
                     </Button>
                 ) }
             </HStack>
-            { !authData && (
-                <LoginModal isOpen={ isAuthModal } onClose={ closeModal } />
-            ) }
+            { !authData && <LoginModal isOpen={ isAuthModal } onClose={ closeModal } /> }
         </header>
     );
 });

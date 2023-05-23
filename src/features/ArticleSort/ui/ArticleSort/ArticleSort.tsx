@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Card, HStack, Input, VStack, TabItem } from '@/shared/ui';
+import { Card, HStack, Input, VStack, TabItem } from '@/shared/ui/deprecated';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleSortField } from '../../model/types/articleSort';

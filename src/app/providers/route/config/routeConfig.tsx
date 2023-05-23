@@ -8,59 +8,59 @@ import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import {
-    getRoutAbout,
-    getRoutAdminPanel,
-    getRoutArticleCreate,
-    getRoutArticleDetails,
-    getRoutArticleEdit,
-    getRoutArticles,
-    getRoutForbidden,
-    getRoutMain,
-    getRoutProfile,
+    getRouteAbout,
+    getRouteAdminPanel,
+    getRouteArticleCreate,
+    getRouteArticleDetails,
+    getRouteArticleEdit,
+    getRouteArticles,
+    getRouteForbidden,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/consts/routes';
 import { AppRoutes, AppRouterProps } from '@/shared/types/routes';
 
 export const routeConfig: Record<AppRoutes, AppRouterProps> = {
     main: {
-        path: getRoutMain(),
+        path: getRouteMain(),
         element: <MainPage />,
     },
     about: {
-        path: getRoutAbout(),
+        path: getRouteAbout(),
         element: <AboutPage />,
     },
     adminPanel: {
-        path: getRoutAdminPanel(),
+        path: getRouteAdminPanel(),
         element: <AdminPanelPage />,
         authOnly: true,
         roles: ['ADMIN', 'MANAGER'],
     },
     forbidden: {
-        path: getRoutForbidden(),
+        path: getRouteForbidden(),
         element: <ForbiddenPage />,
     },
     profile: {
-        path: getRoutProfile(':id'),
+        path: getRouteProfile(':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
     articles: {
-        path: getRoutArticles(),
+        path: getRouteArticles(),
         element: <ArticlesPage />,
         authOnly: true,
     },
     articleDetails: {
-        path: getRoutArticleDetails(':id'),
+        path: getRouteArticleDetails(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     articleCreate: {
-        path: getRoutArticleCreate(),
+        path: getRouteArticleCreate(),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     articleEdit: {
-        path: getRoutArticleEdit(':id'),
+        path: getRouteArticleEdit(':id'),
         element: <ArticleEditPage />,
         authOnly: true,
     },

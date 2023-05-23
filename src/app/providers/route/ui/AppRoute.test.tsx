@@ -1,16 +1,12 @@
 import { screen } from '@testing-library/react';
 import { componentRender } from '@/shared/lib/test/componentRender/componentRender';
 import AppRoute from './AppRoute';
-import {
-    getRoutAbout,
-    getRoutAdminPanel,
-    getRoutProfile,
-} from '@/shared/consts/routes';
+import { getRouteAbout, getRouteAdminPanel, getRouteProfile } from '@/shared/consts/routes';
 
 describe('app/providers/routes', () => {
     test('should be rendered', async () => {
         componentRender(<AppRoute />, {
-            route: getRoutAbout(),
+            route: getRouteAbout(),
         });
 
         const page = await screen.findByTestId('AboutPage');
@@ -26,7 +22,7 @@ describe('app/providers/routes', () => {
     });
     test('redirect unauthorized user', async () => {
         componentRender(<AppRoute />, {
-            route: getRoutProfile('1'),
+            route: getRouteProfile('1'),
         });
 
         const page = await screen.findByTestId('MainPage');
@@ -34,7 +30,7 @@ describe('app/providers/routes', () => {
     });
     test('access to private page for authorized user', async () => {
         componentRender(<AppRoute />, {
-            route: getRoutAdminPanel(),
+            route: getRouteAdminPanel(),
             initialState: {
                 user: {
                     _inited: true,
@@ -51,7 +47,7 @@ describe('app/providers/routes', () => {
     });
     test('access denied (low permissions)', async () => {
         componentRender(<AppRoute />, {
-            route: getRoutAdminPanel(),
+            route: getRouteAdminPanel(),
             initialState: {
                 user: {
                     _inited: true,

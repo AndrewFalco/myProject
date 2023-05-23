@@ -11,7 +11,7 @@ import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/consts';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { SortOrder } from '@/shared/types/sort';
-import { TabItem } from '@/shared/ui';
+import { TabItem } from '@/shared/ui/redesigned/Tabs';
 import {
     getArticlesPageView,
     getArticlesPageType,

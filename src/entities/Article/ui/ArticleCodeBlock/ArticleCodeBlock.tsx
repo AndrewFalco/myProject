@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Code, HStack } from '@/shared/ui';
+import { Code, HStack } from '@/shared/ui/deprecated';
 import { ArticleCodeBlockType } from '../../model/types/article';
 
 interface ArticleCodeBlockProps {

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui';
+import { Text } from '@/shared/ui/deprecated';
 import { CommentType } from '../../model/types/comment';
 
 import cls from './CommentList.module.scss';

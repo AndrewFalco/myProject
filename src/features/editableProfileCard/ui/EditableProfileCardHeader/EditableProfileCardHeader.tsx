@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, Text, HStack } from '@/shared/ui';
+import { Button, Text, HStack } from '@/shared/ui/deprecated';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getReadonly } from '../../model/selectors/getReadonly/getReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';

@@ -26,12 +26,12 @@ export const PrimaryDark: Story = {
     decorators: [ThemeDecorator('app_dark_theme')],
 };
 
+// TODO:
 export const ErrorField: Story = {
     args: {
         name: 'Input name',
         value: '',
         required: true,
-        errorText: 'Required field',
     },
 };
 
@@ -40,7 +40,6 @@ export const ErrorFieldDark: Story = {
         name: 'Input name',
         value: '',
         required: true,
-        errorText: 'Required field',
     },
     decorators: [ThemeDecorator('app_dark_theme')],
 };

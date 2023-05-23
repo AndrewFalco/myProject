@@ -10,7 +10,7 @@ import {
     Button,
     HStack,
     Drawer,
-} from '@/shared/ui';
+} from '@/shared/ui/deprecated';
 
 import useDeviceDetect from '@/shared/lib/hooks/useDeviceDetected';
 

@@ -1,9 +1,5 @@
-import {
-    HTMLAttributeAnchorTarget,
-    MutableRefObject,
-    useCallback,
-} from 'react';
-import { HStack, Virtualize } from '@/shared/ui';
+import { HTMLAttributeAnchorTarget, MutableRefObject, useCallback } from 'react';
+import { HStack, Virtualize } from '@/shared/ui/deprecated';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -49,19 +45,14 @@ export const ArticleList = (props: ArticleListProps) => {
         [setLastIndex, target, view],
     );
 
-    const renderSkeleton = useCallback(
-        (index: number) => <ArticleListItemSkeleton view={ view } key={ index } />,
-        [view],
-    );
+    const renderSkeleton = useCallback((index: number) => <ArticleListItemSkeleton view={ view } key={ index } />, [view]);
 
     return (
-        <HStack
-            data-testid="ArticleList"
-            wrap="nowrap"
-            gap="16"
-            className={ className }
-            max
-        >
+        <HStack data-testid="ArticleList"
+                wrap="nowrap"
+                gap="16"
+                className={ className }
+                max>
             { withVirtualized ? (
                 <Virtualize
                     data={ articles.length ? articles : Array(3).fill(0) }
@@ -75,15 +66,8 @@ export const ArticleList = (props: ArticleListProps) => {
                 />
             ) : (
                 <>
-                    { articles.length
-                        ? articles.map((article, index) =>
-                              renderArticles(index, article),
-                          )
-                        : null }
-                    { isLoading &&
-                        new Array(view === 'LIST' ? 3 : 9)
-                            .fill(0)
-                            .map((elem, index) => renderSkeleton(index)) }
+                    { articles.length ? articles.map((article, index) => renderArticles(index, article)) : null }
+                    { isLoading && new Array(view === 'LIST' ? 3 : 9).fill(0).map((elem, index) => renderSkeleton(index)) }
                 </>
             ) }
         </HStack>

@@ -10,9 +10,6 @@ interface SkeletonProps {
     borderRadius?: string;
 }
 
-/**
- * @deprecated
- */
 export const Skeleton = memo((props: SkeletonProps) => {
     const { className, width, height, borderRadius } = props;
 
@@ -22,10 +19,5 @@ export const Skeleton = memo((props: SkeletonProps) => {
         borderRadius,
     };
 
-    return (
-        <div
-            className={ classNames(cls.Skeleton, {}, [className]) }
-            style={ styles }
-        />
-    );
+    return <div className={ classNames(cls.Skeleton, {}, [className]) } style={ styles } />;
 });

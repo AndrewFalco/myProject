@@ -1,6 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { ArticleRatingProps } from './ArticleRating';
-import { Loader } from '@/shared/ui';
+import { Loader } from '@/shared/ui/deprecated';
 
 const ArticleRatingAsync = lazy(() => import('./ArticleRating'));
 

@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { Avatar, HStack, Icon, Text } from '@/shared/ui';
+import { Avatar, HStack, Icon, Text } from '@/shared/ui/deprecated';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import { Article, ArticleBlock } from '../../model/types/article';

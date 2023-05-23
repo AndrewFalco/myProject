@@ -3,15 +3,8 @@ import { Currency } from '@/entities/Currency';
 import { ProfileError, ProfileType } from '../model/types/profile';
 import { Loader } from '@/shared/ui/deprecated/Loader';
 import { ToggleFeature } from '@/shared/lib/features';
-import {
-    ProfileCardDeprecated,
-    ProfileCardDeprecatedError,
-} from './ProfileCard.old';
-import {
-    ProfileCardRedesigned,
-    ProfileCardRedesignedError,
-    ProfileCardRedesignedSkeleton,
-} from './ProfileCard.new';
+import { ProfileCardDeprecated, ProfileCardDeprecatedError } from './ProfileCard.old';
+import { ProfileCardRedesigned, ProfileCardRedesignedError, ProfileCardRedesignedSkeleton } from './ProfileCard.new';
 
 export interface ProfileCardProps {
     className?: string;
@@ -36,21 +29,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
     const { error, isLoading } = props;
 
     if (isLoading) {
-        return (
-            <ToggleFeature
-                feature="isAppRedesigned"
-                on={ <ProfileCardRedesignedSkeleton /> }
-                off={ <Loader /> }
-            />
-        );
+        return <ToggleFeature feature="isAppRedesigned" on={ <ProfileCardRedesignedSkeleton /> } off={ <Loader /> } />;
     }
 
     if (error) {
-        <ToggleFeature
-            feature="isAppRedesigned"
-            on={ <ProfileCardRedesignedError /> }
-            off={ <ProfileCardDeprecatedError /> }
-        />;
+        <ToggleFeature feature="isAppRedesigned" on={ <ProfileCardRedesignedError /> } off={ <ProfileCardDeprecatedError /> } />;
     }
 
     return (

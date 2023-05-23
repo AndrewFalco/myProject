@@ -2,7 +2,7 @@
     min-height: 100vh;
     display: grid;
     grid-template-areas: 'sidebar content rightBar';
-    grid-template-columns: min-content 1fr 176px;
+    grid-template-columns: min-content 1fr 144px;
     overflow-y: auto;
 }
 
@@ -14,7 +14,7 @@
 
 .content {
     grid-area: content;
-    max-width: 1200px;
+    max-width: 1300px;
     justify-self: center;
     padding: 32px;
     display: flex;

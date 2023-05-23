@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Text, VStack } from '@/shared/ui';
+import { Text, VStack } from '@/shared/ui/deprecated';
 import { ArticleTextBlockType } from '../../model/types/article';
 import cls from './ArticleTextBlock.module.scss';
 

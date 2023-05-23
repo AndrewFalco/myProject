@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { FallbackProps } from 'react-error-boundary';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui';
+import { Button } from '@/shared/ui/deprecated';
 
 import cls from './PageError.module.scss';
 

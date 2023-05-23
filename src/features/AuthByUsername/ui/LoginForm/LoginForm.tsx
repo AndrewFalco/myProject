@@ -7,7 +7,7 @@ import {
     ReducersList,
 } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, VStack, Input, Text } from '@/shared/ui';
+import { Button, VStack, Input, Text } from '@/shared/ui/deprecated';
 import { getLoginError } from '../../model/selectors/getLoginError';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword';

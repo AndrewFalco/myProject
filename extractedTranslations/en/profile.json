@@ -1,8 +1,17 @@
 {
-    "Cancel": "",
-    "Edit": "",
-    "First name": "",
-    "Last name": "",
-    "Profile card": "",
-    "Save": ""
+  "Age": "",
+  "Avatar": "",
+  "Cancel": "",
+  "City": "",
+  "Edit": "",
+  "Email": "",
+  "Error with loading": "",
+  "First name": "",
+  "Gender": "",
+  "Last name": "",
+  "Phone": "",
+  "Please try to reload page or call to admin": "",
+  "Profile card": "",
+  "Save": "",
+  "User name": ""
 }

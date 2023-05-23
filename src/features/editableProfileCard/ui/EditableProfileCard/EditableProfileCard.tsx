@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
-import { VStack } from '@/shared/ui';
+import { VStack } from '@/shared/ui/deprecated';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import {
