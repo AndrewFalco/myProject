@@ -12,6 +12,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     variant?: CardVariant;
     padding?: CardPadding;
     border?: CardBorder;
+    hovered?: boolean;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -22,24 +23,12 @@ const mapPaddingToClass: Record<CardPadding, string> = {
 };
 
 export const Card = (props: PropsWithChildren<CardProps>) => {
-    const {
-        className,
-        variant = 'normal',
-        children,
-        padding = '8',
-        border = 'rect',
-        ...otherProps
-    } = props;
+    const { className, variant = 'normal', children, padding = '8', border = 'rect', hovered, ...otherProps } = props;
     const paddings = mapPaddingToClass[padding];
 
     return (
         <div
-            className={ classNames(cls.Card, {}, [
-                className,
-                cls[variant],
-                cls[paddings],
-                cls[border],
-            ]) }
+            className={ classNames(cls.Card, { [cls.hovered]: hovered }, [className, cls[variant], cls[paddings], cls[border]]) }
             { ...otherProps }
         >
             { children }

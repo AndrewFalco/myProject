@@ -51,15 +51,11 @@ export const ArticleTypeTabs = (props: ArticleTypeTabsProps) => {
     return (
         <ToggleFeature
             feature="isAppRedesigned"
-            on={
-                <Tabs
-                    tabs={ typeTabs }
-                    value={ typeValue }
-                    onTabClick={ onChangeType }
-                    className={ className }
-                    direction="column"
-                />
-            }
+            on={ <Tabs tabs={ typeTabs }
+                       value={ typeValue }
+                       onTabClick={ onChangeType }
+                       className={ className }
+                       direction="column" /> }
             off={
                 <TabsDeprecated
                     tabs={ typeTabs }

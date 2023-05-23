@@ -1,7 +1,7 @@
 .Button {
     cursor: pointer;
     color: var(--text-redesigned);
-    padding: 8px 16px;
+    padding: 0 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +10,19 @@
 
     &:hover {
         color: var(--accent-redesigned);
-        border: 1px solid var(--accent-redesigned);
+    }
+}
+
+
+.addonLeft, .addonRight {
+    display: flex;
+}
+
+.focused {
+    border: 1px solid var(--accent-redesigned);
+
+    .addonLeft svg, .addonRight svg {
+        color: var(--accent-redesigned);
     }
 }
 

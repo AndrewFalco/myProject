@@ -35,14 +35,11 @@ export const Tabs = (props: TabsProps) => {
             return (
                 <Card
                     key={ tab.value }
-                    className={ classNames(
-                        cls.tabs,
-                        { [cls.selected]: isSelected },
-                        [className],
-                    ) }
+                    className={ classNames(cls.tabs, { [cls.selected]: isSelected }, [className]) }
                     variant={ isSelected ? 'light' : 'normal' }
                     border="round"
                     onClick={ handleClick(tab) }
+                    hovered
                 >
                     <div>{ tab.content }</div>
                 </Card>
@@ -52,12 +49,10 @@ export const Tabs = (props: TabsProps) => {
     );
 
     return (
-        <Flex
-            gap="8"
-            align="start"
-            direction={ direction }
-            className={ classNames(cls.Tabs, {}, [className]) }
-        >
+        <Flex gap="8"
+              align="start"
+              direction={ direction }
+              className={ classNames(cls.Tabs, {}, [className]) }>
             { tabs.map(renderTab) }
         </Flex>
     );

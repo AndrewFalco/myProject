@@ -41,3 +41,10 @@
 .round {
     border-radius: 40px;
 }
+
+.hovered {
+    .Card
+    &:hover {
+        box-shadow: 0 0 3px 3px var(--hint-redesigned) inset;
+    }
+}
