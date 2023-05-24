@@ -10,20 +10,16 @@ interface StickyContentLayoutProps {
     right?: ReactElement;
 }
 
-export const StickyContentLayout = forwardRef(
-    (props: StickyContentLayoutProps, ref: ForwardedRef<HTMLDivElement>) => {
-        const { className, content, left, right } = props;
+export const StickyContentLayout = forwardRef((props: StickyContentLayoutProps, ref: ForwardedRef<HTMLDivElement>) => {
+    const { className, content, left, right } = props;
 
-        return (
-            <div
-                className={ classNames(cls.StickyContentLayout, {}, [className]) }
-            >
-                { right && <div className={ cls.left }>{ left }</div> }
-                <div ref={ ref } className={ cls.content }>
-                    { content }
-                </div>
-                { left && <div className={ cls.right }>{ right }</div> }
+    return (
+        <div className={ classNames(cls.StickyContentLayout, {}, [className]) }>
+            { left && <div className={ cls.left }>{ left }</div> }
+            <div ref={ ref } className={ cls.content }>
+                { content }
             </div>
-        );
-    },
-);
+            { right && <div className={ cls.right }>{ right }</div> }
+        </div>
+    );
+});

@@ -14,6 +14,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     border?: CardBorder;
     hovered?: boolean;
     max?: boolean;
+    maxHeight?: boolean;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -32,6 +33,7 @@ export const Card = (props: PropsWithChildren<CardProps>) => {
         border = 'rect',
         hovered,
         max,
+        maxHeight,
         ...otherProps
     } = props;
     const paddings = mapPaddingToClass[padding];
@@ -40,7 +42,7 @@ export const Card = (props: PropsWithChildren<CardProps>) => {
         <div
             className={ classNames(
                 cls.Card,
-                { [cls.hovered]: hovered, [cls.max]: max },
+                { [cls.hovered]: hovered, [cls.max]: max, [cls.maxHeight]: maxHeight },
                 [className, cls[variant], cls[paddings], cls[border]],
             ) }
             { ...otherProps }
