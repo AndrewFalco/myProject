@@ -1,8 +1,10 @@
 import { HTMLAttributeAnchorTarget, MutableRefObject, useCallback } from 'react';
-import { HStack, Virtualize } from '@/shared/ui/deprecated';
+import { HStack, Virtualize as VirtualizeDeprecated } from '@/shared/ui/deprecated';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { ToggleFeature } from '@/shared/lib/features';
+import { Virtualize, VirtualizeProps } from '@/shared/ui/redesigned/Virtualize';
 
 interface ArticleListProps {
     className?: string;
@@ -47,6 +49,17 @@ export const ArticleList = (props: ArticleListProps) => {
 
     const renderSkeleton = useCallback((index: number) => <ArticleListItemSkeleton view={ view } key={ index } />, [view]);
 
+    const vProps: VirtualizeProps<Article> = {
+        data: articles.length ? articles : Array(3).fill(0),
+        renderNode: renderArticles,
+        view,
+        isLoading,
+        renderSkeleton,
+        onScrollEnd,
+        parentRef,
+        lastIndex,
+    };
+
     return (
         <HStack data-testid="ArticleList"
                 wrap="nowrap"
@@ -54,15 +67,10 @@ export const ArticleList = (props: ArticleListProps) => {
                 className={ className }
                 max>
             { withVirtualized ? (
-                <Virtualize
-                    data={ articles.length ? articles : Array(3).fill(0) }
-                    renderNode={ renderArticles }
-                    view={ view }
-                    isLoading={ isLoading }
-                    renderSkeleton={ renderSkeleton }
-                    onScrollEnd={ onScrollEnd }
-                    parentRef={ parentRef }
-                    lastIndex={ lastIndex }
+                <ToggleFeature
+                    feature="isAppRedesigned"
+                    on={ <Virtualize { ...vProps } /> }
+                    off={ <VirtualizeDeprecated { ...vProps } /> }
                 />
             ) : (
                 <>

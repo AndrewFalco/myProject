@@ -8,3 +8,4 @@ export const getRouteArticleCreate = () => '/article/new';
 export const getRouteArticleEdit = (id: string) => `/article/${id}/edit`;
 export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
 export const getRouteNotFoundPage = () => '*';
+export const getRouteSettings = () => '/settings';

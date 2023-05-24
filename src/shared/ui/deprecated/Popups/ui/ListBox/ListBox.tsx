@@ -23,23 +23,14 @@ interface ListBoxProps {
     defaultValue?: string;
     readonly?: boolean;
     direction?: DropdownDirection;
-    label?: string;
+    label?: string | null;
 }
 
 /**
  * @deprecated
  */
 export const ListBox = (props: ListBoxProps) => {
-    const {
-        value,
-        items,
-        className,
-        defaultValue,
-        onChange,
-        readonly,
-        direction = 'bottom right',
-        label,
-    } = props;
+    const { value, items, className, defaultValue, onChange, readonly, direction = 'bottom right', label } = props;
 
     const { t } = useTranslation();
 
@@ -50,29 +41,22 @@ export const ListBox = (props: ListBoxProps) => {
             { label && <span>{ label }</span> }
             <HListBox
                 as="div"
-                className={ classNames(cls.ListBox, {}, [
-                    className,
-                    popupCls.popup,
-                ]) }
+                className={ classNames(cls.ListBox, {}, [className, popupCls.popup]) }
                 value={ value }
                 onChange={ onChange }
                 disabled={ readonly }
             >
                 <HListBox.Button className={ popupCls.trigger }>
                     <Button disabled={ readonly }>
-                        { value ?? defaultValue ?? t('Select value') }
+                        { (typeof value === 'string' && t(value)) ?? defaultValue ?? t('Select value') }
                     </Button>
                 </HListBox.Button>
-                <HListBox.Options
-                    className={ classNames(cls.options, {}, optionClasses) }
-                >
+                <HListBox.Options className={ classNames(cls.options, {}, optionClasses) }>
                     { items?.map((item) => (
-                        <HListBox.Option
-                            key={ item.value }
-                            value={ item.value }
-                            disabled={ item.disabled }
-                            as={ Fragment }
-                        >
+                        <HListBox.Option key={ item.value }
+                                         value={ item.value }
+                                         disabled={ item.disabled }
+                                         as={ Fragment }>
                             { ({ active, selected }) => (
                                 <li
                                     className={ classNames(cls.item, {
@@ -82,7 +66,7 @@ export const ListBox = (props: ListBoxProps) => {
                                     }) }
                                 >
                                     { selected && '\u2713' }
-                                    { item.content }
+                                    { typeof item.content === 'string' ? t(item.content) : item.content }
                                 </li>
                             ) }
                         </HListBox.Option>

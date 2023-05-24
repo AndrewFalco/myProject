@@ -9,6 +9,7 @@ export type AppRouterProps = RouteProps & {
 
 export type AppRoutes =
     | 'main'
+    | 'settings'
     | 'notFoundPage'
     | 'about'
     | 'profile'

@@ -11,7 +11,7 @@ import { ViewType } from '../../../../types/sort';
 
 import cls from './Virtualize.module.scss';
 
-interface VirtualizeProps<T> {
+export interface VirtualizeProps<T> {
     data: T[];
     className?: string;
     view?: ViewType;
@@ -22,10 +22,6 @@ interface VirtualizeProps<T> {
     renderSkeleton?: (index: number) => ReactNode;
     parentRef?: MutableRefObject<HTMLDivElement>;
 }
-
-/**
- * @deprecated
- */
 
 export const Virtualize = <T,>(props: VirtualizeProps<T>) => {
     const {

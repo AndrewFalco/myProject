@@ -6,11 +6,12 @@ import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { getUserAuthData, isResolvedRole, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-
-import cls from './AvatarDropdown.module.scss';
 import { ToggleFeature } from '@/shared/lib/features';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { getRouteAdminPanel, getRouteProfile, getRouteSettings } from '@/shared/consts/routes';
+
+import cls from './AvatarDropdown.module.scss';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -23,9 +24,7 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
     const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
 
-    const isAdminPanelAvailable = useSelector((state) =>
-        isResolvedRole(state, ['ADMIN', 'MANAGER']),
-    );
+    const isAdminPanelAvailable = useSelector((state) => isResolvedRole(state, ['ADMIN', 'MANAGER']));
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
@@ -37,13 +36,17 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
             ? [
                   {
                       content: t('Admin profile'),
-                      href: '/admin',
+                      href: getRouteAdminPanel(),
                   },
               ]
             : []),
         {
             content: t('Profile'),
-            href: `/profile${authData?.id}`,
+            href: getRouteProfile(authData!.id),
+        },
+        {
+            content: t('Settings'),
+            href: getRouteSettings(),
         },
         {
             content: t('Logout'),
@@ -65,9 +68,7 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
             off={
                 <DropdownDeprecated
                     items={ items }
-                    trigger={
-                        <AvatarDeprecated src={ authData.avatar } size={ 30 } />
-                    }
+                    trigger={ <AvatarDeprecated src={ authData.avatar } size={ 30 } /> }
                     direction="bottom left"
                     className={ classNames(cls.AvatarDropdown, {}, [className]) }
                 />
