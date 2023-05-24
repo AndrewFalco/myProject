@@ -1,16 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-    Card,
-    StarRating,
-    VStack,
-    Text,
-    Modal,
-    Textarea,
-    Button,
-    HStack,
-    Drawer,
-} from '@/shared/ui/deprecated';
+import { Card, StarRating, VStack, Text, Textarea, Button, HStack } from '@/shared/ui/deprecated';
+import { Modal } from '@/shared/ui/redesigned/Modal';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 
 import useDeviceDetect from '@/shared/lib/hooks/useDeviceDetected';
 
@@ -25,15 +17,7 @@ interface RatingProps {
 }
 
 export const Rating = (props: RatingProps) => {
-    const {
-        className,
-        onAccept,
-        feedbackTitle,
-        hasFeedback,
-        onCancel,
-        title,
-        rate = 0,
-    } = props;
+    const { className, onAccept, feedbackTitle, hasFeedback, onCancel, title, rate = 0 } = props;
     const { t } = useTranslation();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -67,10 +51,7 @@ export const Rating = (props: RatingProps) => {
         () => (
             <VStack max gap="16" align="center">
                 <Text title={ feedbackTitle } />
-                <Textarea
-                    name={ t('Your feedback') || undefined }
-                    onChange={ setFeedback }
-                />
+                <Textarea name={ t('Your feedback') || undefined } onChange={ setFeedback } />
                 <HStack gap="16">
                     <Button colorType="error" onClick={ onClickCancel }>
                         { t('Close') }
@@ -91,11 +72,7 @@ export const Rating = (props: RatingProps) => {
                     max
                     gap="16">
                 <Text title={ starsCount ? t('Thanks for yor review') : title } />
-                <StarRating
-                    size={ 40 }
-                    onSelect={ onSelectStars }
-                    selectedStars={ starsCount }
-                />
+                <StarRating size={ 40 } onSelect={ onSelectStars } selectedStars={ starsCount } />
             </VStack>
             { isMobile ? (
                 <Modal isOpen={ isModalOpen } onClose={ onClickCancel } lazy>

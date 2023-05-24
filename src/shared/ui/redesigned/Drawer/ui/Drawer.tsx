@@ -5,6 +5,7 @@ import { useModal } from '../../../../lib/hooks/useModal';
 import { Portal } from '../../../redesigned/Portal/Portal';
 
 import cls from './Drawer.module.scss';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps {
     className?: string;
@@ -14,9 +15,6 @@ interface DrawerProps {
     lazy?: boolean;
 }
 
-/**
- * @deprecated
- */
 export const Drawer = (props: DrawerProps) => {
     const { className, children, onClose, isOpen, lazy } = props;
 
@@ -33,7 +31,16 @@ export const Drawer = (props: DrawerProps) => {
 
     return lazy && !isMounted ? null : (
         <Portal>
-            <div className={ classNames(cls.Drawer, mods, [className]) }>
+            <div
+                className={ classNames(cls.Drawer, mods, [
+                    className,
+                    toggleFeatures({
+                        name: 'isAppRedesigned',
+                        on: () => cls.drawerNew,
+                        off: () => cls.drawerOld,
+                    }),
+                ]) }
+            >
                 <Overlay onClick={ close } />
                 <div className={ cls.content }>{ children }</div>
             </div>

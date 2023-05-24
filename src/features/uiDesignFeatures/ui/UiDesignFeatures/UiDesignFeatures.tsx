@@ -31,14 +31,16 @@ export const UiDesignFeatures = memo((props: UiDesignFeaturesProps) => {
 
     const onChange = useCallback(
         (value: string) => {
-            dispatch(
-                updateFeatureFlag({
-                    userId: authUser!.id,
-                    newFeatures: {
-                        isAppRedesigned: value === 'new',
-                    },
-                }),
-            );
+            if (authUser) {
+                dispatch(
+                    updateFeatureFlag({
+                        userId: authUser.id,
+                        newFeatures: {
+                            isAppRedesigned: value === 'new',
+                        },
+                    }),
+                );
+            }
         },
         [authUser, dispatch],
     );

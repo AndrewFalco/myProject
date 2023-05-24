@@ -10,7 +10,6 @@
 
 .content {
     height: 60%;
-    background: var(--bg-color);
     bottom: 0;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
@@ -51,5 +50,25 @@
     .content {
         transition: 0.1s transform;
         transform: translateY(100%);
+    }
+}
+
+.drawerNew {
+    .content {
+        background: var(--light-bg-redesigned);
+    }
+
+    .content::before {
+        background: var(--light-bg-redesigned);
+    }
+}
+
+.drawerOld {
+    .content {
+        background: var(--bg-color);
+    }
+
+    .content::before {
+        background: var(--bg-color);
     }
 }
