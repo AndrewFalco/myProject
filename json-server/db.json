@@ -744,7 +744,7 @@
       "city": "A",
       "age": 27,
       "username": "Mikasa",
-      "avatar": "",
+      "avatar": "https://phonoteka.org/uploads/posts/2022-09/1663298531_14-phonoteka-org-p-mikasa-akkerman-art-pinterest-17.jpg",
       "currency": "RUB",
       "sex": "female"
     },
@@ -763,55 +763,5 @@
       "sex": "female"
     }
   ],
-  "article-ratings": [
-    {
-      "id": "1",
-      "rate": 4,
-      "feedback": "good feedback. really good feedback",
-      "userId": "1",
-      "articleId": "1"
-    },
-    {
-      "id": "2",
-      "rate": 3,
-      "feedback": "=]",
-      "userId": "1",
-      "articleId": "2"
-    },
-    {
-      "id": "3",
-      "rate": 0,
-      "feedback": "",
-      "userId": "1",
-      "articleId": "3"
-    },
-    {
-      "id": "4",
-      "rate": 2,
-      "feedback": "",
-      "userId": "2",
-      "articleId": "4"
-    },
-    {
-      "articleId": "4",
-      "userId": "1",
-      "rate": 4,
-      "feedback": "ererere",
-      "id": "6XHk7VS"
-    },
-    {
-      "articleId": "11",
-      "userId": "1",
-      "rate": 4,
-      "feedback": "",
-      "id": "zLW3kve"
-    },
-    {
-      "articleId": "13",
-      "userId": "1",
-      "rate": 5,
-      "feedback": "dadada",
-      "id": "RjjXx0R"
-    }
-  ]
+  "article-ratings": []
 }

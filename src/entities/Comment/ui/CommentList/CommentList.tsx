@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/deprecated';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { CommentType } from '../../model/types/comment';
 
 import cls from './CommentList.module.scss';
 import { CommentCard } from '../CommentCard/CommentCard';
+import { ToggleFeature } from '@/shared/lib/features';
 
 interface CommentListProps {
     className?: string;
@@ -28,7 +30,11 @@ export const CommentList = (props: CommentListProps) => {
                     />
                 ))
             ) : (
-                <Text text={ t('No comments at the moment') } />
+                <ToggleFeature
+                    feature="isAppRedesigned"
+                    on={ <Text text={ t('No comments at the moment') } /> }
+                    off={ <TextDeprecated text={ t('No comments at the moment') } /> }
+                />
             ) }
         </div>
     );

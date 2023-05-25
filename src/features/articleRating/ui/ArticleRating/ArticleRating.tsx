@@ -2,12 +2,12 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Rating } from '@/entities/Rating';
-import {
-    useGetArticleRating,
-    useRateArticleRating,
-} from '../../api/articleRatingApi';
+import { useGetArticleRating, useRateArticleRating } from '../../api/articleRatingApi';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/deprecated';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { getArticleDetailsIsLoading } from '@/entities/Article';
+import { ToggleFeature } from '@/shared/lib/features';
 
 export interface ArticleRatingProps {
     className?: string;
@@ -19,6 +19,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
     const { t } = useTranslation();
     const userData = useSelector(getUserAuthData);
 
+    const isDataLoading = useSelector(getArticleDetailsIsLoading);
     const { data, isLoading } = useGetArticleRating({
         articleId,
         userId: userData?.id || '',
@@ -57,8 +58,14 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
         [rateHandler],
     );
 
-    if (isLoading) {
-        return <Skeleton width="100%" height={ 100 } />;
+    if (isLoading || isDataLoading) {
+        return (
+            <ToggleFeature
+                feature="isAppRedesigned"
+                on={ <Skeleton width="100%" height={ 100 } /> }
+                off={ <SkeletonDeprecated width="100%" height={ 100 } /> }
+            />
+        );
     }
 
     return (

@@ -1,12 +1,10 @@
-import { useCallback, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Card, StarRating, VStack, Text, Textarea, Button, HStack } from '@/shared/ui/deprecated';
-import { Modal } from '@/shared/ui/redesigned/Modal';
-import { Drawer } from '@/shared/ui/redesigned/Drawer';
-
+import { useCallback, useState } from 'react';
 import useDeviceDetect from '@/shared/lib/hooks/useDeviceDetected';
+import { ToggleFeature } from '@/shared/lib/features';
+import { RatingDeprecated } from './Rating.old';
+import { RatingRedesigned } from './Rating.new';
 
-interface RatingProps {
+export interface RatingProps {
     title: string;
     onAccept?: (starsCount: number, feedback?: string) => void;
     onCancel?: (starsCount: number) => void;
@@ -16,9 +14,18 @@ interface RatingProps {
     rate?: number;
 }
 
+export interface ExtendsRatingProps extends RatingProps {
+    setFeedback: (value: string) => void;
+    onClickCancel: () => void;
+    onClickAccept: () => void;
+    starsCount: number;
+    onSelectStars: (stars: number) => void;
+    isModalOpen: boolean;
+    isMobile: boolean;
+}
+
 export const Rating = (props: RatingProps) => {
-    const { className, onAccept, feedbackTitle, hasFeedback, onCancel, title, rate = 0 } = props;
-    const { t } = useTranslation();
+    const { className, onAccept, hasFeedback, onCancel, rate = 0 } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [starsCount, setStarsCount] = useState(rate);
@@ -47,42 +54,23 @@ export const Rating = (props: RatingProps) => {
         setIsModalOpen(false);
     }, [onCancel, starsCount]);
 
-    const modalContent = useMemo(
-        () => (
-            <VStack max gap="16" align="center">
-                <Text title={ feedbackTitle } />
-                <Textarea name={ t('Your feedback') || undefined } onChange={ setFeedback } />
-                <HStack gap="16">
-                    <Button colorType="error" onClick={ onClickCancel }>
-                        { t('Close') }
-                    </Button>
-                    <Button colorType="success" onClick={ onClickAccept }>
-                        { t('Accept') }
-                    </Button>
-                </HStack>
-            </VStack>
-        ),
-        [feedbackTitle, onClickAccept, onClickCancel, t],
-    );
+    const commonProps = {
+        isMobile: isMobile.isMobile,
+        isModalOpen,
+        onClickAccept,
+        onClickCancel,
+        onSelectStars,
+        setFeedback,
+        starsCount,
+        className,
+        ...props,
+    };
 
     return (
-        <Card className={ className }>
-            <VStack align="center"
-                    justify="center"
-                    max
-                    gap="16">
-                <Text title={ starsCount ? t('Thanks for yor review') : title } />
-                <StarRating size={ 40 } onSelect={ onSelectStars } selectedStars={ starsCount } />
-            </VStack>
-            { isMobile ? (
-                <Modal isOpen={ isModalOpen } onClose={ onClickCancel } lazy>
-                    { modalContent }
-                </Modal>
-            ) : (
-                <Drawer isOpen={ isModalOpen } onClose={ onClickCancel } lazy>
-                    { modalContent }
-                </Drawer>
-            ) }
-        </Card>
+        <ToggleFeature
+            feature="isAppRedesigned"
+            on={ <RatingRedesigned { ...commonProps } /> }
+            off={ <RatingDeprecated { ...commonProps } /> }
+        />
     );
 };

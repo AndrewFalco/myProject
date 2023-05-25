@@ -1,7 +1,18 @@
+.ArticleDetails {
+    display: flex;
+}
+
 .title {
     margin-top: 20px;
 }
 
 .wrapper {
     margin-top: 16px;
+}
+
+.img {
+    max-height: 420px;
+    width: 100%;
+    object-fit: contain;
+
 }

@@ -3,7 +3,6 @@ import { AppLink } from './AppLink';
 import { Avatar } from './Avatar';
 import { Button } from './Button';
 import { Card } from './Card';
-import { Code } from './Code';
 import { Icon } from './Icon/Icon';
 import { Input, Textarea } from './Input';
 import { Loader } from './Loader';
@@ -15,7 +14,6 @@ import { TabItem, Tabs } from './Tabs';
 import { Text } from './Text';
 import { Virtualize } from './Virtualize/ui/Virtualize';
 import { Overlay } from '../redesigned/Overlay';
-import { StarRating } from './StarRating';
 import { AppImage } from '../redesigned/AppImage';
 import { AppLogo } from '../redesigned/AppLogo';
 
@@ -28,7 +26,6 @@ export {
     Text,
     Skeleton,
     Icon,
-    Code,
     Input,
     Card,
     Select,
@@ -41,7 +38,6 @@ export {
     Textarea,
     Popover,
     Overlay,
-    StarRating,
     AppLogo,
     AppImage,
 };

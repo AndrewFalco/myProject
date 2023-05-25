@@ -8,10 +8,12 @@ import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
-import { ArticleDetailsContent } from './ArticleDetailsContent';
+import { ArticleDetailsContent } from './ArticleDetailsContent.new';
+import { ArticleDetailsContent as ArticleDetailsContentDeprecated } from './ArticleDetailsContent.old';
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 import { ArticleDetailsError } from './ArticleDetailsError';
 import { ToggleFeature } from '@/shared/lib/features';
+import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
     articleId?: string;
@@ -31,7 +33,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     useInitialEffect(() => articleId && dispatch(fetchArticleById(articleId)));
 
     return (
-        <DynamicModuleLoader reducers={ reducers }>
+        <DynamicModuleLoader reducers={ reducers } className={ cls.ArticleDetails }>
             { isLoading ? (
                 <ArticleDetailsSkeleton />
             ) : error || !data ? (
@@ -40,7 +42,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 <ToggleFeature
                     feature="isAppRedesigned"
                     on={ <ArticleDetailsContent data={ data } /> }
-                    off={ <ArticleDetailsContent data={ data } /> }
+                    off={ <ArticleDetailsContentDeprecated data={ data } /> }
                 />
             ) }
         </DynamicModuleLoader>

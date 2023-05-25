@@ -6,6 +6,7 @@ import { HStack } from '../../../redesigned/Stack';
 import { FlexGap } from '../../../redesigned/Stack/Flex/Flex.types';
 
 import cls from './StarRating.module.scss';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface StarRatingProps {
     className?: string;
@@ -17,17 +18,8 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5];
 
-/**
- * @deprecated
- */
 export const StarRating = (props: StarRatingProps) => {
-    const {
-        className,
-        onSelect,
-        size = 30,
-        selectedStars = 0,
-        gap = '4',
-    } = props;
+    const { className, onSelect, size = 30, selectedStars = 0, gap = '4' } = props;
 
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
@@ -63,9 +55,17 @@ export const StarRating = (props: StarRatingProps) => {
             { stars.map((star) => (
                 <Icon
                     className={ classNames(
-                        cls.starIcon,
+                        toggleFeatures({
+                            name: 'isAppRedesigned',
+                            on: () => cls.starIconRedesigned,
+                            off: () => cls.starIcon,
+                        }),
                         {
-                            [cls.hovered]: currentStarsCount >= star,
+                            [toggleFeatures({
+                                name: 'isAppRedesigned',
+                                on: () => cls.hoveredRedesigned,
+                                off: () => cls.hovered,
+                            })]: currentStarsCount >= star,
                             [cls.selected]: isSelected,
                         },
                         [className],
@@ -77,6 +77,8 @@ export const StarRating = (props: StarRatingProps) => {
                     onMouseEnter={ onHover(star) }
                     onMouseLeave={ onLeave }
                     onClick={ onClick(star) }
+                    hovered={ currentStarsCount >= star }
+                    clickable
                 />
             )) }
         </HStack>

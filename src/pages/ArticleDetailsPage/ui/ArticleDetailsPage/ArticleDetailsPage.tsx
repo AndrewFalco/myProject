@@ -46,8 +46,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                                 data-testid="ArticleDetailsPage"
                             >
                                 <DetailsContainer />
-                                <ArticleRating articleId={ id } />
-                                <ArticleRecommendationsList />
+                                <ArticleRating articleId={ id } className={ cls.rating } />
+                                <ArticleRecommendationsList className={ cls.recommendations } />
                                 <ArticleDetailsComments id={ id } />
                             </Page>
                         }
@@ -63,7 +63,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                         <ArticleDetailsPageHeader />
                         <ArticleDetails articleId={ id } />
                         <ArticleRating articleId={ id } />
-                        <ArticleRecommendationsList />
+                        <ArticleRecommendationsList className={ cls.recommendations } />
                         <ArticleDetailsComments id={ id } />
                     </Page>
                 }
