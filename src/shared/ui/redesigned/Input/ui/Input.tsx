@@ -1,20 +1,10 @@
-import React, {
-    InputHTMLAttributes,
-    memo,
-    ReactNode,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import React, { InputHTMLAttributes, memo, ReactNode, useEffect, useRef, useState } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 import { HStack } from '../../Stack';
 import { Text } from '../../Text';
 
-type HTMLInputProps = Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'readOnly'
->;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
@@ -91,7 +81,7 @@ export const Input = memo((props: InputProps) => {
 
     return label ? (
         <HStack gap="8" max justify="between">
-            <Text text={ label } className={ cls.label }/>
+            <Text text={ label } className={ cls.label } />
             { input }
         </HStack>
     ) : (

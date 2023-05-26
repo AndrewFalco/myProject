@@ -10,6 +10,7 @@ import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeature } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { useAppToolbar } from './lib/useAppToolbar';
 
 import './styles/index.scss';
 
@@ -17,6 +18,7 @@ export const App = () => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+    const toolbar = useAppToolbar();
 
     useEffect(() => {
         dispatch(initAuthData());
@@ -32,11 +34,10 @@ export const App = () => {
             on={
                 <div className={ classNames('app_redesigned', {}, [theme]) }>
                     <Suspense fallback="">
-                        <MainLayout
-                            content={ <AppRoute /> }
-                            header={ <Navbar /> }
-                            sidebar={ <Sidebar /> }
-                        />
+                        <MainLayout content={ <AppRoute /> }
+                                    header={ <Navbar /> }
+                                    sidebar={ <Sidebar /> }
+                                    toolbar={ toolbar } />
                     </Suspense>
                 </div>
             }
