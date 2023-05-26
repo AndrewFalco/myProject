@@ -15,6 +15,7 @@ import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { getRouteArticleDetails } from '@/shared/consts/routes';
+import ErrorFallbackImg from '@/shared/assets/img/image_placeholder.png';
 
 export const ArticleListItemRedesigned = (props: ArticleListProps) => {
     const { article, view, className, index = 0, setLastIndex, target } = props;
@@ -57,12 +58,13 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
                 </HStack>
                 <Text title={ article.title } bold />
                 <Text title={ article.subtitle } size="sizeS" bold />
-                <AppImage
+                { article.img && <AppImage
                     fallback={ <Skeleton width="100%" height={ 250 } /> }
+                    errorFallback={ undefined }
                     src={ article.img }
                     className={ cls.img }
                     alt={ article.title }
-                />
+                /> }
                 { textBlock && <Text className={ cls.textBlock } text={ textBlock.paragraphs.slice(0, 2).join(' ') } /> }
                 <HStack justify="between" max>
                     <AppLink target={ target } to={ `/articles/${article.id}` }>
@@ -80,12 +82,13 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
             className={ classNames(cls.ArticleListItem, {}, [className, cls[view]]) }
         >
             <Card className={ cls.card } border="round">
-                <AppImage
+                { article.img && <AppImage
                     fallback={ <Skeleton width={ 200 } height={ 200 } /> }
+                    errorFallback={ <AppImage alt="" src={ ErrorFallbackImg } className={ cls.img } /> }
                     alt={ article.title }
                     src={ article.img }
                     className={ cls.img }
-                />
+                /> }
                 <VStack className={ cls.info } gap="4">
                     <Text title={ article.title } className={ cls.title } />
                     <VStack gap="4" className={ cls.footer } max>

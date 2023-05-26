@@ -3,6 +3,7 @@ import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { FeatureFlagDecorator } from '../../src/shared/config/storybook/FeatureFlagDecorator/FeatureFlagDecorator';
 
 const preview: Preview = {
     parameters: {
@@ -20,6 +21,7 @@ const preview: Preview = {
         RouterDecorator,
         ThemeDecorator('app_light_theme'),
         StoreDecorator({}),
+        FeatureFlagDecorator({}),
     ],
 };
 

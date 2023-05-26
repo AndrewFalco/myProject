@@ -45,7 +45,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                 onChange={ onChange }
                 disabled={ readonly }
             >
-                <HListBox.Button className={ popupCls.trigger }>
+                <HListBox.Button as="div" className={ popupCls.trigger }>
                     <Button variant="filled" disabled={ readonly } addonRight={ <Icon Svg={ ArrowIcon } /> }>
                         { t(value || '') ?? t(defaultValue || '') ?? t('Select value') }
                     </Button>

@@ -17,12 +17,17 @@ interface AvatarProps {
     alt?: string;
 }
 
+const defaultAvatar = (defaultSrc: string, styles: { width: number; height: number }) => (
+    <AppImage src={ defaultSrc } style={ styles } />
+);
+
 /**
  * @deprecated
  */
 export const Avatar = (props: AvatarProps) => {
     const { className, src, sex, size = 100, alt } = props;
-    const defaultAvatar = useMemo(() => {
+
+    const defaultAvatarSrc = useMemo(() => {
         switch (true) {
             case sex === 'male':
                 return MaleAvt;
@@ -44,11 +49,9 @@ export const Avatar = (props: AvatarProps) => {
     return (
         <AppImage
             className={ classNames(cls.Avatar, {}, [className]) }
-            src={ src || defaultAvatar }
-            fallback={
-                <Skeleton width={ size } height={ size } borderRadius="50%" />
-            }
-            errorFallback={ defaultAvatar }
+            src={ src || defaultAvatarSrc }
+            fallback={ <Skeleton width={ size } height={ size } borderRadius="50%" /> }
+            errorFallback={ defaultAvatar(defaultAvatarSrc, styles) }
             style={ styles }
             alt={ alt }
         />
