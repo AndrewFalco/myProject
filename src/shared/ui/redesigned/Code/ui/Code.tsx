@@ -28,6 +28,7 @@ export const Code = memo((props: CodeProps) => {
                     <Icon Svg={ CopyIconNew }
                           onClick={ onCopy }
                           className={ cls.btn }
+                          hovered
                           clickable />
                     <code>{ text }</code>
                 </pre>

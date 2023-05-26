@@ -6,8 +6,9 @@ import { CurrencySelect } from '@/entities/Currency';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Input } from '@/shared/ui/deprecated/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 import { ProfileError } from '../model/types/profile';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ProfileCardProps } from './ProfileCard';
 
 import cls from './ProfileCard.module.scss';
@@ -24,6 +25,15 @@ export const ProfileCardDeprecatedError = () => {
         />
     );
 };
+
+export const ProfileCardDeprecatedLoader = () => (
+    <VStack max
+            maxHeight
+            align="center"
+            justify="center">
+        <Loader />
+    </VStack>
+);
 
 export const ProfileCardDeprecated = (props: ProfileCardProps) => {
     const {
@@ -46,11 +56,7 @@ export const ProfileCardDeprecated = (props: ProfileCardProps) => {
     } = props;
     const { t } = useTranslation('profile');
 
-    const loadingError = useMemo(
-        (): ProfileError | undefined =>
-            error?.find((err) => err.key === 'loading'),
-        [error],
-    );
+    const loadingError = useMemo((): ProfileError | undefined => error?.find((err) => err.key === 'loading'), [error]);
 
     const mods: Mods = {
         [cls.loading]: isLoading,
@@ -63,22 +69,17 @@ export const ProfileCardDeprecated = (props: ProfileCardProps) => {
                 <div className={ classNames(cls.avatarWrapper) }>
                     <Avatar src={ data?.avatar } sex={ data?.sex } />
                 </div>
-                <Input
-                    name={ t('Avatar') }
-                    value={ data?.avatar || '' }
-                    readOnly={ readOnly }
-                    onChange={ onChangeAvatar }
-                />
+                <Input name={ t('Avatar') }
+                       value={ data?.avatar || '' }
+                       readOnly={ readOnly }
+                       onChange={ onChangeAvatar } />
                 <Input
                     name={ t('First name') }
                     value={ data?.firstName || '' }
                     readOnly={ readOnly }
                     onChange={ onChangeFirstName }
                     required
-                    errorText={
-                        error?.find((err) => err.key === 'firstName')?.text ||
-                        undefined
-                    }
+                    errorText={ error?.find((err) => err.key === 'firstName')?.text || undefined }
                     data-testid="ProfileCard.firstName"
                 />
                 <Input
@@ -87,59 +88,36 @@ export const ProfileCardDeprecated = (props: ProfileCardProps) => {
                     readOnly={ readOnly }
                     onChange={ onChangeLastName }
                     required
-                    errorText={
-                        error?.find((err) => err.key === 'lastName')?.text ||
-                        undefined
-                    }
+                    errorText={ error?.find((err) => err.key === 'lastName')?.text || undefined }
                     data-testid="ProfileCard.lastName"
                 />
-                <Input
-                    name={ t('User name') }
-                    value={ data?.username }
-                    readOnly={ readOnly }
-                    onChange={ onChangeUsername }
-                />
-                <Input
-                    name={ t('Gender') }
-                    value={ data?.sex }
-                    readOnly={ readOnly }
-                    onChange={ onChangeSex }
-                />
-                <Input
-                    name={ t('Age') }
-                    value={ data?.age }
-                    readOnly={ readOnly }
-                    onChange={ onChangeAge }
-                    type="number"
-                />
-                <CountrySelect
-                    value={ data?.country }
-                    onChange={ onChangeCountry }
-                    readonly={ readOnly }
-                />
-                <Input
-                    name={ t('City') }
-                    value={ data?.city }
-                    readOnly={ readOnly }
-                    onChange={ onChangeCity }
-                />
-                <Input
-                    name={ t('Phone') }
-                    value={ data?.phone }
-                    readOnly={ readOnly }
-                    onChange={ onChangePhone }
-                />
-                <Input
-                    name={ t('Email') }
-                    value={ data?.email }
-                    readOnly={ readOnly }
-                    onChange={ onChangeEmail }
-                />
-                <CurrencySelect
-                    value={ data?.currency }
-                    onChange={ onChangeCurrency }
-                    readonly={ readOnly }
-                />
+                <Input name={ t('User name') }
+                       value={ data?.username }
+                       readOnly={ readOnly }
+                       onChange={ onChangeUsername } />
+                <Input name={ t('Gender') }
+                       value={ data?.sex }
+                       readOnly={ readOnly }
+                       onChange={ onChangeSex } />
+                <Input name={ t('Age') }
+                       value={ data?.age }
+                       readOnly={ readOnly }
+                       onChange={ onChangeAge }
+                       type="number" />
+                <CountrySelect value={ data?.country } onChange={ onChangeCountry } readonly={ readOnly } />
+                <Input name={ t('City') }
+                       value={ data?.city }
+                       readOnly={ readOnly }
+                       onChange={ onChangeCity } />
+                <Input name={ t('Phone') }
+                       value={ data?.phone }
+                       readOnly={ readOnly }
+                       onChange={ onChangePhone } />
+                <Input name={ t('Email') }
+                       value={ data?.email }
+                       readOnly={ readOnly }
+                       onChange={ onChangeEmail } />
+                <CurrencySelect value={ data?.currency } onChange={ onChangeCurrency } readonly={ readOnly } />
             </VStack>
         </div>
     );

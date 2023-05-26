@@ -1,10 +1,11 @@
 import { HTMLAttributeAnchorTarget, MutableRefObject, useCallback } from 'react';
-import { HStack, Virtualize as VirtualizeDeprecated } from '@/shared/ui/deprecated';
+import { Virtualize as VirtualizeDeprecated } from '@/shared/ui/deprecated';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ToggleFeature } from '@/shared/lib/features';
 import { Virtualize, VirtualizeProps } from '@/shared/ui/redesigned/Virtualize';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListProps {
     className?: string;

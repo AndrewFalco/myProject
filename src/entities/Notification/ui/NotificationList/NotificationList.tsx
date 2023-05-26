@@ -1,9 +1,10 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Loader, VStack } from '@/shared/ui/deprecated';
+import { Loader } from '@/shared/ui/deprecated';
 import { useNotifications } from '../../api/notificationApi';
 import { NotificationItem } from '../Notification/NotificationItem';
 
 import cls from './NotificationList.module.scss';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface NotificationListProps {
     className?: string;
@@ -20,11 +21,7 @@ export const NotificationList = (props: NotificationListProps) => {
             <Loader />
         </VStack>
     ) : (
-        <VStack
-            gap="16"
-            max
-            className={ classNames(cls.NotificationList, {}, [className]) }
-        >
+        <VStack gap="16" max className={ classNames(cls.NotificationList, {}, [className]) }>
             { data?.map((dataItem) => (
                 <NotificationItem key={ dataItem.id } data={ dataItem } />
             )) }

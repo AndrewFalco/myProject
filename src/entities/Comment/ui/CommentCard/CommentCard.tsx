@@ -22,9 +22,7 @@ export const CommentCard = (props: CommentCardProps) => {
     const { className, comment, isLoading } = props;
 
     return isLoading ? (
-        <div data-testid="CommentCard" className={ classNames(cls.CommentCard, {}, [className]) }>
-            <CommentCardSkeleton />
-        </div>
+        <CommentCardSkeleton />
     ) : (
         <ToggleFeature
             feature="isAppRedesigned"

@@ -9,7 +9,6 @@ import { Loader } from './Loader';
 import { ListBox, Dropdown, Popover } from './Popups';
 import { Select, SelectOption } from './Select';
 import { Skeleton } from './Skeleton';
-import { HStack, VStack } from '../redesigned/Stack';
 import { TabItem, Tabs } from './Tabs';
 import { Text } from './Text';
 import { Virtualize } from './Virtualize/ui/Virtualize';
@@ -30,8 +29,6 @@ export {
     Card,
     Select,
     Tabs,
-    HStack,
-    VStack,
     ListBox,
     Virtualize,
     Dropdown,

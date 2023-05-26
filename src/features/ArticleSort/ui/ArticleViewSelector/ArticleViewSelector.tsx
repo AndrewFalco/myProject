@@ -6,7 +6,7 @@ import ListViewIcon from '@/shared/assets/icons/burger.svg';
 import GridViewIcon from '@/shared/assets/icons/tile.svg';
 import { Button as ButtonDeprecated } from '@/shared/ui/deprecated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon/Icon';
-import { HStack } from '@/shared/ui/deprecated';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleView } from '../../../../entities/Article/model/types/article';
 import { ToggleFeature, toggleFeatures } from '@/shared/lib/features';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -58,14 +58,7 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
         <ToggleFeature
             feature="isAppRedesigned"
             on={
-                <Card
-                    border="round"
-                    className={ classNames(
-                        cls.ArticleViewSelectorRedesigned,
-                        {},
-                        [className],
-                    ) }
-                >
+                <Card border="round" className={ classNames(cls.ArticleViewSelectorRedesigned, {}, [className]) }>
                     <HStack gap="8" justify="end" className={ className }>
                         { viewSelectors.map((viewType) => (
                             <Icon
@@ -77,6 +70,7 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                                 width={ 24 }
                                 height={ 24 }
                                 onClick={ onCLickBtn(viewType.view) }
+                                hovered
                                 clickable
                             />
                         )) }
@@ -94,11 +88,7 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                                 [cls.notSelected]: viewType.view !== view,
                             }) }
                         >
-                            <IconDeprecated
-                                Svg={ viewType.icon }
-                                width={ 24 }
-                                height={ 24 }
-                            />
+                            <IconDeprecated Svg={ viewType.icon } width={ 24 } height={ 24 } />
                         </ButtonDeprecated>
                     )) }
                 </HStack>

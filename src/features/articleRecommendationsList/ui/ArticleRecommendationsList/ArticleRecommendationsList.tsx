@@ -1,10 +1,11 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { VStack, Text as TextDeprecated } from '@/shared/ui/deprecated';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { ArticleList } from '@/entities/Article';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 import { ToggleFeature } from '@/shared/lib/features';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleRecommendationsListProps {
     className?: string;

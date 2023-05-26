@@ -1,9 +1,8 @@
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileError, ProfileType } from '../model/types/profile';
-import { Loader } from '@/shared/ui/deprecated/Loader';
 import { ToggleFeature } from '@/shared/lib/features';
-import { ProfileCardDeprecated, ProfileCardDeprecatedError } from './ProfileCard.old';
+import { ProfileCardDeprecated, ProfileCardDeprecatedError, ProfileCardDeprecatedLoader } from './ProfileCard.old';
 import { ProfileCardRedesigned, ProfileCardRedesignedError, ProfileCardRedesignedSkeleton } from './ProfileCard.new';
 
 export interface ProfileCardProps {
@@ -29,7 +28,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
     const { error, isLoading } = props;
 
     if (isLoading) {
-        return <ToggleFeature feature="isAppRedesigned" on={ <ProfileCardRedesignedSkeleton /> } off={ <Loader /> } />;
+        return (
+            <ToggleFeature
+                feature="isAppRedesigned"
+                on={ <ProfileCardRedesignedSkeleton /> }
+                off={ <ProfileCardDeprecatedLoader /> }
+            />
+        );
     }
 
     if (error) {

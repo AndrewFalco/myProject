@@ -1,8 +1,9 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card, HStack, Icon, Skeleton } from '@/shared/ui/deprecated';
+import { Card, Icon, Skeleton } from '@/shared/ui/deprecated';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { ArticleView } from '../../../model/types/article';
 import cls from '../ArticleListItem.module.scss';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleSkeletonListProps {
     className?: string;

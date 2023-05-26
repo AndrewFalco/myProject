@@ -1,13 +1,14 @@
 import { useTranslation } from 'react-i18next';
-import { Card, HStack, Input, VStack, TabItem } from '@/shared/ui/deprecated';
+import { Card, Input, TabItem } from '@/shared/ui/deprecated';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleSortField } from '../../model/types/articleSort';
 import { ArticleSortSelector } from '../ArticleSortSelector/ArticleSortSelector';
 import { ArticleViewSelector } from '../ArticleViewSelector/ArticleViewSelector';
+import { ArticleTypeTabs } from '../ArticleTypeTabs/ArticleTypeTabs';
+import { VStack, HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticleSort.module.scss';
-import { ArticleTypeTabs } from '../ArticleTypeTabs/ArticleTypeTabs';
 
 interface ArticleSortProps {
     sort: ArticleSortField;

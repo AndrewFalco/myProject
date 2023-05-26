@@ -1,12 +1,11 @@
 import { memo } from 'react';
 import { Article } from '../../model/types/article';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack, HStack } from '@/shared/ui/redesigned/Stack';
 import { renderArticleBlock } from './renderArticleBlock';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import cls from './ArticleDetails.module.scss';
-import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleDetailsContentProps {
     data: Article;

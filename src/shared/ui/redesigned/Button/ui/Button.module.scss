@@ -1,12 +1,12 @@
 .Button {
     cursor: pointer;
     color: var(--text-redesigned);
-    padding: 0 16px;
+    padding: 3px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--icon-redesigned);
     border-radius: 34px;
+    border: 2px solid var(--icon-redesigned);
 
     &:hover {
         color: var(--accent-redesigned);
@@ -40,6 +40,7 @@
     ::after {
         transition: 0.2s;
         color: var(--accent-redesigned);
+        background: var(--icon-redesigned-opacity);
     }
 }
 
@@ -92,4 +93,24 @@
         opacity: 0.5;
         cursor: auto;
     }
+}
+
+.success{
+    border: 2px solid var(--save-redesigned);
+
+    &:hover {
+        color: var(--save-redesigned);
+        background: var(--save-redesigned-opacity);
+    }
+
+}
+
+.error{
+    border: 2px solid var(--cancel-redesigned);
+
+    &:hover {
+        color: var(--cancel-redesigned);
+        background: var(--cancel-redesigned-opacity);
+    }
+
 }

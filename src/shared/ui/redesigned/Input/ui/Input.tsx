@@ -91,7 +91,7 @@ export const Input = memo((props: InputProps) => {
 
     return label ? (
         <HStack gap="8" max justify="between">
-            <Text text={ label } />
+            <Text text={ label } className={ cls.label }/>
             { input }
         </HStack>
     ) : (

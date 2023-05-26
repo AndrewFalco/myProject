@@ -5,7 +5,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import cls from './SettingsPage.module.scss';
 import { Page } from '@/widgets';
 import { UiDesignFeatures } from '@/features/uiDesignFeatures';
-import { VStack } from '@/shared/ui/deprecated';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface SettingsPageProps {
     className?: string;

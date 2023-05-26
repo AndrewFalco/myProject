@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
-import { VStack } from '@/shared/ui/deprecated';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import {
@@ -20,6 +19,7 @@ import {
     profileReducer,
 } from '../../model/slices/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 type EditableProfileCardType = {
     id?: string;

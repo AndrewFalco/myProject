@@ -3,10 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { ArticleTextBlock } from '../../ArticleTextBlock/ArticleTextBlock';
-import { Card, HStack, Avatar, AppImage, Skeleton, AppLink, Button, Icon, Text } from '@/shared/ui/deprecated';
+import { Card, Avatar, AppImage, Skeleton, AppLink, Button, Icon, Text } from '@/shared/ui/deprecated';
 import cls from '../ArticleListItem.module.scss';
 import { ArticleTextBlockType } from '../../../model/types/article';
 import { ArticleListProps } from '../ArticleListItem';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 export const ArticleListItemDeprecated = (props: ArticleListProps) => {
     const { article, view, className, index = 0, setLastIndex, target } = props;

@@ -2,14 +2,6 @@
     fill: var(--icon-redesigned);
 }
 
-.hovered {
-    .Icon
-
-    &:hover {
-        fill: var(--accent-redesigned);
-    }
-}
-
 .button {
     margin: 0;
     padding: 0;
@@ -19,6 +11,10 @@
     cursor: pointer;
 }
 
-.button:hover .Icon {
-    color: var(--accent-redesigned);
+.hovered {
+    .button &:hover {
+        fill: var(--accent-redesigned);
+        color: var(--accent-redesigned);
+        stroke: var(--accent-redesigned);
+    }
 }

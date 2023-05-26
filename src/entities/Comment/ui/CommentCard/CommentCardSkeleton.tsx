@@ -24,7 +24,7 @@ export const CommentCardSkeleton = memo(() => (
             </>
         }
         off={
-            <>
+            <div data-testid="CommentCard" className={ cls.CommentCard }>
                 <div data-testid="CommentCard.Loading" className={ cls.header }>
                     <div className={ cls.ownerInfo }>
                         <SkeletonDeprecated className={ cls.avatar }
@@ -36,7 +36,7 @@ export const CommentCardSkeleton = memo(() => (
                     <SkeletonDeprecated height={ 16 } width={ 50 } />
                 </div>
                 <SkeletonDeprecated height={ 24 } width="100%" className={ cls.text } />
-            </>
+            </div>
         }
     />
 ));

@@ -6,10 +6,11 @@ import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, Button, HStack, Text } from '@/shared/ui/deprecated';
+import { AppLink, Button, Text } from '@/shared/ui/deprecated';
 import { getRouteArticleCreate } from '@/shared/consts/routes';
 
 import cls from './Navbar.module.scss';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface NavbarProps {
     className?: string;

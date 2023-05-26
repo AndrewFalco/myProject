@@ -642,6 +642,27 @@
       "date": "2023-04-02T14:12:00.205Z",
       "text": "hi",
       "id": "8dxIYfy"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "date": "2023-05-26T05:05:12.264Z",
+      "text": "dgydhdhd",
+      "id": "Oq4wWNn"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "date": "2023-05-26T05:52:12.424Z",
+      "text": "1",
+      "id": "2OoK_QF"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "date": "2023-05-26T05:55:00.863Z",
+      "text": "q",
+      "id": "CZdtygk"
     }
   ],
   "users": [
@@ -763,5 +784,18 @@
       "sex": "female"
     }
   ],
-  "article-ratings": []
+  "article-ratings": [
+    {
+      "articleId": "1",
+      "userId": "1",
+      "rate": 3,
+      "id": 1
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "rate": 3,
+      "id": 2
+    }
+  ]
 }

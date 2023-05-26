@@ -5,13 +5,14 @@ import {
     ArticleSortSelector,
     ArticleTypeTabs,
 } from '@/features/ArticleSort';
-import { TabItem, VStack } from '@/shared/ui/deprecated';
+import { TabItem } from '@/shared/ui/deprecated';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticleType } from '@/entities/Article';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import Search from '@/shared/assets/icons/search.svg';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticleFilters.module.scss';
 

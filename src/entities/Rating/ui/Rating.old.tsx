@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card, VStack, Text, Textarea, Button, HStack } from '@/shared/ui/deprecated';
+import { Card, Text, Textarea, Button } from '@/shared/ui/deprecated';
 import { Modal } from '@/shared/ui/redesigned/Modal';
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { ExtendsRatingProps } from './Rating';
 import { StarRating } from '@/shared/ui/redesigned/StarRating';
+import { VStack, HStack } from '@/shared/ui/redesigned/Stack';
 
 export const RatingDeprecated = (props: ExtendsRatingProps) => {
     const {

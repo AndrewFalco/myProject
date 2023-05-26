@@ -1,10 +1,10 @@
 import { memo } from 'react';
-import { Avatar, HStack, Icon, Text } from '@/shared/ui/deprecated';
+import { Avatar, Icon, Text } from '@/shared/ui/deprecated';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import { Article } from '../../model/types/article';
 import cls from './ArticleDetails.module.scss';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { renderArticleBlock } from './renderArticleBlock';
 
 interface ArticleDetailsContentProps {

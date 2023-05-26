@@ -25,6 +25,7 @@ export interface FlexProps extends DivProps {
     gap?: FlexGap;
     wrap?: FlexWrap;
     max?: boolean;
+    maxHeight?: boolean;
     grow?: boolean;
 }
 
@@ -38,6 +39,7 @@ export const Flex = (props: PropsWithChildren<FlexProps>) => {
         align = 'center',
         gap,
         max,
+        maxHeight,
         grow,
         wrap,
         ...other
@@ -45,6 +47,7 @@ export const Flex = (props: PropsWithChildren<FlexProps>) => {
 
     const mods: Mods = {
         [cls.max]: max,
+        [cls.maxHeight]: maxHeight,
         [cls.grow]: grow,
     };
 

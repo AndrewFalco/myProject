@@ -77,7 +77,7 @@ export const StarRating = (props: StarRatingProps) => {
                     onMouseEnter={ onHover(star) }
                     onMouseLeave={ onLeave }
                     onClick={ onClick(star) }
-                    hovered={ currentStarsCount >= star }
+                    hovered={ currentStarsCount >= star && !isSelected }
                     clickable
                 />
             )) }
