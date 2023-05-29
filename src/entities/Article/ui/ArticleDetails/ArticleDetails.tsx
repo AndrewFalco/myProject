@@ -13,7 +13,6 @@ import { ArticleDetailsContent as ArticleDetailsContentDeprecated } from './Arti
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 import { ArticleDetailsError } from './ArticleDetailsError';
 import { ToggleFeature } from '@/shared/lib/features';
-import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
     articleId?: string;
@@ -33,7 +32,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     useInitialEffect(() => articleId && dispatch(fetchArticleById(articleId)));
 
     return (
-        <DynamicModuleLoader reducers={ reducers } className={ cls.ArticleDetails }>
+        <DynamicModuleLoader reducers={ reducers }>
             { isLoading ? (
                 <ArticleDetailsSkeleton />
             ) : error || !data ? (

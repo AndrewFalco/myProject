@@ -796,6 +796,13 @@
       "userId": "1",
       "rate": 3,
       "id": 2
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "qwe",
+      "id": 3
     }
   ]
 }
