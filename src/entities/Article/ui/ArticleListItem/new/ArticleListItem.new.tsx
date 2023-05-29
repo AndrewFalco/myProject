@@ -44,36 +44,40 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
     }, [index, setLastIndex]);
 
     return view === 'LIST' ? (
-        <Card data-testid="ArticleListItem"
-              padding="24"
-              className={ classNames('', {}, [className, cls[view]]) }
-              max>
-            <VStack max gap="16">
-                <HStack justify="start" gap="8">
-                    <HStack gap="8" className={ cls.userInfo }>
-                        <Avatar src={ article.user.avatar } size={ 30 } />
-                        <Text text={ article.user.username } bold />
+        <div className={ cls.separator }>
+            <Card data-testid="ArticleListItem"
+                  padding="24"
+                  className={ classNames('', {}, [className, cls[view]]) }
+                  max>
+                <VStack max gap="16">
+                    <HStack justify="start" gap="8">
+                        <HStack gap="8" className={ cls.userInfo }>
+                            <Avatar src={ article.user.avatar } size={ 30 } />
+                            <Text text={ article.user.username } bold />
+                        </HStack>
+                        <Text text={ new Date(article.createdAt).toLocaleDateString() } />
                     </HStack>
-                    <Text text={ new Date(article.createdAt).toLocaleDateString() } />
-                </HStack>
-                <Text title={ article.title } bold />
-                <Text title={ article.subtitle } size="sizeS" bold />
-                { article.img && <AppImage
-                    fallback={ <Skeleton width="100%" height={ 250 } /> }
-                    errorFallback={ undefined }
-                    src={ article.img }
-                    className={ cls.img }
-                    alt={ article.title }
-                /> }
-                { textBlock && <Text className={ cls.textBlock } text={ textBlock.paragraphs.slice(0, 2).join(' ') } /> }
-                <HStack justify="between" max>
-                    <AppLink target={ target } to={ `/articles/${article.id}` }>
-                        <Button onClick={ onSetLastIndex }>{ t('Read more...') }</Button>
-                    </AppLink>
-                    { views }
-                </HStack>
-            </VStack>
-        </Card>
+                    <Text title={ article.title } bold />
+                    <Text title={ article.subtitle } size="sizeS" bold />
+                    { article.img && (
+                        <AppImage
+                            fallback={ <Skeleton width="100%" height={ 250 } /> }
+                            errorFallback={ undefined }
+                            src={ article.img }
+                            className={ cls.img }
+                            alt={ article.title }
+                        />
+                    ) }
+                    { textBlock && <Text className={ cls.textBlock } text={ textBlock.paragraphs.slice(0, 2).join(' ') } /> }
+                    <HStack justify="between" max>
+                        <AppLink target={ target } to={ `/articles/${article.id}` }>
+                            <Button onClick={ onSetLastIndex }>{ t('Read more...') }</Button>
+                        </AppLink>
+                        { views }
+                    </HStack>
+                </VStack>
+            </Card>
+        </div>
     ) : (
         <AppLink
             data-testid="ArticleListItem"
@@ -82,13 +86,15 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
             className={ classNames(cls.ArticleListItem, {}, [className, cls[view]]) }
         >
             <Card className={ cls.card } border="round">
-                { article.img && <AppImage
-                    fallback={ <Skeleton width={ 200 } height={ 200 } /> }
-                    errorFallback={ <AppImage alt="" src={ ErrorFallbackImg } className={ cls.img } /> }
-                    alt={ article.title }
-                    src={ article.img }
-                    className={ cls.img }
-                /> }
+                { article.img && (
+                    <AppImage
+                        fallback={ <Skeleton width={ 200 } height={ 200 } /> }
+                        errorFallback={ <AppImage alt="" src={ ErrorFallbackImg } className={ cls.img } /> }
+                        alt={ article.title }
+                        src={ article.img }
+                        className={ cls.img }
+                    />
+                ) }
                 <VStack className={ cls.info } gap="4">
                     <Text title={ article.title } className={ cls.title } />
                     <VStack gap="4" className={ cls.footer } max>
