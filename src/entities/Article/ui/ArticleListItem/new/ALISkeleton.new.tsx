@@ -3,6 +3,7 @@ import { ArticleView } from '../../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleSkeletonListProps {
     className?: string;
@@ -15,18 +16,19 @@ export const ArticleListItemSkeletonRedesigned = (props: ArticleSkeletonListProp
     return (
         <div className={ classNames(cls.ArticleListItem, {}, [className, cls[view]]) }>
             { view === 'LIST' ? (
-                <div className={ classNames(cls.ArticleListItemRedesigned, {}, [className, cls[view]]) }>
+                <div className={ classNames(cls.separator, {}, [className, cls[view]]) }>
                     <Card className={ cls.card }>
-                        <div className={ cls.header }>
+                        <VStack gap="16" max>
                             <Skeleton borderRadius="50%" height={ 30 } width={ 30 } />
-                            <Skeleton width={ 150 } height={ 16 } className={ cls.username } />
-                            <Skeleton width={ 150 } height={ 16 } className={ cls.date } />
-                        </div>
+                            <Skeleton width={ 150 } height={ 32 } className={ cls.username } />
+                            <Skeleton width={ 150 } height={ 24 } className={ cls.date } />
+                        </VStack>
                         <Skeleton width={ 250 } height={ 24 } className={ cls.title } />
-                        <Skeleton height={ 200 } className={ cls.img } />
-                        <div className={ cls.footer }>
-                            <Skeleton height={ 36 } width={ 200 } />
-                        </div>
+                        <Skeleton height={ 420 } className={ cls.img } />
+                        <VStack gap="16" max>
+                            <Skeleton height={ 72 } width={ 200 } />
+                            <Skeleton height={ 34 } width={ 200 } />
+                        </VStack>
                     </Card>
                 </div>
             ) : (

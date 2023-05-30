@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, forwardRef } from 'react';
 import { LinkProps, NavLink } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -13,28 +13,16 @@ interface AppLinkProps extends LinkProps {
     activeClassName?: string;
 }
 
-export const AppLink = (props: AppLinkProps) => {
-    const {
-        children,
-        className,
-        to,
-        variant = 'primary',
-        activeClassName = '',
-        ...otherProps
-    } = props;
+export const AppLink = forwardRef((props: AppLinkProps, ref) => {
+    const { children, className, to, variant = 'primary', activeClassName = '', ...otherProps } = props;
 
     return (
         <NavLink
             to={ to }
-            className={ ({ isActive }) =>
-                classNames('', { [activeClassName]: isActive }, [
-                    className,
-                    cls[variant],
-                ])
-            }
+            className={ ({ isActive }) => classNames('', { [activeClassName]: isActive }, [className, cls[variant]]) }
             { ...otherProps }
         >
             { children }
         </NavLink>
     );
-};
+});

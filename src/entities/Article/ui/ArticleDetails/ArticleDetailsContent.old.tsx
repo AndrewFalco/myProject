@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Avatar, Icon, Text } from '@/shared/ui/deprecated';
+import { AppImage, Icon, Text } from '@/shared/ui/deprecated';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import { Article } from '../../model/types/article';
@@ -20,7 +20,7 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                 gap="8"
                 className={ cls.wrapper }>
             <HStack max grow justify="center">
-                <Avatar size={ 200 } src={ data.img } />
+                <AppImage src={ data.img } className={ cls.img } />
             </HStack>
             <Text className={ cls.title }
                   title={ data.title }

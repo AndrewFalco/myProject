@@ -59,11 +59,19 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
                     </HStack>
                     <Text title={ article.title } bold />
                     <Text title={ article.subtitle } size="sizeS" bold />
-                    { article.img && (
+                    { article.img ? (
                         <AppImage
-                            fallback={ <Skeleton width="100%" height={ 250 } /> }
-                            errorFallback={ undefined }
+                            fallback={ <Skeleton width="100%" height={ 420 } /> }
+                            errorFallback={ <AppImage alt="" src={ ErrorFallbackImg } className={ cls.img } /> }
                             src={ article.img }
+                            className={ cls.img }
+                            alt={ article.title }
+                        />
+                    ) : (
+                        <AppImage
+                            fallback={ <Skeleton width="100%" height={ 420 } /> }
+                            errorFallback={ <AppImage alt="" src={ ErrorFallbackImg } className={ cls.img } /> }
+                            src={ undefined }
                             className={ cls.img }
                             alt={ article.title }
                         />

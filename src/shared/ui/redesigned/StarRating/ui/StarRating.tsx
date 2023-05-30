@@ -1,7 +1,8 @@
 import { useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import StarIcon from '@/shared/assets/icons/star.svg';
-import { Icon } from '../../Icon/Icon';
+import { Icon as IconRedesigned } from '../../Icon/Icon';
+import { Icon as IconDeprecated } from '../../../deprecated/Icon/Icon';
 import { HStack } from '../../../redesigned/Stack';
 import { FlexGap } from '../../../redesigned/Stack/Flex/Flex.types';
 
@@ -23,6 +24,12 @@ export const StarRating = (props: StarRatingProps) => {
 
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
+
+    const Icon = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => IconRedesigned,
+        off: () => IconDeprecated,
+    });
 
     const onHover = useCallback(
         (starsCount: number) => () => {

@@ -4,7 +4,6 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { PageError } from '@/widgets/PageError';
 import App from './app/App';
-import { ThemeProvider } from './shared/lib/providers/ThemeProvider';
 import '@/app/styles/index.scss';
 import '@/shared/config/i18n/i18n';
 
@@ -19,9 +18,7 @@ root.render(
     <BrowserRouter>
         <StoreProvider>
             <ErrorBoundary FallbackComponent={ PageError }>
-                <ThemeProvider>
-                    <App />
-                </ThemeProvider>
+                <App />
             </ErrorBoundary>
         </StoreProvider>
     </BrowserRouter>,
