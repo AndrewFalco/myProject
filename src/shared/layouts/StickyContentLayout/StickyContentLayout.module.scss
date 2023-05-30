@@ -3,7 +3,6 @@
     grid-template-areas:
         'left content right';
     grid-template-columns: min-content 1fr min-content;
-    overflow-y: auto;
     gap: 24px;
     width: 100%;
 }
@@ -15,11 +14,10 @@
 
 .content {
     grid-area: content;
-    max-width: 1200px;
+    max-width: 1050px;
     justify-self: center;
     padding-right: 8px;
     width: 100%;
-    overflow-y: auto;
 }
 
 .right{

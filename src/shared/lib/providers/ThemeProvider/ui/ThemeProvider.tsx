@@ -9,11 +9,12 @@ interface ThemeProviderProps {
 
 const ThemeProvider = (props: ThemeProviderProps) => {
     const { children, initialTheme } = props;
+
     const [isThemeInited, setIsThemeInited] = useState(false);
     const [theme, setTheme] = useState<Theme>(initialTheme || 'app_dark_theme');
 
     useEffect(() => {
-        if (isThemeInited && initialTheme) {
+        if (!isThemeInited && initialTheme) {
             setTheme(initialTheme);
             setIsThemeInited(true);
         }

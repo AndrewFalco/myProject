@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import MaleAvt from '@/shared/assets/img/avatar_m.jpg';
 import FemaleAvt from '@/shared/assets/img/avatar_fm.jpg';
@@ -17,7 +17,7 @@ interface AvatarProps {
     alt?: string;
 }
 
-export const Avatar = (props: AvatarProps) => {
+export const Avatar = memo((props: AvatarProps) => {
     const { className, src, sex, size = 100, alt } = props;
     const defaultAvatar = useMemo(() => {
         switch (true) {
@@ -42,12 +42,10 @@ export const Avatar = (props: AvatarProps) => {
         <AppImage
             className={ classNames(cls.Avatar, {}, [className]) }
             src={ src || defaultAvatar }
-            fallback={
-                <Skeleton width={ size } height={ size } borderRadius="50%" />
-            }
-            errorFallback={ defaultAvatar }
+            fallback={ <Skeleton width={ size } height={ size } borderRadius="50%" /> }
+            errorFallback={ <AppImage src={ defaultAvatar } className={ classNames(cls.Avatar, {}, [className]) } /> }
             style={ styles }
             alt={ alt }
         />
     );
-};
+});

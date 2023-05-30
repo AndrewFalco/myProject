@@ -71,7 +71,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
             <VStack gap="32">
                 { data?.avatar && (
                     <HStack justify="center" max>
-                        <Avatar size={ 128 } src={ data?.avatar } />
+                        <Avatar size={ 128 } src={ data?.avatar } sex={ data.sex } />
                     </HStack>
                 ) }
                 <HStack gap="24" max>
@@ -90,18 +90,14 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
                             readonly={ readOnly }
                             data-testid="ProfileCard.lastname"
                         />
-                        <Input
-                            value={ data?.age }
-                            label={ t('Age') || 'Age' }
-                            onChange={ onChangeAge }
-                            readonly={ readOnly }
-                        />
-                        <Input
-                            value={ data?.city }
-                            label={ t('City') || 'CIty' }
-                            onChange={ onChangeCity }
-                            readonly={ readOnly }
-                        />
+                        <Input value={ data?.age }
+                               label={ t('Age') || 'Age' }
+                               onChange={ onChangeAge }
+                               readonly={ readOnly } />
+                        <Input value={ data?.city }
+                               label={ t('City') || 'CIty' }
+                               onChange={ onChangeCity }
+                               readonly={ readOnly } />
                     </VStack>
                     <VStack gap="16" max>
                         <Input
@@ -116,16 +112,8 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
                             onChange={ onChangeAvatar }
                             readonly={ readOnly }
                         />
-                        <CurrencySelect
-                            value={ data?.currency }
-                            onChange={ onChangeCurrency }
-                            readonly={ readOnly }
-                        />
-                        <CountrySelect
-                            value={ data?.country }
-                            onChange={ onChangeCountry }
-                            readonly={ readOnly }
-                        />
+                        <CurrencySelect value={ data?.currency } onChange={ onChangeCurrency } readonly={ readOnly } />
+                        <CountrySelect value={ data?.country } onChange={ onChangeCountry } readonly={ readOnly } />
                     </VStack>
                 </HStack>
             </VStack>

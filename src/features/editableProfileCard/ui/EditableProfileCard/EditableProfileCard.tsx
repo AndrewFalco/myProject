@@ -5,19 +5,13 @@ import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getReadonly } from '../../model/selectors/getReadonly/getReadonly';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import {
-    profileActions,
-    profileReducer,
-} from '../../model/slices/profileSlice';
+import { profileActions, profileReducer } from '../../model/slices/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 

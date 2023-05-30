@@ -1,10 +1,4 @@
-import {
-    MutableRefObject,
-    ReactNode,
-    useCallback,
-    useEffect,
-    useRef,
-} from 'react';
+import { MutableRefObject, ReactNode, useCallback, useEffect, useRef } from 'react';
 import { Virtuoso, VirtuosoGrid, VirtuosoHandle } from 'react-virtuoso';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ViewType } from '../../../../types/sort';
@@ -62,22 +56,18 @@ export const Virtualize = <T,>(props: VirtualizeProps<T>) => {
         <Virtuoso
             className={ classNames(cls.Virtualize, {}, [className]) }
             data={ data }
-            itemContent={ (index, item) =>
-                isLoading ? renderSkeleton?.(index) : renderNode(index, item)
-            }
+            itemContent={ (index, item) => (isLoading ? renderSkeleton?.(index) : renderNode(index, item)) }
             endReached={ onScrollEnd }
             initialTopMostItemIndex={ lastIndex }
             customScrollParent={ parentRef?.current }
-            useWindowScroll
+            // useWindowScroll
         />
     ) : (
         <VirtuosoGrid
             className={ classNames(cls.Virtualize, {}, [className]) }
             ref={ ref }
             data={ data }
-            itemContent={ (index, item) =>
-                isLoading ? renderSkeleton?.(index) : renderNode(index, item)
-            }
+            itemContent={ (index, item) => (isLoading ? renderSkeleton?.(index) : renderNode(index, item)) }
             endReached={ onScrollEnd }
             listClassName={ cls.gridView }
             customScrollParent={ parentRef?.current }

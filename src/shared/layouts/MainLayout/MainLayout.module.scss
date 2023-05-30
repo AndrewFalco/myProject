@@ -3,7 +3,8 @@
     display: grid;
     grid-template-areas: 'sidebar content rightBar';
     grid-template-columns: min-content 1fr 144px;
-    overflow-y: auto;
+    overflow-y: scroll;
+    height: 100%
 }
 
 .sidebar {
@@ -45,4 +46,5 @@
 .toolbar {
     height: 100%;
     width: 100%;
+    max-width: 128px;
 }

@@ -1,7 +1,8 @@
-import { ReactElement } from 'react';
+import { ReactElement, useRef } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './MainLayout.module.scss';
+import { MainLayoutContext } from './lib/hoc/MainLayoutContext';
 
 interface MainLayoutProps {
     className?: string;
@@ -14,14 +15,18 @@ interface MainLayoutProps {
 export const MainLayout = (props: MainLayoutProps) => {
     const { className, content, sidebar, toolbar, header } = props;
 
+    const ref = useRef(null);
+
     return (
-        <div className={ classNames(cls.MainLayout, {}, [className]) }>
-            <div className={ cls.sidebar }>{ sidebar }</div>
-            <div className={ cls.content }>{ content }</div>
-            <div className={ cls.rightBar }>
-                <div className={ cls.header }>{ header }</div>
-                <div className={ cls.toolbar }>{ toolbar }</div>
+        <MainLayoutContext.Provider value={ ref }>
+            <div ref={ ref } className={ classNames(cls.MainLayout, {}, [className]) }>
+                <div className={ cls.sidebar }>{ sidebar }</div>
+                <div className={ cls.content }>{ content }</div>
+                <div className={ cls.rightBar }>
+                    <div className={ cls.header }>{ header }</div>
+                    <div className={ cls.toolbar }>{ toolbar }</div>
+                </div>
             </div>
-        </div>
+        </MainLayoutContext.Provider>
     );
 };

@@ -1,11 +1,8 @@
-import { MutableRefObject, memo, useRef } from 'react';
+import { MutableRefObject, memo, useContext, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/component/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Page } from '@/widgets/Page';
@@ -14,7 +11,8 @@ import { getArticlesPageError } from '../../model/selectors/articlesPageSelector
 import { initArticlesPage } from '../../model/services/initArticlesPage';
 import { ArticlePageSort } from './ArticlePageSort';
 import { ArticlePageList } from './ArticlePageList';
-import { ToggleFeature } from '@/shared/lib/features';
+import { ToggleFeature, toggleFeatures } from '@/shared/lib/features';
+import { MainLayoutContext } from '@/shared/layouts/MainLayout';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
@@ -28,7 +26,14 @@ const ArticlesPage = () => {
     const dispatch = useAppDispatch();
     const error = useSelector(getArticlesPageError);
     const [searchParams] = useSearchParams();
-    const parentRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const parentRefNew = useContext(MainLayoutContext) as MutableRefObject<HTMLDivElement>;
+    const parentRefOld = useRef() as MutableRefObject<HTMLDivElement>;
+
+    const parentRef = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => parentRefNew,
+        off: () => parentRefOld,
+    });
 
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
@@ -40,27 +45,16 @@ const ArticlesPage = () => {
             on={
                 <StickyContentLayout
                     content={
-                        <Page
-                            error={
-                                (error && t(error || 'Error with loading')) ||
-                                undefined
-                            }
-                        >
+                        <Page error={ (error && t(error || 'Error with loading')) || undefined }>
                             <ArticlePageList parentRef={ parentRef } />
                         </Page>
                     }
                     left={ <ViewSelectorContainer /> }
                     right={ <FiltersContainer /> }
-                    ref={ parentRef }
                 />
             }
             off={
-                <Page
-                    parentRef={ parentRef }
-                    error={
-                        (error && t(error || 'Error with loading')) || undefined
-                    }
-                >
+                <Page parentRef={ parentRef } error={ (error && t(error || 'Error with loading')) || undefined }>
                     <ArticlePageSort />
                     <ArticlePageList parentRef={ parentRef } />
                 </Page>
