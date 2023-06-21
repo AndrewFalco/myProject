@@ -18,9 +18,7 @@ interface SidebarProps {
 
 export const SidebarNew = memo((props: SidebarProps) => {
     const { className } = props;
-    const defaultCollapsed: boolean = JSON.parse(
-        localStorage.getItem('defaultCollapsed') || 'false',
-    );
+    const defaultCollapsed: boolean = JSON.parse(localStorage.getItem('defaultCollapsed') || 'false');
     const [collapsed, setCollapsed] = useState(defaultCollapsed);
     const sidebarItems = useSelector(getSidebarItems);
 
@@ -33,43 +31,28 @@ export const SidebarNew = memo((props: SidebarProps) => {
     }, []);
 
     const itemsList = useMemo(
-        () =>
-            sidebarItems.map((sbItem) => (
-                <SidebarItem
-                    key={ sbItem.route }
-                    item={ sbItem }
-                    collapsed={ collapsed }
-                />
-            )),
+        () => sidebarItems.map((sbItem) => <SidebarItem key={ sbItem.route } item={ sbItem } collapsed={ collapsed } />),
         [collapsed, sidebarItems],
     );
 
     return (
         <aside
             data-testid="sb"
-            className={ classNames(
-                cls.SidebarRedesigned,
-                { [cls.collapsedRedesigned]: collapsed },
-                [className],
-            ) }
+            className={ classNames(cls.SidebarRedesigned, { [cls.collapsedRedesigned]: collapsed }, [className]) }
         >
             <AppLogo size={ collapsed ? 30 : 50 } className={ cls.appLogo } />
             <VStack role="navigation" gap="8" className={ cls.items }>
                 { itemsList }
             </VStack>
-            <Icon
-                data-testid="sb-toggle"
-                onClick={ onToggle }
-                Svg={ ArrowIcon }
-                className={ cls.collapsedBtn }
-                clickable
-            />
-            <HStack
-                gap="16"
-                align="center"
-                justify="center"
-                className={ classNames(cls.switchers) }
-            >
+            <Icon data-testid="sb-toggle"
+                  onClick={ onToggle }
+                  Svg={ ArrowIcon }
+                  className={ cls.collapsedBtn }
+                  clickable />
+            <HStack gap="16"
+                    align="center"
+                    justify="center"
+                    className={ classNames(cls.switchers) }>
                 <ThemeSwitcher />
                 <LangSwitcher className={ cls.lang } collapsed={ collapsed } />
             </HStack>

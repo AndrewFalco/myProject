@@ -3,7 +3,6 @@ import { getArticleDetailsData } from '@/entities/Article';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticleAdditionalInfo } from '@/widgets/ArticleAdditionalInfo';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './AdditionalInfoCOntainer.module.scss';
 
 interface AdditionalInfoContainerProps {
     className?: string;
@@ -18,7 +17,7 @@ export const AdditionalInfoContainer = (props: AdditionalInfoContainerProps) => 
     }
 
     return (
-        <Card padding="24" border="round" className={ classNames(cls.card, {}, [className]) }>
+        <Card padding="24" border="round" className={ classNames('', {}, [className]) }>
             <ArticleAdditionalInfo
                 className={ className }
                 author={ article.user }

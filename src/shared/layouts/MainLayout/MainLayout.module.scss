@@ -2,9 +2,8 @@
     min-height: 100vh;
     display: grid;
     grid-template-areas: 'sidebar content rightBar';
-    grid-template-columns: min-content 1fr 144px;
-    overflow-y: scroll;
-    height: 100%
+    grid-template-columns: min-content 1fr 184px;
+    overflow-y: auto;
 }
 
 .sidebar {

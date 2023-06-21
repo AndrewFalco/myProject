@@ -45,10 +45,12 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
 
     return view === 'LIST' ? (
         <div className={ cls.separator }>
-            <Card data-testid="ArticleListItem"
-                  padding="24"
-                  className={ classNames('', {}, [className, cls[view]]) }
-                  max>
+            <Card
+                data-testid="ArticleListItem"
+                padding="24"
+                className={ classNames(cls.ArticleListItemRedesigned, {}, [className, cls[view]]) }
+                max
+            >
                 <VStack max gap="16">
                     <HStack justify="start" gap="8">
                         <HStack gap="8" className={ cls.userInfo }>
@@ -62,7 +64,10 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
                     { article.img ? (
                         <AppImage
                             fallback={ <Skeleton width="100%" height={ 420 } /> }
-                            errorFallback={ <AppImage alt="" src={ ErrorFallbackImg } className={ cls.img } /> }
+                            errorFallback={ <AppImage alt=""
+                                                      src={ ErrorFallbackImg }
+                                                      className={ cls.img }
+                                                      height={ 420 } /> }
                             src={ article.img }
                             className={ cls.img }
                             alt={ article.title }
@@ -70,7 +75,10 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
                     ) : (
                         <AppImage
                             fallback={ <Skeleton width="100%" height={ 420 } /> }
-                            errorFallback={ <AppImage alt="" src={ ErrorFallbackImg } className={ cls.img } /> }
+                            errorFallback={ <AppImage alt=""
+                                                      src={ ErrorFallbackImg }
+                                                      className={ cls.img }
+                                                      height={ 420 } /> }
                             src={ undefined }
                             className={ cls.img }
                             alt={ article.title }
@@ -91,7 +99,7 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
             data-testid="ArticleListItem"
             target={ target }
             to={ getRouteArticleDetails(article.id) }
-            className={ classNames(cls.ArticleListItem, {}, [className, cls[view]]) }
+            className={ classNames(cls.ArticleListItemRedesigned, {}, [className, cls[view]]) }
         >
             <Card className={ cls.card } border="round">
                 { article.img && (

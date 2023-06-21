@@ -60,7 +60,6 @@ export const Virtualize = <T,>(props: VirtualizeProps<T>) => {
             endReached={ onScrollEnd }
             initialTopMostItemIndex={ lastIndex }
             customScrollParent={ parentRef?.current }
-            // useWindowScroll
         />
     ) : (
         <VirtuosoGrid
@@ -71,7 +70,6 @@ export const Virtualize = <T,>(props: VirtualizeProps<T>) => {
             endReached={ onScrollEnd }
             listClassName={ cls.gridView }
             customScrollParent={ parentRef?.current }
-            useWindowScroll
         />
     );
 };

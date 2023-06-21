@@ -1,4 +1,4 @@
-import { ReactElement, useRef } from 'react';
+import { MutableRefObject, ReactElement, useRef } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './MainLayout.module.scss';
@@ -15,7 +15,7 @@ interface MainLayoutProps {
 export const MainLayout = (props: MainLayoutProps) => {
     const { className, content, sidebar, toolbar, header } = props;
 
-    const ref = useRef(null);
+    const ref = useRef() as MutableRefObject<HTMLDivElement>;
 
     return (
         <MainLayoutContext.Provider value={ ref }>

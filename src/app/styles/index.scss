@@ -19,6 +19,7 @@ body {
     min-height: 100vh;
     font: var(--font-m-redesigned);
     color: var(--text-redesigned);
+    overflow-y: hidden;
 }
 
 .content-page {

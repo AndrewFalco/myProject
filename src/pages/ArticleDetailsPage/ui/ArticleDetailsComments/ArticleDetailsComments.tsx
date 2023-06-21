@@ -8,9 +8,12 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { getArticleDetailsError } from '@/entities/Article';
-import { getArticleDetailsCommentsIsLoading, getArticleDetailsCommentsError } from '../../model/selectors/comments';
+import {
+    getArticleDetailsCommentsIsLoading,
+    getArticleDetailsCommentsError,
+    getArticleComments,
+} from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleDetailsComments.module.scss';
 import { ToggleFeature } from '@/shared/lib/features';
