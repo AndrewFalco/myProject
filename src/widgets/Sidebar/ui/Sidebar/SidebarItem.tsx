@@ -35,7 +35,9 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
                     activeClassName={ cls.active }
                 >
                     <HStack justify="center" align="center">
-                        <Icon Svg={ item.Icon } width={ 32 } height={ 32 } />
+                        <Icon Svg={ item.Icon }
+                              width={ 32 }
+                              height={ 32 } />
                         <span className={ cls.link }>{ t(item.name) }</span>
                     </HStack>
                 </AppLink>

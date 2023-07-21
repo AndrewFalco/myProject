@@ -17,7 +17,9 @@ export const AdditionalInfoContainer = (props: AdditionalInfoContainerProps) => 
     }
 
     return (
-        <Card padding="24" border="round" className={ classNames('', {}, [className]) }>
+        <Card padding="24"
+              border="round"
+              className={ classNames('', {}, [className]) }>
             <ArticleAdditionalInfo
                 className={ className }
                 author={ article.user }

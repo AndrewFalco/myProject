@@ -42,7 +42,9 @@ export const Avatar = memo((props: AvatarProps) => {
         <AppImage
             className={ classNames(cls.Avatar, {}, [className]) }
             src={ src || defaultAvatar }
-            fallback={ <Skeleton width={ size } height={ size } borderRadius="50%" /> }
+            fallback={ <Skeleton width={ size }
+                                 height={ size }
+                                 borderRadius="50%" /> }
             errorFallback={
                 <AppImage src={ defaultAvatar }
                           className={ classNames(cls.Avatar, {}, [className]) }

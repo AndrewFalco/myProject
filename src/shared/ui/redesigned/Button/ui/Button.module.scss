@@ -55,7 +55,8 @@
 }
 
 .square {
-    padding: 0;
+    padding: 16px;
+    border-radius: 0;
 }
 
 .square.sizeM {
@@ -113,4 +114,8 @@
         background: var(--cancel-redesigned-opacity);
     }
 
+}
+
+.fullWidth {
+    width: 100%;
 }

@@ -40,7 +40,9 @@ export const ArticleSort = (props: ArticleSortProps) => {
 
     return (
         <VStack className={ cls.sortWrapper }>
-            <HStack justify="between" gap="8" max>
+            <HStack justify="between"
+                    gap="8"
+                    max>
                 <HStack justify="between" grow>
                     <ArticleSortSelector
                         orderValue={ order }

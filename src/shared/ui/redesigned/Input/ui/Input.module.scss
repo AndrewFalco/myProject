@@ -8,6 +8,15 @@
     width: 100%;
 }
 
+.TextareaWrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 8px 16px;
+    border: 2px solid var(--icon-redesigned);
+    width: 100%;
+}
+
 .addonLeft, .addonRight {
     display: flex;
 }
@@ -34,6 +43,7 @@
     width: 100%;
     color: var(--text-redesigned);
     background: none;
+    resize: none;
 
     &::placeholder {
         color: var(--hint-redesigned);

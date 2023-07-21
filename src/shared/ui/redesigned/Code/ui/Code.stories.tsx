@@ -3,7 +3,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Code } from './Code';
 
 const meta = {
-    title: 'shared/Card',
+    title: 'shared/Code',
     component: Code,
     args: {},
 } satisfies Meta<typeof Code>;

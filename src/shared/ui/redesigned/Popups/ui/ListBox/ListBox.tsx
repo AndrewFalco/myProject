@@ -26,10 +26,11 @@ interface ListBoxProps<T extends string> {
     readonly?: boolean;
     direction?: DropdownDirection;
     label?: string | null;
+    isMultiple?: boolean;
 }
 
 export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
-    const { value, items, className, defaultValue, onChange, readonly, direction = 'bottom right', label } = props;
+    const { value, items, className, defaultValue, onChange, readonly, direction = 'bottom right', label, isMultiple } = props;
 
     const { t } = useTranslation();
 
@@ -44,9 +45,12 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                 value={ value }
                 onChange={ onChange }
                 disabled={ readonly }
+                multiple={ isMultiple }
             >
                 <HListBox.Button as="div" className={ popupCls.trigger }>
-                    <Button variant="filled" disabled={ readonly } addonRight={ <Icon Svg={ ArrowIcon } /> }>
+                    <Button variant="filled"
+                            disabled={ readonly }
+                            addonRight={ <Icon Svg={ ArrowIcon } /> }>
                         { t(value || '') ?? t(defaultValue || '') ?? t('Select value') }
                     </Button>
                 </HListBox.Button>

@@ -38,7 +38,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     if (error) {
-        <ToggleFeature feature="isAppRedesigned" on={ <ProfileCardRedesignedError /> } off={ <ProfileCardDeprecatedError /> } />;
+        <ToggleFeature feature="isAppRedesigned"
+                       on={ <ProfileCardRedesignedError /> }
+                       off={ <ProfileCardDeprecatedError /> } />;
     }
 
     return (

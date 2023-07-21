@@ -27,23 +27,33 @@ export const CommentCard = (props: CommentCardProps) => {
         <ToggleFeature
             feature="isAppRedesigned"
             on={
-                <Card padding="24" border="round" className={ cls.CommentCardRedesigned }>
-                    <VStack max gap="8" data-testid="CommentCard.Content">
+                <Card padding="24"
+                      border="round"
+                      className={ cls.CommentCardRedesigned }>
+                    <VStack max
+                            gap="8"
+                            data-testid="CommentCard.Content">
                         <AppLink to={ getRouteProfile(comment.user.id) } className={ cls.ownerInfo }>
                             <HStack gap="8">
-                                <Avatar className={ cls.avatar } src={ comment?.user.avatar } size={ 30 } />
+                                <Avatar className={ cls.avatar }
+                                        src={ comment?.user.avatar }
+                                        size={ 30 } />
                                 <Text text={ comment.user.username } />
                             </HStack>
                         </AppLink>
                     </VStack>
-                    <Text text={ comment.text } className={ cls.text } bold />
+                    <Text text={ comment.text }
+                          className={ cls.text }
+                          bold />
                 </Card>
             }
             off={
                 <div data-testid="CommentCard" className={ classNames(cls.CommentCard, {}, [className]) }>
                     <div data-testid="CommentCard.Content" className={ cls.header }>
                         <AppLinkDeprecated to={ getRouteProfile(comment.user.id) } className={ cls.ownerInfo }>
-                            <AvatarDeprecated className={ cls.avatar } src={ comment?.user.avatar } size={ 30 } />
+                            <AvatarDeprecated className={ cls.avatar }
+                                              src={ comment?.user.avatar }
+                                              size={ 30 } />
                             <TextDeprecated title={ comment.user.username } />
                         </AppLinkDeprecated>
                         <TextDeprecated text={ new Date(comment?.date).toLocaleDateString() } />

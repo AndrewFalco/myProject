@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, memo, ReactNode, useEffect, useRef, useState } from 'react';
+import React, { InputHTMLAttributes, memo, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 import { HStack } from '../../Stack';
@@ -41,9 +41,12 @@ export const Input = memo((props: InputProps) => {
         }
     }, [autofocus]);
 
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange?.(e.target.value);
-    };
+    const onChangeHandler = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            onChange?.(e.target.value);
+        },
+        [onChange],
+    );
 
     const onBlur = () => {
         setIsFocused(false);
@@ -80,7 +83,9 @@ export const Input = memo((props: InputProps) => {
     );
 
     return label ? (
-        <HStack gap="8" max justify="between">
+        <HStack gap="8"
+                max
+                justify="between">
             <Text text={ label } className={ cls.label } />
             { input }
         </HStack>

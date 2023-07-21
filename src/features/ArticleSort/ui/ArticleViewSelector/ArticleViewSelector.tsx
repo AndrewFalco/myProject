@@ -59,7 +59,9 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
             feature="isAppRedesigned"
             on={
                 <Card border="round" className={ classNames(cls.ArticleViewSelectorRedesigned, {}, [className]) }>
-                    <HStack gap="8" justify="end" className={ className }>
+                    <HStack gap="8"
+                            justify="end"
+                            className={ className }>
                         { viewSelectors.map((viewType) => (
                             <Icon
                                 key={ viewType.view }
@@ -78,7 +80,9 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                 </Card>
             }
             off={
-                <HStack gap="8" justify="end" className={ className }>
+                <HStack gap="8"
+                        justify="end"
+                        className={ className }>
                     { viewSelectors.map((viewType) => (
                         <ButtonDeprecated
                             key={ viewType.view }
@@ -88,7 +92,9 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                                 [cls.notSelected]: viewType.view !== view,
                             }) }
                         >
-                            <IconDeprecated Svg={ viewType.icon } width={ 24 } height={ 24 } />
+                            <IconDeprecated Svg={ viewType.icon }
+                                            width={ 24 }
+                                            height={ 24 } />
                         </ButtonDeprecated>
                     )) }
                 </HStack>

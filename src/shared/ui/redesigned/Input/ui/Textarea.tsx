@@ -1,90 +1,77 @@
-import {
-    ChangeEvent,
-    InputHTMLAttributes,
-    memo,
-    useCallback,
-    useMemo,
-} from 'react';
+import React, { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-
+import { HStack } from '../../Stack';
+import { Text } from '../../Text';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<
-    InputHTMLAttributes<HTMLTextAreaElement>,
-    'value' | 'onChange' | 'readOnly'
->;
+type HTMLTextAreaProps = Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'value' | 'onChange' | 'readOnly'>;
 
-interface TextareaProps extends HTMLInputProps {
+interface TextareaProps extends HTMLTextAreaProps {
     className?: string;
     value?: string | number;
-    onChange?: (value: string, required?: boolean) => void;
-    readOnly?: boolean;
-    errorText?: string;
+    onChange?: (value: string) => void;
+    autofocus?: boolean;
+    readonly?: boolean;
+    label?: string;
     cols?: number;
     rows?: number;
 }
 
-/**
- * @deprecated
- */
 export const Textarea = memo((props: TextareaProps) => {
-    const {
-        className,
-        value,
-        onChange,
-        placeholder,
-        name,
-        id,
-        readOnly,
-        required,
-        errorText,
-        cols = 30,
-        rows = 5,
-        ...otherProps
-    } = props;
+    const { className, value, onChange, placeholder, autofocus, readonly, label, cols = 30, rows = 5, ...otherProps } = props;
+    const ref = useRef<HTMLTextAreaElement>(null);
+    const [isFocused, setIsFocused] = useState(false);
 
-    const onChangeHandler = useCallback(
-        (e: ChangeEvent<HTMLTextAreaElement>) => {
-            onChange?.(e.target.value, required);
-        },
-        [onChange, required],
-    );
+    useEffect(() => {
+        if (autofocus) {
+            setIsFocused(true);
+            ref.current?.focus();
+        }
+    }, [autofocus]);
 
-    const hasError = useMemo(() => required && !value, [required, value]);
-
-    const mods: Mods = {
-        [cls.readonly]: readOnly,
-        [cls.error]: hasError,
+    const onChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        onChange?.(e.target.value);
     };
 
-    return (
-        <div className={ classNames(cls.InputAreaWrapper, {}, [className]) }>
+    const onBlur = () => {
+        setIsFocused(false);
+    };
+
+    const onFocus = () => {
+        setIsFocused(true);
+    };
+
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+        [cls.focused]: isFocused,
+    };
+
+    const input = (
+        <div className={ classNames(cls.TextareaWrapper, mods, [className]) }>
             <textarea
-                id={ id }
-                name={ name }
-                className={ classNames(cls.Input, mods, [className]) }
-                placeholder={ placeholder || name }
+                ref={ ref }
                 value={ value }
                 onChange={ onChangeHandler }
+                className={ cls.input }
+                onFocus={ onFocus }
+                onBlur={ onBlur }
+                readOnly={ readonly }
+                placeholder={ placeholder }
                 cols={ cols }
                 rows={ rows }
-                readOnly={ readOnly }
                 { ...otherProps }
             />
-            <label
-                htmlFor={ id }
-                className={ classNames(cls.Label, {}, [className]) }
-            >
-                { placeholder || name }
-            </label>
-            { !!errorText && (
-                <label
-                    htmlFor={ id }
-                    className={ classNames(cls.errorText, {}, [className]) }
-                >
-                    { errorText }
-                </label>
-            ) }
         </div>
+    );
+
+    return label ? (
+        <HStack gap="8"
+                max
+                justify="between">
+            <Text text={ label } className={ cls.label } />
+            { input }
+        </HStack>
+    ) : (
+        input
     );
 });

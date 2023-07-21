@@ -8,7 +8,9 @@ export const ArticleDetailsSkeleton = () => (
     <ToggleFeature
         feature="isAppRedesigned"
         on={
-            <VStack gap="16" max grow>
+            <VStack gap="16"
+                    max
+                    grow>
                 <Skeleton width="100%" height={ 200 } />
                 <Skeleton width={ 300 } height={ 24 } />
                 <Skeleton width="100%" height={ 24 } />
@@ -17,9 +19,13 @@ export const ArticleDetailsSkeleton = () => (
             </VStack>
         }
         off={
-            <VStack gap="16" max grow>
+            <VStack gap="16"
+                    max
+                    grow>
                 <SkeletonDeprecated width="100%" height={ 200 } />
-                <SkeletonDeprecated className={ cls.title } width={ 300 } height={ 24 } />
+                <SkeletonDeprecated className={ cls.title }
+                                    width={ 300 }
+                                    height={ 24 } />
                 <SkeletonDeprecated width="100%" height={ 24 } />
                 <SkeletonDeprecated width="100%" height={ 200 } />
                 <SkeletonDeprecated width="100%" height={ 200 } />

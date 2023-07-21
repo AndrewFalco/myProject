@@ -15,12 +15,18 @@ export const ArticleImageBlock = memo((props: ArticleImageBlockProps) => {
 
     return (
         <HStack max justify="center">
-            <img src={ block.img } alt={ block.title } className={ cls.img } />
+            <img src={ block.img }
+                 alt={ block.title }
+                 className={ cls.img } />
             { block.title && (
                 <ToggleFeature
                     feature="isAppRedesigned"
-                    on={ <Text key={ block.title } text={ block.title } align="center" /> }
-                    off={ <TextDeprecated key={ block.title } text={ block.title } align="center" /> }
+                    on={ <Text key={ block.title }
+                               text={ block.title }
+                               align="center" /> }
+                    off={ <TextDeprecated key={ block.title }
+                                          text={ block.title }
+                                          align="center" /> }
                 />
             ) }
         </HStack>

@@ -90,7 +90,9 @@ const LoginForm = memo((props: LoginFormProps): ReactElement => {
                             type="password"
                             required
                         />
-                        <Button variant="outline" onClick={ onLoginClick } disabled={ isLoading }>
+                        <Button variant="outline"
+                                onClick={ onLoginClick }
+                                disabled={ isLoading }>
                             { t('Login') }
                         </Button>
                     </VStack>

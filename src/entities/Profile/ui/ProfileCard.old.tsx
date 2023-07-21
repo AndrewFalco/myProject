@@ -104,7 +104,9 @@ export const ProfileCardDeprecated = (props: ProfileCardProps) => {
                        readOnly={ readOnly }
                        onChange={ onChangeAge }
                        type="number" />
-                <CountrySelect value={ data?.country } onChange={ onChangeCountry } readonly={ readOnly } />
+                <CountrySelect value={ data?.country }
+                               onChange={ onChangeCountry }
+                               readonly={ readOnly } />
                 <Input name={ t('City') }
                        value={ data?.city }
                        readOnly={ readOnly }
@@ -117,7 +119,9 @@ export const ProfileCardDeprecated = (props: ProfileCardProps) => {
                        value={ data?.email }
                        readOnly={ readOnly }
                        onChange={ onChangeEmail } />
-                <CurrencySelect value={ data?.currency } onChange={ onChangeCurrency } readonly={ readOnly } />
+                <CurrencySelect value={ data?.currency }
+                                onChange={ onChangeCurrency }
+                                readonly={ readOnly } />
             </VStack>
         </div>
     );

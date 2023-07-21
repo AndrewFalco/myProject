@@ -49,7 +49,6 @@
   "Forbidden Page": "Forbidden Page",
   "Your feedback": "Your feedback",
   "Please rate the article": "Please rate the article",
-  "Please set ypur feedback": "Please set ypur feedback",
   "Please set your feedback": "Please set your feedback",
   "Thanks for yor review": "Thanks for yor review",
   "Settings": "Settings",
@@ -59,5 +58,10 @@
   "old": "old",
   "Views": "Views",
   "Close": "Close",
-  "Accept": "Accept"
+  "Accept": "Accept",
+  "Title": "Title",
+  "Image url": "Image url",
+  "Subtitle": "Subtitle",
+  "Image": "Image",
+  "Type": "Type"
 }

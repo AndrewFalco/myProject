@@ -1,0 +1,11 @@
+.rotate {
+    transform: rotate(180deg);
+}
+
+.deleteSvg {
+    stroke: var(--cancel-redesigned);
+
+    &:hover {
+        stroke: red;
+    }
+}

@@ -19,7 +19,9 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                 grow
                 gap="8"
                 className={ cls.wrapper }>
-            <Text title={ data.title } size="sizeL" bold />
+            <Text title={ data.title }
+                  size="sizeL"
+                  bold />
             <Text title={ data.subtitle } />
             <HStack grow
                     max

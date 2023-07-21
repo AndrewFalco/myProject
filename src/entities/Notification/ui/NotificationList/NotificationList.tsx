@@ -21,7 +21,9 @@ export const NotificationList = (props: NotificationListProps) => {
             <Loader />
         </VStack>
     ) : (
-        <VStack gap="16" max className={ classNames(cls.NotificationList, {}, [className]) }>
+        <VStack gap="16"
+                max
+                className={ classNames(cls.NotificationList, {}, [className]) }>
             { data?.map((dataItem) => (
                 <NotificationItem key={ dataItem.id } data={ dataItem } />
             )) }

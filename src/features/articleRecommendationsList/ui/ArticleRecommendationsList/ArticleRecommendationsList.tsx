@@ -17,7 +17,9 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
     const { data: articles, isLoading, error } = useArticleRecommendationsList(6);
 
     return (
-        <VStack gap="8" className={ className } data-testid="ArticleDetails.Recommendation">
+        <VStack gap="8"
+                className={ className }
+                data-testid="ArticleDetails.Recommendation">
             <ToggleFeature
                 feature="isAppRedesigned"
                 on={ <Text title={ t('Recommendations') } /> }

@@ -13,9 +13,11 @@ export const AppImage = memo((props: AppImageProps) => {
 
     useLayoutEffect(() => {
         const img = new Image();
+
         img.src = src ?? '';
         img.onload = () => {
             setIsLoading(false);
+            setHasError(false);
         };
         img.onerror = () => {
             setIsLoading(false);

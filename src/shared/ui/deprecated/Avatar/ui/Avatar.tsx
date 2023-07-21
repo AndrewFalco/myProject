@@ -50,7 +50,9 @@ export const Avatar = (props: AvatarProps) => {
         <AppImage
             className={ classNames(cls.Avatar, {}, [className]) }
             src={ src || defaultAvatarSrc }
-            fallback={ <Skeleton width={ size } height={ size } borderRadius="50%" /> }
+            fallback={ <Skeleton width={ size }
+                                 height={ size }
+                                 borderRadius="50%" /> }
             errorFallback={ defaultAvatar(defaultAvatarSrc, styles) }
             style={ styles }
             alt={ alt }

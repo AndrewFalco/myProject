@@ -31,7 +31,7 @@ module.exports = {
                 children: true,
             },
         ],
-        'react/jsx-max-props-per-line': [2, { maximum: { single: 3, multi: 1 } }],
+        'react/jsx-max-props-per-line': [2, { maximum: { single: 2, multi: 1 } }],
         'react/jsx-indent-props': [1, 'first'],
         'react/jsx-props-no-spreading': [
             'off',

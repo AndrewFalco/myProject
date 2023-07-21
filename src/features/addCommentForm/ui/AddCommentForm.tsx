@@ -47,7 +47,9 @@ const AddCommentForm = (props: AddCommentFormProps) => {
             <ToggleFeature
                 feature="isAppRedesigned"
                 on={
-                    <Card padding="24" border="round" max>
+                    <Card padding="24"
+                          border="round"
+                          max>
                         <HStack
                             data-testid="AddCommentForm"
                             gap="16"
@@ -87,7 +89,9 @@ const AddCommentForm = (props: AddCommentFormProps) => {
                             cols={ 100 }
                             rows={ 2 }
                         />
-                        <ButtonDeprecated data-testid="AddCommentForm.Button" onClick={ onSendHandler } colorType="success">
+                        <ButtonDeprecated data-testid="AddCommentForm.Button"
+                                          onClick={ onSendHandler }
+                                          colorType="success">
                             { t('Send comment') }
                         </ButtonDeprecated>
                     </HStack>

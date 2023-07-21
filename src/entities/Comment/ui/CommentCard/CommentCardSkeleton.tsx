@@ -20,7 +20,9 @@ export const CommentCardSkeleton = memo(() => (
                     </div>
                     <Skeleton height={ 16 } width={ 50 } />
                 </div>
-                <Skeleton height={ 24 } width="100%" className={ cls.text } />
+                <Skeleton height={ 24 }
+                          width="100%"
+                          className={ cls.text } />
             </>
         }
         off={
@@ -35,7 +37,9 @@ export const CommentCardSkeleton = memo(() => (
                     </div>
                     <SkeletonDeprecated height={ 16 } width={ 50 } />
                 </div>
-                <SkeletonDeprecated height={ 24 } width="100%" className={ cls.text } />
+                <SkeletonDeprecated height={ 24 }
+                                    width="100%"
+                                    className={ cls.text } />
             </div>
         }
     />

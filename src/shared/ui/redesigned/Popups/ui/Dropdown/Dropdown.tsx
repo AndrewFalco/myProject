@@ -21,6 +21,7 @@ interface DropdownProps {
     trigger: ReactNode;
     className?: string;
     direction?: DropdownDirection;
+
 }
 
 export const Dropdown = (props: DropdownProps) => {

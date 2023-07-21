@@ -31,7 +31,9 @@ export const SidebarNew = memo((props: SidebarProps) => {
     }, []);
 
     const itemsList = useMemo(
-        () => sidebarItems.map((sbItem) => <SidebarItem key={ sbItem.route } item={ sbItem } collapsed={ collapsed } />),
+        () => sidebarItems.map((sbItem) => <SidebarItem key={ sbItem.route }
+                                                        item={ sbItem }
+                                                        collapsed={ collapsed } />),
         [collapsed, sidebarItems],
     );
 
@@ -41,7 +43,9 @@ export const SidebarNew = memo((props: SidebarProps) => {
             className={ classNames(cls.SidebarRedesigned, { [cls.collapsedRedesigned]: collapsed }, [className]) }
         >
             <AppLogo size={ collapsed ? 30 : 50 } className={ cls.appLogo } />
-            <VStack role="navigation" gap="8" className={ cls.items }>
+            <VStack role="navigation"
+                    gap="8"
+                    className={ cls.items }>
                 { itemsList }
             </VStack>
             <Icon data-testid="sb-toggle"

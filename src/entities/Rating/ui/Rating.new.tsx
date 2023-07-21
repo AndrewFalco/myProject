@@ -27,7 +27,9 @@ export const RatingRedesigned = (props: ExtendsRatingProps) => {
 
     const modalContent = useMemo(
         () => (
-            <VStack max gap="16" align="center">
+            <VStack max
+                    gap="16"
+                    align="center">
                 <Text title={ feedbackTitle } />
                 <Input label={ t('Your feedback') || undefined } onChange={ setFeedback } />
                 <HStack gap="16">
@@ -40,20 +42,28 @@ export const RatingRedesigned = (props: ExtendsRatingProps) => {
     );
 
     return (
-        <Card className={ className } border="round" padding="16">
+        <Card className={ className }
+              border="round"
+              padding="16">
             <VStack align="center"
                     justify="center"
                     max
                     gap="16">
                 <Text title={ starsCount ? t('Thanks for yor review') : title } />
-                <StarRating size={ 40 } onSelect={ onSelectStars } selectedStars={ starsCount } />
+                <StarRating size={ 40 }
+                            onSelect={ onSelectStars }
+                            selectedStars={ starsCount } />
             </VStack>
             { !isMobile ? (
-                <Modal isOpen={ isModalOpen } onClose={ onClickCancel } lazy>
+                <Modal isOpen={ isModalOpen }
+                       onClose={ onClickCancel }
+                       lazy>
                     { modalContent }
                 </Modal>
             ) : (
-                <Drawer isOpen={ isModalOpen } onClose={ onClickCancel } lazy>
+                <Drawer isOpen={ isModalOpen }
+                        onClose={ onClickCancel }
+                        lazy>
                     { modalContent }
                 </Drawer>
             ) }

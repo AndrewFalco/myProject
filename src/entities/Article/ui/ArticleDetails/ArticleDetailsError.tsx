@@ -9,8 +9,12 @@ export const ArticleDetailsError = ({ error }: { error?: string }) => {
     return (
         <ToggleFeature
             feature="isAppRedesigned"
-            on={ <Text title={ t(error || 'Error with fetching article details') } align="center" variant="error" /> }
-            off={ <TextDeprecated title={ t(error || 'Error with fetching article details') } align="center" theme="error" /> }
+            on={ <Text title={ t(error || 'Error with fetching article details') }
+                       align="center"
+                       variant="error" /> }
+            off={ <TextDeprecated title={ t(error || 'Error with fetching article details') }
+                                  align="center"
+                                  theme="error" /> }
         />
     );
 };

@@ -11,10 +11,11 @@ import cls from './Code.module.scss';
 interface CodeProps {
     className?: string;
     text: string;
+    isEditable?: boolean;
 }
 
 export const Code = memo((props: CodeProps) => {
-    const { className, text } = props;
+    const { className, text, isEditable = false } = props;
 
     const onCopy = useCallback(() => {
         navigator.clipboard.writeText(text);
@@ -30,15 +31,17 @@ export const Code = memo((props: CodeProps) => {
                           className={ cls.btn }
                           hovered
                           clickable />
-                    <code>{ text }</code>
+                    <code contentEditable={ isEditable }>{ text }</code>
                 </pre>
             }
             off={
                 <pre className={ classNames(cls.Code, {}, [className]) }>
-                    <ButtonDeprecated className={ cls.btn } theme="clear" onClick={ onCopy }>
+                    <ButtonDeprecated className={ cls.btn }
+                                      theme="clear"
+                                      onClick={ onCopy }>
                         <CopyIcon className={ cls.copyIcon } />
                     </ButtonDeprecated>
-                    <code>{ text }</code>
+                    <code contentEditable={ isEditable }>{ text }</code>
                 </pre>
             }
         />

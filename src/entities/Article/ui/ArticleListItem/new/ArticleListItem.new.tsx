@@ -30,7 +30,9 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
     const views = useMemo(
         () => (
             <HStack justify="between" gap="8">
-                <Icon Svg={ EyeIcon } width={ 24 } height={ 24 } />
+                <Icon Svg={ EyeIcon }
+                      width={ 24 }
+                      height={ 24 } />
                 <Text text={ String(article.views) } className={ cls.views } />
             </HStack>
         ),
@@ -60,25 +62,25 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
                         <Text text={ new Date(article.createdAt).toLocaleDateString() } />
                     </HStack>
                     <Text title={ article.title } bold />
-                    <Text title={ article.subtitle } size="sizeS" bold />
+                    <Text title={ article.subtitle }
+                          size="sizeS"
+                          bold />
                     { article.img ? (
                         <AppImage
-                            fallback={ <Skeleton width="100%" height={ 420 } /> }
+                            fallback={ <Skeleton width="100%" className={ cls.img } /> }
                             errorFallback={ <AppImage alt=""
                                                       src={ ErrorFallbackImg }
-                                                      className={ cls.img }
-                                                      height={ 420 } /> }
+                                                      className={ cls.img } /> }
                             src={ article.img }
                             className={ cls.img }
                             alt={ article.title }
                         />
                     ) : (
                         <AppImage
-                            fallback={ <Skeleton width="100%" height={ 420 } /> }
+                            fallback={ <Skeleton width="100%" className={ cls.img } /> }
                             errorFallback={ <AppImage alt=""
                                                       src={ ErrorFallbackImg }
-                                                      className={ cls.img }
-                                                      height={ 420 } /> }
+                                                      className={ cls.img } /> }
                             src={ undefined }
                             className={ cls.img }
                             alt={ article.title }
@@ -105,7 +107,9 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
                 { article.img && (
                     <AppImage
                         fallback={ <Skeleton width={ 200 } height={ 200 } /> }
-                        errorFallback={ <AppImage alt="" src={ ErrorFallbackImg } className={ cls.img } /> }
+                        errorFallback={ <AppImage alt=""
+                                                  src={ ErrorFallbackImg }
+                                                  className={ cls.img } /> }
                         alt={ article.title }
                         src={ article.img }
                         className={ cls.img }
@@ -113,7 +117,9 @@ export const ArticleListItemRedesigned = (props: ArticleListProps) => {
                 ) }
                 <VStack className={ cls.info } gap="4">
                     <Text title={ article.title } className={ cls.title } />
-                    <VStack gap="4" className={ cls.footer } max>
+                    <VStack gap="4"
+                            className={ cls.footer }
+                            max>
                         <HStack justify="between" max>
                             <Text text={ new Date(article.createdAt).toLocaleDateString() } className={ cls.date } />
                             { views }

@@ -19,7 +19,9 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                 grow
                 gap="8"
                 className={ cls.wrapper }>
-            <HStack max grow justify="center">
+            <HStack max
+                    grow
+                    justify="center">
                 <AppImage src={ data.img } className={ cls.img } />
             </HStack>
             <Text className={ cls.title }
@@ -36,7 +38,9 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                       height={ 24 } />
                 <Text text={ String(data.views) } />
             </HStack>
-            <HStack gap="8" align="center" justify="center">
+            <HStack gap="8"
+                    align="center"
+                    justify="center">
                 <Icon Svg={ CalendarIcon }
                       className={ cls.icon }
                       width={ 24 }
